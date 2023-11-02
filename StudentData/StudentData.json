@@ -1,0 +1,28 @@
+[
+  {
+    "Name": "Bob Smith",
+    "Year": "Sophomore",
+    "Major": "Computer Science",
+    "Minor": "Art",
+    "Financial Aid": "Yes",
+    "Account Status": "Good",
+    "Monday": "CS_101 ESB_001 90,EN_133 ENB_301 60,ART_222 ARB_313 90",
+    "Tuesday": "",
+    "Wednesday": "",
+    "Thursday": "",
+    "Friday": ""
+  },
+  {
+    "Name": "Jane Doe",
+    "Year": "Freshman",
+    "Major": "Art",
+    "Minor": "Math",
+    "Financial Aid": "Yes",
+    "Account Status": "Delinquent",
+    "Monday": "ART_222 ARB_313 90",
+    "Tuesday": "",
+    "Wednesday": "",
+    "Thursday": "",
+    "Friday": ""
+  }
+]
