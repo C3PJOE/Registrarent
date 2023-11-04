@@ -1,0 +1,28 @@
+[
+  {
+    "Name": "Bob Smith",
+    "Year": "Sophomore",
+    "Major": "Computer Science",
+    "Minor": "Art",
+    "Financial Aid": "Yes",
+    "Account Status": "Good",
+    "Monday": "CS 101,EN 133,ART 222",
+    "Tuesday": "",
+    "Wednesday": "",
+    "Thursday": "",
+    "Friday": ""
+  },
+  {
+    "Name": "Jane Doe",
+    "Year": "Freshman",
+    "Major": "Art",
+    "Minor": "Math",
+    "Financial Aid": "Yes",
+    "Account Status": "Delinquent",
+    "Monday": "ART 222",
+    "Tuesday": "",
+    "Wednesday": "",
+    "Thursday": "",
+    "Friday": ""
+  }
+]

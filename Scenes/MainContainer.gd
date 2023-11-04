@@ -1,6 +1,9 @@
 extends Container
 signal esc_pressed 
 @onready var pause_menu = $PauseMenu
+@onready var schedule_browser_parent_window = $ScheduleBrowserParentWindow
+@onready var schedule_browser_window = $ScheduleBrowserParentWindow/ScheduleBrowserWindow
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
@@ -18,3 +21,19 @@ func _on_esc_pressed():
 		pause_menu.hide()
 	else:
 		pause_menu.show()
+
+
+func _on_browser_taskbar_button_pressed():
+	if schedule_browser_parent_window.visible == true: 
+		schedule_browser_parent_window.hide()
+		schedule_browser_window.hide()
+	else:
+		schedule_browser_parent_window.show()
+		schedule_browser_window.show()
+
+func _on_browser_desktop_shortcut_pressed():
+	if schedule_browser_parent_window.visible == true:
+		pass
+	else:
+		schedule_browser_parent_window.show()
+		schedule_browser_window.show()

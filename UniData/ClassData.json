@@ -1,0 +1,67 @@
+[
+  {
+    "ClassName": "CS 101",
+    "ClassDepartment": "Computer Science",
+    "Credits": 3,
+    "Section": "A",
+    "ClassLocation": "ESB 001",
+    "ClassDuration": 90,
+    "ClassTimeMonday": 8,
+    "ClassTimeTuesday": "",
+    "ClassTimeWednesday": 8,
+    "ClassTimeThursday": "",
+    "ClassTimeFriday": 8
+  },
+  {
+    "ClassName": "EN 133",
+    "ClassDepartment": "English",
+    "Credits": 3,
+    "Section": "A",
+    "ClassLocation": "ENB 301",
+    "ClassDuration": 60,
+    "ClassTimeMonday": "9:15",
+    "ClassTimeTuesday": "",
+    "ClassTimeWednesday": "",
+    "ClassTimeThursday": "9:15",
+    "ClassTimeFriday": ""
+  },
+  {
+    "ClassName": "POLS 201",
+    "ClassDepartment": "Humanities",
+    "Credits": 3,
+    "Section": "A",
+    "ClassLocation": "LH12",
+    "ClassDuration": 90,
+    "ClassTimeMonday": "",
+    "ClassTimeTuesday": 9,
+    "ClassTimeWednesday": "",
+    "ClassTimeThursday": "",
+    "ClassTimeFriday": 9
+  },
+  {
+    "ClassName": "AHIS 203",
+    "ClassDepartment": "History",
+    "Credits": 3,
+    "Section": "A",
+    "ClassLocation": "LH02",
+    "ClassDuration": 90,
+    "ClassTimeMonday": "",
+    "ClassTimeTuesday": "10:30",
+    "ClassTimeWednesday": "",
+    "ClassTimeThursday": "",
+    "ClassTimeFriday": "10:30"
+  },
+  {
+    "ClassName": "ART 222",
+    "ClassDepartment": "Art",
+    "Credits": 3,
+    "Section": "A",
+    "ClassLocation": "ARB 313",
+    "ClassDuration": 120,
+    "ClassTimeMonday": "10:30",
+    "ClassTimeTuesday": "",
+    "ClassTimeWednesday": "",
+    "ClassTimeThursday": "10:30",
+    "ClassTimeFriday": ""
+  }
+]

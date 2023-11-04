@@ -1,0 +1,6 @@
+ClassName,ClassDepartment,Credits,Section,ClassLocation,ClassDuration,ClassTimeMonday,ClassTimeTuesday,ClassTimeWednesday,ClassTimeThursday,ClassTimeFriday
+CS 101,Computer Science,3,A,ESB 001,90,8,,8,,8
+EN 133,English,3,A,ENB 301,60,9:15,,,9:15,
+POLS 201,Humanities,3,A,LH12,90,,9,,,9
+AHIS 203,History,3,A,LH02,90,,10:30,,,10:30
+ART 222,Art,3,A,ARB 313,120,10:30,,,10:30,
