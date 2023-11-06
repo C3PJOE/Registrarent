@@ -1,28 +1,28 @@
 [
   {
-    "Name": "Bob Smith",
-    "Year": "Sophomore",
-    "Major": "Computer Science",
-    "Minor": "Art",
-    "Financial Aid": "Yes",
-    "Account Status": "Good",
-    "Monday": "CS 101,EN 133,ART 222",
-    "Tuesday": "",
-    "Wednesday": "",
-    "Thursday": "",
-    "Friday": ""
+	"Name": "Bob Smith",
+	"Year": "Sophomore",
+	"Major": "Computer Science",
+	"Minor": "Art",
+	"Financial Aid": "Yes",
+	"Account Status": "Good",
+	"Monday": "CS 101,EN 133,ART 222",
+	"Tuesday": "AHIS 203,ART 222",
+	"Wednesday": "CS 101,EN 133",
+	"Thursday": "AHIS 203,ART 222",
+	"Friday": "CS 101,EN 133,ART 222"
   },
   {
-    "Name": "Jane Doe",
-    "Year": "Freshman",
-    "Major": "Art",
-    "Minor": "Math",
-    "Financial Aid": "Yes",
-    "Account Status": "Delinquent",
-    "Monday": "ART 222",
-    "Tuesday": "",
-    "Wednesday": "",
-    "Thursday": "",
-    "Friday": ""
+	"Name": "Jane Doe",
+	"Year": "Freshman",
+	"Major": "Art",
+	"Minor": "Math",
+	"Financial Aid": "Yes",
+	"Account Status": "Delinquent",
+	"Monday": "ART 222",
+	"Tuesday": "AHIS 203",
+	"Wednesday": "ART 222",
+	"Thursday": "AHIS 203",
+	"Friday": "ART 222"
   }
 ]
