@@ -62,7 +62,7 @@ func _ready():
 	#index variable we will pass to set current schedule to tell it which 
 	#student needs to have their schedule set
 	studentIndex = 0
-	print(start(studentIndex))
+	start(studentIndex)
 	
 #calls the set current schedule function 
 func start(student:int):
@@ -99,21 +99,23 @@ func _set_Current_Schedule(student: int):
 	#array that holds the classes for every day of the week, as set above
 	var parent_class_array = [mon_class_array,tues_class_array,wed_class_array,thurs_class_array,fri_class_array]
 	
+	print ("STUDENT INDEX: " ,studentIndex)
+	print("STUDENT DATA SIZE: ",studentData.size())
 	#iterates from 0 to 4 and calls label_sorter with respect to day_of_week, with 0 being monday and 4 being friday
 	for day_of_week in range(0,5):
 		#calls label_sorter for each day of the week, with 0 being monday and 4 being tuesday
 		label_sorter(day_of_week,parent_class_array[day_of_week].size(),parent_class_array)
-			
+	
 	#increases the student index once the current student's schedule is set up,
 	#so when set_current_schedule is called again it creates the next student's schedule
-	increment_student_index()
+	
 	#return classData[0].keys()
 	#return studentData[0].keys()
 
 #dizzy emoji what a mess I gotta stop coding at night my brain thinks of bad solutions
 func label_sorter(day:int, label_count:int, parent_array:Array):
 	var checkedResult:Array
-	print(label_count)
+	#print("LABEL COUNT FOR ", day,": ", label_count)
 	match day:
 		0:
 			match label_count:
@@ -137,8 +139,6 @@ func label_sorter(day:int, label_count:int, parent_array:Array):
 					m_label_2.add_text(labelText)
 					labelText = checkedResult[2].CLASSNAME + "\n" + checkedResult[2].CLASSLOCATION
 					m_label_3.add_text(labelText)
-					
-					print("I GOT HERE")
 				4:
 					checkedResult = check_for_class(parent_array[day],classData)
 					var labelText:String = checkedResult[0].CLASSNAME + "\n" + checkedResult[0].CLASSLOCATION
@@ -165,7 +165,6 @@ func label_sorter(day:int, label_count:int, parent_array:Array):
 					t_label_1.add_text(labelText)
 					labelText = checkedResult[1].CLASSNAME + "\n" + checkedResult[1].CLASSLOCATION
 					t_label_2.add_text(labelText)
-					print("I GOT HERE T ")
 				3:
 					checkedResult = check_for_class(parent_array[day],classData)
 					var labelText:String = checkedResult[0].CLASSNAME + "\n" + checkedResult[0].CLASSLOCATION
@@ -196,13 +195,12 @@ func label_sorter(day:int, label_count:int, parent_array:Array):
 					var labelText:String = checkedResult[0].CLASSNAME + "\n" + checkedResult[0].CLASSLOCATION
 					w_label_1.add_text(labelText)
 				2:
-					checkedResult = check_for_class(parent_array[day],classData) 
-					#print("CR",checkedResult)
+					checkedResult = check_for_class(parent_array[day],classData)
+					#print ("CR\n",checkedResult)
 					var labelText:String = checkedResult[0].CLASSNAME + "\n" + checkedResult[0].CLASSLOCATION
 					w_label_1.add_text(labelText)
 					labelText = checkedResult[1].CLASSNAME + "\n" + checkedResult[1].CLASSLOCATION
 					w_label_2.add_text(labelText)
-					print("I GOT HERE W ")
 				3:
 					checkedResult = check_for_class(parent_array[day],classData)
 					var labelText:String = checkedResult[0].CLASSNAME + "\n" + checkedResult[0].CLASSLOCATION
@@ -237,7 +235,6 @@ func label_sorter(day:int, label_count:int, parent_array:Array):
 					th_label_1.add_text(labelText)
 					labelText = checkedResult[1].CLASSNAME + "\n" + checkedResult[1].CLASSLOCATION
 					th_label_2.add_text(labelText)
-					print("I GOT HERE TH ")
 				3:
 					checkedResult = check_for_class(parent_array[day],classData)
 					var labelText:String = checkedResult[0].CLASSNAME + "\n" + checkedResult[0].CLASSLOCATION
@@ -269,12 +266,10 @@ func label_sorter(day:int, label_count:int, parent_array:Array):
 					f_label_1.add_text(labelText)
 				2:
 					checkedResult = check_for_class(parent_array[day],classData) 
-					#print("CR",checkedResult)
 					var labelText:String = checkedResult[0].CLASSNAME + "\n" + checkedResult[0].CLASSLOCATION
 					f_label_1.add_text(labelText)
 					labelText = checkedResult[1].CLASSNAME + "\n" + checkedResult[1].CLASSLOCATION
 					f_label_2.add_text(labelText)
-					print("I GOT HERE T ")
 				3:
 					checkedResult = check_for_class(parent_array[day],classData)
 					var labelText:String = checkedResult[0].CLASSNAME + "\n" + checkedResult[0].CLASSLOCATION
@@ -352,25 +347,36 @@ func check_for_class(sData:Array, cData :Array):
 	var c_data_index = 0
 	#iterates through both arrays and compares them
 	while s_data_index < sData.size() and c_data_index < cData.size():
+		
 		#print("\n S",s_data_index," ",sData[s_data_index])
 		#print("\n C",c_data_index," ",cData[c_data_index])
+		#print("SDATAINDEX",s_data_index)
 		#print("SIZEOFCDATA",cData.size())
 		#print("CDATAINDEX",c_data_index)
+		#print("Top of loop"," cDataIndex ",c_data_index," cData size ",cData.size())
 		
+		#if at the end of the class data index there is a match, but not all the student data has been matched yet,
+		#add the matching classes to the array & reset the class data index to continue checking 
+		if c_data_index == cData.size()-1 and sData[s_data_index]== cData[c_data_index].CLASSNAME and s_data_index != sData.size()-1:
+			print("\n MATCH AND RESET")
+			smushedTogetherData.insert(s_data_index,cData[c_data_index])
+			s_data_index+=1
+			c_data_index = -1
 		#if the content of the first paremeter (the array of student data) matches the content of the first paremeter's classname key
-		if sData[s_data_index] == cData[c_data_index].CLASSNAME:
+		elif sData[s_data_index] == cData[c_data_index].CLASSNAME:
 			smushedTogetherData.insert(s_data_index,cData[c_data_index])
 			s_data_index+=1
 		#if at the end of the classData and haven't found a match for the current student class, loop
 		#back through from the beginning of the classData
-		elif c_data_index == cData.size()-1 and s_data_index != sData.size():
+		elif c_data_index == cData.size()-1 and sData[s_data_index]!= cData[c_data_index].CLASSNAME:
+			print("\n RESETTING CLASS DATA INDEX")
 			#sets to -1 bc the loop always increments it +1 outside of the if statements, and we want the index to restart at 0
 			c_data_index = -1
 		else:
 			pass
 		#increments the class data index
 		c_data_index+=1
-
+		
 	return smushedTogetherData
 	
 func _input(event):
@@ -390,15 +396,17 @@ func _on_esc_pressed():
 #when the yes button is pressed
 func _on_yes_button_pressed():
 	#prevents button spam from crashing the game by constantly calling set_current_schedule
-	if studentIndex == studentData.size():
+	if studentIndex == studentData.size()-1:
 		pass
 	else:
+		increment_student_index()
 		_set_Current_Schedule(studentIndex)
 
 #when the no button is pressed
 func _on_no_button_pressed():
 	#prevents button spam from crashing the game by constantly calling set_current_schedule
-	if studentIndex == studentData.size():
+	if studentIndex == studentData.size()-1:
 		pass
 	else:
+		increment_student_index()
 		_set_Current_Schedule(studentIndex)
