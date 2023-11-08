@@ -684,6 +684,7 @@ ENB 301
 fit_content = true
 
 [node name="ThLabel3" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/ThursdayContainer"]
+visible = false
 layout_mode = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 17
@@ -759,7 +760,6 @@ text = "AHIS 203 Beanbags throughout history"
 fit_content = true
 
 [node name="FLabel3" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/FridayContainer"]
-visible = false
 layout_mode = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 17
@@ -819,3 +819,5 @@ text = "Reject Schedule"
 [connection signal="pressed" from="MainContainer/Desktop/BrowserDesktopShortcut" to="MainContainer" method="_on_browser_desktop_shortcut_pressed"]
 [connection signal="close_requested" from="MainContainer/ScheduleBrowserParentWindow" to="MainContainer/ScheduleBrowserParentWindow" method="_on_close_requested"]
 [connection signal="esc_pressed" from="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" to="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" method="_on_esc_pressed"]
+[connection signal="pressed" from="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/YesButton" to="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" method="_on_yes_button_pressed"]
+[connection signal="pressed" from="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/NoButton" to="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" method="_on_no_button_pressed"]

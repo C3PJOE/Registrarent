@@ -1,3 +1,10 @@
 Name,Year,Major,Minor,Financial Aid,Account Status,Monday,Tuesday,Wednesday,Thursday,Friday
-Bob Smith,Sophomore,Computer Science,Art,Yes,Good,"CS 101, EN 133,ART 222 ",,,,
-Jane Doe,Freshman,Art ,Math,Yes,Delinquent,ART 222,,,,
+Conor Schultz,Sophomore,Computer Science,Art,Yes,Good,"CS 101,EN 133,ART 222 ","CS 213,MAT 218","CS 101,EN 133,ART 222 ","CS 213,MAT 218","CS 101,EN 133,CS 213D"
+Marco Cardenas,Freshman,Art ,Math,Yes,Delinquent,"ART 101,ART 115","MAT 206,EN 204","ART 101,ART 115","MAT 206,EN 204","ART 101,ART 115"
+Christopher Singh,Senior,Art ,History,Yes,Good,"ART 320,AHIS 319","ART 441,AHIS 333","ART 320,AHIS 319","ART 441,AHIS 333","ART 320,AHIS 319"
+Dominik Gamble,Freshman,English,Art,Yes,Good,"EN 133,ART 115","EN 168,ART 177","EN 133,ART 115","EN 168,ART 177","EN 133,ART 115"
+Joe Gibbs,Freshman,English,History,Yes,Good,EN 168,"EN 133,AHIS 110A,AHIS 110B",EN 168,"EN 133,AHIS 110A,AHIS 110B",EN 168
+Alana Wright,Sophomore,Political Science,English,No,Delinquent,"POLS 201,POLS 225,EN 211","EN 218,EN 204","POLS 201,POLS 225,EN 211","EN 218,EN 204","POLS 201,POLS 225,EN 211"
+Richard Hendricks,Junior,Computer Science,History,No,Good,"CS 318,CS 312,AHIS 319","AHIS 214,AHIS 255","CS 318,CS 312,AHIS 319","AHIS 214,AHIS 255","CS 318,CS 312,AHIS 319"
+Thomas Chen,Senior,Computer Science,Math,Yes,Good,CS 405,"MAT 337,MAT 359",CS 405 ,"MAT 337,MAT 359",CS 405
+Jorge Irwin,Sophomore,Math,Computer Science,No,Delinquent,"MAT 218,MAT 220","CS 202,CS 213,CS 213D","MAT 218,MAT 220","CS 202,CS 213,CS 213D","MAT 218,MAT 220"
