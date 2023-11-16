@@ -11,45 +11,45 @@ signal esc_pressed
 @onready var fin_aid = $StudentInfoContainer/FinAid
 @onready var account_status = $StudentInfoContainer/AccountStatus
 #monday container and labels
-@onready var monday_container = $MondayContainer
-@onready var m_label_1 = $MondayContainer/MLabel1
-@onready var m_label_2 = $MondayContainer/MLabel2
-@onready var m_label_3 = $MondayContainer/MLabel3
-@onready var m_label_4 = $MondayContainer/MLabel4
-@onready var m_label_5 = $MondayContainer/MLabel5
-@onready var m_spacer_label = $MondayContainer/MSpacerLabel
+@onready var monday_container = $WeekContainer/MondayContainer
+@onready var m_label_1 = $WeekContainer/MondayContainer/MLabel1
+@onready var m_label_2 = $WeekContainer/MondayContainer/MLabel2
+@onready var m_label_3 = $WeekContainer/MondayContainer/MLabel3
+@onready var m_label_4 = $WeekContainer/MondayContainer/MLabel4
+@onready var m_label_5 = $WeekContainer/MondayContainer/MLabel5
+@onready var m_spacer_label = $WeekContainer/MondayContainer/MSpacerLabel
 #tuesday container and labels
-@onready var tuesday_container = $"Tuesday Container"
-@onready var t_label_1 = $"Tuesday Container/TLabel1"
-@onready var t_label_2 = $"Tuesday Container/TLabel2"
-@onready var t_label_3 = $"Tuesday Container/TLabel3"
-@onready var t_label_4 = $"Tuesday Container/TLabel4"
-@onready var t_label_5 = $"Tuesday Container/TLabel5"
-@onready var t_spacer_label = $"Tuesday Container/TSpacerLabel"
+@onready var tuesday_container = $WeekContainer/"Tuesday Container"
+@onready var t_label_1 = $WeekContainer/"Tuesday Container/TLabel1"
+@onready var t_label_2 = $WeekContainer/"Tuesday Container/TLabel2"
+@onready var t_label_3 = $WeekContainer/"Tuesday Container/TLabel3"
+@onready var t_label_4 = $WeekContainer/"Tuesday Container/TLabel4"
+@onready var t_label_5 = $WeekContainer/"Tuesday Container/TLabel5"
+@onready var t_spacer_label = $WeekContainer/"Tuesday Container/TSpacerLabel"
 #Wednesday container and labels
-@onready var wednesday_container = $WednesdayContainer
-@onready var w_label_1 = $WednesdayContainer/WLabel1
-@onready var w_label_2 = $WednesdayContainer/WLabel2
-@onready var w_label_3 = $WednesdayContainer/WLabel3
-@onready var w_label_4 = $WednesdayContainer/WLabel4
-@onready var w_label_5 = $WednesdayContainer/WLabel5
-@onready var w_spacer_label = $WednesdayContainer/WSpacerLabel
+@onready var wednesday_container = $WeekContainer/WednesdayContainer
+@onready var w_label_1 = $WeekContainer/WednesdayContainer/WLabel1
+@onready var w_label_2 = $WeekContainer/WednesdayContainer/WLabel2
+@onready var w_label_3 = $WeekContainer/WednesdayContainer/WLabel3
+@onready var w_label_4 = $WeekContainer/WednesdayContainer/WLabel4
+@onready var w_label_5 = $WeekContainer/WednesdayContainer/WLabel5
+@onready var w_spacer_label = $WeekContainer/WednesdayContainer/WSpacerLabel
 #Thursday container and labels
-@onready var thursday_container = $ThursdayContainer
-@onready var th_label_1 = $ThursdayContainer/ThLabel1
-@onready var th_label_2 = $ThursdayContainer/ThLabel2
-@onready var th_label_3 = $ThursdayContainer/ThLabel3
-@onready var th_label_4 = $ThursdayContainer/ThLabel4
-@onready var th_label_5 = $ThursdayContainer/ThLabel5
-@onready var th_spacer_label = $ThursdayContainer/ThSpacerLabel
+@onready var thursday_container = $WeekContainer/ThursdayContainer
+@onready var th_label_1 = $WeekContainer/ThursdayContainer/ThLabel1
+@onready var th_label_2 = $WeekContainer/ThursdayContainer/ThLabel2
+@onready var th_label_3 = $WeekContainer/ThursdayContainer/ThLabel3
+@onready var th_label_4 = $WeekContainer/ThursdayContainer/ThLabel4
+@onready var th_label_5 = $WeekContainer/ThursdayContainer/ThLabel5
+@onready var th_spacer_label = $WeekContainer/ThursdayContainer/ThSpacerLabel
 #Friday container and labels
-@onready var friday_container = $FridayContainer
-@onready var f_label_1 = $FridayContainer/FLabel1
-@onready var f_label_2 = $FridayContainer/FLabel2
-@onready var f_label_3 = $FridayContainer/FLabel3
-@onready var f_label_4 = $FridayContainer/FLabel4
-@onready var f_label_5 = $FridayContainer/FLabel5
-@onready var f_spacer_label = $FridayContainer/FSpacerLabel
+@onready var friday_container = $WeekContainer/FridayContainer
+@onready var f_label_1 = $WeekContainer/FridayContainer/FLabel1
+@onready var f_label_2 = $WeekContainer/FridayContainer/FLabel2
+@onready var f_label_3 = $WeekContainer/FridayContainer/FLabel3
+@onready var f_label_4 = $WeekContainer/FridayContainer/FLabel4
+@onready var f_label_5 = $WeekContainer/FridayContainer/FLabel5
+@onready var f_spacer_label = $WeekContainer/FridayContainer/FSpacerLabel
 
 var file1 ="res://UniData/StudentData.json"
 var file2 = "res://UniData/ClassData.json"
@@ -109,9 +109,9 @@ func _set_Current_Schedule(student: int):
 	#increases the student index once the current student's schedule is set up,
 	#so when set_current_schedule is called again it creates the next student's schedule
 	
-	#return classData[0].keys()
-	#return studentData[0].keys()
-
+	#return classData.keys()
+	#return studentData.keys()
+	
 #dizzy emoji what a mess I gotta stop coding at night my brain thinks of bad solutions
 func label_sorter(day:int, label_count:int, parent_array:Array):
 	var checkedResult:Array
@@ -133,12 +133,13 @@ func label_sorter(day:int, label_count:int, parent_array:Array):
 					m_label_2.add_text(labelText)
 				3:
 					checkedResult = check_for_class(parent_array[day],classData)
-					var labelText:String = checkedResult[0].CLASSNAME + "\n" + checkedResult[0].CLASSLOCATION
-					m_label_1.add_text(labelText)
-					labelText = checkedResult[1].CLASSNAME + "\n" + checkedResult[1].CLASSLOCATION
-					m_label_2.add_text(labelText)
-					labelText = checkedResult[2].CLASSNAME + "\n" + checkedResult[2].CLASSLOCATION
-					m_label_3.add_text(labelText)
+					_sort_by_time(checkedResult)
+					var labelText:String = checkedResult[0].CLASSNAME + "\n" + checkedResult[0].CLASSLOCATION + "\n" + checkedResult[0].CLASSSTARTTIMEMONDAY + "-" + checkedResult[0].CLASSENDTIMEMONDAY
+					m_label_1.append_text("[center]%s[/center]" % labelText)
+					labelText = checkedResult[1].CLASSNAME + "\n" + checkedResult[1].CLASSLOCATION + "\n" + checkedResult[1].CLASSSTARTTIMEMONDAY + "-" + checkedResult[1].CLASSENDTIMEMONDAY
+					m_label_2.append_text("[center]%s[/center]" % labelText)
+					labelText = checkedResult[2].CLASSNAME + "\n" + checkedResult[2].CLASSLOCATION + "\n" + checkedResult[2].CLASSSTARTTIMEMONDAY + "-" + checkedResult[2].CLASSENDTIMEMONDAY
+					m_label_3.append_text("[center]%s[/center]" % labelText)
 				4:
 					checkedResult = check_for_class(parent_array[day],classData)
 					var labelText:String = checkedResult[0].CLASSNAME + "\n" + checkedResult[0].CLASSLOCATION
@@ -377,8 +378,69 @@ func check_for_class(sData:Array, cData :Array):
 		#increments the class data index
 		c_data_index+=1
 		
+	#gets rid of any null elements in the new array
+	_trim(smushedTogetherData)
+	#print("SMS",smushedTogetherData)
 	return smushedTogetherData
 	
+#function to sort the array of classes in order of which is earliest to which is latest
+func _sort_by_time(result_array:Array):
+	for n in range(0,result_array.size()):
+		var parsed_string1 =0
+		var parsed_string2 =0
+		#out of bounds check
+		if(n+1 == result_array.size()):
+			break
+		#if the first class' time has AM in it and the second class' time has PM, nothing needs to be done
+		if("AM" in result_array[n].CLASSSTARTTIMEMONDAY and "PM" in result_array[n+1].CLASSSTARTTIMEMONDAY):
+			pass
+		#if the first class' time has PM in it and the second class' time has AM, obviously the second class
+		#needs to be swapped with the first
+		elif("PM" in result_array[n].CLASSSTARTTIMEMONDAY and "AM" in result_array[n+1].CLASSSTARTTIMEMONDAY):
+			#saves the classes at n and n+1 into temp variables, which will be used to swap their positions below
+			var temp = result_array[n+1]
+			var temp2 = result_array[n]
+			#removes the class at index n+1
+			result_array.remove_at(n+1)
+			#replaces it with the stored temp2 variable
+			result_array.insert(n+1,temp2)
+			#removes the class at index n
+			result_array.remove_at(n)
+			#replaces it with the stored temp variable,completing the swap
+			result_array.insert(n,temp)
+		#if both classes are in the afternoon, we'll have to put actual effort in to determine what to do
+		elif("PM" in result_array[n].CLASSSTARTTIMEMONDAY and "PM" in result_array[n+1].CLASSSTARTTIMEMONDAY):
+			#stores the class times into integers for comparison
+			parsed_string1 = int(result_array[n].CLASSSTARTTIMEMONDAY)
+			parsed_string2 = int(result_array[n+1].CLASSSTARTTIMEMONDAY)
+			#if the first class's time is later than the second class, we'll swap their places
+			if parsed_string1 > parsed_string2:
+				var temp = result_array[n+1]
+				var temp2 = result_array[n]
+				result_array.remove_at(n+1)
+				result_array.insert(n+1,temp2)
+				result_array.remove_at(n)
+				result_array.insert(n,temp)
+		#if both classes are in the morning, we'll have to put actual effort in to determine what to do
+		elif("AM" in result_array[n].CLASSSTARTTIMEMONDAY and "AM" in result_array[n+1].CLASSSTARTTIMEMONDAY):
+			#stores the class times into integers for comparison
+			parsed_string1 = int(result_array[n].CLASSSTARTTIMEMONDAY)
+			parsed_string2 = int(result_array[n+1].CLASSSTARTTIMEMONDAY)
+			#if the first class's time is later than the second class, we'll swap their places
+			if parsed_string1 > parsed_string2:
+				var temp = result_array[n+1]
+				var temp2 = result_array[n]
+				result_array.remove_at(n+1)
+				result_array.insert(n+1,temp2)
+				result_array.remove_at(n)
+				result_array.insert(n,temp)
+
+#trims null elements of passed array
+func _trim(input_array:Array):
+	#goes through the array from the end and erases null elements
+	for n in range(input_array.size(),0,-1):
+		input_array.erase(null)
+			
 func _input(event):
 	if  Input.is_key_pressed(KEY_ESCAPE):
 		emit_signal("esc_pressed")
