@@ -1,28 +1,17 @@
-[gd_scene load_steps=44 format=3 uid="uid://dgv0xsiratr8g"]
+[gd_scene load_steps=35 format=3 uid="uid://dgv0xsiratr8g"]
 
 [ext_resource type="Script" path="res://Scenes/Main.gd" id="1_5ghd7"]
 [ext_resource type="Script" path="res://Scenes/MainContainer.gd" id="1_pf4tp"]
 [ext_resource type="Texture2D" uid="uid://q4we5ku5gdx2" path="res://Assets/SpriteBG.png" id="2_isq8e"]
 [ext_resource type="Texture2D" uid="uid://b4rt5p2fwd0u7" path="res://Assets/Taskbar.png" id="3_rey5t"]
 [ext_resource type="Script" path="res://Scenes/ScheduleBrowserParentWindow.gd" id="4_5g6ji"]
-[ext_resource type="Texture2D" uid="uid://ps7fk0jmud10" path="res://Assets/Browser.png" id="4_xy8i1"]
 [ext_resource type="Texture2D" uid="uid://dklab118e8sf7" path="res://Assets/sprite1.png" id="5_de07d"]
 [ext_resource type="Texture2D" uid="uid://cvu0vx1x3x1rp" path="res://Assets/TaskbarBrowserIcon.png" id="6_1h1ua"]
 [ext_resource type="Script" path="res://Scenes/ScheduleBrowserWindow.gd" id="7_f7lbd"]
+[ext_resource type="Texture2D" uid="uid://cesocmfjybjac" path="res://Assets/Browser2.png" id="8_n2jyd"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f7xbp"]
-texture = ExtResource("4_xy8i1")
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h53aq"]
-bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6vmty"]
-resource_local_to_scene = true
-bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1vixs"]
-resource_local_to_scene = true
-bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
+texture = ExtResource("8_n2jyd")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_grp6r"]
 resource_local_to_scene = true
@@ -48,10 +37,6 @@ bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
 resource_local_to_scene = true
 bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lkyv5"]
-resource_local_to_scene = true
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ps82l"]
 resource_local_to_scene = true
 bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
@@ -61,18 +46,6 @@ resource_local_to_scene = true
 bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gwk6l"]
-resource_local_to_scene = true
-bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hp23r"]
-resource_local_to_scene = true
-bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_drwyk"]
-resource_local_to_scene = true
-bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3jatl"]
 resource_local_to_scene = true
 bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
 
@@ -96,27 +69,11 @@ bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
 resource_local_to_scene = true
 bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ho0c"]
-resource_local_to_scene = true
-bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hd660"]
 resource_local_to_scene = true
 bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1bsv8"]
-resource_local_to_scene = true
-bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j4mv2"]
-resource_local_to_scene = true
-bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c10pv"]
-resource_local_to_scene = true
-bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w818x"]
 resource_local_to_scene = true
 bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
 
@@ -140,7 +97,14 @@ bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
 resource_local_to_scene = true
 bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2s7ww"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h53aq"]
+bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6vmty"]
+resource_local_to_scene = true
+bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1vixs"]
 resource_local_to_scene = true
 bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
 
@@ -192,7 +156,7 @@ texture_normal = ExtResource("5_de07d")
 ignore_texture_size = true
 stretch_mode = 4
 
-[node name="ScheduleSnooperIconText" type="RichTextLabel" parent="MainContainer/Desktop/BrowserDesktopShortcut"]
+[node name="RichTextLabel" type="RichTextLabel" parent="MainContainer/Desktop/BrowserDesktopShortcut"]
 layout_mode = 0
 offset_left = 26.0
 offset_top = 101.0
@@ -223,48 +187,55 @@ unresizable = true
 theme_override_styles/embedded_border = SubResource("StyleBoxTexture_f7xbp")
 script = ExtResource("7_f7lbd")
 
-[node name="ReferenceRect8" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
+[node name="800Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
 offset_left = 280.0
-offset_top = 217.0
-offset_right = 380.0
-offset_bottom = 217.0
-border_color = Color(0.462745, 0.258824, 0.541176, 1)
-border_width = 5.0
-editor_only = false
-
-[node name="ReferenceRect" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
-offset_left = 280.0
-offset_top = 275.0
+offset_top = 177.0
 offset_right = 1280.0
-offset_bottom = 275.0
+offset_bottom = 177.0
 border_color = Color(0.462745, 0.258824, 0.541176, 1)
 editor_only = false
 
-[node name="ReferenceRect2" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
+[node name="830Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
 offset_left = 280.0
-offset_top = 342.0
+offset_top = 225.0
 offset_right = 1280.0
-offset_bottom = 342.0
+offset_bottom = 225.0
 border_color = Color(0.462745, 0.258824, 0.541176, 1)
 editor_only = false
 
-[node name="ReferenceRect3" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
+[node name="930Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
 offset_left = 280.0
-offset_top = 408.0
+offset_top = 288.0
 offset_right = 1280.0
-offset_bottom = 408.0
+offset_bottom = 288.0
 border_color = Color(0.462745, 0.258824, 0.541176, 1)
 editor_only = false
 
-[node name="ReferenceRect4" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
+[node name="1030Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
 offset_left = 280.0
-offset_top = 475.0
+offset_top = 355.0
 offset_right = 1280.0
-offset_bottom = 475.0
+offset_bottom = 355.0
 border_color = Color(0.462745, 0.258824, 0.541176, 1)
 editor_only = false
 
-[node name="ReferenceRect5" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
+[node name="1130Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
+offset_left = 280.0
+offset_top = 420.0
+offset_right = 1280.0
+offset_bottom = 420.0
+border_color = Color(0.462745, 0.258824, 0.541176, 1)
+editor_only = false
+
+[node name="1230Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
+offset_left = 280.0
+offset_top = 485.0
+offset_right = 1280.0
+offset_bottom = 485.0
+border_color = Color(0.462745, 0.258824, 0.541176, 1)
+editor_only = false
+
+[node name="130Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
 offset_left = 280.0
 offset_top = 545.0
 offset_right = 1280.0
@@ -272,7 +243,7 @@ offset_bottom = 545.0
 border_color = Color(0.462745, 0.258824, 0.541176, 1)
 editor_only = false
 
-[node name="ReferenceRect6" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
+[node name="230Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
 offset_left = 280.0
 offset_top = 612.0
 offset_right = 1280.0
@@ -280,13 +251,566 @@ offset_bottom = 612.0
 border_color = Color(0.462745, 0.258824, 0.541176, 1)
 editor_only = false
 
-[node name="ReferenceRect7" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
+[node name="330Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
 offset_left = 280.0
-offset_top = 680.0
+offset_top = 675.0
 offset_right = 1280.0
-offset_bottom = 680.0
+offset_bottom = 675.0
 border_color = Color(0.462745, 0.258824, 0.541176, 1)
 editor_only = false
+
+[node name="ClassTimeContainer" type="BoxContainer" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
+custom_minimum_size = Vector2(80, 0)
+offset_left = 281.0
+offset_top = 180.0
+offset_right = 361.0
+offset_bottom = 666.0
+theme_override_constants/separation = 40
+vertical = true
+
+[node name="8AM" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/ClassTimeContainer"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.85098, 0.811765, 0.0352941, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 17
+text = "8:00 AM"
+fit_content = true
+
+[node name="9AM" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/ClassTimeContainer"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.85098, 0.811765, 0.0352941, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 17
+text = "9:00 AM"
+fit_content = true
+
+[node name="10AM" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/ClassTimeContainer"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.85098, 0.811765, 0.0352941, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 17
+text = "10:00 AM"
+fit_content = true
+
+[node name="11AM" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/ClassTimeContainer"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.85098, 0.811765, 0.0352941, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 17
+text = "11:00 AM"
+fit_content = true
+
+[node name="12PM" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/ClassTimeContainer"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.85098, 0.811765, 0.0352941, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 17
+text = "12:00 PM"
+fit_content = true
+
+[node name="1PM" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/ClassTimeContainer"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.85098, 0.811765, 0.0352941, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 17
+text = "1:00 PM"
+fit_content = true
+
+[node name="2PM" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/ClassTimeContainer"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.85098, 0.811765, 0.0352941, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 17
+text = "2:00 PM"
+fit_content = true
+
+[node name="3PM" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/ClassTimeContainer"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.85098, 0.811765, 0.0352941, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 17
+text = "3:00 PM"
+fit_content = true
+
+[node name="4PM" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/ClassTimeContainer"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.85098, 0.811765, 0.0352941, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 17
+text = "4:00 PM"
+fit_content = true
+
+[node name="5PM" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/ClassTimeContainer"]
+visible = false
+layout_mode = 2
+theme_override_colors/default_color = Color(0.85098, 0.811765, 0.0352941, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_grp6r")
+text = "5:00 PM"
+fit_content = true
+
+[node name="WeekContainer" type="BoxContainer" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
+offset_left = 420.0
+offset_top = 140.0
+offset_right = 1420.0
+offset_bottom = 188.0
+theme_override_constants/separation = 87
+
+[node name="MondayColumn" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/WeekContainer"]
+custom_minimum_size = Vector2(85, 0)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/default_color = Color(0.85098, 0.811765, 0.0352941, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_font_sizes/normal_font_size = 21
+text = "Monday"
+fit_content = true
+
+[node name="TuesdayColumn" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/WeekContainer"]
+custom_minimum_size = Vector2(85, 0)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/default_color = Color(0.85098, 0.811765, 0.0352941, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_font_sizes/normal_font_size = 21
+text = "Tuesday"
+fit_content = true
+
+[node name="WednesdayColumn" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/WeekContainer"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/default_color = Color(0.85098, 0.811765, 0.0352941, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_font_sizes/normal_font_size = 21
+text = "Wednesday"
+fit_content = true
+
+[node name="ThursdayColumn" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/WeekContainer"]
+custom_minimum_size = Vector2(95, 0)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/default_color = Color(0.85098, 0.811765, 0.0352941, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_font_sizes/normal_font_size = 21
+text = "Thursday"
+fit_content = true
+
+[node name="FridayColumn" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/WeekContainer"]
+custom_minimum_size = Vector2(65, 0)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/default_color = Color(0.85098, 0.811765, 0.0352941, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_font_sizes/normal_font_size = 21
+text = "Friday"
+fit_content = true
+
+[node name="MLabel1" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
+custom_minimum_size = Vector2(140, 0)
+offset_left = 403.0
+offset_top = 177.0
+offset_right = 543.0
+offset_bottom = 249.0
+size_flags_horizontal = 3
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_tdy8o")
+text = "CS 101 
+ESB 001
+
+"
+fit_content = true
+
+[node name="MLabel2" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
+custom_minimum_size = Vector2(140, 0)
+offset_left = 403.0
+offset_top = 306.0
+offset_right = 543.0
+offset_bottom = 354.0
+size_flags_horizontal = 3
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_2sr4j")
+text = "EN 133
+ENB 301
+"
+fit_content = true
+
+[node name="MLabel3" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
+custom_minimum_size = Vector2(140, 0)
+offset_left = 403.0
+offset_top = 368.0
+offset_right = 543.0
+offset_bottom = 464.0
+size_flags_horizontal = 3
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_sru1y")
+text = "ART 222
+ARB 313
+
+
+"
+fit_content = true
+
+[node name="MLabel4" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
+visible = false
+custom_minimum_size = Vector2(140, 0)
+offset_left = 403.0
+offset_top = 220.0
+offset_right = 404.0
+offset_bottom = 292.0
+size_flags_horizontal = 3
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_ihfyy")
+text = "ART 222
+ARB 313
+
+"
+fit_content = true
+
+[node name="MLabel5" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
+visible = false
+custom_minimum_size = Vector2(140, 0)
+offset_left = 403.0
+offset_top = 220.0
+offset_right = 404.0
+offset_bottom = 292.0
+size_flags_horizontal = 3
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_0n4tp")
+text = "ART 222
+ARB 313
+
+"
+fit_content = true
+
+[node name="TLabel1" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
+custom_minimum_size = Vector2(140, 0)
+offset_left = 585.0
+offset_top = 220.0
+offset_right = 725.0
+offset_bottom = 292.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_ps82l")
+text = "POLS 201
+LH12
+
+"
+fit_content = true
+
+[node name="TLabel2" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
+custom_minimum_size = Vector2(140, 0)
+offset_left = 585.0
+offset_top = 296.0
+offset_right = 725.0
+offset_bottom = 392.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_j8ovh")
+text = "AHIS 203 Beanbags throughout history"
+fit_content = true
+
+[node name="TLabel3" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
+visible = false
+custom_minimum_size = Vector2(140, 0)
+offset_left = 585.0
+offset_top = 220.0
+offset_right = 586.0
+offset_bottom = 316.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_gwk6l")
+text = "AHIS 203 Beanbags throughout history"
+fit_content = true
+
+[node name="TLabel4" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
+visible = false
+custom_minimum_size = Vector2(140, 0)
+offset_left = 1170.0
+offset_top = 440.0
+offset_right = 1310.0
+offset_bottom = 536.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_gwk6l")
+text = "AHIS 203 Beanbags throughout history"
+fit_content = true
+
+[node name="TLabel5" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
+visible = false
+custom_minimum_size = Vector2(140, 0)
+offset_left = 1755.0
+offset_top = 660.0
+offset_right = 1895.0
+offset_bottom = 756.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_gwk6l")
+text = "AHIS 203 Beanbags throughout history"
+fit_content = true
+
+[node name="WLabel1" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
+custom_minimum_size = Vector2(140, 0)
+offset_left = 767.0
+offset_top = 220.0
+offset_right = 907.0
+offset_bottom = 268.0
+size_flags_vertical = 0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_08k2x")
+text = "BIO101
+LS204"
+fit_content = true
+
+[node name="WLabel2" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
+custom_minimum_size = Vector2(140, 0)
+offset_left = 767.0
+offset_top = 272.0
+offset_right = 907.0
+offset_bottom = 344.0
+size_flags_vertical = 0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_nuriq")
+text = "CS101
+ESB 001
+
+"
+fit_content = true
+
+[node name="WLabel3" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
+custom_minimum_size = Vector2(140, 0)
+offset_left = 767.0
+offset_top = 220.0
+offset_right = 768.0
+offset_bottom = 268.0
+size_flags_horizontal = 3
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_p2ow1")
+text = "BIO101
+LS204"
+fit_content = true
+
+[node name="WLabel4" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
+visible = false
+custom_minimum_size = Vector2(140, 0)
+offset_left = 767.0
+offset_top = 220.0
+offset_right = 768.0
+offset_bottom = 292.0
+size_flags_vertical = 0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_fhstm")
+text = "CS101
+ESB 001
+
+"
+fit_content = true
+
+[node name="WLabel5" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
+visible = false
+custom_minimum_size = Vector2(140, 0)
+offset_left = 767.0
+offset_top = 220.0
+offset_right = 768.0
+offset_bottom = 268.0
+size_flags_vertical = 0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_qa81j")
+text = "BIO101
+LS204"
+fit_content = true
+
+[node name="ThLabel1" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
+custom_minimum_size = Vector2(140, 0)
+offset_left = 949.0
+offset_top = 220.0
+offset_right = 1089.0
+offset_bottom = 292.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_hd660")
+text = "CS101
+ESB 001
+
+"
+fit_content = true
+
+[node name="ThLabel2" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
+custom_minimum_size = Vector2(140, 0)
+offset_left = 949.0
+offset_top = 296.0
+offset_right = 1089.0
+offset_bottom = 344.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_1bsv8")
+text = "EN 133
+ENB 301
+"
+fit_content = true
+
+[node name="ThLabel3" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
+visible = false
+custom_minimum_size = Vector2(140, 0)
+offset_left = 949.0
+offset_top = 220.0
+offset_right = 950.0
+offset_bottom = 316.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_1bsv8")
+text = "ART 222
+ARB 313
+
+
+"
+fit_content = true
+
+[node name="ThLabel4" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
+visible = false
+custom_minimum_size = Vector2(140, 0)
+offset_left = 949.0
+offset_top = 220.0
+offset_right = 950.0
+offset_bottom = 316.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_1bsv8")
+text = "ART 222
+ARB 313
+
+
+"
+fit_content = true
+
+[node name="ThLabel5" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
+visible = false
+custom_minimum_size = Vector2(140, 0)
+offset_left = 949.0
+offset_top = 220.0
+offset_right = 950.0
+offset_bottom = 316.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_1bsv8")
+text = "ART 222
+ARB 313
+
+
+"
+fit_content = true
+
+[node name="FLabel1" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
+custom_minimum_size = Vector2(140, 0)
+offset_left = 1131.0
+offset_top = 220.0
+offset_right = 1271.0
+offset_bottom = 292.0
+size_flags_vertical = 0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_3aha8")
+text = "POLS 201
+LH12
+
+"
+fit_content = true
+
+[node name="FLabel2" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
+custom_minimum_size = Vector2(140, 0)
+offset_left = 1131.0
+offset_top = 296.0
+offset_right = 1271.0
+offset_bottom = 392.0
+size_flags_vertical = 0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_f2m3k")
+text = "AHIS 203 Beanbags throughout history"
+fit_content = true
+
+[node name="FLabel3" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
+custom_minimum_size = Vector2(140, 0)
+offset_left = 1131.0
+offset_top = 396.0
+offset_right = 1271.0
+offset_bottom = 468.0
+size_flags_vertical = 0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_4xxxt")
+text = "POLS 201
+LH12
+
+"
+fit_content = true
+
+[node name="FLabel4" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
+visible = false
+custom_minimum_size = Vector2(140, 0)
+offset_left = 1131.0
+offset_top = 220.0
+offset_right = 1132.0
+offset_bottom = 1084.0
+size_flags_vertical = 0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_5gf3f")
+text = "AHIS 203 Beanbags throughout history"
+fit_content = true
+
+[node name="FLabel5" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
+visible = false
+custom_minimum_size = Vector2(140, 0)
+offset_left = 1131.0
+offset_top = 220.0
+offset_right = 1132.0
+offset_bottom = 292.0
+size_flags_vertical = 0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_5e0kg")
+text = "POLS 201
+LH12
+
+"
+fit_content = true
 
 [node name="StudentInfoContainer" type="BoxContainer" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
 offset_left = 2.0
@@ -365,469 +889,6 @@ offset_top = 685.0
 offset_right = 239.0
 offset_bottom = 716.0
 text = "Reject Schedule"
-
-[node name="WeekContainer" type="GridContainer" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
-custom_minimum_size = Vector2(750, 100)
-offset_left = 281.0
-offset_top = 220.0
-offset_right = 1296.0
-offset_bottom = 1498.0
-theme_override_constants/h_separation = 42
-columns = 6
-
-[node name="ClassTimeContainer" type="BoxContainer" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/WeekContainer"]
-custom_minimum_size = Vector2(80, 0)
-layout_mode = 2
-theme_override_constants/separation = 42
-vertical = true
-
-[node name="8AM" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/WeekContainer/ClassTimeContainer"]
-layout_mode = 2
-theme_override_colors/default_color = Color(0.85098, 0.811765, 0.0352941, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 17
-text = "8:00 AM"
-fit_content = true
-
-[node name="9AM" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/WeekContainer/ClassTimeContainer"]
-layout_mode = 2
-theme_override_colors/default_color = Color(0.85098, 0.811765, 0.0352941, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 17
-text = "9AM"
-fit_content = true
-
-[node name="10AM" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/WeekContainer/ClassTimeContainer"]
-layout_mode = 2
-theme_override_colors/default_color = Color(0.85098, 0.811765, 0.0352941, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 17
-text = "10:00 AM"
-fit_content = true
-
-[node name="11AM" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/WeekContainer/ClassTimeContainer"]
-layout_mode = 2
-theme_override_colors/default_color = Color(0.85098, 0.811765, 0.0352941, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 17
-text = "11:00 AM"
-fit_content = true
-
-[node name="12PM" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/WeekContainer/ClassTimeContainer"]
-layout_mode = 2
-theme_override_colors/default_color = Color(0.85098, 0.811765, 0.0352941, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 17
-text = "12:00 PM"
-fit_content = true
-
-[node name="1PM" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/WeekContainer/ClassTimeContainer"]
-layout_mode = 2
-theme_override_colors/default_color = Color(0.85098, 0.811765, 0.0352941, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 17
-text = "1:00 PM"
-fit_content = true
-
-[node name="2PM" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/WeekContainer/ClassTimeContainer"]
-layout_mode = 2
-theme_override_colors/default_color = Color(0.85098, 0.811765, 0.0352941, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 17
-text = "2:00 PM"
-fit_content = true
-
-[node name="3PM" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/WeekContainer/ClassTimeContainer"]
-layout_mode = 2
-theme_override_colors/default_color = Color(0.85098, 0.811765, 0.0352941, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 17
-text = "3:00 PM"
-fit_content = true
-
-[node name="4PM" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/WeekContainer/ClassTimeContainer"]
-visible = false
-layout_mode = 2
-theme_override_colors/default_color = Color(0.85098, 0.811765, 0.0352941, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 17
-text = "4:00 PM"
-fit_content = true
-
-[node name="5PM" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/WeekContainer/ClassTimeContainer"]
-visible = false
-layout_mode = 2
-theme_override_colors/default_color = Color(0.85098, 0.811765, 0.0352941, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 17
-theme_override_styles/normal = SubResource("StyleBoxFlat_grp6r")
-text = "5:00 PM"
-fit_content = true
-
-[node name="MondayContainer" type="BoxContainer" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/WeekContainer"]
-custom_minimum_size = Vector2(140, 0)
-layout_mode = 2
-vertical = true
-
-[node name="MLabel1" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/WeekContainer/MondayContainer"]
-clip_contents = false
-layout_mode = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 17
-theme_override_styles/normal = SubResource("StyleBoxFlat_tdy8o")
-text = "CS 101 
-ESB 001
-
-"
-fit_content = true
-
-[node name="MLabel2" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/WeekContainer/MondayContainer"]
-layout_mode = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 17
-theme_override_styles/normal = SubResource("StyleBoxFlat_2sr4j")
-text = "EN 133
-ENB 301
-"
-fit_content = true
-
-[node name="MLabel3" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/WeekContainer/MondayContainer"]
-layout_mode = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 17
-theme_override_styles/normal = SubResource("StyleBoxFlat_sru1y")
-text = "ART 222
-ARB 313
-
-
-"
-fit_content = true
-
-[node name="MLabel4" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/WeekContainer/MondayContainer"]
-visible = false
-layout_mode = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 17
-theme_override_styles/normal = SubResource("StyleBoxFlat_ihfyy")
-text = "ART 222
-ARB 313
-
-"
-fit_content = true
-
-[node name="MLabel5" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/WeekContainer/MondayContainer"]
-visible = false
-layout_mode = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 17
-theme_override_styles/normal = SubResource("StyleBoxFlat_0n4tp")
-text = "ART 222
-ARB 313
-
-"
-fit_content = true
-
-[node name="MSpacerLabel" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/WeekContainer/MondayContainer"]
-visible = false
-layout_mode = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 17
-theme_override_styles/normal = SubResource("StyleBoxFlat_lkyv5")
-text = "
-
-"
-fit_content = true
-
-[node name="MSpacerLabel2" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/WeekContainer/MondayContainer"]
-visible = false
-layout_mode = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 17
-theme_override_styles/normal = SubResource("StyleBoxFlat_lkyv5")
-text = "
-
-"
-fit_content = true
-
-[node name="MSpacerLabel3" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/WeekContainer/MondayContainer"]
-visible = false
-layout_mode = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 17
-theme_override_styles/normal = SubResource("StyleBoxFlat_lkyv5")
-text = "
-
-"
-fit_content = true
-
-[node name="Tuesday Container" type="BoxContainer" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/WeekContainer"]
-custom_minimum_size = Vector2(140, 0)
-layout_mode = 2
-vertical = true
-
-[node name="TLabel1" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/WeekContainer/Tuesday Container"]
-layout_mode = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 17
-theme_override_styles/normal = SubResource("StyleBoxFlat_ps82l")
-text = "POLS 201
-LH12
-
-"
-fit_content = true
-
-[node name="TLabel2" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/WeekContainer/Tuesday Container"]
-layout_mode = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 17
-theme_override_styles/normal = SubResource("StyleBoxFlat_j8ovh")
-text = "AHIS 203 Beanbags throughout history"
-fit_content = true
-
-[node name="TLabel3" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/WeekContainer/Tuesday Container"]
-visible = false
-layout_mode = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 17
-theme_override_styles/normal = SubResource("StyleBoxFlat_gwk6l")
-text = "AHIS 203 Beanbags throughout history"
-fit_content = true
-
-[node name="TLabel4" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/WeekContainer/Tuesday Container"]
-visible = false
-layout_mode = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 17
-theme_override_styles/normal = SubResource("StyleBoxFlat_hp23r")
-text = "AHIS 203 Beanbags throughout history"
-fit_content = true
-
-[node name="TLabel5" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/WeekContainer/Tuesday Container"]
-visible = false
-layout_mode = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 17
-theme_override_styles/normal = SubResource("StyleBoxFlat_drwyk")
-text = "AHIS 203 Beanbags throughout history"
-fit_content = true
-
-[node name="TSpacerLabel" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/WeekContainer/Tuesday Container"]
-visible = false
-layout_mode = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 17
-theme_override_styles/normal = SubResource("StyleBoxFlat_3jatl")
-text = "AHIS 203 Beanbags throughout history"
-fit_content = true
-
-[node name="WednesdayContainer" type="BoxContainer" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/WeekContainer"]
-custom_minimum_size = Vector2(140, 0)
-layout_mode = 2
-vertical = true
-
-[node name="WLabel1" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/WeekContainer/WednesdayContainer"]
-layout_mode = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 17
-theme_override_styles/normal = SubResource("StyleBoxFlat_08k2x")
-text = "BIO101
-LS204"
-fit_content = true
-
-[node name="WLabel2" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/WeekContainer/WednesdayContainer"]
-layout_mode = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 17
-theme_override_styles/normal = SubResource("StyleBoxFlat_nuriq")
-text = "CS101
-ESB 001
-
-"
-fit_content = true
-
-[node name="WLabel3" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/WeekContainer/WednesdayContainer"]
-visible = false
-layout_mode = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 17
-theme_override_styles/normal = SubResource("StyleBoxFlat_p2ow1")
-text = "BIO101
-LS204"
-fit_content = true
-
-[node name="WLabel4" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/WeekContainer/WednesdayContainer"]
-visible = false
-layout_mode = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 17
-theme_override_styles/normal = SubResource("StyleBoxFlat_fhstm")
-text = "CS101
-ESB 001
-
-"
-fit_content = true
-
-[node name="WLabel5" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/WeekContainer/WednesdayContainer"]
-visible = false
-layout_mode = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 17
-theme_override_styles/normal = SubResource("StyleBoxFlat_qa81j")
-text = "BIO101
-LS204"
-fit_content = true
-
-[node name="WSpacerLabel" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/WeekContainer/WednesdayContainer"]
-visible = false
-layout_mode = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 17
-theme_override_styles/normal = SubResource("StyleBoxFlat_5ho0c")
-text = "CS101
-ESB 001
-
-"
-fit_content = true
-
-[node name="ThursdayContainer" type="BoxContainer" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/WeekContainer"]
-custom_minimum_size = Vector2(140, 0)
-layout_mode = 2
-vertical = true
-
-[node name="ThLabel1" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/WeekContainer/ThursdayContainer"]
-layout_mode = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 17
-theme_override_styles/normal = SubResource("StyleBoxFlat_hd660")
-text = "CS101
-ESB 001
-
-"
-fit_content = true
-
-[node name="ThLabel2" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/WeekContainer/ThursdayContainer"]
-layout_mode = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 17
-theme_override_styles/normal = SubResource("StyleBoxFlat_1bsv8")
-text = "EN 133
-ENB 301
-"
-fit_content = true
-
-[node name="ThLabel3" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/WeekContainer/ThursdayContainer"]
-visible = false
-layout_mode = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 17
-theme_override_styles/normal = SubResource("StyleBoxFlat_1bsv8")
-text = "ART 222
-ARB 313
-
-
-"
-fit_content = true
-
-[node name="ThLabel4" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/WeekContainer/ThursdayContainer"]
-visible = false
-layout_mode = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 17
-theme_override_styles/normal = SubResource("StyleBoxFlat_j4mv2")
-text = "CS101
-ESB 001
-
-"
-fit_content = true
-
-[node name="ThLabel5" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/WeekContainer/ThursdayContainer"]
-visible = false
-layout_mode = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 17
-theme_override_styles/normal = SubResource("StyleBoxFlat_c10pv")
-text = "EN 133
-ENB 301
-"
-fit_content = true
-
-[node name="ThSpacerLabel" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/WeekContainer/ThursdayContainer"]
-visible = false
-layout_mode = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 17
-theme_override_styles/normal = SubResource("StyleBoxFlat_w818x")
-text = "ART 222
-ARB 313
-
-
-"
-fit_content = true
-
-[node name="FridayContainer" type="BoxContainer" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/WeekContainer"]
-custom_minimum_size = Vector2(140, 0)
-layout_mode = 2
-vertical = true
-
-[node name="FLabel1" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/WeekContainer/FridayContainer"]
-layout_mode = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 17
-theme_override_styles/normal = SubResource("StyleBoxFlat_3aha8")
-text = "POLS 201
-LH12
-
-"
-fit_content = true
-
-[node name="FLabel2" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/WeekContainer/FridayContainer"]
-layout_mode = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 17
-theme_override_styles/normal = SubResource("StyleBoxFlat_f2m3k")
-text = "AHIS 203 Beanbags throughout history"
-fit_content = true
-
-[node name="FLabel3" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/WeekContainer/FridayContainer"]
-layout_mode = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 17
-theme_override_styles/normal = SubResource("StyleBoxFlat_4xxxt")
-text = "POLS 201
-LH12
-
-"
-fit_content = true
-
-[node name="FLabel4" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/WeekContainer/FridayContainer"]
-visible = false
-layout_mode = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 17
-theme_override_styles/normal = SubResource("StyleBoxFlat_5gf3f")
-text = "AHIS 203 Beanbags throughout history"
-fit_content = true
-
-[node name="FLabel5" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/WeekContainer/FridayContainer"]
-visible = false
-layout_mode = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 17
-theme_override_styles/normal = SubResource("StyleBoxFlat_5e0kg")
-text = "POLS 201
-LH12
-
-"
-fit_content = true
-
-[node name="FSpacerLabel" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/WeekContainer/FridayContainer"]
-visible = false
-layout_mode = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 17
-theme_override_styles/normal = SubResource("StyleBoxFlat_2s7ww")
-text = "AHIS 203 Beanbags throughout history"
-fit_content = true
 
 [connection signal="esc_pressed" from="MainContainer" to="MainContainer" method="_on_esc_pressed"]
 [connection signal="pressed" from="MainContainer/Desktop/Taskbar/BrowserTaskbarButton" to="MainContainer" method="_on_browser_taskbar_button_pressed"]
