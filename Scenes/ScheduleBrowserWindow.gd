@@ -152,10 +152,16 @@ func label_assigner(day:int, label_count:int, parent_array:Array):
 					_sort_by_time(checkedResult)
 					#setting the text that will be assigned to the label by calling 
 					var labelText:String = checkedResult[0].CLASSNAME + "\n" + checkedResult[0].CLASSLOCATION + "\n" + checkedResult[0].CLASSSTARTTIME + "-" + checkedResult[0].CLASSENDTIME
+					#calling duration_padding function and storing return value in var to use in adjusting border width
+					var padding_amount:int = duration_padding(checkedResult,0)
 					#shows the label 
 					m_label_1.show()
 					#adds the text to the label, using bbcode tags to center it 
 					m_label_1.append_text("[center]%s[/center]" % labelText)
+					#sets the border width on the top and bottom of the label's stylebox,
+					# allowing it to more closely line up with the
+					m_label_1.get_theme_stylebox("normal").border_width_top = padding_amount
+					m_label_1.get_theme_stylebox("normal").border_width_bottom = padding_amount
 					#sets the position of the label on the screen by calling label_placer(which returns vector2i) and passing the checkedResult array, 
 					#the index we want to be placed, and the label's current x position, which should never change 
 					m_label_1.set_position(label_placer(checkedResult,0,m_label_1.position.x))
@@ -163,46 +169,88 @@ func label_assigner(day:int, label_count:int, parent_array:Array):
 					checkedResult = check_for_class(parent_array[day],classData)
 					_sort_by_time(checkedResult)
 					var labelText:String = checkedResult[0].CLASSNAME + "\n" + checkedResult[0].CLASSLOCATION + "\n" + checkedResult[0].CLASSSTARTTIME + "-" + checkedResult[0].CLASSENDTIME
+					var padding_amount:int = duration_padding(checkedResult,0)
+					
 					m_label_1.show()
 					m_label_1.append_text("[center]%s[/center]" % labelText)
+					m_label_1.get_theme_stylebox("normal").border_width_top = padding_amount
+					m_label_1.get_theme_stylebox("normal").border_width_bottom = padding_amount
 					m_label_1.set_position(label_placer(checkedResult,0,m_label_1.position.x))
+					
 					labelText = checkedResult[1].CLASSNAME + "\n" + checkedResult[1].CLASSLOCATION + "\n" + checkedResult[1].CLASSSTARTTIME + "-" + checkedResult[1].CLASSENDTIME
+					padding_amount = duration_padding(checkedResult,1)
+					
 					m_label_2.show()
 					m_label_2.append_text("[center]%s[/center]" % labelText)
+					m_label_2.get_theme_stylebox("normal").border_width_top = padding_amount
+					m_label_2.get_theme_stylebox("normal").border_width_bottom = padding_amount
 					m_label_2.set_position(label_placer(checkedResult,1,m_label_2.position.x))
 				3:
 					checkedResult = check_for_class(parent_array[day],classData)
 					_sort_by_time(checkedResult)
 					var labelText:String = checkedResult[0].CLASSNAME + "\n" + checkedResult[0].CLASSLOCATION + "\n" + checkedResult[0].CLASSSTARTTIME + "-" + checkedResult[0].CLASSENDTIME
+					var padding_amount:int = duration_padding(checkedResult,0)
+					
 					m_label_1.show()
 					m_label_1.append_text("[center]%s[/center]" % labelText)
+					m_label_1.get_theme_stylebox("normal").border_width_top = padding_amount
+					m_label_1.get_theme_stylebox("normal").border_width_bottom = padding_amount
 					m_label_1.set_position(label_placer(checkedResult,0,m_label_1.position.x))
+					
 					labelText = checkedResult[1].CLASSNAME + "\n" + checkedResult[1].CLASSLOCATION + "\n" + checkedResult[1].CLASSSTARTTIME + "-" + checkedResult[1].CLASSENDTIME
+					padding_amount = duration_padding(checkedResult,1)
+					
 					m_label_2.show()
 					m_label_2.append_text("[center]%s[/center]" % labelText)
+					m_label_2.get_theme_stylebox("normal").border_width_top = padding_amount
+					m_label_2.get_theme_stylebox("normal").border_width_bottom = padding_amount
 					m_label_2.set_position(label_placer(checkedResult,1,m_label_2.position.x))
+					
 					labelText = checkedResult[2].CLASSNAME + "\n" + checkedResult[2].CLASSLOCATION + "\n" + checkedResult[2].CLASSSTARTTIME + "-" + checkedResult[2].CLASSENDTIME
+					padding_amount = duration_padding(checkedResult,2)
+					
 					m_label_3.show()
 					m_label_3.append_text("[center]%s[/center]" % labelText)
+					m_label_3.get_theme_stylebox("normal").border_width_top = padding_amount
+					m_label_3.get_theme_stylebox("normal").border_width_bottom = padding_amount
 					m_label_3.set_position(label_placer(checkedResult,2,m_label_3.position.x))
 				4:
 					checkedResult = check_for_class(parent_array[day],classData)
 					_sort_by_time(checkedResult)
 					var labelText:String = checkedResult[0].CLASSNAME + "\n" + checkedResult[0].CLASSLOCATION + "\n" + checkedResult[0].CLASSSTARTTIME + "-" + checkedResult[0].CLASSENDTIME
+					var padding_amount:int = duration_padding(checkedResult,0)
+					
 					m_label_1.show()
 					m_label_1.append_text("[center]%s[/center]" % labelText)
+					m_label_1.get_theme_stylebox("normal").border_width_top = padding_amount
+					m_label_1.get_theme_stylebox("normal").border_width_bottom = padding_amount
 					m_label_1.set_position(label_placer(checkedResult,0,m_label_1.position.x))
+					
 					labelText = checkedResult[1].CLASSNAME + "\n" + checkedResult[1].CLASSLOCATION + "\n" + checkedResult[1].CLASSSTARTTIME + "-" + checkedResult[1].CLASSENDTIME
+					padding_amount = duration_padding(checkedResult,1)
+					
 					m_label_2.show()
 					m_label_2.append_text("[center]%s[/center]" % labelText)
+					m_label_2.get_theme_stylebox("normal").border_width_top = padding_amount
+					m_label_2.get_theme_stylebox("normal").border_width_bottom = padding_amount
 					m_label_2.set_position(label_placer(checkedResult,1,m_label_2.position.x))
+					
 					labelText = checkedResult[2].CLASSNAME + "\n" + checkedResult[2].CLASSLOCATION + "\n" + checkedResult[2].CLASSSTARTTIME + "-" + checkedResult[2].CLASSENDTIME
+					padding_amount = duration_padding(checkedResult,2)
+					
 					m_label_3.show()
 					m_label_3.append_text("[center]%s[/center]" % labelText)
+					m_label_3.get_theme_stylebox("normal").border_width_top = padding_amount
+					m_label_3.get_theme_stylebox("normal").border_width_bottom = padding_amount
 					m_label_3.set_position(label_placer(checkedResult,2,m_label_3.position.x))
+					
 					labelText = checkedResult[3].CLASSNAME + "\n" + checkedResult[3].CLASSLOCATION + "\n" + checkedResult[3].CLASSSTARTTIME + "-" + checkedResult[3].CLASSENDTIME
+					padding_amount = duration_padding(checkedResult,3)
+					
 					m_label_4.show()
 					m_label_4.append_text("[center]%s[/center]" % labelText)
+					m_label_4.get_theme_stylebox("normal").border_width_top = padding_amount
+					m_label_4.get_theme_stylebox("normal").border_width_bottom = padding_amount
 					m_label_4.set_position(label_placer(checkedResult,3,m_label_4.position.x))
 				_:
 					print("labelCount invalid")
@@ -214,56 +262,101 @@ func label_assigner(day:int, label_count:int, parent_array:Array):
 					checkedResult = check_for_class(parent_array[day],classData)
 					_sort_by_time(checkedResult)
 					var labelText:String = checkedResult[0].CLASSNAME + "\n" + checkedResult[0].CLASSLOCATION + "\n" + checkedResult[0].CLASSSTARTTIME + "-" + checkedResult[0].CLASSENDTIME
+					var padding_amount:int = duration_padding(checkedResult,0)
+					
 					t_label_1.show()
 					t_label_1.append_text("[center]%s[/center]" % labelText)
+					t_label_1.get_theme_stylebox("normal").border_width_top = padding_amount
+					t_label_1.get_theme_stylebox("normal").border_width_bottom = padding_amount
 					t_label_1.set_position(label_placer(checkedResult,0,t_label_1.position.x))
 				2:
 					checkedResult = check_for_class(parent_array[day],classData)
 					_sort_by_time(checkedResult)
 					var labelText:String = checkedResult[0].CLASSNAME + "\n" + checkedResult[0].CLASSLOCATION + "\n" + checkedResult[0].CLASSSTARTTIME + "-" + checkedResult[0].CLASSENDTIME
+					var padding_amount:int = duration_padding(checkedResult,0)
+					
 					t_label_1.show()
 					t_label_1.append_text("[center]%s[/center]" % labelText)
+					t_label_1.get_theme_stylebox("normal").border_width_top = padding_amount
+					t_label_1.get_theme_stylebox("normal").border_width_bottom = padding_amount
 					t_label_1.set_position(label_placer(checkedResult,0,t_label_1.position.x))
+					
 					labelText = checkedResult[1].CLASSNAME + "\n" + checkedResult[1].CLASSLOCATION + "\n" + checkedResult[1].CLASSSTARTTIME + "-" + checkedResult[1].CLASSENDTIME
+					padding_amount = duration_padding(checkedResult,1)
+					
 					t_label_2.show()
 					t_label_2.append_text("[center]%s[/center]" % labelText)
+					t_label_2.get_theme_stylebox("normal").border_width_top = padding_amount
+					t_label_2.get_theme_stylebox("normal").border_width_bottom = padding_amount
 					t_label_2.set_position(label_placer(checkedResult,1,t_label_2.position.x))
 				3:
 					checkedResult = check_for_class(parent_array[day],classData)
 					_sort_by_time(checkedResult)
 					var labelText:String = checkedResult[0].CLASSNAME + "\n" + checkedResult[0].CLASSLOCATION + "\n" + checkedResult[0].CLASSSTARTTIME + "-" + checkedResult[0].CLASSENDTIME
+					var padding_amount:int = duration_padding(checkedResult,0)
+					
 					t_label_1.show()
 					t_label_1.append_text("[center]%s[/center]" % labelText)
+					t_label_1.get_theme_stylebox("normal").border_width_top = padding_amount
+					t_label_1.get_theme_stylebox("normal").border_width_bottom = padding_amount
 					t_label_1.set_position(label_placer(checkedResult,0,t_label_1.position.x))
+					
 					labelText = checkedResult[1].CLASSNAME + "\n" + checkedResult[1].CLASSLOCATION + "\n" + checkedResult[1].CLASSSTARTTIME + "-" + checkedResult[1].CLASSENDTIME
+					padding_amount = duration_padding(checkedResult,1)
+					
 					t_label_2.show()
 					t_label_2.append_text("[center]%s[/center]" % labelText)
+					t_label_2.get_theme_stylebox("normal").border_width_top = padding_amount
+					t_label_2.get_theme_stylebox("normal").border_width_bottom = padding_amount
 					t_label_2.set_position(label_placer(checkedResult,1,t_label_2.position.x))
+					
 					labelText = checkedResult[2].CLASSNAME + "\n" + checkedResult[2].CLASSLOCATION + "\n" + checkedResult[2].CLASSSTARTTIME + "-" + checkedResult[2].CLASSENDTIME
+					padding_amount = duration_padding(checkedResult,2)
+					
 					t_label_3.show()
 					t_label_3.append_text("[center]%s[/center]" % labelText)
+					t_label_3.get_theme_stylebox("normal").border_width_top = padding_amount
+					t_label_3.get_theme_stylebox("normal").border_width_bottom = padding_amount
 					t_label_3.set_position(label_placer(checkedResult,2,t_label_3.position.x))
 					
 				4:
 					checkedResult = check_for_class(parent_array[day],classData)
 					_sort_by_time(checkedResult)
 					var labelText:String = checkedResult[0].CLASSNAME + "\n" + checkedResult[0].CLASSLOCATION + "\n" + checkedResult[0].CLASSSTARTTIME + "-" + checkedResult[0].CLASSENDTIME
+					var padding_amount:int = duration_padding(checkedResult,0)
+					
 					t_label_1.show()
 					t_label_1.append_text("[center]%s[/center]" % labelText)
+					t_label_1.get_theme_stylebox("normal").border_width_top = padding_amount
+					t_label_1.get_theme_stylebox("normal").border_width_bottom = padding_amount
 					t_label_1.set_position(label_placer(checkedResult,0,t_label_1.position.x))
+					
 					labelText = checkedResult[1].CLASSNAME + "\n" + checkedResult[1].CLASSLOCATION + "\n" + checkedResult[1].CLASSSTARTTIME + "-" + checkedResult[1].CLASSENDTIME
+					padding_amount = duration_padding(checkedResult,1)
+					
 					t_label_2.show()
 					t_label_2.append_text("[center]%s[/center]" % labelText)
+					t_label_2.get_theme_stylebox("normal").border_width_top = padding_amount
+					t_label_2.get_theme_stylebox("normal").border_width_bottom = padding_amount
 					t_label_2.set_position(label_placer(checkedResult,1,t_label_2.position.x))
+					
 					labelText = checkedResult[2].CLASSNAME + "\n" + checkedResult[2].CLASSLOCATION + "\n" + checkedResult[2].CLASSSTARTTIME + "-" + checkedResult[2].CLASSENDTIME
+					padding_amount = duration_padding(checkedResult,2)
+					
 					t_label_3.show()
 					t_label_3.append_text("[center]%s[/center]" % labelText)
+					t_label_3.get_theme_stylebox("normal").border_width_top = padding_amount
+					t_label_3.get_theme_stylebox("normal").border_width_bottom = padding_amount
 					t_label_3.set_position(label_placer(checkedResult,2,t_label_3.position.x))
+					
 					labelText = checkedResult[3].CLASSNAME + "\n" + checkedResult[3].CLASSLOCATION + "\n" + checkedResult[3].CLASSSTARTTIME + "-" + checkedResult[3].CLASSENDTIME
+					padding_amount = duration_padding(checkedResult,3)
+					
 					t_label_4.show()
 					t_label_4.append_text("[center]%s[/center]" % labelText)
+					t_label_4.get_theme_stylebox("normal").border_width_top = padding_amount
+					t_label_4.get_theme_stylebox("normal").border_width_bottom = padding_amount
 					t_label_4.set_position(label_placer(checkedResult,3,t_label_4.position.x))
-					
 				_:
 					print("labelCount invalid")
 		2:
@@ -274,53 +367,99 @@ func label_assigner(day:int, label_count:int, parent_array:Array):
 					checkedResult = check_for_class(parent_array[day],classData)
 					_sort_by_time(checkedResult)
 					var labelText:String = checkedResult[0].CLASSNAME + "\n" + checkedResult[0].CLASSLOCATION + "\n" + checkedResult[0].CLASSSTARTTIME + "-" + checkedResult[0].CLASSENDTIME
+					var padding_amount:int = duration_padding(checkedResult,0)
+					
 					w_label_1.show()
 					w_label_1.append_text("[center]%s[/center]" % labelText)
+					w_label_1.get_theme_stylebox("normal").border_width_top = padding_amount
+					w_label_1.get_theme_stylebox("normal").border_width_bottom = padding_amount
 					w_label_1.set_position(label_placer(checkedResult,0,w_label_1.position.x))
 				2:
 					checkedResult = check_for_class(parent_array[day],classData)
 					_sort_by_time(checkedResult)
 					var labelText:String = checkedResult[0].CLASSNAME + "\n" + checkedResult[0].CLASSLOCATION + "\n" + checkedResult[0].CLASSSTARTTIME + "-" + checkedResult[0].CLASSENDTIME
+					var padding_amount:int = duration_padding(checkedResult,0)
+					
 					w_label_1.show()
 					w_label_1.append_text("[center]%s[/center]" % labelText)
+					w_label_1.get_theme_stylebox("normal").border_width_top = padding_amount
+					w_label_1.get_theme_stylebox("normal").border_width_bottom = padding_amount
 					w_label_1.set_position(label_placer(checkedResult,0,w_label_1.position.x))
+					
 					labelText = checkedResult[1].CLASSNAME + "\n" + checkedResult[1].CLASSLOCATION + "\n" + checkedResult[1].CLASSSTARTTIME + "-" + checkedResult[1].CLASSENDTIME
+					padding_amount = duration_padding(checkedResult,1)
+					
 					w_label_2.show()
 					w_label_2.append_text("[center]%s[/center]" % labelText)
+					w_label_2.get_theme_stylebox("normal").border_width_top = padding_amount
+					w_label_2.get_theme_stylebox("normal").border_width_bottom = padding_amount
 					w_label_2.set_position(label_placer(checkedResult,1,w_label_2.position.x))
 				3:
 					checkedResult = check_for_class(parent_array[day],classData)
 					_sort_by_time(checkedResult)
 					var labelText:String = checkedResult[0].CLASSNAME + "\n" + checkedResult[0].CLASSLOCATION + "\n" + checkedResult[0].CLASSSTARTTIME + "-" + checkedResult[0].CLASSENDTIME
+					var padding_amount:int = duration_padding(checkedResult,0)
+					
 					w_label_1.show()
 					w_label_1.append_text("[center]%s[/center]" % labelText)
+					w_label_1.get_theme_stylebox("normal").border_width_top = padding_amount
+					w_label_1.get_theme_stylebox("normal").border_width_bottom = padding_amount
 					w_label_1.set_position(label_placer(checkedResult,0,w_label_1.position.x))
+					
 					labelText = checkedResult[1].CLASSNAME + "\n" + checkedResult[1].CLASSLOCATION + "\n" + checkedResult[1].CLASSSTARTTIME + "-" + checkedResult[1].CLASSENDTIME
+					padding_amount = duration_padding(checkedResult,1)
+					
 					w_label_2.show()
 					w_label_2.append_text("[center]%s[/center]" % labelText)
+					w_label_2.get_theme_stylebox("normal").border_width_top = padding_amount
+					w_label_2.get_theme_stylebox("normal").border_width_bottom = padding_amount
 					w_label_2.set_position(label_placer(checkedResult,1,w_label_2.position.x))
+					
 					labelText = checkedResult[2].CLASSNAME + "\n" + checkedResult[2].CLASSLOCATION + "\n" + checkedResult[2].CLASSSTARTTIME + "-" + checkedResult[2].CLASSENDTIME
+					padding_amount = duration_padding(checkedResult,2)
+					
 					w_label_3.show()
 					w_label_3.append_text("[center]%s[/center]" % labelText)
+					w_label_3.get_theme_stylebox("normal").border_width_top = padding_amount
+					w_label_3.get_theme_stylebox("normal").border_width_bottom = padding_amount
 					w_label_3.set_position(label_placer(checkedResult,2,w_label_3.position.x))
 				4:
 					checkedResult = check_for_class(parent_array[day],classData)
 					_sort_by_time(checkedResult)
 					var labelText:String = checkedResult[0].CLASSNAME + "\n" + checkedResult[0].CLASSLOCATION + "\n" + checkedResult[0].CLASSSTARTTIME + "-" + checkedResult[0].CLASSENDTIME
+					var padding_amount:int = duration_padding(checkedResult,0)
+					
 					w_label_1.show()
 					w_label_1.append_text("[center]%s[/center]" % labelText)
+					w_label_1.get_theme_stylebox("normal").border_width_top = padding_amount
+					w_label_1.get_theme_stylebox("normal").border_width_bottom = padding_amount
 					w_label_1.set_position(label_placer(checkedResult,0,w_label_1.position.x))
+					
 					labelText = checkedResult[1].CLASSNAME + "\n" + checkedResult[1].CLASSLOCATION + "\n" + checkedResult[1].CLASSSTARTTIME + "-" + checkedResult[1].CLASSENDTIME
+					padding_amount = duration_padding(checkedResult,1)
+					
 					w_label_2.show()
 					w_label_2.append_text("[center]%s[/center]" % labelText)
+					w_label_2.get_theme_stylebox("normal").border_width_top = padding_amount
+					w_label_2.get_theme_stylebox("normal").border_width_bottom = padding_amount
 					w_label_2.set_position(label_placer(checkedResult,1,w_label_2.position.x))
+					
 					labelText = checkedResult[2].CLASSNAME + "\n" + checkedResult[2].CLASSLOCATION + "\n" + checkedResult[2].CLASSSTARTTIME + "-" + checkedResult[2].CLASSENDTIME
+					padding_amount = duration_padding(checkedResult,2)
+					
 					w_label_3.show()
 					w_label_3.append_text("[center]%s[/center]" % labelText)
+					w_label_3.get_theme_stylebox("normal").border_width_top = padding_amount
+					w_label_3.get_theme_stylebox("normal").border_width_bottom = padding_amount
 					w_label_3.set_position(label_placer(checkedResult,2,w_label_3.position.x))
+					
 					labelText = checkedResult[3].CLASSNAME + "\n" + checkedResult[3].CLASSLOCATION + "\n" + checkedResult[3].CLASSSTARTTIME + "-" + checkedResult[3].CLASSENDTIME
+					padding_amount = duration_padding(checkedResult,3)
+					
 					w_label_4.show()
 					w_label_4.append_text("[center]%s[/center]" % labelText)
+					w_label_4.get_theme_stylebox("normal").border_width_top = padding_amount
+					w_label_4.get_theme_stylebox("normal").border_width_bottom = padding_amount
 					w_label_4.set_position(label_placer(checkedResult,3,w_label_4.position.x))
 				_:
 					print("labelCount invalid")
@@ -365,20 +504,39 @@ func label_assigner(day:int, label_count:int, parent_array:Array):
 					checkedResult = check_for_class(parent_array[day],classData)
 					_sort_by_time(checkedResult)
 					var labelText:String = checkedResult[0].CLASSNAME + "\n" + checkedResult[0].CLASSLOCATION + "\n" + checkedResult[0].CLASSSTARTTIME + "-" + checkedResult[0].CLASSENDTIME
+					var padding_amount:int = duration_padding(checkedResult,0)
+					
 					th_label_1.show()
 					th_label_1.append_text("[center]%s[/center]" % labelText)
+					th_label_1.get_theme_stylebox("normal").border_width_top = padding_amount
+					th_label_1.get_theme_stylebox("normal").border_width_bottom = padding_amount
 					th_label_1.set_position(label_placer(checkedResult,0,th_label_1.position.x))
+					
 					labelText = checkedResult[1].CLASSNAME + "\n" + checkedResult[1].CLASSLOCATION + "\n" + checkedResult[1].CLASSSTARTTIME + "-" + checkedResult[1].CLASSENDTIME
+					padding_amount = duration_padding(checkedResult,1)
+					
 					th_label_2.show()
 					th_label_2.append_text("[center]%s[/center]" % labelText)
+					th_label_2.get_theme_stylebox("normal").border_width_top = padding_amount
+					th_label_2.get_theme_stylebox("normal").border_width_bottom = padding_amount
 					th_label_2.set_position(label_placer(checkedResult,1,th_label_2.position.x))
+					
 					labelText = checkedResult[2].CLASSNAME + "\n" + checkedResult[2].CLASSLOCATION + "\n" + checkedResult[2].CLASSSTARTTIME + "-" + checkedResult[2].CLASSENDTIME
+					padding_amount = duration_padding(checkedResult,2)
+					
 					th_label_3.show()
 					th_label_3.append_text("[center]%s[/center]" % labelText)
+					th_label_3.get_theme_stylebox("normal").border_width_top = padding_amount
+					th_label_3.get_theme_stylebox("normal").border_width_bottom = padding_amount
 					th_label_3.set_position(label_placer(checkedResult,2,th_label_3.position.x))
+					
 					labelText = checkedResult[3].CLASSNAME + "\n" + checkedResult[3].CLASSLOCATION + "\n" + checkedResult[3].CLASSSTARTTIME + "-" + checkedResult[3].CLASSENDTIME
+					padding_amount = duration_padding(checkedResult,3)
+					
 					th_label_4.show()
 					th_label_4.append_text("[center]%s[/center]" % labelText)
+					th_label_4.get_theme_stylebox("normal").border_width_top = padding_amount
+					th_label_4.get_theme_stylebox("normal").border_width_bottom = padding_amount
 					th_label_4.set_position(label_placer(checkedResult,3,th_label_4.position.x))
 				_:
 					print("labelCount invalid")
@@ -390,57 +548,118 @@ func label_assigner(day:int, label_count:int, parent_array:Array):
 					checkedResult = check_for_class(parent_array[day],classData)
 					_sort_by_time(checkedResult)
 					var labelText:String = checkedResult[0].CLASSNAME + "\n" + checkedResult[0].CLASSLOCATION + "\n" + checkedResult[0].CLASSSTARTTIME + "-" + checkedResult[0].CLASSENDTIME
+					var padding_amount:int = duration_padding(checkedResult,0)
+					
 					f_label_1.show()
 					f_label_1.append_text("[center]%s[/center]" % labelText)
+					f_label_1.get_theme_stylebox("normal").border_width_top = padding_amount
+					f_label_1.get_theme_stylebox("normal").border_width_bottom = padding_amount
 					f_label_1.set_position(label_placer(checkedResult,0,f_label_1.position.x))
 				2:
 					checkedResult = check_for_class(parent_array[day],classData)
 					_sort_by_time(checkedResult)
 					var labelText:String = checkedResult[0].CLASSNAME + "\n" + checkedResult[0].CLASSLOCATION + "\n" + checkedResult[0].CLASSSTARTTIME + "-" + checkedResult[0].CLASSENDTIME
+					var padding_amount:int = duration_padding(checkedResult,0)
+					
 					f_label_1.show()
 					f_label_1.append_text("[center]%s[/center]" % labelText)
+					f_label_1.get_theme_stylebox("normal").border_width_top = padding_amount
+					f_label_1.get_theme_stylebox("normal").border_width_bottom = padding_amount
 					f_label_1.set_position(label_placer(checkedResult,0,f_label_1.position.x))
+					
 					labelText = checkedResult[1].CLASSNAME + "\n" + checkedResult[1].CLASSLOCATION + "\n" + checkedResult[1].CLASSSTARTTIME + "-" + checkedResult[1].CLASSENDTIME
+					padding_amount = duration_padding(checkedResult,1)
+					
 					f_label_2.show()
 					f_label_2.append_text("[center]%s[/center]" % labelText)
+					f_label_2.get_theme_stylebox("normal").border_width_top = padding_amount
+					f_label_2.get_theme_stylebox("normal").border_width_bottom = padding_amount
 					f_label_2.set_position(label_placer(checkedResult,1,f_label_2.position.x))
 				3:
 					checkedResult = check_for_class(parent_array[day],classData)
 					_sort_by_time(checkedResult)
 					var labelText:String = checkedResult[0].CLASSNAME + "\n" + checkedResult[0].CLASSLOCATION + "\n" + checkedResult[0].CLASSSTARTTIME + "-" + checkedResult[0].CLASSENDTIME
+					var padding_amount:int = duration_padding(checkedResult,0)
+					
 					f_label_1.show()
 					f_label_1.append_text("[center]%s[/center]" % labelText)
+					f_label_1.get_theme_stylebox("normal").border_width_top = padding_amount
+					f_label_1.get_theme_stylebox("normal").border_width_bottom = padding_amount
 					f_label_1.set_position(label_placer(checkedResult,0,f_label_1.position.x))
+					
 					labelText = checkedResult[1].CLASSNAME + "\n" + checkedResult[1].CLASSLOCATION + "\n" + checkedResult[1].CLASSSTARTTIME + "-" + checkedResult[1].CLASSENDTIME
+					padding_amount = duration_padding(checkedResult,1)
+					
 					f_label_2.show()
 					f_label_2.append_text("[center]%s[/center]" % labelText)
+					f_label_2.get_theme_stylebox("normal").border_width_top = padding_amount
+					f_label_2.get_theme_stylebox("normal").border_width_bottom = padding_amount
 					f_label_2.set_position(label_placer(checkedResult,1,f_label_2.position.x))
+					
 					labelText = checkedResult[2].CLASSNAME + "\n" + checkedResult[2].CLASSLOCATION + "\n" + checkedResult[2].CLASSSTARTTIME + "-" + checkedResult[2].CLASSENDTIME
+					padding_amount = duration_padding(checkedResult,2)
+					
 					f_label_3.show()
 					f_label_3.append_text("[center]%s[/center]" % labelText)
+					f_label_3.get_theme_stylebox("normal").border_width_top = padding_amount
+					f_label_3.get_theme_stylebox("normal").border_width_bottom = padding_amount
 					f_label_3.set_position(label_placer(checkedResult,2,f_label_3.position.x))
 				4:
 					checkedResult = check_for_class(parent_array[day],classData)
 					_sort_by_time(checkedResult)
 					var labelText:String = checkedResult[0].CLASSNAME + "\n" + checkedResult[0].CLASSLOCATION + "\n" + checkedResult[0].CLASSSTARTTIME + "-" + checkedResult[0].CLASSENDTIME
+					var padding_amount:int = duration_padding(checkedResult,0)
+					
 					f_label_1.show()
 					f_label_1.append_text("[center]%s[/center]" % labelText)
+					f_label_1.get_theme_stylebox("normal").border_width_top = padding_amount
+					f_label_1.get_theme_stylebox("normal").border_width_bottom = padding_amount
 					f_label_1.set_position(label_placer(checkedResult,0,f_label_1.position.x))
+					
 					labelText = checkedResult[1].CLASSNAME + "\n" + checkedResult[1].CLASSLOCATION + "\n" + checkedResult[1].CLASSSTARTTIME + "-" + checkedResult[1].CLASSENDTIME
+					padding_amount = duration_padding(checkedResult,1)
+					
 					f_label_2.show()
 					f_label_2.append_text("[center]%s[/center]" % labelText)
+					f_label_2.get_theme_stylebox("normal").border_width_top = padding_amount
+					f_label_2.get_theme_stylebox("normal").border_width_bottom = padding_amount
 					f_label_2.set_position(label_placer(checkedResult,1,f_label_2.position.x))
+					
 					labelText = checkedResult[2].CLASSNAME + "\n" + checkedResult[2].CLASSLOCATION + "\n" + checkedResult[2].CLASSSTARTTIME + "-" + checkedResult[2].CLASSENDTIME
+					padding_amount = duration_padding(checkedResult,2)
+					
 					f_label_3.show()
 					f_label_3.append_text("[center]%s[/center]" % labelText)
+					f_label_3.get_theme_stylebox("normal").border_width_top = padding_amount
+					f_label_3.get_theme_stylebox("normal").border_width_bottom = padding_amount
 					f_label_3.set_position(label_placer(checkedResult,2,f_label_3.position.x))
+					
 					labelText = checkedResult[3].CLASSNAME + "\n" + checkedResult[3].CLASSLOCATION + "\n" + checkedResult[3].CLASSSTARTTIME + "-" + checkedResult[3].CLASSENDTIME
+					padding_amount = duration_padding(checkedResult,3)
+					
 					f_label_4.show()
 					f_label_4.append_text("[center]%s[/center]" % labelText)
+					f_label_4.get_theme_stylebox("normal").border_width_top = padding_amount
+					f_label_4.get_theme_stylebox("normal").border_width_bottom = padding_amount
 					f_label_4.set_position(label_placer(checkedResult,3,f_label_4.position.x))
 				_:
 					print("labelCount invalid")
 
+#returns an integer(number of pixels to pad the label) based on how long the class is
+func duration_padding(array:Array,array_index:int)-> int:
+	var duration:int = array[array_index].CLASSDURATION
+	match duration:
+		90:
+			return 11
+		120:
+			return 30
+		60:
+			return 0
+		45:
+			return 0
+		_:
+			return 0
+	print(array[array_index].CLASSDURATION)
 #function that matches the class start times of the passed array & returns the correct starting time's y position,
 #so that class can be properly aligned on the screen 
 func label_placer(array:Array,array_index:int,label_x_coordinate)->Vector2i:
@@ -449,68 +668,68 @@ func label_placer(array:Array,array_index:int,label_x_coordinate)->Vector2i:
 			return Vector2i(label_x_coordinate,_800_line.position.y)
 		"8:15 AM":
 			#offsets the y coordinate by +10 px of the _8am label y position so that it more closely aligns with 8:15
-			return Vector2i(label_x_coordinate,_8am.global_position.y+10)
+			return Vector2i(label_x_coordinate,_800_line.position.y+10)
 		"8:30 AM":
-			return Vector2i(label_x_coordinate,_830_line.position.y)
+			return Vector2i(label_x_coordinate,_8am.global_position.y+10)
 		"8:45 AM":
-			#offsets the y coordinate by -10 px of the _9am label y position so that it more closely aligns with 8:15
-			return Vector2i(label_x_coordinate,_9am.global_position.y-10)
+			#offsets the y coordinate by +30 px of the _8am label y position so that it more closely aligns with 8:45
+			return Vector2i(label_x_coordinate,_8am.global_position.y+30)
 		"9:00 AM":
-			return Vector2i(label_x_coordinate,_9am.global_position.y)
+			return Vector2i(label_x_coordinate,_830_line.position.y)
 		"9:15 AM":
-			return Vector2i(label_x_coordinate,_9am.global_position.y+10)
+			return Vector2i(label_x_coordinate,_830_line.position.y+10)
 		"9:30 AM":
-			return Vector2i(label_x_coordinate,_930_line.position.y)
+			return Vector2i(label_x_coordinate,_9am.global_position.y+10)
 		"9:45 AM":
-			return Vector2i(label_x_coordinate,_10am.global_position.y-10)
+			return Vector2i(label_x_coordinate,_9am.global_position.y+30)
 		"10:00 AM":
-			return Vector2i(label_x_coordinate,_10am.global_position.y)
+			return Vector2i(label_x_coordinate,_930_line.position.y-2)
 		"10:30 AM":
-			return Vector2i(label_x_coordinate,_1030_line.position.y)
+			return Vector2i(label_x_coordinate,_10am.global_position.y+10)
 		"10:45 AM":
-			return Vector2i(label_x_coordinate,_11am.global_position.y-10)
+			return Vector2i(label_x_coordinate,_10am.global_position.y+30)
 		"11:00 AM":
-			return Vector2i(label_x_coordinate,_11am.global_position.y)
+			return Vector2i(label_x_coordinate,_1030_line.position.y)
 		"11:15 AM":
-			return Vector2i(label_x_coordinate,_11am.global_position.y+10)
+			return Vector2i(label_x_coordinate,_1030_line.position.y+10)
 		"11:30 AM":
-			return Vector2i(label_x_coordinate,_1130_line.position.y)
+			return Vector2i(label_x_coordinate,_11am.global_position.y+10)
 		"11:45 AM":
-			return Vector2i(label_x_coordinate,_12pm.global_position.y-10)
+			return Vector2i(label_x_coordinate,_11am.global_position.y+30)
 		"12:00 PM":
-			return Vector2i(label_x_coordinate,_12pm.global_position.y)
+			return Vector2i(label_x_coordinate,_1130_line.position.y)
 		"12:15 PM":
-			return Vector2i(label_x_coordinate,_12pm.global_position.y+10)
+			return Vector2i(label_x_coordinate,_1130_line.position.y+10)
 		"12:30 PM":
-			return Vector2i(label_x_coordinate,_1230_line.position.y)
+			return Vector2i(label_x_coordinate,_12pm.global_position.y+10)
 		"12:45 PM":
-			return Vector2i(label_x_coordinate,_1pm.global_position.y-10)
+			return Vector2i(label_x_coordinate,_12pm.global_position.y+30)
 		"1:00 PM":
-			return Vector2i(label_x_coordinate,_1pm.global_position.y)
+			return Vector2i(label_x_coordinate,_1230_line.position.y)
 		"1:15 PM":
-			return Vector2i(label_x_coordinate,_1pm.global_position.y+10)
+			return Vector2i(label_x_coordinate,_1230_line.position.y+10)
 		"1:30 PM":
-			return Vector2i(label_x_coordinate,_130_line.position.y)
+			return Vector2i(label_x_coordinate,_1pm.global_position.y+10)
 		"1:45 PM":
-			return Vector2i(label_x_coordinate,_2pm.global_position.y-10)
+			return Vector2i(label_x_coordinate,_1pm.global_position.y+20)
 		"2:00 PM":
-			return Vector2i(label_x_coordinate,_2pm.global_position.y)
+			return Vector2i(label_x_coordinate,_130_line.position.y)
 		"2:15 PM":
-			return Vector2i(label_x_coordinate,_2pm.global_position.y+10)
+			return Vector2i(label_x_coordinate,_130_line.position.y+10)
 		"2:30 PM":
-			return Vector2i(label_x_coordinate,_230_line.position.y)
+			return Vector2i(label_x_coordinate,_2pm.global_position.y+10)
 		"2:45 PM":
-			return Vector2i(label_x_coordinate,_3pm.global_position.y-10)
+			return Vector2i(label_x_coordinate,_2pm.global_position.y+20)
 		"3:00 PM":
-			return Vector2i(label_x_coordinate,_3pm.global_position.y)
+			return Vector2i(label_x_coordinate,_230_line.position.y)
 		"3:15 PM":
-			return Vector2i(label_x_coordinate,_3pm.global_position.y+10)
+			return Vector2i(label_x_coordinate,_230_line.position.y+10)
 		"3:30 PM":
-			return Vector2i(label_x_coordinate,_330_line.position.y)
+			return Vector2i(label_x_coordinate,_3pm.global_position.y+10)
 		"3:45 PM":
-			return Vector2i(label_x_coordinate,_4pm.global_position.y-10)
+			return Vector2i(label_x_coordinate,_3pm.global_position.y+20)
 		"4:00 PM":
-			return Vector2i(label_x_coordinate,_4pm.global_position.y)
+			return Vector2i(label_x_coordinate,_330_line.position.y)
 		_:
 			return Vector2i(0,0)
 #function solely dedicated to increasing the student index var,
@@ -528,48 +747,88 @@ func clearLabels():
 	account_status.clear()
 	#clears monday labels
 	m_label_1.clear()
+	m_label_1.get_theme_stylebox("normal").border_width_top = 0
+	m_label_1.get_theme_stylebox("normal").border_width_bottom = 0
 	m_label_1.hide()
 	m_label_2.clear()
+	m_label_2.get_theme_stylebox("normal").border_width_top = 0
+	m_label_2.get_theme_stylebox("normal").border_width_bottom = 0
 	m_label_2.hide()
 	m_label_3.clear()
+	m_label_3.get_theme_stylebox("normal").border_width_top = 0
+	m_label_3.get_theme_stylebox("normal").border_width_bottom = 0
 	m_label_3.hide()
 	m_label_4.clear()
+	m_label_4.get_theme_stylebox("normal").border_width_top = 0
+	m_label_4.get_theme_stylebox("normal").border_width_bottom = 0
 	m_label_4.hide()
 	#clears tuesday labels
 	t_label_1.clear()
+	t_label_1.get_theme_stylebox("normal").border_width_top = 0
+	t_label_1.get_theme_stylebox("normal").border_width_bottom = 0
 	t_label_1.hide()
 	t_label_2.clear()
+	t_label_2.get_theme_stylebox("normal").border_width_top = 0
+	t_label_2.get_theme_stylebox("normal").border_width_bottom = 0
 	t_label_2.hide()
 	t_label_3.clear()
+	t_label_3.get_theme_stylebox("normal").border_width_top = 0
+	t_label_3.get_theme_stylebox("normal").border_width_bottom = 0
 	t_label_3.hide()
 	t_label_4.clear()
+	t_label_4.get_theme_stylebox("normal").border_width_top = 0
+	t_label_4.get_theme_stylebox("normal").border_width_bottom = 0
 	t_label_4.hide()
 	#clears wednesday labels
 	w_label_1.clear()
+	w_label_1.get_theme_stylebox("normal").border_width_top = 0
+	w_label_1.get_theme_stylebox("normal").border_width_bottom = 0
 	w_label_1.hide()
 	w_label_2.clear()
+	w_label_2.get_theme_stylebox("normal").border_width_top = 0
+	w_label_2.get_theme_stylebox("normal").border_width_bottom = 0
 	w_label_2.hide()
 	w_label_3.clear()
+	w_label_3.get_theme_stylebox("normal").border_width_top = 0
+	w_label_3.get_theme_stylebox("normal").border_width_bottom = 0
 	w_label_3.hide()
 	w_label_4.clear()
+	w_label_4.get_theme_stylebox("normal").border_width_top = 0
+	w_label_4.get_theme_stylebox("normal").border_width_bottom = 0
 	w_label_4.hide()
 	#clears thursday labels
 	th_label_1.clear()
+	th_label_1.get_theme_stylebox("normal").border_width_top = 0
+	th_label_1.get_theme_stylebox("normal").border_width_bottom = 0
 	th_label_1.hide()
 	th_label_2.clear()
+	th_label_2.get_theme_stylebox("normal").border_width_top = 0
+	th_label_2.get_theme_stylebox("normal").border_width_bottom = 0
 	th_label_2.hide()
 	th_label_3.clear()
+	th_label_3.get_theme_stylebox("normal").border_width_top = 0
+	th_label_3.get_theme_stylebox("normal").border_width_bottom = 0
 	th_label_3.hide()
 	th_label_4.clear()
+	th_label_4.get_theme_stylebox("normal").border_width_top = 0
+	th_label_4.get_theme_stylebox("normal").border_width_bottom = 0
 	th_label_4.hide()
 	#clears friday labels
 	f_label_1.clear()
+	f_label_1.get_theme_stylebox("normal").border_width_top = 0
+	f_label_1.get_theme_stylebox("normal").border_width_bottom = 0
 	f_label_1.hide()
 	f_label_2.clear()
+	f_label_2.get_theme_stylebox("normal").border_width_top = 0
+	f_label_2.get_theme_stylebox("normal").border_width_bottom = 0
 	f_label_2.hide()
 	f_label_3.clear()
+	f_label_3.get_theme_stylebox("normal").border_width_top = 0
+	f_label_3.get_theme_stylebox("normal").border_width_bottom = 0
 	f_label_3.hide()
 	f_label_4.clear()
+	f_label_4.get_theme_stylebox("normal").border_width_top = 0
+	f_label_4.get_theme_stylebox("normal").border_width_bottom = 0
 	f_label_4.hide()
 	
 #function to read json files and returns them as a dictionary

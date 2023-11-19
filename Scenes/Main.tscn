@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://dgv0xsiratr8g"]
+[gd_scene load_steps=20 format=3 uid="uid://dgv0xsiratr8g"]
 
 [ext_resource type="Script" path="res://Scenes/Main.gd" id="1_5ghd7"]
 [ext_resource type="Script" path="res://Scenes/MainContainer.gd" id="1_pf4tp"]
@@ -19,83 +19,31 @@ bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tdy8o"]
 resource_local_to_scene = true
+resource_name = "yellowBG"
 bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2sr4j"]
-resource_local_to_scene = true
-bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sru1y"]
-resource_local_to_scene = true
-bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ihfyy"]
-resource_local_to_scene = true
-bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0n4tp"]
-resource_local_to_scene = true
-bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
+border_width_top = 2
+border_width_bottom = 2
+border_color = Color(0.85098, 0.811765, 0.0352941, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ps82l"]
 resource_local_to_scene = true
 bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j8ovh"]
-resource_local_to_scene = true
-bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gwk6l"]
-resource_local_to_scene = true
-bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
+border_color = Color(0.85098, 0.811765, 0.0352941, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_08k2x"]
 resource_local_to_scene = true
 bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nuriq"]
-resource_local_to_scene = true
-bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p2ow1"]
-resource_local_to_scene = true
-bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fhstm"]
-resource_local_to_scene = true
-bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qa81j"]
-resource_local_to_scene = true
-bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
+border_color = Color(0.85098, 0.811765, 0.0352941, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hd660"]
 resource_local_to_scene = true
 bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1bsv8"]
-resource_local_to_scene = true
-bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
+border_color = Color(0.85098, 0.811765, 0.0352941, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3aha8"]
 resource_local_to_scene = true
 bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f2m3k"]
-resource_local_to_scene = true
-bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4xxxt"]
-resource_local_to_scene = true
-bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5gf3f"]
-resource_local_to_scene = true
-bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5e0kg"]
-resource_local_to_scene = true
-bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
+border_color = Color(0.85098, 0.811765, 0.0352941, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h53aq"]
 bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
@@ -413,10 +361,10 @@ text = "Friday"
 fit_content = true
 
 [node name="MLabel1" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
-custom_minimum_size = Vector2(140, 0)
-offset_left = 403.0
+custom_minimum_size = Vector2(175, 0)
+offset_left = 378.0
 offset_top = 177.0
-offset_right = 543.0
+offset_right = 518.0
 offset_bottom = 249.0
 size_flags_horizontal = 3
 theme_override_colors/default_color = Color(0, 0, 0, 1)
@@ -429,76 +377,76 @@ ESB 001
 fit_content = true
 
 [node name="MLabel2" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
-custom_minimum_size = Vector2(140, 0)
-offset_left = 403.0
-offset_top = 306.0
-offset_right = 543.0
-offset_bottom = 354.0
+custom_minimum_size = Vector2(175, 0)
+offset_left = 378.0
+offset_top = 177.0
+offset_right = 518.0
+offset_bottom = 249.0
 size_flags_horizontal = 3
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 17
-theme_override_styles/normal = SubResource("StyleBoxFlat_2sr4j")
-text = "EN 133
-ENB 301
+theme_override_styles/normal = SubResource("StyleBoxFlat_tdy8o")
+text = "CS 101 
+ESB 001
+
 "
 fit_content = true
 
 [node name="MLabel3" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
-custom_minimum_size = Vector2(140, 0)
-offset_left = 403.0
-offset_top = 368.0
-offset_right = 543.0
-offset_bottom = 464.0
+custom_minimum_size = Vector2(175, 0)
+offset_left = 378.0
+offset_top = 177.0
+offset_right = 518.0
+offset_bottom = 249.0
 size_flags_horizontal = 3
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 17
-theme_override_styles/normal = SubResource("StyleBoxFlat_sru1y")
-text = "ART 222
-ARB 313
-
+theme_override_styles/normal = SubResource("StyleBoxFlat_tdy8o")
+text = "CS 101 
+ESB 001
 
 "
 fit_content = true
 
 [node name="MLabel4" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
 visible = false
-custom_minimum_size = Vector2(140, 0)
-offset_left = 403.0
-offset_top = 220.0
-offset_right = 404.0
-offset_bottom = 292.0
+custom_minimum_size = Vector2(175, 0)
+offset_left = 378.0
+offset_top = 177.0
+offset_right = 518.0
+offset_bottom = 249.0
 size_flags_horizontal = 3
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 17
-theme_override_styles/normal = SubResource("StyleBoxFlat_ihfyy")
-text = "ART 222
-ARB 313
+theme_override_styles/normal = SubResource("StyleBoxFlat_tdy8o")
+text = "CS 101 
+ESB 001
 
 "
 fit_content = true
 
 [node name="MLabel5" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
 visible = false
-custom_minimum_size = Vector2(140, 0)
-offset_left = 403.0
-offset_top = 220.0
-offset_right = 404.0
-offset_bottom = 292.0
+custom_minimum_size = Vector2(175, 0)
+offset_left = 378.0
+offset_top = 177.0
+offset_right = 518.0
+offset_bottom = 249.0
 size_flags_horizontal = 3
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 17
-theme_override_styles/normal = SubResource("StyleBoxFlat_0n4tp")
-text = "ART 222
-ARB 313
+theme_override_styles/normal = SubResource("StyleBoxFlat_tdy8o")
+text = "CS 101 
+ESB 001
 
 "
 fit_content = true
 
 [node name="TLabel1" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
-custom_minimum_size = Vector2(140, 0)
-offset_left = 585.0
+custom_minimum_size = Vector2(172, 0)
+offset_left = 562.0
 offset_top = 220.0
-offset_right = 725.0
+offset_right = 736.0
 offset_bottom = 292.0
 size_flags_horizontal = 3
 size_flags_vertical = 0
@@ -512,69 +460,80 @@ LH12
 fit_content = true
 
 [node name="TLabel2" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
-custom_minimum_size = Vector2(140, 0)
-offset_left = 585.0
-offset_top = 296.0
-offset_right = 725.0
-offset_bottom = 392.0
+custom_minimum_size = Vector2(172, 0)
+offset_left = 562.0
+offset_top = 220.0
+offset_right = 736.0
+offset_bottom = 292.0
 size_flags_horizontal = 3
 size_flags_vertical = 0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 17
-theme_override_styles/normal = SubResource("StyleBoxFlat_j8ovh")
-text = "AHIS 203 Beanbags throughout history"
+theme_override_styles/normal = SubResource("StyleBoxFlat_ps82l")
+text = "POLS 201
+LH12
+
+"
 fit_content = true
 
 [node name="TLabel3" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
-visible = false
-custom_minimum_size = Vector2(140, 0)
-offset_left = 585.0
+custom_minimum_size = Vector2(172, 0)
+offset_left = 562.0
 offset_top = 220.0
-offset_right = 586.0
-offset_bottom = 316.0
+offset_right = 736.0
+offset_bottom = 292.0
 size_flags_horizontal = 3
 size_flags_vertical = 0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 17
-theme_override_styles/normal = SubResource("StyleBoxFlat_gwk6l")
-text = "AHIS 203 Beanbags throughout history"
+theme_override_styles/normal = SubResource("StyleBoxFlat_ps82l")
+text = "POLS 201
+LH12
+
+"
 fit_content = true
 
 [node name="TLabel4" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
 visible = false
-custom_minimum_size = Vector2(140, 0)
-offset_left = 1170.0
-offset_top = 440.0
-offset_right = 1310.0
-offset_bottom = 536.0
+custom_minimum_size = Vector2(172, 0)
+offset_left = 562.0
+offset_top = 220.0
+offset_right = 736.0
+offset_bottom = 292.0
 size_flags_horizontal = 3
 size_flags_vertical = 0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 17
-theme_override_styles/normal = SubResource("StyleBoxFlat_gwk6l")
-text = "AHIS 203 Beanbags throughout history"
+theme_override_styles/normal = SubResource("StyleBoxFlat_ps82l")
+text = "POLS 201
+LH12
+
+"
 fit_content = true
 
 [node name="TLabel5" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
 visible = false
-custom_minimum_size = Vector2(140, 0)
-offset_left = 1755.0
-offset_top = 660.0
-offset_right = 1895.0
-offset_bottom = 756.0
+custom_minimum_size = Vector2(172, 0)
+offset_left = 562.0
+offset_top = 220.0
+offset_right = 736.0
+offset_bottom = 292.0
 size_flags_horizontal = 3
 size_flags_vertical = 0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 17
-theme_override_styles/normal = SubResource("StyleBoxFlat_gwk6l")
-text = "AHIS 203 Beanbags throughout history"
+theme_override_styles/normal = SubResource("StyleBoxFlat_ps82l")
+text = "POLS 201
+LH12
+
+"
 fit_content = true
 
 [node name="WLabel1" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
-custom_minimum_size = Vector2(140, 0)
-offset_left = 767.0
+custom_minimum_size = Vector2(171, 0)
+offset_left = 744.0
 offset_top = 220.0
-offset_right = 907.0
+offset_right = 915.0
 offset_bottom = 268.0
 size_flags_vertical = 0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
@@ -585,72 +544,68 @@ LS204"
 fit_content = true
 
 [node name="WLabel2" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
-custom_minimum_size = Vector2(140, 0)
-offset_left = 767.0
-offset_top = 272.0
-offset_right = 907.0
-offset_bottom = 344.0
+custom_minimum_size = Vector2(171, 0)
+offset_left = 744.0
+offset_top = 220.0
+offset_right = 915.0
+offset_bottom = 268.0
 size_flags_vertical = 0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 17
-theme_override_styles/normal = SubResource("StyleBoxFlat_nuriq")
-text = "CS101
-ESB 001
-
-"
+theme_override_styles/normal = SubResource("StyleBoxFlat_08k2x")
+text = "BIO101
+LS204"
 fit_content = true
 
 [node name="WLabel3" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
-custom_minimum_size = Vector2(140, 0)
-offset_left = 767.0
+custom_minimum_size = Vector2(171, 0)
+offset_left = 744.0
 offset_top = 220.0
-offset_right = 768.0
+offset_right = 915.0
 offset_bottom = 268.0
-size_flags_horizontal = 3
+size_flags_vertical = 0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 17
-theme_override_styles/normal = SubResource("StyleBoxFlat_p2ow1")
+theme_override_styles/normal = SubResource("StyleBoxFlat_08k2x")
 text = "BIO101
 LS204"
 fit_content = true
 
 [node name="WLabel4" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
 visible = false
-custom_minimum_size = Vector2(140, 0)
-offset_left = 767.0
+custom_minimum_size = Vector2(171, 0)
+offset_left = 744.0
 offset_top = 220.0
-offset_right = 768.0
-offset_bottom = 292.0
-size_flags_vertical = 0
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 17
-theme_override_styles/normal = SubResource("StyleBoxFlat_fhstm")
-text = "CS101
-ESB 001
-
-"
-fit_content = true
-
-[node name="WLabel5" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
-visible = false
-custom_minimum_size = Vector2(140, 0)
-offset_left = 767.0
-offset_top = 220.0
-offset_right = 768.0
+offset_right = 915.0
 offset_bottom = 268.0
 size_flags_vertical = 0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 17
-theme_override_styles/normal = SubResource("StyleBoxFlat_qa81j")
+theme_override_styles/normal = SubResource("StyleBoxFlat_08k2x")
+text = "BIO101
+LS204"
+fit_content = true
+
+[node name="WLabel5" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
+visible = false
+custom_minimum_size = Vector2(171, 0)
+offset_left = 744.0
+offset_top = 220.0
+offset_right = 915.0
+offset_bottom = 268.0
+size_flags_vertical = 0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_08k2x")
 text = "BIO101
 LS204"
 fit_content = true
 
 [node name="ThLabel1" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
-custom_minimum_size = Vector2(140, 0)
-offset_left = 949.0
+custom_minimum_size = Vector2(178, 0)
+offset_left = 923.0
 offset_top = 220.0
-offset_right = 1089.0
+offset_right = 1101.0
 offset_bottom = 292.0
 size_flags_horizontal = 3
 size_flags_vertical = 0
@@ -664,83 +619,80 @@ ESB 001
 fit_content = true
 
 [node name="ThLabel2" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
-custom_minimum_size = Vector2(140, 0)
-offset_left = 949.0
-offset_top = 296.0
-offset_right = 1089.0
-offset_bottom = 344.0
+custom_minimum_size = Vector2(178, 0)
+offset_left = 923.0
+offset_top = 220.0
+offset_right = 1101.0
+offset_bottom = 292.0
 size_flags_horizontal = 3
 size_flags_vertical = 0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 17
-theme_override_styles/normal = SubResource("StyleBoxFlat_1bsv8")
-text = "EN 133
-ENB 301
+theme_override_styles/normal = SubResource("StyleBoxFlat_hd660")
+text = "CS101
+ESB 001
+
 "
 fit_content = true
 
 [node name="ThLabel3" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
-visible = false
-custom_minimum_size = Vector2(140, 0)
-offset_left = 949.0
+custom_minimum_size = Vector2(178, 0)
+offset_left = 923.0
 offset_top = 220.0
-offset_right = 950.0
-offset_bottom = 316.0
+offset_right = 1101.0
+offset_bottom = 292.0
 size_flags_horizontal = 3
 size_flags_vertical = 0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 17
-theme_override_styles/normal = SubResource("StyleBoxFlat_1bsv8")
-text = "ART 222
-ARB 313
-
+theme_override_styles/normal = SubResource("StyleBoxFlat_hd660")
+text = "CS101
+ESB 001
 
 "
 fit_content = true
 
 [node name="ThLabel4" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
 visible = false
-custom_minimum_size = Vector2(140, 0)
-offset_left = 949.0
+custom_minimum_size = Vector2(178, 0)
+offset_left = 923.0
 offset_top = 220.0
-offset_right = 950.0
-offset_bottom = 316.0
+offset_right = 1101.0
+offset_bottom = 292.0
 size_flags_horizontal = 3
 size_flags_vertical = 0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 17
-theme_override_styles/normal = SubResource("StyleBoxFlat_1bsv8")
-text = "ART 222
-ARB 313
-
+theme_override_styles/normal = SubResource("StyleBoxFlat_hd660")
+text = "CS101
+ESB 001
 
 "
 fit_content = true
 
 [node name="ThLabel5" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
 visible = false
-custom_minimum_size = Vector2(140, 0)
-offset_left = 949.0
+custom_minimum_size = Vector2(178, 0)
+offset_left = 923.0
 offset_top = 220.0
-offset_right = 950.0
-offset_bottom = 316.0
+offset_right = 1101.0
+offset_bottom = 292.0
 size_flags_horizontal = 3
 size_flags_vertical = 0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 17
-theme_override_styles/normal = SubResource("StyleBoxFlat_1bsv8")
-text = "ART 222
-ARB 313
-
+theme_override_styles/normal = SubResource("StyleBoxFlat_hd660")
+text = "CS101
+ESB 001
 
 "
 fit_content = true
 
 [node name="FLabel1" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
-custom_minimum_size = Vector2(140, 0)
-offset_left = 1131.0
+custom_minimum_size = Vector2(163, 0)
+offset_left = 1109.0
 offset_top = 220.0
-offset_right = 1271.0
+offset_right = 1119.0
 offset_bottom = 292.0
 size_flags_vertical = 0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
@@ -753,28 +705,31 @@ LH12
 fit_content = true
 
 [node name="FLabel2" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
-custom_minimum_size = Vector2(140, 0)
-offset_left = 1131.0
-offset_top = 296.0
-offset_right = 1271.0
-offset_bottom = 392.0
+custom_minimum_size = Vector2(163, 0)
+offset_left = 1109.0
+offset_top = 220.0
+offset_right = 1119.0
+offset_bottom = 292.0
 size_flags_vertical = 0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 17
-theme_override_styles/normal = SubResource("StyleBoxFlat_f2m3k")
-text = "AHIS 203 Beanbags throughout history"
+theme_override_styles/normal = SubResource("StyleBoxFlat_3aha8")
+text = "POLS 201
+LH12
+
+"
 fit_content = true
 
 [node name="FLabel3" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
-custom_minimum_size = Vector2(140, 0)
-offset_left = 1131.0
-offset_top = 396.0
-offset_right = 1271.0
-offset_bottom = 468.0
+custom_minimum_size = Vector2(163, 0)
+offset_left = 1109.0
+offset_top = 220.0
+offset_right = 1119.0
+offset_bottom = 292.0
 size_flags_vertical = 0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 17
-theme_override_styles/normal = SubResource("StyleBoxFlat_4xxxt")
+theme_override_styles/normal = SubResource("StyleBoxFlat_3aha8")
 text = "POLS 201
 LH12
 
@@ -783,29 +738,32 @@ fit_content = true
 
 [node name="FLabel4" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
 visible = false
-custom_minimum_size = Vector2(140, 0)
-offset_left = 1131.0
+custom_minimum_size = Vector2(163, 0)
+offset_left = 1109.0
 offset_top = 220.0
-offset_right = 1132.0
-offset_bottom = 1084.0
-size_flags_vertical = 0
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 17
-theme_override_styles/normal = SubResource("StyleBoxFlat_5gf3f")
-text = "AHIS 203 Beanbags throughout history"
-fit_content = true
-
-[node name="FLabel5" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
-visible = false
-custom_minimum_size = Vector2(140, 0)
-offset_left = 1131.0
-offset_top = 220.0
-offset_right = 1132.0
+offset_right = 1119.0
 offset_bottom = 292.0
 size_flags_vertical = 0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 17
-theme_override_styles/normal = SubResource("StyleBoxFlat_5e0kg")
+theme_override_styles/normal = SubResource("StyleBoxFlat_3aha8")
+text = "POLS 201
+LH12
+
+"
+fit_content = true
+
+[node name="FLabel5" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
+visible = false
+custom_minimum_size = Vector2(163, 0)
+offset_left = 1109.0
+offset_top = 220.0
+offset_right = 1119.0
+offset_bottom = 292.0
+size_flags_vertical = 0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_3aha8")
 text = "POLS 201
 LH12
 
