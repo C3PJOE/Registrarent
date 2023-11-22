@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dgv0xsiratr8g"]
+[gd_scene load_steps=40 format=3 uid="uid://dgv0xsiratr8g"]
 
 [ext_resource type="Script" path="res://Scenes/Main.gd" id="1_5ghd7"]
 [ext_resource type="Script" path="res://Scenes/MainContainer.gd" id="1_pf4tp"]
@@ -17,30 +17,121 @@ texture = ExtResource("8_n2jyd")
 resource_local_to_scene = true
 bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tdy8o"]
-resource_local_to_scene = true
-resource_name = "yellowBG"
-bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
-border_width_top = 2
-border_width_bottom = 2
-border_color = Color(0.85098, 0.811765, 0.0352941, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ps82l"]
-resource_local_to_scene = true
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ox75y"]
 bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
 border_color = Color(0.85098, 0.811765, 0.0352941, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_08k2x"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4guhb"]
+bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
+border_color = Color(0.85098, 0.811765, 0.0352941, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oxoc7"]
+bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
+border_color = Color(0.85098, 0.811765, 0.0352941, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1emwc"]
+bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
+border_color = Color(0.85098, 0.811765, 0.0352941, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_emt8v"]
+bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
+border_color = Color(0.85098, 0.811765, 0.0352941, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lxvvd"]
+bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
+border_color = Color(0.85098, 0.811765, 0.0352941, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xc78t"]
 resource_local_to_scene = true
 bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
 border_color = Color(0.85098, 0.811765, 0.0352941, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hd660"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uxo6o"]
 resource_local_to_scene = true
 bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
 border_color = Color(0.85098, 0.811765, 0.0352941, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3aha8"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_egce3"]
+resource_local_to_scene = true
+bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
+border_color = Color(0.85098, 0.811765, 0.0352941, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_myks0"]
+resource_local_to_scene = true
+bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
+border_color = Color(0.85098, 0.811765, 0.0352941, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x8m3q"]
+resource_local_to_scene = true
+bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
+border_color = Color(0.85098, 0.811765, 0.0352941, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n4f1u"]
+resource_local_to_scene = true
+bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
+border_color = Color(0.85098, 0.811765, 0.0352941, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dhrf7"]
+resource_local_to_scene = true
+bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
+border_color = Color(0.85098, 0.811765, 0.0352941, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u8qfj"]
+resource_local_to_scene = true
+bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
+border_color = Color(0.85098, 0.811765, 0.0352941, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pe1ho"]
+resource_local_to_scene = true
+bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
+border_color = Color(0.85098, 0.811765, 0.0352941, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i50kb"]
+resource_local_to_scene = true
+bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
+border_color = Color(0.85098, 0.811765, 0.0352941, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c8lyi"]
+resource_local_to_scene = true
+bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
+border_color = Color(0.85098, 0.811765, 0.0352941, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btj5f"]
+resource_local_to_scene = true
+bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
+border_color = Color(0.85098, 0.811765, 0.0352941, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5hh61"]
+resource_local_to_scene = true
+bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
+border_color = Color(0.85098, 0.811765, 0.0352941, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_egqga"]
+resource_local_to_scene = true
+bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
+border_color = Color(0.85098, 0.811765, 0.0352941, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tea5g"]
+resource_local_to_scene = true
+bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
+border_color = Color(0.85098, 0.811765, 0.0352941, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g6y7v"]
+resource_local_to_scene = true
+bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
+border_color = Color(0.85098, 0.811765, 0.0352941, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4vo4q"]
+resource_local_to_scene = true
+bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
+border_color = Color(0.85098, 0.811765, 0.0352941, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8d8jp"]
+resource_local_to_scene = true
+bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
+border_color = Color(0.85098, 0.811765, 0.0352941, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_skq3y"]
 resource_local_to_scene = true
 bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
 border_color = Color(0.85098, 0.811765, 0.0352941, 1)
@@ -360,410 +451,453 @@ theme_override_font_sizes/normal_font_size = 21
 text = "Friday"
 fit_content = true
 
-[node name="MLabel1" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
-custom_minimum_size = Vector2(175, 0)
-offset_left = 378.0
-offset_top = 177.0
-offset_right = 518.0
-offset_bottom = 249.0
-size_flags_horizontal = 3
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 17
-theme_override_styles/normal = SubResource("StyleBoxFlat_tdy8o")
-text = "CS 101 
-ESB 001
-
-"
-fit_content = true
-
-[node name="MLabel2" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
-custom_minimum_size = Vector2(175, 0)
-offset_left = 378.0
-offset_top = 177.0
-offset_right = 518.0
-offset_bottom = 249.0
-size_flags_horizontal = 3
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 17
-theme_override_styles/normal = SubResource("StyleBoxFlat_tdy8o")
-text = "CS 101 
-ESB 001
-
-"
-fit_content = true
-
-[node name="MLabel3" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
-custom_minimum_size = Vector2(175, 0)
-offset_left = 378.0
-offset_top = 177.0
-offset_right = 518.0
-offset_bottom = 249.0
-size_flags_horizontal = 3
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 17
-theme_override_styles/normal = SubResource("StyleBoxFlat_tdy8o")
-text = "CS 101 
-ESB 001
-
-"
-fit_content = true
-
-[node name="MLabel4" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
+[node name="MLabel1" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" groups=["MondayLabels"]]
 visible = false
 custom_minimum_size = Vector2(175, 0)
 offset_left = 378.0
 offset_top = 177.0
-offset_right = 518.0
-offset_bottom = 249.0
+offset_right = 553.0
+offset_bottom = 217.0
 size_flags_horizontal = 3
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 17
-theme_override_styles/normal = SubResource("StyleBoxFlat_tdy8o")
-text = "CS 101 
-ESB 001
+theme_override_styles/normal = SubResource("StyleBoxFlat_ox75y")
+bbcode_enabled = true
+text = "
 
 "
 fit_content = true
 
-[node name="MLabel5" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
+[node name="MLabel2" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" groups=["MondayLabels"]]
 visible = false
 custom_minimum_size = Vector2(175, 0)
-offset_left = 378.0
-offset_top = 177.0
-offset_right = 518.0
-offset_bottom = 249.0
+offset_left = 756.0
+offset_top = 354.0
+offset_right = 931.0
+offset_bottom = 400.0
 size_flags_horizontal = 3
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 17
-theme_override_styles/normal = SubResource("StyleBoxFlat_tdy8o")
-text = "CS 101 
-ESB 001
+theme_override_styles/normal = SubResource("StyleBoxFlat_4guhb")
+bbcode_enabled = true
+text = "
 
 "
 fit_content = true
 
-[node name="TLabel1" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
-custom_minimum_size = Vector2(172, 0)
-offset_left = 562.0
-offset_top = 220.0
-offset_right = 736.0
-offset_bottom = 292.0
+[node name="MLabel3" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" groups=["MondayLabels"]]
+visible = false
+custom_minimum_size = Vector2(175, 0)
+offset_left = 1134.0
+offset_top = 531.0
+offset_right = 1309.0
+offset_bottom = 577.0
 size_flags_horizontal = 3
-size_flags_vertical = 0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 17
-theme_override_styles/normal = SubResource("StyleBoxFlat_ps82l")
-text = "POLS 201
-LH12
+theme_override_styles/normal = SubResource("StyleBoxFlat_oxoc7")
+bbcode_enabled = true
+text = "
 
 "
 fit_content = true
 
-[node name="TLabel2" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
-custom_minimum_size = Vector2(172, 0)
-offset_left = 562.0
-offset_top = 220.0
-offset_right = 736.0
-offset_bottom = 292.0
+[node name="MLabel4" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" groups=["MondayLabels"]]
+visible = false
+custom_minimum_size = Vector2(175, 0)
+offset_left = 1512.0
+offset_top = 708.0
+offset_right = 1687.0
+offset_bottom = 754.0
 size_flags_horizontal = 3
-size_flags_vertical = 0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 17
-theme_override_styles/normal = SubResource("StyleBoxFlat_ps82l")
-text = "POLS 201
-LH12
+theme_override_styles/normal = SubResource("StyleBoxFlat_1emwc")
+bbcode_enabled = true
+text = "
 
 "
 fit_content = true
 
-[node name="TLabel3" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
-custom_minimum_size = Vector2(172, 0)
-offset_left = 562.0
-offset_top = 220.0
-offset_right = 736.0
-offset_bottom = 292.0
+[node name="MLabel5" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" groups=["MondayLabels"]]
+visible = false
+custom_minimum_size = Vector2(175, 0)
+offset_left = 1890.0
+offset_top = 885.0
+offset_right = 2065.0
+offset_bottom = 931.0
 size_flags_horizontal = 3
-size_flags_vertical = 0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 17
-theme_override_styles/normal = SubResource("StyleBoxFlat_ps82l")
-text = "POLS 201
-LH12
+theme_override_styles/normal = SubResource("StyleBoxFlat_emt8v")
+bbcode_enabled = true
+text = "
 
 "
 fit_content = true
 
-[node name="TLabel4" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
+[node name="TLabel1" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" groups=["TuesdayLabels"]]
+visible = false
+custom_minimum_size = Vector2(175, 0)
+offset_left = 3780.0
+offset_top = 1770.0
+offset_right = 3955.0
+offset_bottom = 1816.0
+size_flags_horizontal = 3
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_lxvvd")
+bbcode_enabled = true
+text = "
+
+"
+fit_content = true
+
+[node name="TLabel2" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" groups=["TuesdayLabels"]]
 visible = false
 custom_minimum_size = Vector2(172, 0)
-offset_left = 562.0
-offset_top = 220.0
-offset_right = 736.0
-offset_bottom = 292.0
+offset_left = 1124.0
+offset_top = 440.0
+offset_right = 1298.0
+offset_bottom = 512.0
 size_flags_horizontal = 3
 size_flags_vertical = 0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 17
-theme_override_styles/normal = SubResource("StyleBoxFlat_ps82l")
+theme_override_styles/normal = SubResource("StyleBoxFlat_xc78t")
+bbcode_enabled = true
 text = "POLS 201
 LH12
 
 "
 fit_content = true
 
-[node name="TLabel5" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
+[node name="TLabel3" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" groups=["TuesdayLabels"]]
 visible = false
 custom_minimum_size = Vector2(172, 0)
-offset_left = 562.0
-offset_top = 220.0
-offset_right = 736.0
-offset_bottom = 292.0
+offset_left = 1306.0
+offset_top = 440.0
+offset_right = 1480.0
+offset_bottom = 512.0
 size_flags_horizontal = 3
 size_flags_vertical = 0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 17
-theme_override_styles/normal = SubResource("StyleBoxFlat_ps82l")
+theme_override_styles/normal = SubResource("StyleBoxFlat_uxo6o")
+bbcode_enabled = true
 text = "POLS 201
 LH12
 
 "
 fit_content = true
 
-[node name="WLabel1" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
-custom_minimum_size = Vector2(171, 0)
-offset_left = 744.0
-offset_top = 220.0
-offset_right = 915.0
-offset_bottom = 268.0
-size_flags_vertical = 0
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 17
-theme_override_styles/normal = SubResource("StyleBoxFlat_08k2x")
-text = "BIO101
-LS204"
-fit_content = true
-
-[node name="WLabel2" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
-custom_minimum_size = Vector2(171, 0)
-offset_left = 744.0
-offset_top = 220.0
-offset_right = 915.0
-offset_bottom = 268.0
-size_flags_vertical = 0
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 17
-theme_override_styles/normal = SubResource("StyleBoxFlat_08k2x")
-text = "BIO101
-LS204"
-fit_content = true
-
-[node name="WLabel3" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
-custom_minimum_size = Vector2(171, 0)
-offset_left = 744.0
-offset_top = 220.0
-offset_right = 915.0
-offset_bottom = 268.0
-size_flags_vertical = 0
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 17
-theme_override_styles/normal = SubResource("StyleBoxFlat_08k2x")
-text = "BIO101
-LS204"
-fit_content = true
-
-[node name="WLabel4" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
+[node name="TLabel4" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" groups=["TuesdayLabels"]]
 visible = false
-custom_minimum_size = Vector2(171, 0)
-offset_left = 744.0
-offset_top = 220.0
-offset_right = 915.0
-offset_bottom = 268.0
-size_flags_vertical = 0
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 17
-theme_override_styles/normal = SubResource("StyleBoxFlat_08k2x")
-text = "BIO101
-LS204"
-fit_content = true
-
-[node name="WLabel5" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
-visible = false
-custom_minimum_size = Vector2(171, 0)
-offset_left = 744.0
-offset_top = 220.0
-offset_right = 915.0
-offset_bottom = 268.0
-size_flags_vertical = 0
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 17
-theme_override_styles/normal = SubResource("StyleBoxFlat_08k2x")
-text = "BIO101
-LS204"
-fit_content = true
-
-[node name="ThLabel1" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
-custom_minimum_size = Vector2(178, 0)
-offset_left = 923.0
-offset_top = 220.0
-offset_right = 1101.0
-offset_bottom = 292.0
+custom_minimum_size = Vector2(172, 0)
+offset_left = 2612.0
+offset_top = 880.0
+offset_right = 2786.0
+offset_bottom = 952.0
 size_flags_horizontal = 3
 size_flags_vertical = 0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 17
-theme_override_styles/normal = SubResource("StyleBoxFlat_hd660")
-text = "CS101
-ESB 001
-
-"
-fit_content = true
-
-[node name="ThLabel2" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
-custom_minimum_size = Vector2(178, 0)
-offset_left = 923.0
-offset_top = 220.0
-offset_right = 1101.0
-offset_bottom = 292.0
-size_flags_horizontal = 3
-size_flags_vertical = 0
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 17
-theme_override_styles/normal = SubResource("StyleBoxFlat_hd660")
-text = "CS101
-ESB 001
-
-"
-fit_content = true
-
-[node name="ThLabel3" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
-custom_minimum_size = Vector2(178, 0)
-offset_left = 923.0
-offset_top = 220.0
-offset_right = 1101.0
-offset_bottom = 292.0
-size_flags_horizontal = 3
-size_flags_vertical = 0
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 17
-theme_override_styles/normal = SubResource("StyleBoxFlat_hd660")
-text = "CS101
-ESB 001
-
-"
-fit_content = true
-
-[node name="ThLabel4" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
-visible = false
-custom_minimum_size = Vector2(178, 0)
-offset_left = 923.0
-offset_top = 220.0
-offset_right = 1101.0
-offset_bottom = 292.0
-size_flags_horizontal = 3
-size_flags_vertical = 0
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 17
-theme_override_styles/normal = SubResource("StyleBoxFlat_hd660")
-text = "CS101
-ESB 001
-
-"
-fit_content = true
-
-[node name="ThLabel5" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
-visible = false
-custom_minimum_size = Vector2(178, 0)
-offset_left = 923.0
-offset_top = 220.0
-offset_right = 1101.0
-offset_bottom = 292.0
-size_flags_horizontal = 3
-size_flags_vertical = 0
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 17
-theme_override_styles/normal = SubResource("StyleBoxFlat_hd660")
-text = "CS101
-ESB 001
-
-"
-fit_content = true
-
-[node name="FLabel1" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
-custom_minimum_size = Vector2(163, 0)
-offset_left = 1109.0
-offset_top = 220.0
-offset_right = 1119.0
-offset_bottom = 292.0
-size_flags_vertical = 0
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 17
-theme_override_styles/normal = SubResource("StyleBoxFlat_3aha8")
+theme_override_styles/normal = SubResource("StyleBoxFlat_egce3")
+bbcode_enabled = true
 text = "POLS 201
 LH12
 
 "
 fit_content = true
 
-[node name="FLabel2" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
-custom_minimum_size = Vector2(163, 0)
-offset_left = 1109.0
-offset_top = 220.0
-offset_right = 1119.0
-offset_bottom = 292.0
-size_flags_vertical = 0
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 17
-theme_override_styles/normal = SubResource("StyleBoxFlat_3aha8")
-text = "POLS 201
-LH12
-
-"
-fit_content = true
-
-[node name="FLabel3" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
-custom_minimum_size = Vector2(163, 0)
-offset_left = 1109.0
-offset_top = 220.0
-offset_right = 1119.0
-offset_bottom = 292.0
-size_flags_vertical = 0
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 17
-theme_override_styles/normal = SubResource("StyleBoxFlat_3aha8")
-text = "POLS 201
-LH12
-
-"
-fit_content = true
-
-[node name="FLabel4" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
+[node name="TLabel5" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" groups=["TuesdayLabels"]]
 visible = false
-custom_minimum_size = Vector2(163, 0)
-offset_left = 1109.0
-offset_top = 220.0
-offset_right = 1119.0
-offset_bottom = 292.0
+custom_minimum_size = Vector2(172, 0)
+offset_left = 5224.0
+offset_top = 1760.0
+offset_right = 5398.0
+offset_bottom = 1832.0
+size_flags_horizontal = 3
 size_flags_vertical = 0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 17
-theme_override_styles/normal = SubResource("StyleBoxFlat_3aha8")
+theme_override_styles/normal = SubResource("StyleBoxFlat_myks0")
+bbcode_enabled = true
 text = "POLS 201
 LH12
 
 "
 fit_content = true
 
-[node name="FLabel5" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
+[node name="WLabel1" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" groups=["WednesdayLabels"]]
 visible = false
-custom_minimum_size = Vector2(163, 0)
-offset_left = 1109.0
-offset_top = 220.0
-offset_right = 1119.0
-offset_bottom = 292.0
+custom_minimum_size = Vector2(172, 0)
+offset_left = 10448.0
+offset_top = 3520.0
+offset_right = 10622.0
+offset_bottom = 3592.0
+size_flags_horizontal = 3
 size_flags_vertical = 0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 17
-theme_override_styles/normal = SubResource("StyleBoxFlat_3aha8")
+theme_override_styles/normal = SubResource("StyleBoxFlat_x8m3q")
+bbcode_enabled = true
+text = "POLS 201
+LH12
+
+"
+fit_content = true
+
+[node name="WLabel2" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" groups=["WednesdayLabels"]]
+visible = false
+custom_minimum_size = Vector2(172, 0)
+offset_left = 52240.0
+offset_top = 17600.0
+offset_right = 52414.0
+offset_bottom = 17672.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_n4f1u")
+text = "POLS 201
+LH12
+
+"
+fit_content = true
+
+[node name="WLabel3" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" groups=["WednesdayLabels"]]
+visible = false
+custom_minimum_size = Vector2(172, 0)
+offset_left = 41792.0
+offset_top = 14080.0
+offset_right = 41966.0
+offset_bottom = 14152.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_dhrf7")
+text = "POLS 201
+LH12
+
+"
+fit_content = true
+
+[node name="WLabel4" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" groups=["WednesdayLabels"]]
+visible = false
+custom_minimum_size = Vector2(172, 0)
+offset_left = 31344.0
+offset_top = 10560.0
+offset_right = 31518.0
+offset_bottom = 10632.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_u8qfj")
+text = "POLS 201
+LH12
+
+"
+fit_content = true
+
+[node name="WLabel5" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" groups=["WednesdayLabels"]]
+visible = false
+custom_minimum_size = Vector2(172, 0)
+offset_left = 20896.0
+offset_top = 7040.0
+offset_right = 21070.0
+offset_bottom = 7112.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_pe1ho")
+text = "POLS 201
+LH12
+
+"
+fit_content = true
+
+[node name="ThLabel1" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" groups=["ThursdayLabels"]]
+visible = false
+custom_minimum_size = Vector2(172, 0)
+offset_left = 125376.0
+offset_top = 42240.0
+offset_right = 125550.0
+offset_bottom = 42312.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_i50kb")
+bbcode_enabled = true
+text = "POLS 201
+LH12
+
+"
+fit_content = true
+
+[node name="ThLabel2" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" groups=["ThursdayLabels"]]
+visible = false
+custom_minimum_size = Vector2(172, 0)
+offset_left = 104480.0
+offset_top = 35200.0
+offset_right = 104654.0
+offset_bottom = 35272.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_c8lyi")
+bbcode_enabled = true
+text = "POLS 201
+LH12
+
+"
+fit_content = true
+
+[node name="ThLabel3" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" groups=["ThursdayLabels"]]
+visible = false
+custom_minimum_size = Vector2(172, 0)
+offset_left = 83584.0
+offset_top = 28160.0
+offset_right = 83758.0
+offset_bottom = 28232.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_btj5f")
+bbcode_enabled = true
+text = "POLS 201
+LH12
+
+"
+fit_content = true
+
+[node name="ThLabel4" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" groups=["ThursdayLabels"]]
+visible = false
+custom_minimum_size = Vector2(172, 0)
+offset_left = 62688.0
+offset_top = 21120.0
+offset_right = 62862.0
+offset_bottom = 21192.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_5hh61")
+bbcode_enabled = true
+text = "POLS 201
+LH12
+
+"
+fit_content = true
+
+[node name="ThLabel5" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" groups=["ThursdayLabels"]]
+visible = false
+custom_minimum_size = Vector2(172, 0)
+offset_left = 41792.0
+offset_top = 14080.0
+offset_right = 41966.0
+offset_bottom = 14152.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_egqga")
+bbcode_enabled = true
+text = "POLS 201
+LH12
+
+"
+fit_content = true
+
+[node name="FLabel1" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" groups=["FridayLabels"]]
+visible = false
+custom_minimum_size = Vector2(172, 0)
+offset_left = 83584.0
+offset_top = 28160.0
+offset_right = 83758.0
+offset_bottom = 28232.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_tea5g")
+bbcode_enabled = true
+text = "POLS 201
+LH12
+
+"
+fit_content = true
+
+[node name="FLabel2" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" groups=["FridayLabels"]]
+visible = false
+custom_minimum_size = Vector2(172, 0)
+offset_left = 417920.0
+offset_top = 140800.0
+offset_right = 418094.0
+offset_bottom = 140872.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_g6y7v")
+bbcode_enabled = true
+text = "POLS 201
+LH12
+
+"
+fit_content = true
+
+[node name="FLabel3" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" groups=["FridayLabels"]]
+visible = false
+custom_minimum_size = Vector2(172, 0)
+offset_left = 334336.0
+offset_top = 112640.0
+offset_right = 334510.0
+offset_bottom = 112712.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_4vo4q")
+bbcode_enabled = true
+text = "POLS 201
+LH12
+
+"
+fit_content = true
+
+[node name="FLabel4" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" groups=["FridayLabels"]]
+visible = false
+custom_minimum_size = Vector2(172, 0)
+offset_left = 250752.0
+offset_top = 84480.0
+offset_right = 250926.0
+offset_bottom = 84552.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_8d8jp")
+bbcode_enabled = true
+text = "POLS 201
+LH12
+
+"
+fit_content = true
+
+[node name="FLabel5" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" groups=["FridayLabels"]]
+visible = false
+custom_minimum_size = Vector2(172, 0)
+offset_left = 167168.0
+offset_top = 56320.0
+offset_right = 167342.0
+offset_bottom = 56392.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_skq3y")
+bbcode_enabled = true
 text = "POLS 201
 LH12
 
