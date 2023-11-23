@@ -452,7 +452,6 @@ text = "Friday"
 fit_content = true
 
 [node name="MLabel1" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" groups=["MondayLabels"]]
-visible = false
 custom_minimum_size = Vector2(175, 0)
 offset_left = 378.0
 offset_top = 177.0
@@ -532,24 +531,23 @@ text = "
 fit_content = true
 
 [node name="TLabel1" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" groups=["TuesdayLabels"]]
-visible = false
-custom_minimum_size = Vector2(175, 0)
-offset_left = 3780.0
-offset_top = 1770.0
-offset_right = 3955.0
-offset_bottom = 1816.0
+custom_minimum_size = Vector2(174, 0)
+offset_left = 562.0
+offset_top = 177.0
+offset_right = 736.0
+offset_bottom = 246.0
 size_flags_horizontal = 3
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_lxvvd")
 bbcode_enabled = true
-text = "
-
-"
+text = "BIO 444
+ABAH 300
+10:00 AM - 12:00 PM"
 fit_content = true
 
 [node name="TLabel2" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" groups=["TuesdayLabels"]]
 visible = false
-custom_minimum_size = Vector2(172, 0)
+custom_minimum_size = Vector2(174, 0)
 offset_left = 1124.0
 offset_top = 440.0
 offset_right = 1298.0
@@ -568,7 +566,7 @@ fit_content = true
 
 [node name="TLabel3" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" groups=["TuesdayLabels"]]
 visible = false
-custom_minimum_size = Vector2(172, 0)
+custom_minimum_size = Vector2(174, 0)
 offset_left = 1306.0
 offset_top = 440.0
 offset_right = 1480.0
@@ -587,7 +585,7 @@ fit_content = true
 
 [node name="TLabel4" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" groups=["TuesdayLabels"]]
 visible = false
-custom_minimum_size = Vector2(172, 0)
+custom_minimum_size = Vector2(174, 0)
 offset_left = 2612.0
 offset_top = 880.0
 offset_right = 2786.0
@@ -606,7 +604,7 @@ fit_content = true
 
 [node name="TLabel5" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" groups=["TuesdayLabels"]]
 visible = false
-custom_minimum_size = Vector2(172, 0)
+custom_minimum_size = Vector2(174, 0)
 offset_left = 5224.0
 offset_top = 1760.0
 offset_right = 5398.0
@@ -624,12 +622,11 @@ LH12
 fit_content = true
 
 [node name="WLabel1" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" groups=["WednesdayLabels"]]
-visible = false
-custom_minimum_size = Vector2(172, 0)
-offset_left = 10448.0
-offset_top = 3520.0
-offset_right = 10622.0
-offset_bottom = 3592.0
+custom_minimum_size = Vector2(171, 0)
+offset_left = 744.0
+offset_top = 177.0
+offset_right = 915.0
+offset_bottom = 249.0
 size_flags_horizontal = 3
 size_flags_vertical = 0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
@@ -644,16 +641,17 @@ fit_content = true
 
 [node name="WLabel2" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" groups=["WednesdayLabels"]]
 visible = false
-custom_minimum_size = Vector2(172, 0)
+custom_minimum_size = Vector2(171, 0)
 offset_left = 52240.0
 offset_top = 17600.0
-offset_right = 52414.0
+offset_right = 52411.0
 offset_bottom = 17672.0
 size_flags_horizontal = 3
 size_flags_vertical = 0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 17
 theme_override_styles/normal = SubResource("StyleBoxFlat_n4f1u")
+bbcode_enabled = true
 text = "POLS 201
 LH12
 
@@ -662,16 +660,17 @@ fit_content = true
 
 [node name="WLabel3" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" groups=["WednesdayLabels"]]
 visible = false
-custom_minimum_size = Vector2(172, 0)
+custom_minimum_size = Vector2(171, 0)
 offset_left = 41792.0
 offset_top = 14080.0
-offset_right = 41966.0
+offset_right = 41963.0
 offset_bottom = 14152.0
 size_flags_horizontal = 3
 size_flags_vertical = 0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 17
 theme_override_styles/normal = SubResource("StyleBoxFlat_dhrf7")
+bbcode_enabled = true
 text = "POLS 201
 LH12
 
@@ -680,16 +679,17 @@ fit_content = true
 
 [node name="WLabel4" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" groups=["WednesdayLabels"]]
 visible = false
-custom_minimum_size = Vector2(172, 0)
+custom_minimum_size = Vector2(171, 0)
 offset_left = 31344.0
 offset_top = 10560.0
-offset_right = 31518.0
+offset_right = 31515.0
 offset_bottom = 10632.0
 size_flags_horizontal = 3
 size_flags_vertical = 0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 17
 theme_override_styles/normal = SubResource("StyleBoxFlat_u8qfj")
+bbcode_enabled = true
 text = "POLS 201
 LH12
 
@@ -698,16 +698,17 @@ fit_content = true
 
 [node name="WLabel5" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" groups=["WednesdayLabels"]]
 visible = false
-custom_minimum_size = Vector2(172, 0)
+custom_minimum_size = Vector2(171, 0)
 offset_left = 20896.0
 offset_top = 7040.0
-offset_right = 21070.0
+offset_right = 21067.0
 offset_bottom = 7112.0
 size_flags_horizontal = 3
 size_flags_vertical = 0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 17
 theme_override_styles/normal = SubResource("StyleBoxFlat_pe1ho")
+bbcode_enabled = true
 text = "POLS 201
 LH12
 
@@ -715,12 +716,11 @@ LH12
 fit_content = true
 
 [node name="ThLabel1" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" groups=["ThursdayLabels"]]
-visible = false
-custom_minimum_size = Vector2(172, 0)
-offset_left = 125376.0
-offset_top = 42240.0
-offset_right = 125550.0
-offset_bottom = 42312.0
+custom_minimum_size = Vector2(178, 0)
+offset_left = 923.0
+offset_top = 177.0
+offset_right = 1101.0
+offset_bottom = 249.0
 size_flags_horizontal = 3
 size_flags_vertical = 0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
@@ -735,10 +735,10 @@ fit_content = true
 
 [node name="ThLabel2" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" groups=["ThursdayLabels"]]
 visible = false
-custom_minimum_size = Vector2(172, 0)
+custom_minimum_size = Vector2(178, 0)
 offset_left = 104480.0
 offset_top = 35200.0
-offset_right = 104654.0
+offset_right = 104658.0
 offset_bottom = 35272.0
 size_flags_horizontal = 3
 size_flags_vertical = 0
@@ -754,10 +754,10 @@ fit_content = true
 
 [node name="ThLabel3" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" groups=["ThursdayLabels"]]
 visible = false
-custom_minimum_size = Vector2(172, 0)
+custom_minimum_size = Vector2(178, 0)
 offset_left = 83584.0
 offset_top = 28160.0
-offset_right = 83758.0
+offset_right = 83762.0
 offset_bottom = 28232.0
 size_flags_horizontal = 3
 size_flags_vertical = 0
@@ -773,10 +773,10 @@ fit_content = true
 
 [node name="ThLabel4" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" groups=["ThursdayLabels"]]
 visible = false
-custom_minimum_size = Vector2(172, 0)
+custom_minimum_size = Vector2(178, 0)
 offset_left = 62688.0
 offset_top = 21120.0
-offset_right = 62862.0
+offset_right = 62866.0
 offset_bottom = 21192.0
 size_flags_horizontal = 3
 size_flags_vertical = 0
@@ -792,10 +792,10 @@ fit_content = true
 
 [node name="ThLabel5" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" groups=["ThursdayLabels"]]
 visible = false
-custom_minimum_size = Vector2(172, 0)
+custom_minimum_size = Vector2(178, 0)
 offset_left = 41792.0
 offset_top = 14080.0
-offset_right = 41966.0
+offset_right = 41970.0
 offset_bottom = 14152.0
 size_flags_horizontal = 3
 size_flags_vertical = 0
@@ -810,12 +810,11 @@ LH12
 fit_content = true
 
 [node name="FLabel1" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" groups=["FridayLabels"]]
-visible = false
-custom_minimum_size = Vector2(172, 0)
-offset_left = 83584.0
-offset_top = 28160.0
-offset_right = 83758.0
-offset_bottom = 28232.0
+custom_minimum_size = Vector2(163, 0)
+offset_left = 1109.0
+offset_top = 177.0
+offset_right = 1272.0
+offset_bottom = 249.0
 size_flags_horizontal = 3
 size_flags_vertical = 0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
@@ -830,10 +829,10 @@ fit_content = true
 
 [node name="FLabel2" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" groups=["FridayLabels"]]
 visible = false
-custom_minimum_size = Vector2(172, 0)
+custom_minimum_size = Vector2(163, 0)
 offset_left = 417920.0
 offset_top = 140800.0
-offset_right = 418094.0
+offset_right = 418083.0
 offset_bottom = 140872.0
 size_flags_horizontal = 3
 size_flags_vertical = 0
@@ -849,10 +848,10 @@ fit_content = true
 
 [node name="FLabel3" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" groups=["FridayLabels"]]
 visible = false
-custom_minimum_size = Vector2(172, 0)
+custom_minimum_size = Vector2(163, 0)
 offset_left = 334336.0
 offset_top = 112640.0
-offset_right = 334510.0
+offset_right = 334499.0
 offset_bottom = 112712.0
 size_flags_horizontal = 3
 size_flags_vertical = 0
@@ -868,10 +867,10 @@ fit_content = true
 
 [node name="FLabel4" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" groups=["FridayLabels"]]
 visible = false
-custom_minimum_size = Vector2(172, 0)
+custom_minimum_size = Vector2(163, 0)
 offset_left = 250752.0
 offset_top = 84480.0
-offset_right = 250926.0
+offset_right = 250915.0
 offset_bottom = 84552.0
 size_flags_horizontal = 3
 size_flags_vertical = 0
@@ -887,10 +886,10 @@ fit_content = true
 
 [node name="FLabel5" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" groups=["FridayLabels"]]
 visible = false
-custom_minimum_size = Vector2(172, 0)
+custom_minimum_size = Vector2(163, 0)
 offset_left = 167168.0
 offset_top = 56320.0
-offset_right = 167342.0
+offset_right = 167331.0
 offset_bottom = 56392.0
 size_flags_horizontal = 3
 size_flags_vertical = 0

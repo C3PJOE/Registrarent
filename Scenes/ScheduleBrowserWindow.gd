@@ -71,6 +71,7 @@ var classData #= read_json_file(file2)
 var studentIndex
 
 func _ready():
+	
 	#index variable we will pass to set current schedule to tell it which 
 	#student needs to have their schedule set
 	studentIndex = 0
@@ -81,6 +82,11 @@ func start(student:int):
 	studentData= read_json_file(file1)
 	classData = read_json_file(file2)
 	_set_time_labels_positions()
+	_set_week_label_x_positions("Monday")
+	_set_week_label_x_positions("Tuesday")
+	_set_week_label_x_positions("Wednesday")
+	_set_week_label_x_positions("Thursday")
+	_set_week_label_x_positions("Friday")
 	_set_Current_Schedule(student)
 	
 #sets the position of all of the time labels in the browser screen so that they can be properly referenced later
@@ -94,6 +100,29 @@ func _set_time_labels_positions():
 	_2pm.set_position(Vector2i(0,384))
 	_3pm.set_position(Vector2i(0,448))
 	_4pm.set_position(Vector2i(0,512))
+
+#sets the x position of the labels, with the x position lining up with the appropriate day column
+#The x position of a label will never change again after this
+func _set_week_label_x_positions(day:String):
+	var day_of_week = get_tree().get_nodes_in_group(day +"Labels")
+	match day:
+		"Monday":
+			for label in day_of_week:
+				label.position.x = 378
+		"Tuesday":
+			for label in day_of_week:
+				label.position.x = 562
+		"Wednesday":
+			for label in day_of_week:
+				label.position.x = 744
+		"Thursday":
+			for label in day_of_week:
+				label.position.x = 923
+		"Friday":
+			for label in day_of_week:
+				label.position.x = 1109
+		_:
+			pass
 	
 func _set_Current_Schedule(student: int):
 	clearLabels()
