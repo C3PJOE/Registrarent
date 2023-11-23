@@ -6,16 +6,8 @@
 	"Section": "A",
 	"ClassLocation": "LH 06",
 	"ClassDuration": 90,
-	"ClassStartTimeMonday": "9:00 AM",
-	"ClassEndTimeMonday": "10:30 AM",
-	"ClassStartTimeTuesday": "9:00 AM",
-	"ClassEndTimeTuesday": "10:30 AM",
-	"ClassStartTimeWednesday": "9:00 AM",
-	"ClassEndTimeWednesday": "10:30 AM",
-	"ClassStartTimeThursday": "9:00 AM",
-	"ClassEndTimeThursday": "10:30 AM",
-	"ClassStartTimeFriday": "9:00 AM",
-	"ClassEndTimeFriday": "10:30 AM"
+	"ClassStartTime": "9:00 AM",
+	"ClassEndTime": "10:30 AM"
   },
   {
 	"ClassName": "AHIS 110B",
@@ -24,16 +16,8 @@
 	"Section": "A",
 	"ClassLocation": "LH 19",
 	"ClassDuration": 90,
-	"ClassStartTimeMonday": "10:45 AM",
-	"ClassEndTimeMonday": "12:15 PM",
-	"ClassStartTimeTuesday": "10:45 AM",
-	"ClassEndTimeTuesday": "12:15 PM",
-	"ClassStartTimeWednesday": "10:45 AM",
-	"ClassEndTimeWednesday": "12:15 PM",
-	"ClassStartTimeThursday": "10:45 AM",
-	"ClassEndTimeThursday": "12:15 PM",
-	"ClassStartTimeFriday": "10:45 AM",
-	"ClassEndTimeFriday": "12:15 PM"
+	"ClassStartTime": "10:45 AM",
+	"ClassEndTime": "12:15 PM"
   },
   {
 	"ClassName": "AHIS 203",
@@ -42,16 +26,8 @@
 	"Section": "A",
 	"ClassLocation": "LH 02",
 	"ClassDuration": 90,
-	"ClassStartTimeMonday": "1:00 PM",
-	"ClassEndTimeMonday": "2:30 PM",
-	"ClassStartTimeTuesday": "1:00 PM",
-	"ClassEndTimeTuesday": "2:30 PM",
-	"ClassStartTimeWednesday": "1:00 PM",
-	"ClassEndTimeWednesday": "2:30 PM",
-	"ClassStartTimeThursday": "1:00 PM",
-	"ClassEndTimeThursday": "2:30 PM",
-	"ClassStartTimeFriday": "1:00 PM",
-	"ClassEndTimeFriday": "2:30 PM"
+	"ClassStartTime": "1:00 PM",
+	"ClassEndTime": "2:30 PM"
   },
   {
 	"ClassName": "AHIS 214",
@@ -60,16 +36,8 @@
 	"Section": "A",
 	"ClassLocation": "LH 02",
 	"ClassDuration": 90,
-	"ClassStartTimeMonday": "9:00 AM",
-	"ClassEndTimeMonday": "10:30 AM",
-	"ClassStartTimeTuesday": "9:00 AM",
-	"ClassEndTimeTuesday": "10:30 AM",
-	"ClassStartTimeWednesday": "9:00 AM",
-	"ClassEndTimeWednesday": "10:30 AM",
-	"ClassStartTimeThursday": "9:00 AM",
-	"ClassEndTimeThursday": "10:30 AM",
-	"ClassStartTimeFriday": "9:00 AM",
-	"ClassEndTimeFriday": "10:30 AM"
+	"ClassStartTime": "9:00 AM",
+	"ClassEndTime": "10:30 AM"
   },
   {
 	"ClassName": "AHIS 255",
@@ -78,16 +46,8 @@
 	"Section": "A",
 	"ClassLocation": "HUM 114",
 	"ClassDuration": 90,
-	"ClassStartTimeMonday": "12:00 PM",
-	"ClassEndTimeMonday": "1:30 PM",
-	"ClassStartTimeTuesday": "12:00 PM",
-	"ClassEndTimeTuesday": "1:30 PM",
-	"ClassStartTimeWednesday": "12:00 PM",
-	"ClassEndTimeWednesday": "1:30 PM",
-	"ClassStartTimeThursday": "12:00 PM",
-	"ClassEndTimeThursday": "1:30 PM",
-	"ClassStartTimeFriday": "12:00 PM",
-	"ClassEndTimeFriday": "1:30 PM"
+	"ClassStartTime": "12:00 PM",
+	"ClassEndTime": "1:30 PM"
   },
   {
 	"ClassName": "AHIS 319",
@@ -96,16 +56,8 @@
 	"Section": "A",
 	"ClassLocation": "HUM 320",
 	"ClassDuration": 90,
-	"ClassStartTimeMonday": "2:30 PM",
-	"ClassEndTimeMonday": "4:00 PM",
-	"ClassStartTimeTuesday": "2:30 PM",
-	"ClassEndTimeTuesday": "4:00 PM",
-	"ClassStartTimeWednesday": "2:30 PM",
-	"ClassEndTimeWednesday": "4:00 PM",
-	"ClassStartTimeThursday": "2:30 PM",
-	"ClassEndTimeThursday": "4:00 PM",
-	"ClassStartTimeFriday": "2:30 PM",
-	"ClassEndTimeFriday": "4:00 PM"
+	"ClassStartTime": "2:30 PM",
+	"ClassEndTime": "4:00 PM"
   },
   {
 	"ClassName": "AHIS 333",
@@ -114,16 +66,8 @@
 	"Section": "A",
 	"ClassLocation": "HUM 213",
 	"ClassDuration": 90,
-	"ClassStartTimeMonday": "11:00 AM",
-	"ClassEndTimeMonday": "12:30 PM",
-	"ClassStartTimeTuesday": "11:00 AM",
-	"ClassEndTimeTuesday": "12:30 PM",
-	"ClassStartTimeWednesday": "11:00 AM",
-	"ClassEndTimeWednesday": "12:30 PM",
-	"ClassStartTimeThursday": "11:00 AM",
-	"ClassEndTimeThursday": "12:30 PM",
-	"ClassStartTimeFriday": "11:00 AM",
-	"ClassEndTimeFriday": "12:30 PM"
+	"ClassStartTime": "11:00 AM",
+	"ClassEndTime": "12:30 PM"
   },
   {
 	"ClassName": "ART 101",
@@ -132,16 +76,8 @@
 	"Section": "A",
 	"ClassLocation": "LH 21",
 	"ClassDuration": 120,
-	"ClassStartTimeMonday": "10:00 AM",
-	"ClassEndTimeMonday": "12:00 PM",
-	"ClassStartTimeTuesday": "10:00 AM",
-	"ClassEndTimeTuesday": "12:00 PM",
-	"ClassStartTimeWednesday": "10:00 AM",
-	"ClassEndTimeWednesday": "12:00 PM",
-	"ClassStartTimeThursday": "10:00 AM",
-	"ClassEndTimeThursday": "12:00 PM",
-	"ClassStartTimeFriday": "10:00 AM",
-	"ClassEndTimeFriday": "12:00 PM"
+	"ClassStartTime": "10:00 AM",
+	"ClassEndTime": "12:00 PM"
   },
   {
 	"ClassName": "ART 115",
@@ -150,16 +86,8 @@
 	"Section": "A",
 	"ClassLocation": "ARB 313",
 	"ClassDuration": 90,
-	"ClassStartTimeMonday": "12:45 PM",
-	"ClassEndTimeMonday": "2:15 PM",
-	"ClassStartTimeTuesday": "12:45 PM",
-	"ClassEndTimeTuesday": "2:15 PM",
-	"ClassStartTimeWednesday": "12:45 PM",
-	"ClassEndTimeWednesday": "2:15 PM",
-	"ClassStartTimeThursday": "12:45 PM",
-	"ClassEndTimeThursday": "2:15 PM",
-	"ClassStartTimeFriday": "12:45 PM",
-	"ClassEndTimeFriday": "2:15 PM"
+	"ClassStartTime": "12:45 PM",
+	"ClassEndTime": "2:15 PM"
   },
   {
 	"ClassName": "ART 177",
@@ -168,16 +96,8 @@
 	"Section": "A",
 	"ClassLocation": "ARB 201",
 	"ClassDuration": 90,
-	"ClassStartTimeMonday": "12:00 PM",
-	"ClassEndTimeMonday": "1:30 PM",
-	"ClassStartTimeTuesday": "12:00 PM",
-	"ClassEndTimeTuesday": "1:30 PM",
-	"ClassStartTimeWednesday": "12:00 PM",
-	"ClassEndTimeWednesday": "1:30 PM",
-	"ClassStartTimeThursday": "12:00 PM",
-	"ClassEndTimeThursday": "1:30 PM",
-	"ClassStartTimeFriday": "12:00 PM",
-	"ClassEndTimeFriday": "1:30 PM"
+	"ClassStartTime": "12:00 PM",
+	"ClassEndTime": "1:30 PM"
   },
   {
 	"ClassName": "ART 201",
@@ -186,16 +106,8 @@
 	"Section": "A",
 	"ClassLocation": "ARB 311",
 	"ClassDuration": 120,
-	"ClassStartTimeMonday": "1:00 PM",
-	"ClassEndTimeMonday": "3:00 PM",
-	"ClassStartTimeTuesday": "1:00 PM",
-	"ClassEndTimeTuesday": "3:00 PM",
-	"ClassStartTimeWednesday": "1:00 PM",
-	"ClassEndTimeWednesday": "3:00 PM",
-	"ClassStartTimeThursday": "1:00 PM",
-	"ClassEndTimeThursday": "3:00 PM",
-	"ClassStartTimeFriday": "1:00 PM",
-	"ClassEndTimeFriday": "3:00 PM"
+	"ClassStartTime": "1:00 PM",
+	"ClassEndTime": "3:00 PM"
   },
   {
 	"ClassName": "ART 222",
@@ -204,16 +116,8 @@
 	"Section": "A",
 	"ClassLocation": "ARB 313",
 	"ClassDuration": 120,
-	"ClassStartTimeMonday": "10:30 AM",
-	"ClassEndTimeMonday": "12:30 PM",
-	"ClassStartTimeTuesday": "10:30 AM",
-	"ClassEndTimeTuesday": "12:30 PM",
-	"ClassStartTimeWednesday": "10:30 AM",
-	"ClassEndTimeWednesday": "12:30 PM",
-	"ClassStartTimeThursday": "10:30 AM",
-	"ClassEndTimeThursday": "12:30 PM",
-	"ClassStartTimeFriday": "10:30 AM",
-	"ClassEndTimeFriday": "12:30 PM"
+	"ClassStartTime": "10:30 AM",
+	"ClassEndTime": "12:30 PM"
   },
   {
 	"ClassName": "ART 320",
@@ -222,16 +126,8 @@
 	"Section": "A",
 	"ClassLocation": "ARB B01",
 	"ClassDuration": 120,
-	"ClassStartTimeMonday": "9:00 AM",
-	"ClassEndTimeMonday": "11:00 AM",
-	"ClassStartTimeTuesday": "9:00 AM",
-	"ClassEndTimeTuesday": "11:00 AM",
-	"ClassStartTimeWednesday": "9:00 AM",
-	"ClassEndTimeWednesday": "11:00 AM",
-	"ClassStartTimeThursday": "9:00 AM",
-	"ClassEndTimeThursday": "11:00 AM",
-	"ClassStartTimeFriday": "9:00 AM",
-	"ClassEndTimeFriday": "11:00 AM"
+	"ClassStartTime": "9:00 AM",
+	"ClassEndTime": "11:00 AM"
   },
   {
 	"ClassName": "ART 441",
@@ -240,16 +136,8 @@
 	"Section": "A",
 	"ClassLocation": "ARB 130",
 	"ClassDuration": 120,
-	"ClassStartTimeMonday": "12:30 PM",
-	"ClassEndTimeMonday": "2:30 PM",
-	"ClassStartTimeTuesday": "12:30 PM",
-	"ClassEndTimeTuesday": "2:30 PM",
-	"ClassStartTimeWednesday": "12:30 PM",
-	"ClassEndTimeWednesday": "2:30 PM",
-	"ClassStartTimeThursday": "12:30 PM",
-	"ClassEndTimeThursday": "2:30 PM",
-	"ClassStartTimeFriday": "12:30 PM",
-	"ClassEndTimeFriday": "2:30 PM"
+	"ClassStartTime": "12:30 PM",
+	"ClassEndTime": "2:30 PM"
   },
   {
 	"ClassName": "CS 101",
@@ -258,16 +146,8 @@
 	"Section": "A",
 	"ClassLocation": "LH 02",
 	"ClassDuration": 90,
-	"ClassStartTimeMonday": "8:00 AM",
-	"ClassEndTimeMonday": "9:30 AM",
-	"ClassStartTimeTuesday": "8:00 AM",
-	"ClassEndTimeTuesday": "9:30 AM",
-	"ClassStartTimeWednesday": "8:00 AM",
-	"ClassEndTimeWednesday": "9:30 AM",
-	"ClassStartTimeThursday": "8:00 AM",
-	"ClassEndTimeThursday": "9:30 AM",
-	"ClassStartTimeFriday": "8:00 AM",
-	"ClassEndTimeFriday": "9:30 AM"
+	"ClassStartTime": "8:00 AM",
+	"ClassEndTime": "9:30 AM"
   },
   {
 	"ClassName": "CS 112",
@@ -276,16 +156,8 @@
 	"Section": "A",
 	"ClassLocation": "ARB B02",
 	"ClassDuration": 90,
-	"ClassStartTimeMonday": "10:45 AM",
-	"ClassEndTimeMonday": "12:15 PM",
-	"ClassStartTimeTuesday": "10:45 AM",
-	"ClassEndTimeTuesday": "12:15 PM",
-	"ClassStartTimeWednesday": "10:45 AM",
-	"ClassEndTimeWednesday": "12:15 PM",
-	"ClassStartTimeThursday": "10:45 AM",
-	"ClassEndTimeThursday": "12:15 PM",
-	"ClassStartTimeFriday": "10:45 AM",
-	"ClassEndTimeFriday": "12:15 PM"
+	"ClassStartTime": "10:45 AM",
+	"ClassEndTime": "12:15 PM"
   },
   {
 	"ClassName": "CS 112D",
@@ -294,16 +166,8 @@
 	"Section": "A",
 	"ClassLocation": "ESB B11",
 	"ClassDuration": 45,
-	"ClassStartTimeMonday": "1:00 PM",
-	"ClassEndTimeMonday": "1:45 PM",
-	"ClassStartTimeTuesday": "1:00 PM",
-	"ClassEndTimeTuesday": "1:45 PM",
-	"ClassStartTimeWednesday": "1:00 PM",
-	"ClassEndTimeWednesday": "1:45 PM",
-	"ClassStartTimeThursday": "1:00 PM",
-	"ClassEndTimeThursday": "1:45 PM",
-	"ClassStartTimeFriday": "1:00 PM",
-	"ClassEndTimeFriday": "1:45 PM"
+	"ClassStartTime": "1:00 PM",
+	"ClassEndTime": "1:45 PM"
   },
   {
 	"ClassName": "CS 202",
@@ -312,16 +176,8 @@
 	"Section": "A",
 	"ClassLocation": "ENB B19",
 	"ClassDuration": 90,
-	"ClassStartTimeMonday": "9:00 AM",
-	"ClassEndTimeMonday": "10:30 AM",
-	"ClassStartTimeTuesday": "9:00 AM",
-	"ClassEndTimeTuesday": "10:30 AM",
-	"ClassStartTimeWednesday": "9:00 AM",
-	"ClassEndTimeWednesday": "10:30 AM",
-	"ClassStartTimeThursday": "9:00 AM",
-	"ClassEndTimeThursday": "10:30 AM",
-	"ClassStartTimeFriday": "9:00 AM",
-	"ClassEndTimeFriday": "10:30 AM"
+	"ClassStartTime": "9:00 AM",
+	"ClassEndTime": "10:30 AM"
   },
   {
 	"ClassName": "CS 213",
@@ -330,16 +186,8 @@
 	"Section": "A",
 	"ClassLocation": "HUM B04",
 	"ClassDuration": 90,
-	"ClassStartTimeMonday": "11:00 AM",
-	"ClassEndTimeMonday": "12:30 PM",
-	"ClassStartTimeTuesday": "11:00 AM",
-	"ClassEndTimeTuesday": "12:30 PM",
-	"ClassStartTimeWednesday": "11:00 AM",
-	"ClassEndTimeWednesday": "12:30 PM",
-	"ClassStartTimeThursday": "11:00 AM",
-	"ClassEndTimeThursday": "12:30 PM",
-	"ClassStartTimeFriday": "11:00 AM",
-	"ClassEndTimeFriday": "12:30 PM"
+	"ClassStartTime": "11:00 AM",
+	"ClassEndTime": "12:30 PM"
   },
   {
 	"ClassName": "CS 213D",
@@ -348,16 +196,8 @@
 	"Section": "A",
 	"ClassLocation": "ARB B07",
 	"ClassDuration": 45,
-	"ClassStartTimeMonday": "2:15 PM",
-	"ClassEndTimeMonday": "3:00 PM",
-	"ClassStartTimeTuesday": "2:15 PM",
-	"ClassEndTimeTuesday": "3:00 PM",
-	"ClassStartTimeWednesday": "2:15 PM",
-	"ClassEndTimeWednesday": "3:00 PM",
-	"ClassStartTimeThursday": "2:15 PM",
-	"ClassEndTimeThursday": "3:00 PM",
-	"ClassStartTimeFriday": "2:15 PM",
-	"ClassEndTimeFriday": "3:00 PM"
+	"ClassStartTime": "2:15 PM",
+	"ClassEndTime": "3:00 PM"
   },
   {
 	"ClassName": "CS 304",
@@ -366,16 +206,8 @@
 	"Section": "A",
 	"ClassLocation": "ESB 101",
 	"ClassDuration": 90,
-	"ClassStartTimeMonday": "12:45 PM",
-	"ClassEndTimeMonday": "2:15 PM",
-	"ClassStartTimeTuesday": "12:45 PM",
-	"ClassEndTimeTuesday": "2:15 PM",
-	"ClassStartTimeWednesday": "12:45 PM",
-	"ClassEndTimeWednesday": "2:15 PM",
-	"ClassStartTimeThursday": "12:45 PM",
-	"ClassEndTimeThursday": "2:15 PM",
-	"ClassStartTimeFriday": "12:45 PM",
-	"ClassEndTimeFriday": "2:15 PM"
+	"ClassStartTime": "12:45 PM",
+	"ClassEndTime": "2:15 PM"
   },
   {
 	"ClassName": "CS 312",
@@ -384,16 +216,8 @@
 	"Section": "A",
 	"ClassLocation": "ENB 202",
 	"ClassDuration": 90,
-	"ClassStartTimeMonday": "11:00 AM",
-	"ClassEndTimeMonday": "12:30 PM",
-	"ClassStartTimeTuesday": "11:00 AM",
-	"ClassEndTimeTuesday": "12:30 PM",
-	"ClassStartTimeWednesday": "11:00 AM",
-	"ClassEndTimeWednesday": "12:30 PM",
-	"ClassStartTimeThursday": "11:00 AM",
-	"ClassEndTimeThursday": "12:30 PM",
-	"ClassStartTimeFriday": "11:00 AM",
-	"ClassEndTimeFriday": "12:30 PM"
+	"ClassStartTime": "11:00 AM",
+	"ClassEndTime": "12:30 PM"
   },
   {
 	"ClassName": "CS 318",
@@ -402,16 +226,8 @@
 	"Section": "A",
 	"ClassLocation": "HUM 122",
 	"ClassDuration": 90,
-	"ClassStartTimeMonday": "9:00 AM",
-	"ClassEndTimeMonday": "10:30 AM",
-	"ClassStartTimeTuesday": "9:00 AM",
-	"ClassEndTimeTuesday": "10:30 AM",
-	"ClassStartTimeWednesday": "9:00 AM",
-	"ClassEndTimeWednesday": "10:30 AM",
-	"ClassStartTimeThursday": "9:00 AM",
-	"ClassEndTimeThursday": "10:30 AM",
-	"ClassStartTimeFriday": "9:00 AM",
-	"ClassEndTimeFriday": "10:30 AM"
+	"ClassStartTime": "9:00 AM",
+	"ClassEndTime": "10:30 AM"
   },
   {
 	"ClassName": "CS 405",
@@ -420,16 +236,8 @@
 	"Section": "A",
 	"ClassLocation": "HUM B02",
 	"ClassDuration": 90,
-	"ClassStartTimeMonday": "1:00 PM",
-	"ClassEndTimeMonday": "2:30 PM",
-	"ClassStartTimeTuesday": "1:00 PM",
-	"ClassEndTimeTuesday": "2:30 PM",
-	"ClassStartTimeWednesday": "1:00 PM",
-	"ClassEndTimeWednesday": "2:30 PM",
-	"ClassStartTimeThursday": "1:00 PM",
-	"ClassEndTimeThursday": "2:30 PM",
-	"ClassStartTimeFriday": "1:00 PM",
-	"ClassEndTimeFriday": "2:30 PM"
+	"ClassStartTime": "1:00 PM",
+	"ClassEndTime": "2:30 PM"
   },
   {
 	"ClassName": "EN 133",
@@ -438,16 +246,8 @@
 	"Section": "A",
 	"ClassLocation": "ENB 301",
 	"ClassDuration": 60,
-	"ClassStartTimeMonday": "9:15 AM",
-	"ClassEndTimeMonday": "10:15 AM",
-	"ClassStartTimeTuesday": "9:15 AM",
-	"ClassEndTimeTuesday": "10:15 AM",
-	"ClassStartTimeWednesday": "9:15 AM",
-	"ClassEndTimeWednesday": "10:15 AM",
-	"ClassStartTimeThursday": "9:15 AM",
-	"ClassEndTimeThursday": "10:15 AM",
-	"ClassStartTimeFriday": "9:15 AM",
-	"ClassEndTimeFriday": "10:15 AM"
+	"ClassStartTime": "9:15 AM",
+	"ClassEndTime": "10:15 AM"
   },
   {
 	"ClassName": "EN 168",
@@ -456,16 +256,8 @@
 	"Section": "A",
 	"ClassLocation": "ENB 101",
 	"ClassDuration": 60,
-	"ClassStartTimeMonday": "10:00 AM",
-	"ClassEndTimeMonday": "11:00 AM",
-	"ClassStartTimeTuesday": "10:00 AM",
-	"ClassEndTimeTuesday": "11:00 AM",
-	"ClassStartTimeWednesday": "10:00 AM",
-	"ClassEndTimeWednesday": "11:00 AM",
-	"ClassStartTimeThursday": "10:00 AM",
-	"ClassEndTimeThursday": "11:00 AM",
-	"ClassStartTimeFriday": "10:00 AM",
-	"ClassEndTimeFriday": "11:00 AM"
+	"ClassStartTime": "10:00 AM",
+	"ClassEndTime": "11:00 AM"
   },
   {
 	"ClassName": "EN 204",
@@ -474,16 +266,8 @@
 	"Section": "A",
 	"ClassLocation": "ENB 109",
 	"ClassDuration": 60,
-	"ClassStartTimeMonday": "11:30 AM",
-	"ClassEndTimeMonday": "12:30 PM",
-	"ClassStartTimeTuesday": "11:30 AM",
-	"ClassEndTimeTuesday": "12:30 PM",
-	"ClassStartTimeWednesday": "11:30 AM",
-	"ClassEndTimeWednesday": "12:30 PM",
-	"ClassStartTimeThursday": "11:30 AM",
-	"ClassEndTimeThursday": "12:30 PM",
-	"ClassStartTimeFriday": "11:30 AM",
-	"ClassEndTimeFriday": "12:30 PM"
+	"ClassStartTime": "11:30 AM",
+	"ClassEndTime": "12:30 PM"
   },
   {
 	"ClassName": "EN 211",
@@ -492,16 +276,8 @@
 	"Section": "A",
 	"ClassLocation": "ENB 128",
 	"ClassDuration": 60,
-	"ClassStartTimeMonday": "1:00 PM",
-	"ClassEndTimeMonday": "2:00 PM",
-	"ClassStartTimeTuesday": "1:00 PM",
-	"ClassEndTimeTuesday": "2:00 PM",
-	"ClassStartTimeWednesday": "1:00 PM",
-	"ClassEndTimeWednesday": "2:00 PM",
-	"ClassStartTimeThursday": "1:00 PM",
-	"ClassEndTimeThursday": "2:00 PM",
-	"ClassStartTimeFriday": "1:00 PM",
-	"ClassEndTimeFriday": "2:00 PM"
+	"ClassStartTime": "1:00 PM",
+	"ClassEndTime": "2:00 PM"
   },
   {
 	"ClassName": "EN 218",
@@ -510,16 +286,8 @@
 	"Section": "A",
 	"ClassLocation": "LH 08",
 	"ClassDuration": 60,
-	"ClassStartTimeMonday": "8:15 AM",
-	"ClassEndTimeMonday": "9:15 AM",
-	"ClassStartTimeTuesday": "8:15 AM",
-	"ClassEndTimeTuesday": "9:15 AM",
-	"ClassStartTimeWednesday": "8:15 AM",
-	"ClassEndTimeWednesday": "9:15 AM",
-	"ClassStartTimeThursday": "8:15 AM",
-	"ClassEndTimeThursday": "9:15 AM",
-	"ClassStartTimeFriday": "8:15 AM",
-	"ClassEndTimeFriday": "9:15 AM"
+	"ClassStartTime": "8:15 AM",
+	"ClassEndTime": "9:15 AM"
   },
   {
 	"ClassName": "MAT 206",
@@ -528,16 +296,8 @@
 	"Section": "A",
 	"ClassLocation": "LH 06",
 	"ClassDuration": 90,
-	"ClassStartTimeMonday": "8:00 AM",
-	"ClassEndTimeMonday": "9:30 AM",
-	"ClassStartTimeTuesday": "8:00 AM",
-	"ClassEndTimeTuesday": "9:30 AM",
-	"ClassStartTimeWednesday": "8:00 AM",
-	"ClassEndTimeWednesday": "9:30 AM",
-	"ClassStartTimeThursday": "8:00 AM",
-	"ClassEndTimeThursday": "9:30 AM",
-	"ClassStartTimeFriday": "8:00 AM",
-	"ClassEndTimeFriday": "9:30 AM"
+	"ClassStartTime": "8:00 AM",
+	"ClassEndTime": "9:30 AM"
   },
   {
 	"ClassName": "MAT 218",
@@ -546,16 +306,8 @@
 	"Section": "A",
 	"ClassLocation": "MAB 117",
 	"ClassDuration": 90,
-	"ClassStartTimeMonday": "11:15 AM",
-	"ClassEndTimeMonday": "12:45 PM",
-	"ClassStartTimeTuesday": "11:15 AM",
-	"ClassEndTimeTuesday": "12:45 PM",
-	"ClassStartTimeWednesday": "11:15 AM",
-	"ClassEndTimeWednesday": "12:45 PM",
-	"ClassStartTimeThursday": "11:15 AM",
-	"ClassEndTimeThursday": "12:45 PM",
-	"ClassStartTimeFriday": "11:15 AM",
-	"ClassEndTimeFriday": "12:45 PM"
+	"ClassStartTime": "11:15 AM",
+	"ClassEndTime": "12:45 PM"
   },
   {
 	"ClassName": "MAT 220",
@@ -564,16 +316,8 @@
 	"Section": "A",
 	"ClassLocation": "MAB 119",
 	"ClassDuration": 90,
-	"ClassStartTimeMonday": "1:00 PM",
-	"ClassEndTimeMonday": "2:30 PM",
-	"ClassStartTimeTuesday": "1:00 PM",
-	"ClassEndTimeTuesday": "2:30 PM",
-	"ClassStartTimeWednesday": "1:00 PM",
-	"ClassEndTimeWednesday": "2:30 PM",
-	"ClassStartTimeThursday": "1:00 PM",
-	"ClassEndTimeThursday": "2:30 PM",
-	"ClassStartTimeFriday": "1:00 PM",
-	"ClassEndTimeFriday": "2:30 PM"
+	"ClassStartTime": "1:00 PM",
+	"ClassEndTime": "2:30 PM"
   },
   {
 	"ClassName": "MAT 236",
@@ -582,16 +326,8 @@
 	"Section": "A",
 	"ClassLocation": "MAB 114",
 	"ClassDuration": 90,
-	"ClassStartTimeMonday": "11:15 AM",
-	"ClassEndTimeMonday": "12:45 PM",
-	"ClassStartTimeTuesday": "11:15 AM",
-	"ClassEndTimeTuesday": "12:45 PM",
-	"ClassStartTimeWednesday": "11:15 AM",
-	"ClassEndTimeWednesday": "12:45 PM",
-	"ClassStartTimeThursday": "11:15 AM",
-	"ClassEndTimeThursday": "12:45 PM",
-	"ClassStartTimeFriday": "11:15 AM",
-	"ClassEndTimeFriday": "12:45 PM"
+	"ClassStartTime": "11:15 AM",
+	"ClassEndTime": "12:45 PM"
   },
   {
 	"ClassName": "MAT 337",
@@ -600,16 +336,8 @@
 	"Section": "A",
 	"ClassLocation": "MAB 214",
 	"ClassDuration": 90,
-	"ClassStartTimeMonday": "10:45 AM",
-	"ClassEndTimeMonday": "12:15 PM",
-	"ClassStartTimeTuesday": "10:45 AM",
-	"ClassEndTimeTuesday": "12:15 PM",
-	"ClassStartTimeWednesday": "10:45 AM",
-	"ClassEndTimeWednesday": "12:15 PM",
-	"ClassStartTimeThursday": "10:45 AM",
-	"ClassEndTimeThursday": "12:15 PM",
-	"ClassStartTimeFriday": "10:45 AM",
-	"ClassEndTimeFriday": "12:15 PM"
+	"ClassStartTime": "10:45 AM",
+	"ClassEndTime": "12:15 PM"
   },
   {
 	"ClassName": "MAT 359",
@@ -618,16 +346,8 @@
 	"Section": "A",
 	"ClassLocation": "MAB 215",
 	"ClassDuration": 90,
-	"ClassStartTimeMonday": "12:30 PM",
-	"ClassEndTimeMonday": "2:00 PM",
-	"ClassStartTimeTuesday": "12:30 PM",
-	"ClassEndTimeTuesday": "2:00 PM",
-	"ClassStartTimeWednesday": "12:30 PM",
-	"ClassEndTimeWednesday": "2:00 PM",
-	"ClassStartTimeThursday": "12:30 PM",
-	"ClassEndTimeThursday": "2:00 PM",
-	"ClassStartTimeFriday": "12:30 PM",
-	"ClassEndTimeFriday": "2:00 PM"
+	"ClassStartTime": "12:30 PM",
+	"ClassEndTime": "2:00 PM"
   },
   {
 	"ClassName": "MAT 400",
@@ -636,16 +356,8 @@
 	"Section": "A",
 	"ClassLocation": "MAB 201",
 	"ClassDuration": 120,
-	"ClassStartTimeMonday": "12:00 PM",
-	"ClassEndTimeMonday": "2:00 PM",
-	"ClassStartTimeTuesday": "12:00 PM",
-	"ClassEndTimeTuesday": "2:00 PM",
-	"ClassStartTimeWednesday": "12:00 PM",
-	"ClassEndTimeWednesday": "2:00 PM",
-	"ClassStartTimeThursday": "12:00 PM",
-	"ClassEndTimeThursday": "2:00 PM",
-	"ClassStartTimeFriday": "12:00 PM",
-	"ClassEndTimeFriday": "2:00 PM"
+	"ClassStartTime": "12:00 PM",
+	"ClassEndTime": "2:00 PM"
   },
   {
 	"ClassName": "POLS 111",
@@ -654,16 +366,8 @@
 	"Section": "A",
 	"ClassLocation": "HUM 123",
 	"ClassDuration": 90,
-	"ClassStartTimeMonday": "12:30 PM",
-	"ClassEndTimeMonday": "2:00 PM",
-	"ClassStartTimeTuesday": "12:30 PM",
-	"ClassEndTimeTuesday": "2:00 PM",
-	"ClassStartTimeWednesday": "12:30 PM",
-	"ClassEndTimeWednesday": "2:00 PM",
-	"ClassStartTimeThursday": "12:30 PM",
-	"ClassEndTimeThursday": "2:00 PM",
-	"ClassStartTimeFriday": "12:30 PM",
-	"ClassEndTimeFriday": "2:00 PM"
+	"ClassStartTime": "12:30 PM",
+	"ClassEndTime": "2:00 PM"
   },
   {
 	"ClassName": "POLS 201",
@@ -672,16 +376,8 @@
 	"Section": "A",
 	"ClassLocation": "LH 12",
 	"ClassDuration": 90,
-	"ClassStartTimeMonday": "9:00 AM",
-	"ClassEndTimeMonday": "10:30 AM",
-	"ClassStartTimeTuesday": "9:00 AM",
-	"ClassEndTimeTuesday": "10:30 AM",
-	"ClassStartTimeWednesday": "9:00 AM",
-	"ClassEndTimeWednesday": "10:30 AM",
-	"ClassStartTimeThursday": "9:00 AM",
-	"ClassEndTimeThursday": "10:30 AM",
-	"ClassStartTimeFriday": "9:00 AM",
-	"ClassEndTimeFriday": "10:30 AM"
+	"ClassStartTime": "9:00 AM",
+	"ClassEndTime": "10:30 AM"
   },
   {
 	"ClassName": "POLS 225",
@@ -690,16 +386,8 @@
 	"Section": "A",
 	"ClassLocation": "HUM 201",
 	"ClassDuration": 90,
-	"ClassStartTimeMonday": "8:45 AM",
-	"ClassEndTimeMonday": "10:15 AM",
-	"ClassStartTimeTuesday": "8:45 AM",
-	"ClassEndTimeTuesday": "10:15 AM",
-	"ClassStartTimeWednesday": "8:45 AM",
-	"ClassEndTimeWednesday": "10:15 AM",
-	"ClassStartTimeThursday": "8:45 AM",
-	"ClassEndTimeThursday": "10:15 AM",
-	"ClassStartTimeFriday": "8:45 AM",
-	"ClassEndTimeFriday": "10:15 AM"
+	"ClassStartTime": "8:45 AM",
+	"ClassEndTime": "10:15 AM"
   },
   {
 	"ClassName": "POLS 308",
@@ -708,16 +396,8 @@
 	"Section": "A",
 	"ClassLocation": "HUM 322",
 	"ClassDuration": 90,
-	"ClassStartTimeMonday": "10:45 AM",
-	"ClassEndTimeMonday": "12:15 PM",
-	"ClassStartTimeTuesday": "10:45 AM",
-	"ClassEndTimeTuesday": "12:15 PM",
-	"ClassStartTimeWednesday": "10:45 AM",
-	"ClassEndTimeWednesday": "12:15 PM",
-	"ClassStartTimeThursday": "10:45 AM",
-	"ClassEndTimeThursday": "12:15 PM",
-	"ClassStartTimeFriday": "10:45 AM",
-	"ClassEndTimeFriday": "12:15 PM"
+	"ClassStartTime": "10:45 AM",
+	"ClassEndTime": "12:15 PM"
   },
   {
 	"ClassName": "POLS 416",
@@ -726,15 +406,7 @@
 	"Section": "A",
 	"ClassLocation": "HUM B19",
 	"ClassDuration": 90,
-	"ClassStartTimeMonday": "1:00 PM",
-	"ClassEndTimeMonday": "2:30 PM",
-	"ClassStartTimeTuesday": "1:00 PM",
-	"ClassEndTimeTuesday": "2:30 PM",
-	"ClassStartTimeWednesday": "1:00 PM",
-	"ClassEndTimeWednesday": "2:30 PM",
-	"ClassStartTimeThursday": "1:00 PM",
-	"ClassEndTimeThursday": "2:30 PM",
-	"ClassStartTimeFriday": "1:00 PM",
-	"ClassEndTimeFriday": "2:30 PM"
+	"ClassStartTime": "1:00 PM",
+	"ClassEndTime": "2:30 PM"
   }
 ]

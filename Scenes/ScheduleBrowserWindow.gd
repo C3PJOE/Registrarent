@@ -1,6 +1,5 @@
 extends Window
 signal esc_pressed 
-
 @onready var pause_menu = $"../../PauseMenu"
 #student info container and labels
 @onready var student_info_container = $StudentInfoContainer
@@ -10,55 +9,76 @@ signal esc_pressed
 @onready var minor = $StudentInfoContainer/Minor
 @onready var fin_aid = $StudentInfoContainer/FinAid
 @onready var account_status = $StudentInfoContainer/AccountStatus
-#monday container and labels
-@onready var monday_container = $MondayContainer
-@onready var m_label_1 = $MondayContainer/MLabel1
-@onready var m_label_2 = $MondayContainer/MLabel2
-@onready var m_label_3 = $MondayContainer/MLabel3
-@onready var m_label_4 = $MondayContainer/MLabel4
-@onready var m_label_5 = $MondayContainer/MLabel5
-@onready var m_spacer_label = $MondayContainer/MSpacerLabel
-#tuesday container and labels
-@onready var tuesday_container = $"Tuesday Container"
-@onready var t_label_1 = $"Tuesday Container/TLabel1"
-@onready var t_label_2 = $"Tuesday Container/TLabel2"
-@onready var t_label_3 = $"Tuesday Container/TLabel3"
-@onready var t_label_4 = $"Tuesday Container/TLabel4"
-@onready var t_label_5 = $"Tuesday Container/TLabel5"
-@onready var t_spacer_label = $"Tuesday Container/TSpacerLabel"
-#Wednesday container and labels
-@onready var wednesday_container = $WednesdayContainer
-@onready var w_label_1 = $WednesdayContainer/WLabel1
-@onready var w_label_2 = $WednesdayContainer/WLabel2
-@onready var w_label_3 = $WednesdayContainer/WLabel3
-@onready var w_label_4 = $WednesdayContainer/WLabel4
-@onready var w_label_5 = $WednesdayContainer/WLabel5
-@onready var w_spacer_label = $WednesdayContainer/WSpacerLabel
+#class time container and labels
+@onready var class_time_container = $ClassTimeContainer
+@onready var _8am = $"ClassTimeContainer/8AM"
+@onready var _9am = $"ClassTimeContainer/9AM"
+@onready var _10am = $"ClassTimeContainer/10AM"
+@onready var _11am = $"ClassTimeContainer/11AM"
+@onready var _12pm = $"ClassTimeContainer/12PM"
+@onready var _1pm = $"ClassTimeContainer/1PM"
+@onready var _2pm = $"ClassTimeContainer/2PM"
+@onready var _3pm = $"ClassTimeContainer/3PM"
+@onready var _4pm = $"ClassTimeContainer/4PM"
+@onready var _5pm = $"ClassTimeContainer/5PM"
+#reference_rects
+@onready var _800_line = $"800Line"
+@onready var _830_line = $"830Line"
+@onready var _930_line = $"930Line"
+@onready var _1030_line = $"1030Line"
+@onready var _1130_line = $"1130Line"
+@onready var _1230_line = $"1230Line"
+@onready var _130_line = $"130Line"
+@onready var _230_line = $"230Line"
+@onready var _330_line = $"330Line"
+#monday labels
+@onready var m_label_1 = $MLabel1
+@onready var m_label_2 = $MLabel2
+@onready var m_label_3 = $MLabel3
+@onready var m_label_4 = $MLabel4
+@onready var m_label_5 = $MLabel5
+#tuesday labels
+@onready var t_label_1 = $TLabel1
+@onready var t_label_2 = $TLabel2
+@onready var t_label_3 = $TLabel3
+@onready var t_label_4 = $TLabel4
+@onready var t_label_5 = $TLabel5
+#Wednesday labels
+@onready var w_label_1 = $WLabel1
+@onready var w_label_2 = $WLabel2
+@onready var w_label_3 = $WLabel3
+@onready var w_label_4 = $WLabel4
+@onready var w_label_5 = $WLabel5
 #Thursday container and labels
-@onready var thursday_container = $ThursdayContainer
-@onready var th_label_1 = $ThursdayContainer/ThLabel1
-@onready var th_label_2 = $ThursdayContainer/ThLabel2
-@onready var th_label_3 = $ThursdayContainer/ThLabel3
-@onready var th_label_4 = $ThursdayContainer/ThLabel4
-@onready var th_label_5 = $ThursdayContainer/ThLabel5
-@onready var th_spacer_label = $ThursdayContainer/ThSpacerLabel
-#Friday container and labels
-@onready var friday_container = $FridayContainer
-@onready var f_label_1 = $FridayContainer/FLabel1
-@onready var f_label_2 = $FridayContainer/FLabel2
-@onready var f_label_3 = $FridayContainer/FLabel3
-@onready var f_label_4 = $FridayContainer/FLabel4
-@onready var f_label_5 = $FridayContainer/FLabel5
-@onready var f_spacer_label = $FridayContainer/FSpacerLabel
+@onready var th_label_1 = $ThLabel1
+@onready var th_label_2 = $ThLabel2
+@onready var th_label_3 = $ThLabel3
+@onready var th_label_4 = $ThLabel4
+@onready var th_label_5 = $ThLabel5
+#Friday container and label
+@onready var f_label_1 = $FLabel1
+@onready var f_label_2 = $FLabel2
+@onready var f_label_3 = $FLabel3
+@onready var f_label_4 = $FLabel4
+@onready var f_label_5 = $FLabel5
+
 
 var file1 ="res://UniData/StudentData.json"
 var file2 = "res://UniData/ClassData.json"
 #vars to hold the data from the class and student json files
-var studentData#= read_json_file(file1)
-var classData #= read_json_file(file2)
+var studentData
+var classData 
 var studentIndex
 
+@onready var monday_label = get_tree().get_nodes_in_group("MondayLabels")
+@onready var tuesday_label = get_tree().get_nodes_in_group("TuesdayLabels")
+@onready var wednesday_label = get_tree().get_nodes_in_group("WednesdayLabels")
+@onready var thursday_label = get_tree().get_nodes_in_group("ThursdayLabels")
+@onready var friday_label = get_tree().get_nodes_in_group("FridayLabels")
+
 func _ready():
+	_set_time_labels_positions()
+	_set_week_label_x_positions()
 	#index variable we will pass to set current schedule to tell it which 
 	#student needs to have their schedule set
 	studentIndex = 0
@@ -66,9 +86,41 @@ func _ready():
 	
 #calls the set current schedule function 
 func start(student:int):
+	
 	studentData= read_json_file(file1)
 	classData = read_json_file(file2)
 	_set_Current_Schedule(student)
+	
+#sets the position of all of the time labels in the browser screen so that they can be properly referenced later
+func _set_time_labels_positions():
+	_8am.set_position(Vector2i(0,0))
+	_9am.set_position(Vector2i(0,64))
+	_10am.set_position(Vector2i(0,128))
+	_11am.set_position(Vector2i(0,192))
+	_12pm.set_position(Vector2i(0,256))
+	_1pm.set_position(Vector2i(0,320))
+	_2pm.set_position(Vector2i(0,384))
+	_3pm.set_position(Vector2i(0,448))
+	_4pm.set_position(Vector2i(0,512))
+
+#sets the x position of the labels, with the x position lining up with the appropriate day column
+#The x position of a label will never change again after this
+func _set_week_label_x_positions():
+	
+	for label in monday_label:
+		label.position.x = 378
+
+	for label in tuesday_label:
+		label.position.x = 562
+
+	for label in wednesday_label:
+		label.position.x = 744
+
+	for label in thursday_label:
+		label.position.x = 923
+	
+	for label in friday_label:
+		label.position.x = 1109
 	
 func _set_Current_Schedule(student: int):
 	clearLabels()
@@ -99,198 +151,234 @@ func _set_Current_Schedule(student: int):
 	#array that holds the classes for every day of the week, as set above
 	var parent_class_array = [mon_class_array,tues_class_array,wed_class_array,thurs_class_array,fri_class_array]
 	
-	print ("STUDENT INDEX: " ,studentIndex)
-	print("STUDENT DATA SIZE: ",studentData.size())
-	#iterates from 0 to 4 and calls label_sorter with respect to day_of_week, with 0 being monday and 4 being friday
+	#iterates from 0 to 4 and calls label_assigner with respect to day_of_week, with 0 being monday and 4 being friday
 	for day_of_week in range(0,5):
-		#calls label_sorter for each day of the week, with 0 being monday and 4 being tuesday
-		label_sorter(day_of_week,parent_class_array[day_of_week].size(),parent_class_array)
+		#calls label_assigner for each day of the week, with 0 being monday and 4 being tuesday
+		label_assigner(day_of_week,parent_class_array[day_of_week].size(),parent_class_array)
 	
-	#increases the student index once the current student's schedule is set up,
-	#so when set_current_schedule is called again it creates the next student's schedule
+	#return classData.keys()
+	#return studentData.keys()
 	
-	#return classData[0].keys()
-	#return studentData[0].keys()
-
-#dizzy emoji what a mess I gotta stop coding at night my brain thinks of bad solutions
-func label_sorter(day:int, label_count:int, parent_array:Array):
+#func that takes the day, number of labels, and the parent array from set_current_schedule
+#and assigns the contents of the parent array to labels using match statements 
+func label_assigner(day:int, label_count:int, parent_array:Array):
 	var checkedResult:Array
-	#print("LABEL COUNT FOR ", day,": ", label_count)
+	#var day_of_week = get_tree().get_nodes_in_group(day +"Labels")
+	#match statement that checks what day of the week it is, so we can set the correct label(monday == 0, friday == 4)
 	match day:
 		0:
-			match label_count:
-				0:
-					pass
-				1:
-					checkedResult = check_for_class(parent_array[day],classData)
-					var labelText:String = checkedResult[0].CLASSNAME + "\n" + checkedResult[0].CLASSLOCATION
-					m_label_1.add_text(labelText)
-				2:
-					checkedResult = check_for_class(parent_array[day],classData)
-					var labelText:String = checkedResult[0].CLASSNAME + "\n" + checkedResult[0].CLASSLOCATION
-					m_label_1.add_text(labelText)
-					labelText = checkedResult[1].CLASSNAME + "\n" + checkedResult[1].CLASSLOCATION
-					m_label_2.add_text(labelText)
-				3:
-					checkedResult = check_for_class(parent_array[day],classData)
-					var labelText:String = checkedResult[0].CLASSNAME + "\n" + checkedResult[0].CLASSLOCATION
-					m_label_1.add_text(labelText)
-					labelText = checkedResult[1].CLASSNAME + "\n" + checkedResult[1].CLASSLOCATION
-					m_label_2.add_text(labelText)
-					labelText = checkedResult[2].CLASSNAME + "\n" + checkedResult[2].CLASSLOCATION
-					m_label_3.add_text(labelText)
-				4:
-					checkedResult = check_for_class(parent_array[day],classData)
-					var labelText:String = checkedResult[0].CLASSNAME + "\n" + checkedResult[0].CLASSLOCATION
-					m_label_1.add_text(labelText)
-					labelText = checkedResult[1].CLASSNAME + "\n" + checkedResult[1].CLASSLOCATION
-					m_label_2.add_text(labelText)
-					labelText = checkedResult[2].CLASSNAME + "\n" + checkedResult[2].CLASSLOCATION
-					m_label_3.add_text(labelText)
-					labelText = checkedResult[3].CLASSNAME + "\n" + checkedResult[3].CLASSLOCATION
-				_:
-					print("labelCount invalid")
+			var n = 0
+			for label in parent_array[day]:
+				#calls check_for_class func and stores the results in an array
+				checkedResult = check_for_class(parent_array[day],classData)
+				#calls sort_by_time, which sorts the classes in checkedResult by their start time
+				_sort_by_time(checkedResult)
+				#setting the text that will be assigned to the label by calling 
+				var labelText:String = checkedResult[n].CLASSNAME + "\n" + checkedResult[n].CLASSLOCATION + "\n" + checkedResult[n].CLASSSTARTTIME + "-" + checkedResult[n].CLASSENDTIME
+				#calling duration_padding function and storing return value in var to use in adjusting border width
+				var padding_amount:int = duration_padding(checkedResult,n)
+				#shows the label 
+				monday_label[n].show()
+				#adds the text to the label, using bbcode tags to center it 
+				monday_label[n].append_text("[center]%s[/center]" % labelText)
+				#sets the y size of the rich text label. it will expand to fit the text if more space is needed
+				monday_label[n].size.y = 69
+				#sets the border width on the top and bottom of the label's stylebox,
+				# allowing it to more closely line up with the
+				monday_label[n].get_theme_stylebox("normal").border_width_top = padding_amount
+				monday_label[n].get_theme_stylebox("normal").border_width_bottom = padding_amount
+				#sets the position of the label on the screen by calling label_placer(which returns vector2i) and passing the checkedResult array, 
+				#the index we want to be placed, and the label's current x position, which should never change 
+				monday_label[n].set_position(label_placer(checkedResult,n,monday_label[n].position.x))
+				
+				n+=1
 		1:
-			match label_count:
-				0:
-					pass
-				1:
-					checkedResult = check_for_class(parent_array[day],classData)
-					var labelText:String = checkedResult[0].CLASSNAME + "\n" + checkedResult[0].CLASSLOCATION
-					t_label_1.add_text(labelText)
-				2:
-					checkedResult = check_for_class(parent_array[day],classData) 
-					#print("CR",checkedResult)
-					var labelText:String = checkedResult[0].CLASSNAME + "\n" + checkedResult[0].CLASSLOCATION
-					t_label_1.add_text(labelText)
-					labelText = checkedResult[1].CLASSNAME + "\n" + checkedResult[1].CLASSLOCATION
-					t_label_2.add_text(labelText)
-				3:
-					checkedResult = check_for_class(parent_array[day],classData)
-					var labelText:String = checkedResult[0].CLASSNAME + "\n" + checkedResult[0].CLASSLOCATION
-					t_label_1.add_text(labelText)
-					labelText = checkedResult[1].CLASSNAME + "\n" + checkedResult[1].CLASSLOCATION
-					t_label_2.add_text(labelText)
-					labelText = checkedResult[2].CLASSNAME + "\n" + checkedResult[2].CLASSLOCATION
-					t_label_3.add_text(labelText)
-					
-					
-				4:
-					checkedResult = check_for_class(parent_array[day],classData)
-					var labelText:String = checkedResult[0].CLASSNAME + "\n" + checkedResult[0].CLASSLOCATION
-					t_label_1.add_text(labelText)
-					labelText = checkedResult[1].CLASSNAME + "\n" + checkedResult[1].CLASSLOCATION
-					t_label_2.add_text(labelText)
-					labelText = checkedResult[2].CLASSNAME + "\n" + checkedResult[2].CLASSLOCATION
-					t_label_3.add_text(labelText)
-					labelText = checkedResult[3].CLASSNAME + "\n" + checkedResult[3].CLASSLOCATION
-				_:
-					print("labelCount invalid")
+			var n = 0
+			for label in parent_array[day]:
+				#calls check_for_class func and stores the results in an array
+				checkedResult = check_for_class(parent_array[day],classData)
+				#calls sort_by_time, which sorts the classes in checkedResult by their start time
+				_sort_by_time(checkedResult)
+				#setting the text that will be assigned to the label by calling 
+				var labelText:String = checkedResult[n].CLASSNAME + "\n" + checkedResult[n].CLASSLOCATION + "\n" + checkedResult[n].CLASSSTARTTIME + "-" + checkedResult[n].CLASSENDTIME
+				#calling duration_padding function and storing return value in var to use in adjusting border width
+				var padding_amount:int = duration_padding(checkedResult,n)
+				#shows the label 
+				tuesday_label[n].show()
+				#adds the text to the label, using bbcode tags to center it 
+				tuesday_label[n].append_text("[center]%s[/center]" % labelText)
+				#sets the y size of the rich text label. it will expand to fit the text if more space is needed
+				tuesday_label[n].size.y = 69
+				#sets the border width on the top and bottom of the label's stylebox,
+				# allowing it to more closely line up with the
+				tuesday_label[n].get_theme_stylebox("normal").border_width_top = padding_amount
+				tuesday_label[n].get_theme_stylebox("normal").border_width_bottom = padding_amount
+				#sets the position of the label on the screen by calling label_placer(which returns vector2i) and passing the checkedResult array, 
+				#the index we want to be placed, and the label's current x position, which should never change 
+				tuesday_label[n].set_position(label_placer(checkedResult,n,tuesday_label[n].position.x))
+				n+=1
 		2:
-			match label_count:
-				0:
-					pass
-				1:
-					checkedResult = check_for_class(parent_array[day],classData)
-					var labelText:String = checkedResult[0].CLASSNAME + "\n" + checkedResult[0].CLASSLOCATION
-					w_label_1.add_text(labelText)
-				2:
-					checkedResult = check_for_class(parent_array[day],classData)
-					#print ("CR\n",checkedResult)
-					var labelText:String = checkedResult[0].CLASSNAME + "\n" + checkedResult[0].CLASSLOCATION
-					w_label_1.add_text(labelText)
-					labelText = checkedResult[1].CLASSNAME + "\n" + checkedResult[1].CLASSLOCATION
-					w_label_2.add_text(labelText)
-				3:
-					checkedResult = check_for_class(parent_array[day],classData)
-					var labelText:String = checkedResult[0].CLASSNAME + "\n" + checkedResult[0].CLASSLOCATION
-					w_label_1.add_text(labelText)
-					labelText = checkedResult[1].CLASSNAME + "\n" + checkedResult[1].CLASSLOCATION
-					w_label_2.add_text(labelText)
-					labelText = checkedResult[2].CLASSNAME + "\n" + checkedResult[2].CLASSLOCATION
-					w_label_3.add_text(labelText)
-				4:
-					checkedResult = check_for_class(parent_array[day],classData)
-					var labelText:String = checkedResult[0].CLASSNAME + "\n" + checkedResult[0].CLASSLOCATION
-					w_label_1.add_text(labelText)
-					labelText = checkedResult[1].CLASSNAME + "\n" + checkedResult[1].CLASSLOCATION
-					w_label_2.add_text(labelText)
-					labelText = checkedResult[2].CLASSNAME + "\n" + checkedResult[2].CLASSLOCATION
-					w_label_3.add_text(labelText)
-					labelText = checkedResult[3].CLASSNAME + "\n" + checkedResult[3].CLASSLOCATION
-				_:
-					print("labelCount invalid")
+			var n = 0
+			for label in parent_array[day]:
+				#calls check_for_class func and stores the results in an array
+				checkedResult = check_for_class(parent_array[day],classData)
+				#calls sort_by_time, which sorts the classes in checkedResult by their start time
+				_sort_by_time(checkedResult)
+				#setting the text that will be assigned to the label by calling 
+				var labelText:String = checkedResult[n].CLASSNAME + "\n" + checkedResult[n].CLASSLOCATION + "\n" + checkedResult[n].CLASSSTARTTIME + "-" + checkedResult[n].CLASSENDTIME
+				#calling duration_padding function and storing return value in var to use in adjusting border width
+				var padding_amount:int = duration_padding(checkedResult,n)
+				#shows the label 
+				wednesday_label[n].show()
+				#adds the text to the label, using bbcode tags to center it 
+				wednesday_label[n].append_text("[center]%s[/center]" % labelText)
+				#sets the y size of the rich text label. it will expand to fit the text if more space is needed
+				wednesday_label[n].size.y = 69
+				#sets the border width on the top and bottom of the label's stylebox,
+				# allowing it to more closely line up with the
+				wednesday_label[n].get_theme_stylebox("normal").border_width_top = padding_amount
+				wednesday_label[n].get_theme_stylebox("normal").border_width_bottom = padding_amount
+				#sets the position of the label on the screen by calling label_placer(which returns vector2i) and passing the checkedResult array, 
+				#the index we want to be placed, and the label's current x position, which should never change 
+				wednesday_label[n].set_position(label_placer(checkedResult,n,wednesday_label[n].position.x))
+				n+=1
 		3:
-			match label_count:
-				0:
-					pass
-				1:
-					checkedResult = check_for_class(parent_array[day],classData)
-					var labelText:String = checkedResult[0].CLASSNAME + "\n" + checkedResult[0].CLASSLOCATION
-					th_label_1.add_text(labelText)
-				2:
-					checkedResult = check_for_class(parent_array[day],classData) 
-					#print("CR",checkedResult)
-					var labelText:String = checkedResult[0].CLASSNAME + "\n" + checkedResult[0].CLASSLOCATION
-					th_label_1.add_text(labelText)
-					labelText = checkedResult[1].CLASSNAME + "\n" + checkedResult[1].CLASSLOCATION
-					th_label_2.add_text(labelText)
-				3:
-					checkedResult = check_for_class(parent_array[day],classData)
-					var labelText:String = checkedResult[0].CLASSNAME + "\n" + checkedResult[0].CLASSLOCATION
-					th_label_1.add_text(labelText)
-					labelText = checkedResult[1].CLASSNAME + "\n" + checkedResult[1].CLASSLOCATION
-					th_label_2.add_text(labelText)
-					labelText = checkedResult[2].CLASSNAME + "\n" + checkedResult[2].CLASSLOCATION
-					th_label_3.add_text(labelText)
-					
-					
-				4:
-					checkedResult = check_for_class(parent_array[day],classData)
-					var labelText:String = checkedResult[0].CLASSNAME + "\n" + checkedResult[0].CLASSLOCATION
-					th_label_1.add_text(labelText)
-					labelText = checkedResult[1].CLASSNAME + "\n" + checkedResult[1].CLASSLOCATION
-					th_label_2.add_text(labelText)
-					labelText = checkedResult[2].CLASSNAME + "\n" + checkedResult[2].CLASSLOCATION
-					th_label_3.add_text(labelText)
-					labelText = checkedResult[3].CLASSNAME + "\n" + checkedResult[3].CLASSLOCATION
-				_:
-					print("labelCount invalid")
+			var n = 0
+			for label in parent_array[day]:
+				#calls check_for_class func and stores the results in an array
+				checkedResult = check_for_class(parent_array[day],classData)
+				#calls sort_by_time, which sorts the classes in checkedResult by their start time
+				_sort_by_time(checkedResult)
+				#setting the text that will be assigned to the label by calling 
+				var labelText:String = checkedResult[n].CLASSNAME + "\n" + checkedResult[n].CLASSLOCATION + "\n" + checkedResult[n].CLASSSTARTTIME + "-" + checkedResult[n].CLASSENDTIME
+				#calling duration_padding function and storing return value in var to use in adjusting border width
+				var padding_amount:int = duration_padding(checkedResult,n)
+				#shows the label 
+				thursday_label[n].show()
+				#adds the text to the label, using bbcode tags to center it 
+				thursday_label[n].append_text("[center]%s[/center]" % labelText)
+				#sets the y size of the rich text label. it will expand to fit the text if more space is needed
+				thursday_label[n].size.y = 69
+				#sets the border width on the top and bottom of the label's stylebox,
+				# allowing it to more closely line up with the
+				thursday_label[n].get_theme_stylebox("normal").border_width_top = padding_amount
+				thursday_label[n].get_theme_stylebox("normal").border_width_bottom = padding_amount
+				#sets the position of the label on the screen by calling label_placer(which returns vector2i) and passing the checkedResult array, 
+				#the index we want to be placed, and the label's current x position, which should never change 
+				thursday_label[n].set_position(label_placer(checkedResult,n,thursday_label[n].position.x))
+				n+=1
 		4:
-			match label_count:
-				0:
-					pass
-				1:
-					checkedResult = check_for_class(parent_array[day],classData)
-					var labelText:String = checkedResult[0].CLASSNAME + "\n" + checkedResult[0].CLASSLOCATION
-					f_label_1.add_text(labelText)
-				2:
-					checkedResult = check_for_class(parent_array[day],classData) 
-					var labelText:String = checkedResult[0].CLASSNAME + "\n" + checkedResult[0].CLASSLOCATION
-					f_label_1.add_text(labelText)
-					labelText = checkedResult[1].CLASSNAME + "\n" + checkedResult[1].CLASSLOCATION
-					f_label_2.add_text(labelText)
-				3:
-					checkedResult = check_for_class(parent_array[day],classData)
-					var labelText:String = checkedResult[0].CLASSNAME + "\n" + checkedResult[0].CLASSLOCATION
-					f_label_1.add_text(labelText)
-					labelText = checkedResult[1].CLASSNAME + "\n" + checkedResult[1].CLASSLOCATION
-					f_label_2.add_text(labelText)
-					labelText = checkedResult[2].CLASSNAME + "\n" + checkedResult[2].CLASSLOCATION
-					f_label_3.add_text(labelText)
-					
-				4:
-					checkedResult = check_for_class(parent_array[day],classData)
-					var labelText:String = checkedResult[0].CLASSNAME + "\n" + checkedResult[0].CLASSLOCATION
-					f_label_1.add_text(labelText)
-					labelText = checkedResult[1].CLASSNAME + "\n" + checkedResult[1].CLASSLOCATION
-					f_label_2.add_text(labelText)
-					labelText = checkedResult[2].CLASSNAME + "\n" + checkedResult[2].CLASSLOCATION
-					f_label_3.add_text(labelText)
-					labelText = checkedResult[3].CLASSNAME + "\n" + checkedResult[3].CLASSLOCATION
-				_:
-					print("labelCount invalid")
-					
+			var n = 0
+			for label in parent_array[day]:
+				#calls check_for_class func and stores the results in an array
+				checkedResult = check_for_class(parent_array[day],classData)
+				#calls sort_by_time, which sorts the classes in checkedResult by their start time
+				_sort_by_time(checkedResult)
+				#setting the text that will be assigned to the label by calling 
+				var labelText:String = checkedResult[n].CLASSNAME + "\n" + checkedResult[n].CLASSLOCATION + "\n" + checkedResult[n].CLASSSTARTTIME + "-" + checkedResult[n].CLASSENDTIME
+				#calling duration_padding function and storing return value in var to use in adjusting border width
+				var padding_amount:int = duration_padding(checkedResult,n)
+				#shows the label 
+				friday_label[n].show()
+				#adds the text to the label, using bbcode tags to center it 
+				friday_label[n].append_text("[center]%s[/center]" % labelText)
+				friday_label[n].size.y = 69
+				#sets the border width on the top and bottom of the label's stylebox,
+				# allowing it to more closely line up with the
+				friday_label[n].get_theme_stylebox("normal").border_width_top = padding_amount
+				friday_label[n].get_theme_stylebox("normal").border_width_bottom = padding_amount
+				#sets the position of the label on the screen by calling label_placer(which returns vector2i) and passing the checkedResult array, 
+				#the index we want to be placed, and the label's current x position, which should never change 
+				friday_label[n].set_position(label_placer(checkedResult,n,friday_label[n].position.x))
+				n+=1
+
+#returns an integer(number of pixels to pad the label) based on how long the class is
+func duration_padding(array:Array,array_index:int)-> int:
+	var duration:int = array[array_index].CLASSDURATION
+	match duration:
+		90:
+			return 11
+		120:
+			return 30
+		60:
+			return 0
+		45:
+			return 0
+		_:
+			return 0
+	
+#function that matches the class start times of the passed array & returns the correct starting time's y position,
+#so that class can be properly aligned on the screen 
+func label_placer(array:Array,array_index:int,label_x_coordinate)->Vector2i:
+	match array[array_index].CLASSSTARTTIME:
+		"8:00 AM":
+			return Vector2i(label_x_coordinate,_800_line.position.y)
+		"8:15 AM":
+			#offsets the y coordinate by +10 px of the _8am label y position so that it more closely aligns with 8:15
+			return Vector2i(label_x_coordinate,_800_line.position.y+10)
+		"8:30 AM":
+			return Vector2i(label_x_coordinate,_8am.global_position.y+10)
+		"8:45 AM":
+			#offsets the y coordinate by +30 px of the _8am label y position so that it more closely aligns with 8:45
+			return Vector2i(label_x_coordinate,_8am.global_position.y+30)
+		"9:00 AM":
+			return Vector2i(label_x_coordinate,_830_line.position.y)
+		"9:15 AM":
+			return Vector2i(label_x_coordinate,_830_line.position.y+10)
+		"9:30 AM":
+			return Vector2i(label_x_coordinate,_9am.global_position.y+10)
+		"9:45 AM":
+			return Vector2i(label_x_coordinate,_9am.global_position.y+30)
+		"10:00 AM":
+			return Vector2i(label_x_coordinate,_930_line.position.y-2)
+		"10:30 AM":
+			return Vector2i(label_x_coordinate,_10am.global_position.y+10)
+		"10:45 AM":
+			return Vector2i(label_x_coordinate,_10am.global_position.y+30)
+		"11:00 AM":
+			return Vector2i(label_x_coordinate,_1030_line.position.y)
+		"11:15 AM":
+			return Vector2i(label_x_coordinate,_1030_line.position.y+10)
+		"11:30 AM":
+			return Vector2i(label_x_coordinate,_11am.global_position.y+10)
+		"11:45 AM":
+			return Vector2i(label_x_coordinate,_11am.global_position.y+30)
+		"12:00 PM":
+			return Vector2i(label_x_coordinate,_1130_line.position.y)
+		"12:15 PM":
+			return Vector2i(label_x_coordinate,_1130_line.position.y+10)
+		"12:30 PM":
+			return Vector2i(label_x_coordinate,_12pm.global_position.y+10)
+		"12:45 PM":
+			return Vector2i(label_x_coordinate,_12pm.global_position.y+30)
+		"1:00 PM":
+			return Vector2i(label_x_coordinate,_1230_line.position.y)
+		"1:15 PM":
+			return Vector2i(label_x_coordinate,_1230_line.position.y+10)
+		"1:30 PM":
+			return Vector2i(label_x_coordinate,_1pm.global_position.y+10)
+		"1:45 PM":
+			return Vector2i(label_x_coordinate,_1pm.global_position.y+20)
+		"2:00 PM":
+			return Vector2i(label_x_coordinate,_130_line.position.y)
+		"2:15 PM":
+			return Vector2i(label_x_coordinate,_130_line.position.y+10)
+		"2:30 PM":
+			return Vector2i(label_x_coordinate,_2pm.global_position.y+10)
+		"2:45 PM":
+			return Vector2i(label_x_coordinate,_2pm.global_position.y+20)
+		"3:00 PM":
+			return Vector2i(label_x_coordinate,_230_line.position.y)
+		"3:15 PM":
+			return Vector2i(label_x_coordinate,_230_line.position.y+10)
+		"3:30 PM":
+			return Vector2i(label_x_coordinate,_3pm.global_position.y+10)
+		"3:45 PM":
+			return Vector2i(label_x_coordinate,_3pm.global_position.y+20)
+		"4:00 PM":
+			return Vector2i(label_x_coordinate,_330_line.position.y)
+		_:
+			return Vector2i(0,0)
 #function solely dedicated to increasing the student index var,
 #because I know without it i will lose track of this variable
 func increment_student_index():
@@ -304,31 +392,39 @@ func clearLabels():
 	minor.clear()
 	fin_aid.clear()
 	account_status.clear()
-	#clears monday labels
-	m_label_1.clear()
-	m_label_2.clear()
-	m_label_3.clear()
-	m_label_4.clear()
-	#clears tuesday labels
-	t_label_1.clear()
-	t_label_2.clear()
-	t_label_3.clear()
-	t_label_4.clear()
-	#clears wednesday labels
-	w_label_1.clear()
-	w_label_2.clear()
-	w_label_3.clear()
-	w_label_4.clear()
-	#clears thursday labels
-	th_label_1.clear()
-	th_label_2.clear()
-	th_label_3.clear()
-	th_label_4.clear()
+
+	#clears mon labels	
+	for label in monday_label:
+		label.clear()
+		label.get_theme_stylebox("normal").border_width_top = 0
+		label.get_theme_stylebox("normal").border_width_bottom = 0
+		label.hide()
+		
+	#clears tues labels	
+	for label in tuesday_label:
+		label.clear()
+		label.get_theme_stylebox("normal").border_width_top = 0
+		label.get_theme_stylebox("normal").border_width_bottom = 0
+		label.hide()
+		
+	#clears wed labels		
+	for label in wednesday_label:
+		label.clear()
+		label.get_theme_stylebox("normal").border_width_top = 0
+		label.get_theme_stylebox("normal").border_width_bottom = 0
+		label.hide()
+	#clears thurs labels
+	for label in thursday_label:
+		label.clear()
+		label.get_theme_stylebox("normal").border_width_top = 0
+		label.get_theme_stylebox("normal").border_width_bottom = 0
+		label.hide()
 	#clears friday labels
-	f_label_1.clear()
-	f_label_2.clear()
-	f_label_3.clear()
-	f_label_4.clear()
+	for label in friday_label:
+		label.clear()
+		label.get_theme_stylebox("normal").border_width_top = 0
+		label.get_theme_stylebox("normal").border_width_bottom = 0
+		label.hide()
 	
 #function to read json files and returns them as a dictionary
 func read_json_file(parameter: String):
@@ -340,36 +436,27 @@ func read_json_file(parameter: String):
 #which will be used to fill the labels on the schedules
 func check_for_class(sData:Array, cData :Array):
 	#creates an array and sets its size to that of the passed student data array
-	var smushedTogetherData = []
-	smushedTogetherData.resize(sData.size())
+	var matching_Data = []
+	matching_Data.resize(sData.size())
 	#two index trackers we will use to iterate through the loop comparing these two arrays
 	var s_data_index = 0
 	var c_data_index = 0
 	#iterates through both arrays and compares them
 	while s_data_index < sData.size() and c_data_index < cData.size():
-		
-		#print("\n S",s_data_index," ",sData[s_data_index])
-		#print("\n C",c_data_index," ",cData[c_data_index])
-		#print("SDATAINDEX",s_data_index)
-		#print("SIZEOFCDATA",cData.size())
-		#print("CDATAINDEX",c_data_index)
-		#print("Top of loop"," cDataIndex ",c_data_index," cData size ",cData.size())
-		
 		#if at the end of the class data index there is a match, but not all the student data has been matched yet,
 		#add the matching classes to the array & reset the class data index to continue checking 
 		if c_data_index == cData.size()-1 and sData[s_data_index]== cData[c_data_index].CLASSNAME and s_data_index != sData.size()-1:
 			print("\n MATCH AND RESET")
-			smushedTogetherData.insert(s_data_index,cData[c_data_index])
+			matching_Data.insert(s_data_index,cData[c_data_index])
 			s_data_index+=1
 			c_data_index = -1
 		#if the content of the first paremeter (the array of student data) matches the content of the first paremeter's classname key
 		elif sData[s_data_index] == cData[c_data_index].CLASSNAME:
-			smushedTogetherData.insert(s_data_index,cData[c_data_index])
+			matching_Data.insert(s_data_index,cData[c_data_index])
 			s_data_index+=1
 		#if at the end of the classData and haven't found a match for the current student class, loop
 		#back through from the beginning of the classData
 		elif c_data_index == cData.size()-1 and sData[s_data_index]!= cData[c_data_index].CLASSNAME:
-			print("\n RESETTING CLASS DATA INDEX")
 			#sets to -1 bc the loop always increments it +1 outside of the if statements, and we want the index to restart at 0
 			c_data_index = -1
 		else:
@@ -377,8 +464,68 @@ func check_for_class(sData:Array, cData :Array):
 		#increments the class data index
 		c_data_index+=1
 		
-	return smushedTogetherData
+	#gets rid of any null elements in the new array
+	_trim(matching_Data)
+	return matching_Data
 	
+#function to sort the array of classes in order of which is earliest to which is latest
+func _sort_by_time(result_array:Array):
+	for n in range(0,result_array.size()):
+		var parsed_string1 =0
+		var parsed_string2 =0
+		#out of bounds check
+		if(n+1 == result_array.size()):
+			break
+		#if the first class' time has AM in it and the second class' time has PM, nothing needs to be done
+		if("AM" in result_array[n].CLASSSTARTTIME and "PM" in result_array[n+1].CLASSSTARTTIME):
+			pass
+		#if the first class' time has PM in it and the second class' time has AM, obviously the second class
+		#needs to be swapped with the first
+		elif("PM" in result_array[n].CLASSSTARTTIME and "AM" in result_array[n+1].CLASSSTARTTIME):
+			#saves the classes at n and n+1 into temp variables, which will be used to swap their positions below
+			var temp = result_array[n+1]
+			var temp2 = result_array[n]
+			#removes the class at index n+1
+			result_array.remove_at(n+1)
+			#replaces it with the stored temp2 variable
+			result_array.insert(n+1,temp2)
+			#removes the class at index n
+			result_array.remove_at(n)
+			#replaces it with the stored temp variable,completing the swap
+			result_array.insert(n,temp)
+		#if both classes are in the afternoon, we'll have to put actual effort in to determine what to do
+		elif("PM" in result_array[n].CLASSSTARTTIME and "PM" in result_array[n+1].CLASSSTARTTIME):
+			#stores the class times into integers for comparison
+			parsed_string1 = int(result_array[n].CLASSSTARTTIME)
+			parsed_string2 = int(result_array[n+1].CLASSSTARTTIME)
+			#if the first class's time is later than the second class, we'll swap their places
+			if parsed_string1 > parsed_string2:
+				var temp = result_array[n+1]
+				var temp2 = result_array[n]
+				result_array.remove_at(n+1)
+				result_array.insert(n+1,temp2)
+				result_array.remove_at(n)
+				result_array.insert(n,temp)
+		#if both classes are in the morning, we'll have to put actual effort in to determine what to do
+		elif("AM" in result_array[n].CLASSSTARTTIME and "AM" in result_array[n+1].CLASSSTARTTIME):
+			#stores the class times into integers for comparison
+			parsed_string1 = int(result_array[n].CLASSSTARTTIME)
+			parsed_string2 = int(result_array[n+1].CLASSSTARTTIME)
+			#if the first class's time is later than the second class, we'll swap their places
+			if parsed_string1 > parsed_string2:
+				var temp = result_array[n+1]
+				var temp2 = result_array[n]
+				result_array.remove_at(n+1)
+				result_array.insert(n+1,temp2)
+				result_array.remove_at(n)
+				result_array.insert(n,temp)
+
+#trims null elements of passed array
+func _trim(input_array:Array):
+	#goes through the array from the end and erases null elements
+	for n in range(input_array.size(),0,-1):
+		input_array.erase(null)
+			
 func _input(event):
 	if  Input.is_key_pressed(KEY_ESCAPE):
 		emit_signal("esc_pressed")
