@@ -6,11 +6,11 @@
 	"Minor": "Art",
 	"Financial Aid": "Yes",
 	"Account Status": "Good",
-	"Monday": "EN 133,CS 101,ART 222",
-	"Tuesday": "CS 213,MAT 218",
-	"Wednesday": "CS 101,EN 133,ART 222",
-	"Thursday": "CS 213,MAT 218",
-	"Friday": "CS 101,EN 133,CS 213D"
+	"Monday": "CS 101,EN 168,ART 222",
+	"Tuesday": "CS 213,MAT 220",
+	"Wednesday": "CS 101,EN 168,ART 222",
+	"Thursday": "CS 213,MAT 220",
+	"Friday": "CS 101,EN 168,ART 222"
   },
   {
 	"Name": "Marco Cardenas",
@@ -33,9 +33,9 @@
 	"Financial Aid": "Yes",
 	"Account Status": "Good",
 	"Monday": "ART 320,AHIS 319",
-	"Tuesday": "ART 441,AHIS 333",
+	"Tuesday": "ART 441",
 	"Wednesday": "ART 320,AHIS 319",
-	"Thursday": "ART 441,AHIS 333",
+	"Thursday": "ART 441",
 	"Friday": "ART 320,AHIS 319"
   },
   {
@@ -71,11 +71,11 @@
 	"Minor": "English",
 	"Financial Aid": "No",
 	"Account Status": "Delinquent",
-	"Monday": "POLS 201,POLS 225,EN 211",
+	"Monday": "POLS 201,POLS 308,EN 211",
 	"Tuesday": "EN 218,EN 204",
-	"Wednesday": "POLS 201,POLS 225,EN 211",
+	"Wednesday": "POLS 201,POLS 308,EN 211",
 	"Thursday": "EN 218,EN 204",
-	"Friday": "POLS 201,POLS 225,EN 211"
+	"Friday": "POLS 201,POLS 308,EN 211"
   },
   {
 	"Name": "Richard Hendricks",
