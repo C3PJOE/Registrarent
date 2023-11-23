@@ -21,7 +21,7 @@ bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
 bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
 border_color = Color(0.85098, 0.811765, 0.0352941, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4guhb"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tr0cx"]
 bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
 border_color = Color(0.85098, 0.811765, 0.0352941, 1)
 
@@ -456,7 +456,7 @@ custom_minimum_size = Vector2(175, 0)
 offset_left = 378.0
 offset_top = 177.0
 offset_right = 553.0
-offset_bottom = 217.0
+offset_bottom = 223.0
 size_flags_horizontal = 3
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_ox75y")
@@ -474,8 +474,9 @@ offset_top = 354.0
 offset_right = 931.0
 offset_bottom = 400.0
 size_flags_horizontal = 3
+size_flags_vertical = 8
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_styles/normal = SubResource("StyleBoxFlat_4guhb")
+theme_override_styles/normal = SubResource("StyleBoxFlat_tr0cx")
 bbcode_enabled = true
 text = "
 
