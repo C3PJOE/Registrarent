@@ -3,6 +3,9 @@ signal esc_pressed
 @onready var pause_menu = $PauseMenu
 @onready var schedule_browser_parent_window = $ScheduleBrowserParentWindow
 @onready var schedule_browser_window = $ScheduleBrowserParentWindow/ScheduleBrowserWindow
+@onready var course_catalogue_parent_window = $CourseCatalogueParentWindow
+@onready var course_catalogue_window = $CourseCatalogueParentWindow/CourseCatalogueWindow
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -37,3 +40,10 @@ func _on_browser_desktop_shortcut_pressed():
 	else:
 		schedule_browser_parent_window.show()
 		schedule_browser_window.show()
+
+func _on_catalogue_desktop_shortcut_pressed():
+	if course_catalogue_parent_window.visible == true:
+		pass
+	else:
+		course_catalogue_parent_window.show()
+		course_catalogue_window.show()
