@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://dgv0xsiratr8g"]
+[gd_scene load_steps=46 format=3 uid="uid://dgv0xsiratr8g"]
 
 [ext_resource type="Script" path="res://Scenes/Main.gd" id="1_5ghd7"]
 [ext_resource type="Script" path="res://Scenes/MainContainer.gd" id="1_pf4tp"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://cesocmfjybjac" path="res://Assets/Browser2.png" id="8_n2jyd"]
 [ext_resource type="Texture2D" uid="uid://co4613mo6e30x" path="res://Assets/ClassDictionaryContent.png" id="10_oyudo"]
 [ext_resource type="Script" path="res://Scenes/CourseCatalogueParentWindow.gd" id="11_4a26h"]
+[ext_resource type="Script" path="res://Scenes/CourseCatalogueWindow.gd" id="13_088j3"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f7xbp"]
 texture = ExtResource("8_n2jyd")
@@ -214,6 +215,7 @@ bbcode_enabled = true
 text = "[center]Schedule Snooper[center]"
 
 [node name="CatalogueDesktopShortcut" type="TextureButton" parent="MainContainer/Desktop"]
+layout_mode = 0
 offset_left = 4.0
 offset_top = 161.0
 offset_right = 120.0
@@ -1035,6 +1037,7 @@ size = Vector2i(640, 800)
 transient = true
 unresizable = true
 theme_override_styles/embedded_border = SubResource("StyleBoxTexture_kut88")
+script = ExtResource("13_088j3")
 
 [node name="Dropdown1" type="BoxContainer" parent="MainContainer/CourseCatalogueParentWindow/CourseCatalogueWindow"]
 offset_left = 20.0
@@ -1168,6 +1171,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Class1" type="RichTextLabel" parent="MainContainer/CourseCatalogueParentWindow/CourseCatalogueWindow/ClassCatalogueScrollContainer/ClassCatalogueContainer"]
+visible = false
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 theme_override_colors/default_color = Color(0.984314, 0.94902, 0.211765, 1)
@@ -1180,39 +1184,6 @@ LOCATION: ENB 200
 DEPARTMENT: ENGLISH
 CLASS TIME: 10:00 AM - 12:00 PM[center]
 "
-fit_content = true
-
-[node name="Class2" type="RichTextLabel" parent="MainContainer/CourseCatalogueParentWindow/CourseCatalogueWindow/ClassCatalogueScrollContainer/ClassCatalogueContainer"]
-custom_minimum_size = Vector2(200, 200)
-layout_mode = 2
-theme_override_colors/default_color = Color(0.984314, 0.94902, 0.211765, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_y = 1
-theme_override_constants/shadow_outline_size = 2
-bbcode_enabled = true
-text = "[center]HIIIJIDIJISODFISJDFOJSDIFJSD[center]"
-fit_content = true
-
-[node name="Class3" type="RichTextLabel" parent="MainContainer/CourseCatalogueParentWindow/CourseCatalogueWindow/ClassCatalogueScrollContainer/ClassCatalogueContainer"]
-custom_minimum_size = Vector2(200, 200)
-layout_mode = 2
-theme_override_colors/default_color = Color(0.984314, 0.94902, 0.211765, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_y = 1
-theme_override_constants/shadow_outline_size = 2
-bbcode_enabled = true
-text = "[center]HIIIJIDIJISODFISJDFOJSDIFJSD[center]"
-fit_content = true
-
-[node name="Class4" type="RichTextLabel" parent="MainContainer/CourseCatalogueParentWindow/CourseCatalogueWindow/ClassCatalogueScrollContainer/ClassCatalogueContainer"]
-custom_minimum_size = Vector2(200, 200)
-layout_mode = 2
-theme_override_colors/default_color = Color(0.984314, 0.94902, 0.211765, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_y = 1
-theme_override_constants/shadow_outline_size = 2
-bbcode_enabled = true
-text = "[center]HIIIJIDIJISODFISJDFOJSDIFJSD[center]"
 fit_content = true
 
 [connection signal="esc_pressed" from="MainContainer" to="MainContainer" method="_on_esc_pressed"]

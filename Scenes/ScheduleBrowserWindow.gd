@@ -68,8 +68,9 @@ var file2 = "res://UniData/ClassData.json"
 #vars to hold the data from the class and student json files
 var studentData
 var classData 
+#global var for 
 var studentIndex
-
+#creates arrays to hold the content of each group of labels 
 @onready var monday_label = get_tree().get_nodes_in_group("MondayLabels")
 @onready var tuesday_label = get_tree().get_nodes_in_group("TuesdayLabels")
 @onready var wednesday_label = get_tree().get_nodes_in_group("WednesdayLabels")
@@ -106,7 +107,6 @@ func _set_time_labels_positions():
 #sets the x position of the labels, with the x position lining up with the appropriate day column
 #The x position of a label will never change again after this
 func _set_week_label_x_positions():
-	
 	for label in monday_label:
 		label.position.x = 378
 
