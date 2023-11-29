@@ -68,8 +68,9 @@ var file2 = "res://UniData/ClassData.json"
 #vars to hold the data from the class and student json files
 var studentData
 var classData 
+#global var for 
 var studentIndex
-
+#creates arrays to hold the content of each group of labels 
 @onready var monday_label = get_tree().get_nodes_in_group("MondayLabels")
 @onready var tuesday_label = get_tree().get_nodes_in_group("TuesdayLabels")
 @onready var wednesday_label = get_tree().get_nodes_in_group("WednesdayLabels")
@@ -106,7 +107,6 @@ func _set_time_labels_positions():
 #sets the x position of the labels, with the x position lining up with the appropriate day column
 #The x position of a label will never change again after this
 func _set_week_label_x_positions():
-	
 	for label in monday_label:
 		label.position.x = 378
 
@@ -154,14 +154,14 @@ func _set_Current_Schedule(student: int):
 	#iterates from 0 to 4 and calls label_assigner with respect to day_of_week, with 0 being monday and 4 being friday
 	for day_of_week in range(0,5):
 		#calls label_assigner for each day of the week, with 0 being monday and 4 being tuesday
-		label_assigner(day_of_week,parent_class_array[day_of_week].size(),parent_class_array)
+		label_assigner(day_of_week,parent_class_array)
 	
 	#return classData.keys()
 	#return studentData.keys()
 	
 #func that takes the day, number of labels, and the parent array from set_current_schedule
 #and assigns the contents of the parent array to labels using match statements 
-func label_assigner(day:int, label_count:int, parent_array:Array):
+func label_assigner(day:int, parent_array:Array):
 	var checkedResult:Array
 	#var day_of_week = get_tree().get_nodes_in_group(day +"Labels")
 	#match statement that checks what day of the week it is, so we can set the correct label(monday == 0, friday == 4)

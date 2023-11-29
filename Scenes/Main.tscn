@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://dgv0xsiratr8g"]
+[gd_scene load_steps=46 format=3 uid="uid://dgv0xsiratr8g"]
 
 [ext_resource type="Script" path="res://Scenes/Main.gd" id="1_5ghd7"]
 [ext_resource type="Script" path="res://Scenes/MainContainer.gd" id="1_pf4tp"]
@@ -8,7 +8,11 @@
 [ext_resource type="Texture2D" uid="uid://dklab118e8sf7" path="res://Assets/sprite1.png" id="5_de07d"]
 [ext_resource type="Texture2D" uid="uid://cvu0vx1x3x1rp" path="res://Assets/TaskbarBrowserIcon.png" id="6_1h1ua"]
 [ext_resource type="Script" path="res://Scenes/ScheduleBrowserWindow.gd" id="7_f7lbd"]
+[ext_resource type="Texture2D" uid="uid://bxy54uli5frc4" path="res://Assets/ClassDictionary.png" id="7_u6a4s"]
 [ext_resource type="Texture2D" uid="uid://cesocmfjybjac" path="res://Assets/Browser2.png" id="8_n2jyd"]
+[ext_resource type="Texture2D" uid="uid://co4613mo6e30x" path="res://Assets/ClassDictionaryContent.png" id="10_oyudo"]
+[ext_resource type="Script" path="res://Scenes/CourseCatalogueParentWindow.gd" id="11_4a26h"]
+[ext_resource type="Script" path="res://Scenes/CourseCatalogueWindow.gd" id="13_088j3"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f7xbp"]
 texture = ExtResource("8_n2jyd")
@@ -147,6 +151,12 @@ bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
 resource_local_to_scene = true
 bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kut88"]
+texture = ExtResource("10_oyudo")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vc7gw"]
+bg_color = Color(0.607843, 0.678431, 0.717647, 1)
+
 [node name="Main" type="Node2D"]
 script = ExtResource("1_5ghd7")
 
@@ -187,21 +197,41 @@ stretch_mode = 4
 
 [node name="BrowserDesktopShortcut" type="TextureButton" parent="MainContainer/Desktop"]
 layout_mode = 0
-offset_left = -14.0
+offset_left = 3.0
 offset_top = 3.0
-offset_right = 102.0
+offset_right = 119.0
 offset_bottom = 127.0
 texture_normal = ExtResource("5_de07d")
 ignore_texture_size = true
 stretch_mode = 4
 
-[node name="RichTextLabel" type="RichTextLabel" parent="MainContainer/Desktop/BrowserDesktopShortcut"]
+[node name="ScheduleSnooperLabel" type="RichTextLabel" parent="MainContainer/Desktop/BrowserDesktopShortcut"]
 layout_mode = 0
-offset_left = 26.0
-offset_top = 101.0
-offset_right = 96.0
-offset_bottom = 158.0
-text = "Schedule Snooper"
+offset_left = 21.0
+offset_top = 100.0
+offset_right = 99.0
+offset_bottom = 157.0
+bbcode_enabled = true
+text = "[center]Schedule Snooper[center]"
+
+[node name="CatalogueDesktopShortcut" type="TextureButton" parent="MainContainer/Desktop"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 161.0
+offset_right = 120.0
+offset_bottom = 285.0
+texture_normal = ExtResource("7_u6a4s")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="CourseCatalogLabel" type="RichTextLabel" parent="MainContainer/Desktop/CatalogueDesktopShortcut"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 98.0
+offset_right = 109.0
+offset_bottom = 147.0
+bbcode_enabled = true
+text = "[center]Course Catalogue[center]"
 
 [node name="ScheduleBrowserParentWindow" type="Window" parent="MainContainer"]
 process_mode = 3
@@ -210,6 +240,7 @@ transparent_bg = true
 gui_embed_subwindows = true
 initial_position = 2
 size = Vector2i(1280, 720)
+visible = false
 unresizable = true
 transparent = true
 mouse_passthrough = true
@@ -221,6 +252,7 @@ transparent_bg = true
 handle_input_locally = false
 initial_position = 1
 size = Vector2i(1280, 720)
+visible = false
 transient = true
 unresizable = true
 theme_override_styles/embedded_border = SubResource("StyleBoxTexture_f7xbp")
@@ -461,7 +493,8 @@ size_flags_horizontal = 3
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_ox75y")
 bbcode_enabled = true
-text = "
+text = "MUS 200
+ABB 211
 
 "
 fit_content = true
@@ -982,10 +1015,173 @@ offset_right = 239.0
 offset_bottom = 716.0
 text = "Reject Schedule"
 
+[node name="CourseCatalogueParentWindow" type="Window" parent="MainContainer"]
+process_mode = 3
+disable_3d = true
+transparent_bg = true
+gui_embed_subwindows = true
+initial_position = 1
+size = Vector2i(640, 800)
+unresizable = true
+transparent = true
+mouse_passthrough = true
+min_size = Vector2i(640, 800)
+script = ExtResource("11_4a26h")
+
+[node name="CourseCatalogueWindow" type="Window" parent="MainContainer/CourseCatalogueParentWindow"]
+disable_3d = true
+transparent_bg = true
+handle_input_locally = false
+initial_position = 1
+size = Vector2i(640, 800)
+transient = true
+unresizable = true
+theme_override_styles/embedded_border = SubResource("StyleBoxTexture_kut88")
+script = ExtResource("13_088j3")
+
+[node name="Dropdown1" type="BoxContainer" parent="MainContainer/CourseCatalogueParentWindow/CourseCatalogueWindow"]
+offset_left = 20.0
+offset_top = 100.0
+offset_right = 288.0
+offset_bottom = 135.0
+theme_override_constants/separation = -14
+
+[node name="DepartmentLabel" type="RichTextLabel" parent="MainContainer/CourseCatalogueParentWindow/CourseCatalogueWindow/Dropdown1"]
+custom_minimum_size = Vector2(125, 0)
+layout_mode = 2
+theme_override_colors/default_color = Color(0.984314, 0.94902, 0.211765, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_outline_size = 1
+bbcode_enabled = true
+text = "DEPARTMENT"
+
+[node name="DepartmentDropdown" type="OptionButton" parent="MainContainer/CourseCatalogueParentWindow/CourseCatalogueWindow/Dropdown1"]
+layout_mode = 2
+item_count = 6
+popup/item_0/text = "ART"
+popup/item_0/id = 3
+popup/item_1/text = "ENGLISH"
+popup/item_1/id = 0
+popup/item_2/text = "HISTORY"
+popup/item_2/id = 2
+popup/item_3/text = "HUMANITIES"
+popup/item_3/id = 4
+popup/item_4/text = "MATH"
+popup/item_4/id = 1
+popup/item_5/text = "ALL"
+popup/item_5/id = 5
+
+[node name="Dropdown2" type="BoxContainer" parent="MainContainer/CourseCatalogueParentWindow/CourseCatalogueWindow"]
+offset_left = 460.0
+offset_top = 100.0
+offset_right = 728.0
+offset_bottom = 135.0
+theme_override_constants/separation = -6
+
+[node name="TimeLabel" type="RichTextLabel" parent="MainContainer/CourseCatalogueParentWindow/CourseCatalogueWindow/Dropdown2"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_colors/default_color = Color(0.984314, 0.94902, 0.211765, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_outline_size = 1
+bbcode_enabled = true
+text = "TIME"
+
+[node name="TimeDropdown" type="OptionButton" parent="MainContainer/CourseCatalogueParentWindow/CourseCatalogueWindow/Dropdown2"]
+layout_mode = 2
+item_count = 34
+popup/item_0/text = "8:00 AM"
+popup/item_0/id = 0
+popup/item_1/text = "8:15 AM"
+popup/item_1/id = 1
+popup/item_2/text = "8:30 AM"
+popup/item_2/id = 2
+popup/item_3/text = "8:45 AM"
+popup/item_3/id = 3
+popup/item_4/text = "9:00 AM"
+popup/item_4/id = 4
+popup/item_5/text = "9:15 AM"
+popup/item_5/id = 5
+popup/item_6/text = "9:30 AM"
+popup/item_6/id = 6
+popup/item_7/text = "9:45 AM"
+popup/item_7/id = 7
+popup/item_8/text = "10:00 AM"
+popup/item_8/id = 8
+popup/item_9/text = "10:15 AM"
+popup/item_9/id = 9
+popup/item_10/text = "10:30 AM"
+popup/item_10/id = 10
+popup/item_11/text = "10:45 AM"
+popup/item_11/id = 11
+popup/item_12/text = "11:00 AM"
+popup/item_12/id = 12
+popup/item_13/text = "11:15 AM"
+popup/item_13/id = 13
+popup/item_14/text = "11:30 AM"
+popup/item_14/id = 14
+popup/item_15/text = "11:45 AM"
+popup/item_15/id = 15
+popup/item_16/text = "12:00 PM"
+popup/item_16/id = 16
+popup/item_17/text = "12:15 PM"
+popup/item_17/id = 17
+popup/item_18/text = "12:30 PM"
+popup/item_18/id = 18
+popup/item_19/text = "12:45 PM"
+popup/item_19/id = 19
+popup/item_20/text = "1:00 PM"
+popup/item_20/id = 20
+popup/item_21/text = "1:15 PM"
+popup/item_21/id = 21
+popup/item_22/text = "1:30 PM"
+popup/item_22/id = 22
+popup/item_23/text = "1:45 PM"
+popup/item_23/id = 23
+popup/item_24/text = "2:00 PM"
+popup/item_24/id = 24
+popup/item_25/text = "2:15 PM"
+popup/item_25/id = 25
+popup/item_26/text = "2:30 PM"
+popup/item_26/id = 26
+popup/item_27/text = "2:45 PM"
+popup/item_27/id = 27
+popup/item_28/text = "3:00 PM"
+popup/item_28/id = 28
+popup/item_29/text = "3:15 PM"
+popup/item_29/id = 29
+popup/item_30/text = "3:30 PM"
+popup/item_30/id = 30
+popup/item_31/text = "3:45 PM"
+popup/item_31/id = 31
+popup/item_32/text = "4:00 PM"
+popup/item_32/id = 32
+popup/item_33/text = "ALL"
+popup/item_33/id = 33
+
+[node name="ClassCatalogueScrollContainer" type="ScrollContainer" parent="MainContainer/CourseCatalogueParentWindow/CourseCatalogueWindow"]
+custom_minimum_size = Vector2(615, 591)
+offset_left = 13.0
+offset_top = 200.0
+offset_right = 628.0
+offset_bottom = 791.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_vc7gw")
+vertical_scroll_mode = 2
+
+[node name="ClassCatalogueContainer" type="VBoxContainer" parent="MainContainer/CourseCatalogueParentWindow/CourseCatalogueWindow/ClassCatalogueScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
 [connection signal="esc_pressed" from="MainContainer" to="MainContainer" method="_on_esc_pressed"]
 [connection signal="pressed" from="MainContainer/Desktop/Taskbar/BrowserTaskbarButton" to="MainContainer" method="_on_browser_taskbar_button_pressed"]
 [connection signal="pressed" from="MainContainer/Desktop/BrowserDesktopShortcut" to="MainContainer" method="_on_browser_desktop_shortcut_pressed"]
+[connection signal="pressed" from="MainContainer/Desktop/CatalogueDesktopShortcut" to="MainContainer" method="_on_catalogue_desktop_shortcut_pressed"]
 [connection signal="close_requested" from="MainContainer/ScheduleBrowserParentWindow" to="MainContainer/ScheduleBrowserParentWindow" method="_on_close_requested"]
 [connection signal="esc_pressed" from="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" to="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" method="_on_esc_pressed"]
 [connection signal="pressed" from="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/YesButton" to="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" method="_on_yes_button_pressed"]
 [connection signal="pressed" from="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/NoButton" to="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" method="_on_no_button_pressed"]
+[connection signal="close_requested" from="MainContainer/CourseCatalogueParentWindow" to="MainContainer/CourseCatalogueParentWindow" method="_on_close_requested"]
+[connection signal="item_selected" from="MainContainer/CourseCatalogueParentWindow/CourseCatalogueWindow/Dropdown1/DepartmentDropdown" to="MainContainer/CourseCatalogueParentWindow/CourseCatalogueWindow" method="_on_department_dropdown_item_selected"]
+[connection signal="item_selected" from="MainContainer/CourseCatalogueParentWindow/CourseCatalogueWindow/Dropdown2/TimeDropdown" to="MainContainer/CourseCatalogueParentWindow/CourseCatalogueWindow" method="_on_time_dropdown_item_selected"]
