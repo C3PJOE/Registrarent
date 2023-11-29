@@ -9,13 +9,13 @@
 [ext_resource type="Texture2D" uid="uid://cvu0vx1x3x1rp" path="res://Assets/TaskbarBrowserIcon.png" id="6_1h1ua"]
 [ext_resource type="Script" path="res://Scenes/ScheduleBrowserWindow.gd" id="7_f7lbd"]
 [ext_resource type="Texture2D" uid="uid://bxy54uli5frc4" path="res://Assets/ClassDictionary.png" id="7_u6a4s"]
-[ext_resource type="Texture2D" uid="uid://cesocmfjybjac" path="res://Assets/Browser2.png" id="8_n2jyd"]
+[ext_resource type="Texture2D" uid="uid://ps7fk0jmud10" path="res://Assets/Browser.png" id="9_tg8ot"]
 [ext_resource type="Texture2D" uid="uid://co4613mo6e30x" path="res://Assets/ClassDictionaryContent.png" id="10_oyudo"]
 [ext_resource type="Script" path="res://Scenes/CourseCatalogueParentWindow.gd" id="11_4a26h"]
 [ext_resource type="Script" path="res://Scenes/CourseCatalogueWindow.gd" id="13_088j3"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f7xbp"]
-texture = ExtResource("8_n2jyd")
+texture = ExtResource("9_tg8ot")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_grp6r"]
 resource_local_to_scene = true
@@ -1022,6 +1022,7 @@ transparent_bg = true
 gui_embed_subwindows = true
 initial_position = 1
 size = Vector2i(640, 800)
+visible = false
 unresizable = true
 transparent = true
 mouse_passthrough = true
@@ -1034,6 +1035,7 @@ transparent_bg = true
 handle_input_locally = false
 initial_position = 1
 size = Vector2i(640, 800)
+visible = false
 transient = true
 unresizable = true
 theme_override_styles/embedded_border = SubResource("StyleBoxTexture_kut88")
