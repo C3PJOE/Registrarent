@@ -26,7 +26,6 @@ func read_json_file(parameter: String):
 
 #function to generate new labels
 func _label_maker(label_name:String,label_content:Dictionary)->RichTextLabel:
-	print(label_name," ",label_content.CLASSNAME)
 	#label text var will hold the contents of the label(i.e, the passed class information);will be appended to the label later
 	var label_text = "CLASS NAME: " + label_content.CLASSNAME + "\nCREDITS: " + str(label_content.CREDITS) + "\nLOCATION: " + label_content.CLASSLOCATION + "\nDEPARTMENT: " + label_content.CLASSDEPARTMENT + "\nSTART TIME: " + label_content.CLASSSTARTTIME + "\nEND TIME: " + label_content.CLASSENDTIME 
 	#creates a new rich text label
@@ -53,33 +52,16 @@ func _add_label_to_catalogue(label:RichTextLabel):
 func _remove_label_from_catalogue(label:RichTextLabel):
 	label.hide()
 	label.free()
-#function that makes an array containing the different departments 
-func _dept_list_maker(catalogue:Array)->Array:
-	#var to track index of array
-	var n = 0
-	#array to hold departments
-	var department_list:Array = []
-	#iterates through every class in the course catalogue 
-	for lesson in catalogue:
-		#if the department is already in the array, no need to add it again
-		if lesson.CLASSDEPARTMENT in department_list:
-			pass
-		#if the department is not already in the array, we add it and increment the array's index
-		elif lesson.CLASSDEPARTMENT not in department_list:
-			department_list.append(lesson.CLASSDEPARTMENT)
-			n+=1
-	return department_list
-	
+
 #function to iterate through the catalogue and give each class a label
 func _catalogue_filler(catalogue:Array,optional_filter_type:String = "NO FILTER",optional_specific_filter:String =""):
-	var dept_list = _dept_list_maker(catalogue)
 	match optional_filter_type:
 		"NO FILTER":
-			var n = 1
+			var _n = 1
 			for lesson in catalogue:
-				var class_label_number = "Class" + str(n)
+				var class_label_number = "Class" + str(_n)
 				_add_label_to_catalogue(_label_maker(class_label_number,lesson))     
-				n+=1
+				_n+=1
 		"DEPARTMENT":
 			container_clearer()
 			#function calls itself with no specific filter, using _filter function as parameter. 
