@@ -13,7 +13,6 @@ var class_data
 func _ready():
 	class_data = read_json_file(file)
 	_catalogue_filler(class_data)
-
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -49,10 +48,6 @@ func _label_maker(label_name:String,label_content:Dictionary)->RichTextLabel:
 func _add_label_to_catalogue(label:RichTextLabel):
 	class_catalogue_container.add_child(label)
 	
-func _remove_label_from_catalogue(label:RichTextLabel):
-	label.hide()
-	label.free()
-
 #function to iterate through the catalogue and give each class a label
 func _catalogue_filler(catalogue:Array,optional_filter_type:String = "NO FILTER",optional_specific_filter:String =""):
 	match optional_filter_type:
@@ -67,8 +62,12 @@ func _catalogue_filler(catalogue:Array,optional_filter_type:String = "NO FILTER"
 			#function calls itself with no specific filter, using _filter function as parameter. 
 			#No matter the filter key, the final step of sorting will be to make labels and add them to the catalogue,
 			#so calling the function like this prevents redundant copy/pasting. 
-			_catalogue_filler(_filter(catalogue,optional_specific_filter))
-
+			_catalogue_filler(_filter_by_department(catalogue,optional_specific_filter))
+		"TIME":
+			container_clearer()
+			_catalogue_filler(_filter_by_time(catalogue,optional_specific_filter))
+			
+#function to clear the catalogue container
 func container_clearer():
 	#iterates through every child in class_catalogue_container
 	for  child in class_catalogue_container.get_children():
@@ -77,24 +76,47 @@ func container_clearer():
 		#frees the child from memory
 		child.queue_free()
 		#class_catalogue_container.remove_child(class_catalogue_container.get_child(n))
-	
-func _filter(catalogue:Array,specific_filter:String)->Array:
-	var clone_catalogue = catalogue.duplicate()
-	var sorted_catalogue:Array = []
+		
+#function to filter the passed array using the specific filter as a key, returns the filtered array
+func _filter_by_department(catalogue:Array,specific_filter:String)->Array:
+	var filtered_catalogue:Array = []
 	#iterates through every class in the originally passed catalogue
 	for cl in catalogue:
 		#if the current class' department matches the specific filter 
 		if cl.CLASSDEPARTMENT == specific_filter:
-			#appens the class to the array of sorted classes
-			sorted_catalogue.append(cl)
-			#erases the class from the clone catalogue, so that there are no duplicates when we merge it with the sorted_catalogue
-			clone_catalogue.erase(cl)
-			
-	#adds the rest of the classes to the back of the sorted array, thus giving us a sorted catalogue of classes	
-	sorted_catalogue.append_array(clone_catalogue)
-	return sorted_catalogue
+			#appens the class to the array of filtered classes
+			filtered_catalogue.append(cl)
+	
+	return filtered_catalogue
 
+#function to filter the passed array using the specific filter as a key, returns the filtered array
+func _filter_by_time(catalogue:Array,specific_filter:String)->Array:
+	var filtered_catalogue:Array = []
+	#iterates through every class in the originally passed catalogue
+	for cl in catalogue:
+		#if the current class' department matches the specific filter 
+		if cl.CLASSSTARTTIME == specific_filter:
+			#appens the class to the array of filtered classes
+			filtered_catalogue.append(cl)
+	
+	return filtered_catalogue
 					
 func _on_department_dropdown_item_selected(index):
 	var filter_param = department_dropdown.get_item_text(index)
-	_catalogue_filler(class_data,"DEPARTMENT",filter_param)
+	#if the selection is for all classes, we just call the default catalogue filler 
+	if filter_param == "ALL":
+		container_clearer()
+		_catalogue_filler(class_data)
+	else:
+		#calls catalogue filler, passing department as the general filter type and filter_param as the specific department 
+		_catalogue_filler(class_data,"DEPARTMENT",filter_param)
+
+func _on_time_dropdown_item_selected(index):
+	var filter_param = time_dropdown.get_item_text(index)
+	#if the selection is for all times, we just call the default catalogue filler 
+	if filter_param == "ALL":
+		container_clearer()
+		_catalogue_filler(class_data)
+	else:
+		#calls catalogue filler, passing time as the general filter type and filter_param as the specific department 
+		_catalogue_filler(class_data,"TIME",filter_param)

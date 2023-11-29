@@ -1058,7 +1058,7 @@ text = "DEPARTMENT"
 
 [node name="DepartmentDropdown" type="OptionButton" parent="MainContainer/CourseCatalogueParentWindow/CourseCatalogueWindow/Dropdown1"]
 layout_mode = 2
-item_count = 5
+item_count = 6
 popup/item_0/text = "ART"
 popup/item_0/id = 3
 popup/item_1/text = "ENGLISH"
@@ -1069,6 +1069,8 @@ popup/item_3/text = "HUMANITIES"
 popup/item_3/id = 4
 popup/item_4/text = "MATH"
 popup/item_4/id = 1
+popup/item_5/text = "ALL"
+popup/item_5/id = 5
 
 [node name="Dropdown2" type="BoxContainer" parent="MainContainer/CourseCatalogueParentWindow/CourseCatalogueWindow"]
 offset_left = 460.0
@@ -1089,7 +1091,7 @@ text = "TIME"
 
 [node name="TimeDropdown" type="OptionButton" parent="MainContainer/CourseCatalogueParentWindow/CourseCatalogueWindow/Dropdown2"]
 layout_mode = 2
-item_count = 33
+item_count = 34
 popup/item_0/text = "8:00 AM"
 popup/item_0/id = 0
 popup/item_1/text = "8:15 AM"
@@ -1156,6 +1158,8 @@ popup/item_31/text = "3:45 PM"
 popup/item_31/id = 31
 popup/item_32/text = "4:00 PM"
 popup/item_32/id = 32
+popup/item_33/text = "ALL"
+popup/item_33/id = 33
 
 [node name="ClassCatalogueScrollContainer" type="ScrollContainer" parent="MainContainer/CourseCatalogueParentWindow/CourseCatalogueWindow"]
 custom_minimum_size = Vector2(615, 591)
@@ -1180,3 +1184,4 @@ size_flags_horizontal = 3
 [connection signal="pressed" from="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/NoButton" to="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" method="_on_no_button_pressed"]
 [connection signal="close_requested" from="MainContainer/CourseCatalogueParentWindow" to="MainContainer/CourseCatalogueParentWindow" method="_on_close_requested"]
 [connection signal="item_selected" from="MainContainer/CourseCatalogueParentWindow/CourseCatalogueWindow/Dropdown1/DepartmentDropdown" to="MainContainer/CourseCatalogueParentWindow/CourseCatalogueWindow" method="_on_department_dropdown_item_selected"]
+[connection signal="item_selected" from="MainContainer/CourseCatalogueParentWindow/CourseCatalogueWindow/Dropdown2/TimeDropdown" to="MainContainer/CourseCatalogueParentWindow/CourseCatalogueWindow" method="_on_time_dropdown_item_selected"]
