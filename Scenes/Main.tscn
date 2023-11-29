@@ -1067,7 +1067,7 @@ popup/item_2/text = "HISTORY"
 popup/item_2/id = 2
 popup/item_3/text = "HUMANITIES"
 popup/item_3/id = 4
-popup/item_4/text = "MATHEMATICS"
+popup/item_4/text = "MATH"
 popup/item_4/id = 1
 
 [node name="Dropdown2" type="BoxContainer" parent="MainContainer/CourseCatalogueParentWindow/CourseCatalogueWindow"]
@@ -1170,22 +1170,6 @@ vertical_scroll_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Class1" type="RichTextLabel" parent="MainContainer/CourseCatalogueParentWindow/CourseCatalogueWindow/ClassCatalogueScrollContainer/ClassCatalogueContainer"]
-visible = false
-custom_minimum_size = Vector2(200, 200)
-layout_mode = 2
-theme_override_colors/default_color = Color(0.984314, 0.94902, 0.211765, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_y = 1
-theme_override_constants/shadow_outline_size = 2
-bbcode_enabled = true
-text = "[center]EN 168
-LOCATION: ENB 200
-DEPARTMENT: ENGLISH
-CLASS TIME: 10:00 AM - 12:00 PM[center]
-"
-fit_content = true
-
 [connection signal="esc_pressed" from="MainContainer" to="MainContainer" method="_on_esc_pressed"]
 [connection signal="pressed" from="MainContainer/Desktop/Taskbar/BrowserTaskbarButton" to="MainContainer" method="_on_browser_taskbar_button_pressed"]
 [connection signal="pressed" from="MainContainer/Desktop/BrowserDesktopShortcut" to="MainContainer" method="_on_browser_desktop_shortcut_pressed"]
@@ -1195,3 +1179,4 @@ fit_content = true
 [connection signal="pressed" from="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/YesButton" to="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" method="_on_yes_button_pressed"]
 [connection signal="pressed" from="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/NoButton" to="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" method="_on_no_button_pressed"]
 [connection signal="close_requested" from="MainContainer/CourseCatalogueParentWindow" to="MainContainer/CourseCatalogueParentWindow" method="_on_close_requested"]
+[connection signal="item_selected" from="MainContainer/CourseCatalogueParentWindow/CourseCatalogueWindow/Dropdown1/DepartmentDropdown" to="MainContainer/CourseCatalogueParentWindow/CourseCatalogueWindow" method="_on_department_dropdown_item_selected"]
