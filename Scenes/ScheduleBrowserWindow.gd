@@ -124,7 +124,6 @@ func _set_week_label_x_positions():
 	
 func _set_Current_Schedule(student: int):
 	clearLabels()
-	
 	#fills label with correct student info 
 	student_name.add_text("FULL NAME: " + studentData[student].NAME)
 	year.add_text("YEAR: " + studentData[student].YEAR)
@@ -163,7 +162,6 @@ func _set_Current_Schedule(student: int):
 #and assigns the contents of the parent array to labels using match statements 
 func label_assigner(day:int, parent_array:Array):
 	var checkedResult:Array
-	#var day_of_week = get_tree().get_nodes_in_group(day +"Labels")
 	#match statement that checks what day of the week it is, so we can set the correct label(monday == 0, friday == 4)
 	match day:
 		0:
@@ -179,6 +177,7 @@ func label_assigner(day:int, parent_array:Array):
 				var padding_amount:int = duration_padding(checkedResult,n)
 				#shows the label 
 				monday_label[n].show()
+				monday_label[n].add_theme_font_override("normal_font",load("res://Assets/Fonts/times.ttf"))
 				#adds the text to the label, using bbcode tags to center it 
 				monday_label[n].append_text("[center]%s[/center]" % labelText)
 				#sets the y size of the rich text label. it will expand to fit the text if more space is needed
@@ -205,6 +204,7 @@ func label_assigner(day:int, parent_array:Array):
 				var padding_amount:int = duration_padding(checkedResult,n)
 				#shows the label 
 				tuesday_label[n].show()
+				tuesday_label[n].add_theme_font_override("normal_font",load("res://Assets/Fonts/times.ttf"))
 				#adds the text to the label, using bbcode tags to center it 
 				tuesday_label[n].append_text("[center]%s[/center]" % labelText)
 				#sets the y size of the rich text label. it will expand to fit the text if more space is needed
@@ -230,6 +230,7 @@ func label_assigner(day:int, parent_array:Array):
 				var padding_amount:int = duration_padding(checkedResult,n)
 				#shows the label 
 				wednesday_label[n].show()
+				wednesday_label[n].add_theme_font_override("normal_font",load("res://Assets/Fonts/times.ttf"))
 				#adds the text to the label, using bbcode tags to center it 
 				wednesday_label[n].append_text("[center]%s[/center]" % labelText)
 				#sets the y size of the rich text label. it will expand to fit the text if more space is needed
@@ -255,6 +256,7 @@ func label_assigner(day:int, parent_array:Array):
 				var padding_amount:int = duration_padding(checkedResult,n)
 				#shows the label 
 				thursday_label[n].show()
+				thursday_label[n].add_theme_font_override("normal_font",load("res://Assets/Fonts/times.ttf"))
 				#adds the text to the label, using bbcode tags to center it 
 				thursday_label[n].append_text("[center]%s[/center]" % labelText)
 				#sets the y size of the rich text label. it will expand to fit the text if more space is needed
@@ -280,6 +282,7 @@ func label_assigner(day:int, parent_array:Array):
 				var padding_amount:int = duration_padding(checkedResult,n)
 				#shows the label 
 				friday_label[n].show()
+				friday_label[n].add_theme_font_override("normal_font",load("res://Assets/Fonts/times.ttf"))
 				#adds the text to the label, using bbcode tags to center it 
 				friday_label[n].append_text("[center]%s[/center]" % labelText)
 				friday_label[n].size.y = 69
