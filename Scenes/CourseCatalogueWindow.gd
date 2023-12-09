@@ -40,10 +40,11 @@ func _label_maker(label_name:String,label_content:Dictionary)->RichTextLabel:
 	new_label.custom_minimum_size = Vector2(200,200)
 	#overrides some default fonts/colors/constants to match desired aesthetic 
 	new_label.add_theme_color_override("default_color",Color(0.984, 0.949, 0.212))
-	new_label.add_theme_color_override("font_shadow_color",Color(0, 0, 0))
+	new_label.add_theme_color_override("font_shadow_color",Color(0, 0, 0)) 
 	new_label.add_theme_constant_override("shadow_offset_y",1)
 	new_label.add_theme_constant_override("shadow_outline_size",2)
 	new_label.add_theme_font_override("normal_font",font)
+	new_label.add_theme_font_size_override("normal_font_size",20)
 	#adds the previously initialized label text var to the label 
 	new_label.append_text("[center]%s[/center]"%label_text)
 	

@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://dgv0xsiratr8g"]
+[gd_scene load_steps=51 format=3 uid="uid://dgv0xsiratr8g"]
 
 [ext_resource type="Script" path="res://Scenes/Main.gd" id="1_5ghd7"]
 [ext_resource type="Script" path="res://Scenes/MainContainer.gd" id="1_pf4tp"]
@@ -27,31 +27,11 @@ texture = ExtResource("9_tg8ot")
 resource_local_to_scene = true
 bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ox75y"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xl3x4"]
 bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
 border_color = Color(0.85098, 0.811765, 0.0352941, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tr0cx"]
-bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
-border_color = Color(0.85098, 0.811765, 0.0352941, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oxoc7"]
-bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
-border_color = Color(0.85098, 0.811765, 0.0352941, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1emwc"]
-bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
-border_color = Color(0.85098, 0.811765, 0.0352941, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_emt8v"]
-bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
-border_color = Color(0.85098, 0.811765, 0.0352941, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lxvvd"]
-bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
-border_color = Color(0.85098, 0.811765, 0.0352941, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xc78t"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5nbii"]
 resource_local_to_scene = true
 bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
 border_color = Color(0.85098, 0.811765, 0.0352941, 1)
@@ -67,6 +47,15 @@ bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
 border_color = Color(0.85098, 0.811765, 0.0352941, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_myks0"]
+resource_local_to_scene = true
+bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
+border_color = Color(0.85098, 0.811765, 0.0352941, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w6ytl"]
+bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
+border_color = Color(0.85098, 0.811765, 0.0352941, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xc78t"]
 resource_local_to_scene = true
 bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
 border_color = Color(0.85098, 0.811765, 0.0352941, 1)
@@ -260,6 +249,7 @@ bbcode_enabled = true
 text = "[center]Course Catalogue[center]"
 
 [node name="RegistrarManualDesktopShortcut" type="TextureButton" parent="MainContainer/Desktop"]
+layout_mode = 0
 offset_left = 3.0
 offset_top = 321.0
 offset_right = 119.0
@@ -285,6 +275,7 @@ transparent_bg = true
 gui_embed_subwindows = true
 initial_position = 2
 size = Vector2i(1280, 720)
+visible = false
 unresizable = true
 transparent = true
 mouse_passthrough = true
@@ -296,6 +287,7 @@ transparent_bg = true
 handle_input_locally = false
 initial_position = 1
 size = Vector2i(1280, 720)
+visible = false
 transient = true
 unresizable = true
 theme_override_styles/embedded_border = SubResource("StyleBoxTexture_f7xbp")
@@ -548,89 +540,99 @@ text = "[center]FRIDAY[/center]"
 fit_content = true
 
 [node name="MLabel1" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" groups=["MondayLabels"]]
-custom_minimum_size = Vector2(175, 0)
-offset_left = 378.0
-offset_top = 177.0
+visible = false
+custom_minimum_size = Vector2(174, 0)
+offset_left = 379.0
+offset_top = 354.0
 offset_right = 553.0
-offset_bottom = 223.0
+offset_bottom = 423.0
 size_flags_horizontal = 3
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("18_cy781")
-theme_override_styles/normal = SubResource("StyleBoxFlat_ox75y")
+theme_override_styles/normal = SubResource("StyleBoxFlat_xl3x4")
 bbcode_enabled = true
-text = "MUS 200
-ABB 211
-
-"
+text = "BIO 444
+ABAH 300
+10:00 AM - 12:00 PM"
 fit_content = true
 
 [node name="MLabel2" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" groups=["MondayLabels"]]
 visible = false
-custom_minimum_size = Vector2(175, 0)
-offset_left = 756.0
-offset_top = 354.0
-offset_right = 931.0
-offset_bottom = 400.0
+custom_minimum_size = Vector2(174, 0)
+offset_left = 379.0
+offset_top = 617.0
+offset_right = 553.0
+offset_bottom = 689.0
 size_flags_horizontal = 3
-size_flags_vertical = 8
+size_flags_vertical = 0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("18_cy781")
-theme_override_styles/normal = SubResource("StyleBoxFlat_tr0cx")
+theme_override_font_sizes/normal_font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_5nbii")
 bbcode_enabled = true
-text = "
+text = "POLS 201
+LH12
 
 "
 fit_content = true
 
 [node name="MLabel3" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" groups=["MondayLabels"]]
 visible = false
-custom_minimum_size = Vector2(175, 0)
-offset_left = 1134.0
-offset_top = 531.0
-offset_right = 1309.0
-offset_bottom = 577.0
+custom_minimum_size = Vector2(174, 0)
+offset_left = 379.0
+offset_top = 617.0
+offset_right = 553.0
+offset_bottom = 689.0
 size_flags_horizontal = 3
+size_flags_vertical = 0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_styles/normal = SubResource("StyleBoxFlat_oxoc7")
+theme_override_font_sizes/normal_font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_uxo6o")
 bbcode_enabled = true
-text = "
+text = "POLS 201
+LH12
 
 "
 fit_content = true
 
 [node name="MLabel4" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" groups=["MondayLabels"]]
 visible = false
-custom_minimum_size = Vector2(175, 0)
-offset_left = 1512.0
-offset_top = 708.0
-offset_right = 1687.0
-offset_bottom = 754.0
+custom_minimum_size = Vector2(174, 0)
+offset_left = 379.0
+offset_top = 1057.0
+offset_right = 553.0
+offset_bottom = 1129.0
 size_flags_horizontal = 3
+size_flags_vertical = 0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_styles/normal = SubResource("StyleBoxFlat_1emwc")
+theme_override_font_sizes/normal_font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_egce3")
 bbcode_enabled = true
-text = "
+text = "POLS 201
+LH12
 
 "
 fit_content = true
 
 [node name="MLabel5" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" groups=["MondayLabels"]]
 visible = false
-custom_minimum_size = Vector2(175, 0)
-offset_left = 1890.0
-offset_top = 885.0
-offset_right = 2065.0
-offset_bottom = 931.0
+custom_minimum_size = Vector2(174, 0)
+offset_left = 379.0
+offset_top = 1937.0
+offset_right = 553.0
+offset_bottom = 2009.0
 size_flags_horizontal = 3
+size_flags_vertical = 0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_styles/normal = SubResource("StyleBoxFlat_emt8v")
+theme_override_font_sizes/normal_font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_myks0")
 bbcode_enabled = true
-text = "
+text = "POLS 201
+LH12
 
 "
 fit_content = true
 
 [node name="TLabel1" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" groups=["TuesdayLabels"]]
+visible = false
 custom_minimum_size = Vector2(174, 0)
 offset_left = 562.0
 offset_top = 177.0
@@ -638,7 +640,7 @@ offset_right = 736.0
 offset_bottom = 246.0
 size_flags_horizontal = 3
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_styles/normal = SubResource("StyleBoxFlat_lxvvd")
+theme_override_styles/normal = SubResource("StyleBoxFlat_w6ytl")
 bbcode_enabled = true
 text = "BIO 444
 ABAH 300
@@ -722,6 +724,7 @@ LH12
 fit_content = true
 
 [node name="WLabel1" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" groups=["WednesdayLabels"]]
+visible = false
 custom_minimum_size = Vector2(171, 0)
 offset_left = 744.0
 offset_top = 177.0
@@ -816,6 +819,7 @@ LH12
 fit_content = true
 
 [node name="ThLabel1" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" groups=["ThursdayLabels"]]
+visible = false
 custom_minimum_size = Vector2(178, 0)
 offset_left = 923.0
 offset_top = 177.0
@@ -910,6 +914,7 @@ LH12
 fit_content = true
 
 [node name="FLabel1" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" groups=["FridayLabels"]]
+visible = false
 custom_minimum_size = Vector2(163, 0)
 offset_left = 1109.0
 offset_top = 177.0
@@ -1115,13 +1120,14 @@ offset_bottom = 135.0
 theme_override_constants/separation = -14
 
 [node name="DepartmentLabel" type="RichTextLabel" parent="MainContainer/CourseCatalogueParentWindow/CourseCatalogueWindow/Dropdown1"]
-custom_minimum_size = Vector2(125, 0)
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 theme_override_colors/default_color = Color(0.984314, 0.94902, 0.211765, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_y = 2
 theme_override_constants/shadow_outline_size = 1
 theme_override_fonts/normal_font = ExtResource("18_cy781")
+theme_override_font_sizes/normal_font_size = 20
 bbcode_enabled = true
 text = "DEPARTMENT"
 
@@ -1150,13 +1156,14 @@ offset_bottom = 135.0
 theme_override_constants/separation = -6
 
 [node name="TimeLabel" type="RichTextLabel" parent="MainContainer/CourseCatalogueParentWindow/CourseCatalogueWindow/Dropdown2"]
-custom_minimum_size = Vector2(50, 0)
+custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
 theme_override_colors/default_color = Color(0.984314, 0.94902, 0.211765, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_y = 2
 theme_override_constants/shadow_outline_size = 1
 theme_override_fonts/normal_font = ExtResource("18_cy781")
+theme_override_font_sizes/normal_font_size = 20
 bbcode_enabled = true
 text = "TIME"
 
@@ -1293,9 +1300,8 @@ theme_override_constants/separation = 26
 
 [node name="Rule1" type="RichTextLabel" parent="MainContainer/RegistarManualParentWindow/RegistrarManualWindow/ClassCatalogueScrollContainer/ClassCatalogueContainer"]
 layout_mode = 2
-theme_override_colors/default_color = Color(0.984314, 0.94902, 0.211765, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_outline_size = 3
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 0
 theme_override_fonts/normal_font = ExtResource("18_cy781")
 theme_override_font_sizes/normal_font_size = 21
 bbcode_enabled = true
@@ -1304,9 +1310,8 @@ fit_content = true
 
 [node name="Rule2" type="RichTextLabel" parent="MainContainer/RegistarManualParentWindow/RegistrarManualWindow/ClassCatalogueScrollContainer/ClassCatalogueContainer"]
 layout_mode = 2
-theme_override_colors/default_color = Color(0.984314, 0.94902, 0.211765, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_outline_size = 3
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 1
 theme_override_fonts/normal_font = ExtResource("18_cy781")
 theme_override_font_sizes/normal_font_size = 21
 theme_override_styles/normal = SubResource("StyleBoxEmpty_tblil")
@@ -1316,9 +1321,8 @@ fit_content = true
 
 [node name="Rule3" type="RichTextLabel" parent="MainContainer/RegistarManualParentWindow/RegistrarManualWindow/ClassCatalogueScrollContainer/ClassCatalogueContainer"]
 layout_mode = 2
-theme_override_colors/default_color = Color(0.984314, 0.94902, 0.211765, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_outline_size = 3
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 1
 theme_override_fonts/normal_font = ExtResource("18_cy781")
 theme_override_font_sizes/normal_font_size = 21
 bbcode_enabled = true
@@ -1327,9 +1331,8 @@ fit_content = true
 
 [node name="Rule4" type="RichTextLabel" parent="MainContainer/RegistarManualParentWindow/RegistrarManualWindow/ClassCatalogueScrollContainer/ClassCatalogueContainer"]
 layout_mode = 2
-theme_override_colors/default_color = Color(0.984314, 0.94902, 0.211765, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_outline_size = 3
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 1
 theme_override_fonts/normal_font = ExtResource("18_cy781")
 theme_override_font_sizes/normal_font_size = 21
 bbcode_enabled = true
@@ -1338,9 +1341,7 @@ fit_content = true
 
 [node name="Rule5" type="RichTextLabel" parent="MainContainer/RegistarManualParentWindow/RegistrarManualWindow/ClassCatalogueScrollContainer/ClassCatalogueContainer"]
 layout_mode = 2
-theme_override_colors/default_color = Color(0.984314, 0.94902, 0.211765, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_outline_size = 3
+theme_override_colors/default_color = Color(0.133333, 0.14902, 0.160784, 1)
 theme_override_fonts/normal_font = ExtResource("18_cy781")
 theme_override_font_sizes/normal_font_size = 21
 bbcode_enabled = true

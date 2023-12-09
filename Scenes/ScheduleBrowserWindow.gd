@@ -76,6 +76,7 @@ var studentIndex
 @onready var wednesday_label = get_tree().get_nodes_in_group("WednesdayLabels")
 @onready var thursday_label = get_tree().get_nodes_in_group("ThursdayLabels")
 @onready var friday_label = get_tree().get_nodes_in_group("FridayLabels")
+@onready var day_of_week_label:Array
 
 func _ready():
 	_set_time_labels_positions()
@@ -83,11 +84,11 @@ func _ready():
 	#index variable we will pass to set current schedule to tell it which 
 	#student needs to have their schedule set
 	studentIndex = 0
-	start(studentIndex)
 	
+	start(studentIndex)
+
 #calls the set current schedule function 
 func start(student:int):
-	
 	studentData= read_json_file(file1)
 	classData = read_json_file(file2)
 	_set_Current_Schedule(student)
@@ -165,142 +166,51 @@ func label_assigner(day:int, parent_array:Array):
 	#match statement that checks what day of the week it is, so we can set the correct label(monday == 0, friday == 4)
 	match day:
 		0:
-			var n = 0
-			for label in parent_array[day]:
-				#calls check_for_class func and stores the results in an array
-				checkedResult = check_for_class(parent_array[day],classData)
-				#calls sort_by_time, which sorts the classes in checkedResult by their start time
-				_sort_by_time(checkedResult)
-				#setting the text that will be assigned to the label by calling 
-				var labelText:String = checkedResult[n].CLASSNAME + "\n" + checkedResult[n].CLASSLOCATION + "\n" + checkedResult[n].CLASSSTARTTIME + "-" + checkedResult[n].CLASSENDTIME
-				#calling duration_padding function and storing return value in var to use in adjusting border width
-				var padding_amount:int = duration_padding(checkedResult,n)
-				#shows the label 
-				monday_label[n].show()
-				monday_label[n].add_theme_font_override("normal_font",load("res://Assets/Fonts/times.ttf"))
-				#adds the text to the label, using bbcode tags to center it 
-				monday_label[n].append_text("[center]%s[/center]" % labelText)
-				#sets the y size of the rich text label. it will expand to fit the text if more space is needed
-				monday_label[n].size.y = 69
-				#sets the border width on the top and bottom of the label's stylebox,
-				# allowing it to more closely line up with the
-				monday_label[n].get_theme_stylebox("normal").border_width_top = padding_amount
-				monday_label[n].get_theme_stylebox("normal").border_width_bottom = padding_amount
-				#sets the position of the label on the screen by calling label_placer(which returns vector2i) and passing the checkedResult array, 
-				#the index we want to be placed, and the label's current x position, which should never change 
-				monday_label[n].set_position(label_placer(checkedResult,n,monday_label[n].position.x))
-				
-				n+=1
+			day_of_week_label = monday_label.duplicate()
 		1:
-			var n = 0
-			for label in parent_array[day]:
-				#calls check_for_class func and stores the results in an array
-				checkedResult = check_for_class(parent_array[day],classData)
-				#calls sort_by_time, which sorts the classes in checkedResult by their start time
-				_sort_by_time(checkedResult)
-				#setting the text that will be assigned to the label by calling 
-				var labelText:String = checkedResult[n].CLASSNAME + "\n" + checkedResult[n].CLASSLOCATION + "\n" + checkedResult[n].CLASSSTARTTIME + "-" + checkedResult[n].CLASSENDTIME
-				#calling duration_padding function and storing return value in var to use in adjusting border width
-				var padding_amount:int = duration_padding(checkedResult,n)
-				#shows the label 
-				tuesday_label[n].show()
-				tuesday_label[n].add_theme_font_override("normal_font",load("res://Assets/Fonts/times.ttf"))
-				#adds the text to the label, using bbcode tags to center it 
-				tuesday_label[n].append_text("[center]%s[/center]" % labelText)
-				#sets the y size of the rich text label. it will expand to fit the text if more space is needed
-				tuesday_label[n].size.y = 69
-				#sets the border width on the top and bottom of the label's stylebox,
-				# allowing it to more closely line up with the
-				tuesday_label[n].get_theme_stylebox("normal").border_width_top = padding_amount
-				tuesday_label[n].get_theme_stylebox("normal").border_width_bottom = padding_amount
-				#sets the position of the label on the screen by calling label_placer(which returns vector2i) and passing the checkedResult array, 
-				#the index we want to be placed, and the label's current x position, which should never change 
-				tuesday_label[n].set_position(label_placer(checkedResult,n,tuesday_label[n].position.x))
-				n+=1
+			day_of_week_label = tuesday_label.duplicate()
 		2:
-			var n = 0
-			for label in parent_array[day]:
-				#calls check_for_class func and stores the results in an array
-				checkedResult = check_for_class(parent_array[day],classData)
-				#calls sort_by_time, which sorts the classes in checkedResult by their start time
-				_sort_by_time(checkedResult)
-				#setting the text that will be assigned to the label by calling 
-				var labelText:String = checkedResult[n].CLASSNAME + "\n" + checkedResult[n].CLASSLOCATION + "\n" + checkedResult[n].CLASSSTARTTIME + "-" + checkedResult[n].CLASSENDTIME
-				#calling duration_padding function and storing return value in var to use in adjusting border width
-				var padding_amount:int = duration_padding(checkedResult,n)
-				#shows the label 
-				wednesday_label[n].show()
-				wednesday_label[n].add_theme_font_override("normal_font",load("res://Assets/Fonts/times.ttf"))
-				#adds the text to the label, using bbcode tags to center it 
-				wednesday_label[n].append_text("[center]%s[/center]" % labelText)
-				#sets the y size of the rich text label. it will expand to fit the text if more space is needed
-				wednesday_label[n].size.y = 69
-				#sets the border width on the top and bottom of the label's stylebox,
-				# allowing it to more closely line up with the
-				wednesday_label[n].get_theme_stylebox("normal").border_width_top = padding_amount
-				wednesday_label[n].get_theme_stylebox("normal").border_width_bottom = padding_amount
-				#sets the position of the label on the screen by calling label_placer(which returns vector2i) and passing the checkedResult array, 
-				#the index we want to be placed, and the label's current x position, which should never change 
-				wednesday_label[n].set_position(label_placer(checkedResult,n,wednesday_label[n].position.x))
-				n+=1
+			day_of_week_label = wednesday_label.duplicate()
 		3:
-			var n = 0
-			for label in parent_array[day]:
-				#calls check_for_class func and stores the results in an array
-				checkedResult = check_for_class(parent_array[day],classData)
-				#calls sort_by_time, which sorts the classes in checkedResult by their start time
-				_sort_by_time(checkedResult)
-				#setting the text that will be assigned to the label by calling 
-				var labelText:String = checkedResult[n].CLASSNAME + "\n" + checkedResult[n].CLASSLOCATION + "\n" + checkedResult[n].CLASSSTARTTIME + "-" + checkedResult[n].CLASSENDTIME
-				#calling duration_padding function and storing return value in var to use in adjusting border width
-				var padding_amount:int = duration_padding(checkedResult,n)
-				#shows the label 
-				thursday_label[n].show()
-				thursday_label[n].add_theme_font_override("normal_font",load("res://Assets/Fonts/times.ttf"))
-				#adds the text to the label, using bbcode tags to center it 
-				thursday_label[n].append_text("[center]%s[/center]" % labelText)
-				#sets the y size of the rich text label. it will expand to fit the text if more space is needed
-				thursday_label[n].size.y = 69
-				#sets the border width on the top and bottom of the label's stylebox,
-				# allowing it to more closely line up with the
-				thursday_label[n].get_theme_stylebox("normal").border_width_top = padding_amount
-				thursday_label[n].get_theme_stylebox("normal").border_width_bottom = padding_amount
-				#sets the position of the label on the screen by calling label_placer(which returns vector2i) and passing the checkedResult array, 
-				#the index we want to be placed, and the label's current x position, which should never change 
-				thursday_label[n].set_position(label_placer(checkedResult,n,thursday_label[n].position.x))
-				n+=1
+			day_of_week_label = thursday_label.duplicate()
 		4:
-			var n = 0
-			for label in parent_array[day]:
-				#calls check_for_class func and stores the results in an array
-				checkedResult = check_for_class(parent_array[day],classData)
-				#calls sort_by_time, which sorts the classes in checkedResult by their start time
-				_sort_by_time(checkedResult)
-				#setting the text that will be assigned to the label by calling 
-				var labelText:String = checkedResult[n].CLASSNAME + "\n" + checkedResult[n].CLASSLOCATION + "\n" + checkedResult[n].CLASSSTARTTIME + "-" + checkedResult[n].CLASSENDTIME
-				#calling duration_padding function and storing return value in var to use in adjusting border width
-				var padding_amount:int = duration_padding(checkedResult,n)
-				#shows the label 
-				friday_label[n].show()
-				friday_label[n].add_theme_font_override("normal_font",load("res://Assets/Fonts/times.ttf"))
-				#adds the text to the label, using bbcode tags to center it 
-				friday_label[n].append_text("[center]%s[/center]" % labelText)
-				friday_label[n].size.y = 69
-				#sets the border width on the top and bottom of the label's stylebox,
-				# allowing it to more closely line up with the
-				friday_label[n].get_theme_stylebox("normal").border_width_top = padding_amount
-				friday_label[n].get_theme_stylebox("normal").border_width_bottom = padding_amount
-				#sets the position of the label on the screen by calling label_placer(which returns vector2i) and passing the checkedResult array, 
-				#the index we want to be placed, and the label's current x position, which should never change 
-				friday_label[n].set_position(label_placer(checkedResult,n,friday_label[n].position.x))
-				n+=1
+			day_of_week_label = friday_label.duplicate()
+	
+	var n = 0
+	for label in parent_array[day]:
+		#calls check_for_class func and stores the results in an array
+		checkedResult = check_for_class(parent_array[day],classData)
+		#calls sort_by_time, which sorts the classes in checkedResult by their start time
+		_sort_by_time(checkedResult)
+		#setting the text that will be assigned to the label by calling 
+		var labelText:String = checkedResult[n].CLASSNAME + "\n" + checkedResult[n].CLASSLOCATION + "\n" + checkedResult[n].CLASSSTARTTIME + "-" + checkedResult[n].CLASSENDTIME
+		#calling duration_padding function and storing return value in var to use in adjusting border width
+		var padding_amount:int = duration_padding(checkedResult,n)
+		
+		day_of_week_label[n].add_theme_font_override("normal_font",load("res://Assets/Fonts/times.ttf"))
+		day_of_week_label[n].add_theme_font_size_override("normal_font_size",18)
+		
+		#sets the border width on the top and bottom of the label's stylebox,
+		# allowing it to more closely line up with the
+		day_of_week_label[n].get_theme_stylebox("normal").border_width_top = padding_amount
+		day_of_week_label[n].get_theme_stylebox("normal").border_width_bottom = padding_amount
+		#adds the text to the label, using bbcode tags to center it 
+		day_of_week_label[n].append_text("[center]%s[/center]" % labelText)
+		#sets the position of the label on the screen by calling label_placer(which returns vector2i) and passing the checkedResult array, 
+		#the index we want to be placed, and the label's current x position, which should never change 
+		day_of_week_label[n].set_position(label_placer(checkedResult,n,day_of_week_label[n].position.x))
+		#shows the label 
+		day_of_week_label[n].show()
+		
+		n+=1
+		
 
 #returns an integer(number of pixels to pad the label) based on how long the class is
 func duration_padding(array:Array,array_index:int)-> int:
 	var duration:int = array[array_index].CLASSDURATION
 	match duration:
 		90:
-			return 11
+			return 15
 		120:
 			return 30
 		60:
@@ -395,10 +305,11 @@ func clearLabels():
 	minor.clear()
 	fin_aid.clear()
 	account_status.clear()
-
+	
 	#clears mon labels	
 	for label in monday_label:
 		label.clear()
+		label.size.y = 0
 		label.get_theme_stylebox("normal").border_width_top = 0
 		label.get_theme_stylebox("normal").border_width_bottom = 0
 		label.hide()
@@ -408,6 +319,7 @@ func clearLabels():
 		label.clear()
 		label.get_theme_stylebox("normal").border_width_top = 0
 		label.get_theme_stylebox("normal").border_width_bottom = 0
+		label.size.y = 0
 		label.hide()
 		
 	#clears wed labels		
@@ -415,18 +327,21 @@ func clearLabels():
 		label.clear()
 		label.get_theme_stylebox("normal").border_width_top = 0
 		label.get_theme_stylebox("normal").border_width_bottom = 0
+		label.size.y = 0
 		label.hide()
 	#clears thurs labels
 	for label in thursday_label:
 		label.clear()
 		label.get_theme_stylebox("normal").border_width_top = 0
 		label.get_theme_stylebox("normal").border_width_bottom = 0
+		label.size.y = 0
 		label.hide()
 	#clears friday labels
 	for label in friday_label:
 		label.clear()
 		label.get_theme_stylebox("normal").border_width_top = 0
 		label.get_theme_stylebox("normal").border_width_bottom = 0
+		label.size.y = 0
 		label.hide()
 	
 #function to read json files and returns them as a dictionary
@@ -437,7 +352,7 @@ func read_json_file(parameter: String):
 	
 #function that lets us compare the student data dictionary vs the class data dictionary,
 #which will be used to fill the labels on the schedules
-func check_for_class(sData:Array, cData :Array):
+func check_for_class(sData:Array, cData:Array):
 	#creates an array and sets its size to that of the passed student data array
 	var matching_Data = []
 	matching_Data.resize(sData.size())
