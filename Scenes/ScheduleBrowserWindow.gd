@@ -23,14 +23,14 @@ signal esc_pressed
 @onready var _5pm = $"ClassTimeContainer/5PM"
 #reference_rects
 @onready var _800_line = $"800Line"
-@onready var _830_line = $"830Line"
-@onready var _930_line = $"930Line"
-@onready var _1030_line = $"1030Line"
-@onready var _1130_line = $"1130Line"
-@onready var _1230_line = $"1230Line"
-@onready var _130_line = $"130Line"
-@onready var _230_line = $"230Line"
-@onready var _330_line = $"330Line"
+@onready var _900_line = $"900Line"
+@onready var _1000_line = $"1000Line"
+@onready var _1100_line = $"1100Line"
+@onready var _1200_line = $"1200Line"
+@onready var _1300_line = $"1300Line"
+@onready var _1400_line = $"1400Line"
+@onready var _1500_line = $"1500Line"
+@onready var _1600_line = $"1600Line"
 #monday labels
 @onready var m_label_1 = $MLabel1
 @onready var m_label_2 = $MLabel2
@@ -185,111 +185,173 @@ func label_assigner(day:int, parent_array:Array):
 		#setting the text that will be assigned to the label by calling 
 		var labelText:String = checkedResult[n].CLASSNAME + "\n" + checkedResult[n].CLASSLOCATION + "\n" + checkedResult[n].CLASSSTARTTIME + "-" + checkedResult[n].CLASSENDTIME
 		#calling duration_padding function and storing return value in var to use in adjusting border width
-		var padding_amount:int = duration_padding(checkedResult,n)
+		#var padding_amount:int = duration_padding(checkedResult,n)
 		
 		day_of_week_label[n].add_theme_font_override("normal_font",load("res://Assets/Fonts/times.ttf"))
 		day_of_week_label[n].add_theme_font_size_override("normal_font_size",18)
 		
 		#sets the border width on the top and bottom of the label's stylebox,
 		# allowing it to more closely line up with the
-		day_of_week_label[n].get_theme_stylebox("normal").border_width_top = padding_amount
-		day_of_week_label[n].get_theme_stylebox("normal").border_width_bottom = padding_amount
+		#day_of_week_label[n].get_theme_stylebox("normal").border_width_top = padding_amount
+		#day_of_week_label[n].get_theme_stylebox("normal").border_width_bottom = padding_amount
+		#shows the label 
+		day_of_week_label[n].show()
 		#adds the text to the label, using bbcode tags to center it 
 		day_of_week_label[n].append_text("[center]%s[/center]" % labelText)
 		#sets the position of the label on the screen by calling label_placer(which returns vector2i) and passing the checkedResult array, 
 		#the index we want to be placed, and the label's current x position, which should never change 
-		day_of_week_label[n].set_position(label_placer(checkedResult,n,day_of_week_label[n].position.x))
-		#shows the label 
-		day_of_week_label[n].show()
+		day_of_week_label[n].label_placer(checkedResult,n,day_of_week_label[n])
 		
 		n+=1
 		
-
 #returns an integer(number of pixels to pad the label) based on how long the class is
-func duration_padding(array:Array,array_index:int)-> int:
+func duration_padding(array:Array,array_index:int,starting_time_label,current_label:RichTextLabel)-> int:
 	var duration:int = array[array_index].CLASSDURATION
+	var end_time = array[array_index].CLASSENDTIME
+	var padding_amount
 	match duration:
 		90:
-			return 15
+			return 90
 		120:
-			return 30
+			return 120
 		60:
-			return 0
+			return 60
 		45:
-			return 0
+			return 45
 		_:
 			return 0
+
+func label_placer_again(array,array_index,current_label:RichTextLabel):
+	var class_start_time = array[array_index].CLASSSTARTIME
+	var class_end_time = array[array_index].CLASSENDTIME
+	var starting_label = which_starting_label(class_start_time)
+
+#concats the starting 
+func which_starting_label(start_time:int):
+	var last_two_digits = str(start_time).substr(2,3).to_int()
+	var label:String
+	match last_two_digits:
+		00:
+			pass
+		15:
+			pass
+		30:
+			pass
+		45:
+			pass
+		
+		
+	if(start_time < 1000):
+		label = "_" + str(start_time).substr(0,0) +"00_line"
+	else:
+		label = "_" + str(start_time).substr(0,1) +"00_line"
+		
+	var starting_label:RichTextLabel = get_node(label)
+	return starting_label
 	
 #function that matches the class start times of the passed array & returns the correct starting time's y position,
 #so that class can be properly aligned on the screen 
-func label_placer(array:Array,array_index:int,label_x_coordinate)->Vector2i:
+func label_placer(array:Array,array_index:int,current_label:RichTextLabel)->void:
+	var duration = array[array_index].DURATION
+	var label_x_coordinate = current_label.position.x
+	var label_y_coordinate = current_label.position.y
+	var padding_amount:int
 	match array[array_index].CLASSSTARTTIME:
 		"8:00 AM":
-			return Vector2i(label_x_coordinate,_800_line.position.y)
+			current_label.set_position(Vector2i(label_x_coordinate,_800_line.position.y))
+			duration_padding(array,array_index,_800_line,current_label)
+			padding_amount =abs(_800_line.position.y - label_y_coordinate)
+			
+			current_label.get_theme_stylebox("normal").border_width_bottom = padding_amount/2
+			current_label.get_theme_stylebox("normal").border_width_top = padding_amount/2
 		"8:15 AM":
 			#offsets the y coordinate by +10 px of the _8am label y position so that it more closely aligns with 8:15
-			return Vector2i(label_x_coordinate,_800_line.position.y+10)
+			current_label.set_position(Vector2i(label_x_coordinate,_800_line.position.y+10))
+			
+			padding_amount =abs((_800_line.position.y+10) - label_y_coordinate)
+			
+			current_label.get_theme_stylebox("normal").border_width_bottom = padding_amount/2
+			current_label.get_theme_stylebox("normal").border_width_top = padding_amount/2
 		"8:30 AM":
-			return Vector2i(label_x_coordinate,_8am.global_position.y+10)
+			current_label.set_position(Vector2i(label_x_coordinate,_8am.global_position.y+10))
+			
+			padding_amount =abs((_8am.global_position.y+10) - label_y_coordinate)
+			
+			current_label.get_theme_stylebox("normal").border_width_bottom = padding_amount/2
+			current_label.get_theme_stylebox("normal").border_width_top = padding_amount/2
 		"8:45 AM":
 			#offsets the y coordinate by +30 px of the _8am label y position so that it more closely aligns with 8:45
-			return Vector2i(label_x_coordinate,_8am.global_position.y+30)
+			current_label.set_position(Vector2i(label_x_coordinate,_8am.global_position.y+30))
+			
+			padding_amount =abs((_8am.global_position.y+30) - label_y_coordinate)
+			current_label.get_theme_stylebox("normal").border_width_bottom = padding_amount/2
+			current_label.get_theme_stylebox("normal").border_width_top = padding_amount/2
 		"9:00 AM":
-			return Vector2i(label_x_coordinate,_830_line.position.y)
+			current_label.set_position(Vector2i(label_x_coordinate,_900_line.position.y))
+		
+			padding_amount =abs(_900_line.position.y - label_y_coordinate)
+			
+			current_label.get_theme_stylebox("normal").border_width_bottom = padding_amount/2
+			current_label.get_theme_stylebox("normal").border_width_top = padding_amount/2
 		"9:15 AM":
-			return Vector2i(label_x_coordinate,_830_line.position.y+10)
+			current_label.set_position(Vector2i(label_x_coordinate,_900_line.position.y+10))
+			
+			padding_amount =abs((_900_line.position.y+10) - label_y_coordinate)
+			
+			current_label.get_theme_stylebox("normal").border_width_bottom = padding_amount/2
+			current_label.get_theme_stylebox("normal").border_width_top = padding_amount/2
 		"9:30 AM":
-			return Vector2i(label_x_coordinate,_9am.global_position.y+10)
+			current_label.set_position(Vector2i(label_x_coordinate,_9am.global_position.y+10))
 		"9:45 AM":
 			return Vector2i(label_x_coordinate,_9am.global_position.y+30)
 		"10:00 AM":
-			return Vector2i(label_x_coordinate,_930_line.position.y-2)
+			return Vector2i(label_x_coordinate,_1000_line.position.y-2)
 		"10:30 AM":
 			return Vector2i(label_x_coordinate,_10am.global_position.y+10)
 		"10:45 AM":
 			return Vector2i(label_x_coordinate,_10am.global_position.y+30)
 		"11:00 AM":
-			return Vector2i(label_x_coordinate,_1030_line.position.y)
+			return Vector2i(label_x_coordinate,_1100_line.position.y)
 		"11:15 AM":
-			return Vector2i(label_x_coordinate,_1030_line.position.y+10)
+			return Vector2i(label_x_coordinate,_1100_line.position.y+10)
 		"11:30 AM":
 			return Vector2i(label_x_coordinate,_11am.global_position.y+10)
 		"11:45 AM":
 			return Vector2i(label_x_coordinate,_11am.global_position.y+30)
 		"12:00 PM":
-			return Vector2i(label_x_coordinate,_1130_line.position.y)
+			return Vector2i(label_x_coordinate,_1200_line.position.y)
 		"12:15 PM":
-			return Vector2i(label_x_coordinate,_1130_line.position.y+10)
+			return Vector2i(label_x_coordinate,_1200_line.position.y+10)
 		"12:30 PM":
 			return Vector2i(label_x_coordinate,_12pm.global_position.y+10)
 		"12:45 PM":
 			return Vector2i(label_x_coordinate,_12pm.global_position.y+30)
 		"1:00 PM":
-			return Vector2i(label_x_coordinate,_1230_line.position.y)
+			return Vector2i(label_x_coordinate,_1300_line.position.y)
 		"1:15 PM":
-			return Vector2i(label_x_coordinate,_1230_line.position.y+10)
+			return Vector2i(label_x_coordinate,_1300_line.position.y+10)
 		"1:30 PM":
 			return Vector2i(label_x_coordinate,_1pm.global_position.y+10)
 		"1:45 PM":
 			return Vector2i(label_x_coordinate,_1pm.global_position.y+20)
 		"2:00 PM":
-			return Vector2i(label_x_coordinate,_130_line.position.y)
+			return Vector2i(label_x_coordinate,_1400_line.position.y)
 		"2:15 PM":
-			return Vector2i(label_x_coordinate,_130_line.position.y+10)
+			return Vector2i(label_x_coordinate,_1400_line.position.y+10)
 		"2:30 PM":
 			return Vector2i(label_x_coordinate,_2pm.global_position.y+10)
 		"2:45 PM":
 			return Vector2i(label_x_coordinate,_2pm.global_position.y+20)
 		"3:00 PM":
-			return Vector2i(label_x_coordinate,_230_line.position.y)
+			return Vector2i(label_x_coordinate,_1500_line.position.y)
 		"3:15 PM":
-			return Vector2i(label_x_coordinate,_230_line.position.y+10)
+			return Vector2i(label_x_coordinate,_1500_line.position.y+10)
 		"3:30 PM":
 			return Vector2i(label_x_coordinate,_3pm.global_position.y+10)
 		"3:45 PM":
 			return Vector2i(label_x_coordinate,_3pm.global_position.y+20)
 		"4:00 PM":
-			return Vector2i(label_x_coordinate,_330_line.position.y)
+			return Vector2i(label_x_coordinate,_1600_line.position.y)
 		_:
 			return Vector2i(0,0)
 #function solely dedicated to increasing the student index var,
