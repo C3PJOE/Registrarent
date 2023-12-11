@@ -89,11 +89,10 @@ var studentIndex
 @onready var wednesday_label = get_tree().get_nodes_in_group("WednesdayLabels")
 @onready var thursday_label = get_tree().get_nodes_in_group("ThursdayLabels")
 @onready var friday_label = get_tree().get_nodes_in_group("FridayLabels")
-@onready var day_of_week_label:Array
 
 func _ready():
 	_set_time_labels_positions()
-	_set_week_label_x_positions()
+	
 	#index variable we will pass to set current schedule to tell it which 
 	#student needs to have their schedule set
 	studentIndex = 0
@@ -102,6 +101,7 @@ func _ready():
 
 #calls the set current schedule function 
 func start(student:int):
+	_set_week_label_x_positions()
 	studentData= read_json_file(file1)
 	classData = read_json_file(file2)
 	_set_Current_Schedule(student)
@@ -122,19 +122,20 @@ func _set_time_labels_positions():
 #The x position of a label will never change again after this
 func _set_week_label_x_positions():
 	for label in monday_label:
-		label.position.x = 378
+		label.set_position(Vector2i(378,0))
 
 	for label in tuesday_label:
-		label.position.x = 562
-
+		label.set_position(Vector2i(562,0))
+		
 	for label in wednesday_label:
-		label.position.x = 744
+		label.set_position(Vector2i(744,0))
 
 	for label in thursday_label:
-		label.position.x = 923
+		label.set_position(Vector2i(923,0))
 	
 	for label in friday_label:
-		label.position.x = 1109
+		label.set_position(Vector2i(1109,0))
+	
 	
 func _set_Current_Schedule(student: int):
 	clearLabels()
@@ -163,30 +164,24 @@ func _set_Current_Schedule(student: int):
 	var fri_class_array = fri.rsplit(",",true,5)
 	#array that holds the classes for every day of the week, as set above
 	var parent_class_array = [mon_class_array,tues_class_array,wed_class_array,thurs_class_array,fri_class_array]
-	
+	#array that holds the rich text labels that will actually hold the data and be displayed on screen
+	var day_of_week_label_array = [monday_label,tuesday_label,wednesday_label,thursday_label,friday_label]
 	#iterates from 0 to 4 and calls label_assigner with respect to day_of_week, with 0 being monday and 4 being friday
 	for day_of_week in range(0,5):
 		#calls label_assigner for each day of the week, with 0 being monday and 4 being tuesday
-		label_assigner(day_of_week,parent_class_array)
+		label_assigner(day_of_week,parent_class_array,day_of_week_label_array)
 	
 #func that takes the day, number of labels, and the parent array from set_current_schedule
 #and assigns the contents of the parent array to labels using match statements 
-func label_assigner(day:int, parent_array:Array):
+func label_assigner(day:int, parent_array:Array,day_of_week_group:Array):
 	var checkedResult:Array
 	#match statement that checks what day of the week it is, so we can set the correct label(monday == 0, friday == 4)
-	match day:
-		0:
-			day_of_week_label = monday_label.duplicate()
-		1:
-			day_of_week_label = tuesday_label.duplicate()
-		2:
-			day_of_week_label = wednesday_label.duplicate()
-		3:
-			day_of_week_label = thursday_label.duplicate()
-		4:
-			day_of_week_label = friday_label.duplicate()
+
 	var n = 0
 	for label in parent_array[day]:
+		#waits a fraction of a second because I was having issues with the first schedule not placing correctly and 
+		#this seems to fix it 
+		await get_tree().create_timer(.01).timeout
 		#calls check_for_class func and stores the results in an array
 		checkedResult = check_for_class(parent_array[day],classData)
 		#converts the 24 hr start and end times to 12 hr for placement on the text label 
@@ -196,30 +191,26 @@ func label_assigner(day:int, parent_array:Array):
 		_sort_by_time(checkedResult)
 		#setting the text that will be assigned to the label by calling 
 		var labelText:String = checkedResult[n].CLASSNAME + "\n" + checkedResult[n].CLASSLOCATION + "\n" + _12_hr_start_time + "-" + _12_hr_end_time
-		
-		day_of_week_label[n].add_theme_font_override("normal_font",load("res://Assets/Fonts/times.ttf"))
-		day_of_week_label[n].add_theme_font_size_override("normal_font_size",18)
+		var path = get_path_to(day_of_week_group[day][n])
+		#sets default font and font size
+		get_node(path).add_theme_font_override("normal_font",load("res://Assets/Fonts/times.ttf"))
+		get_node(path).add_theme_font_size_override("normal_font_size",18)
 		
 		#adds the text to the label, using bbcode tags to center it 
-		day_of_week_label[n].append_text("[center]%s[/center]" % labelText)
-		#sets the position of the label on the screen by calling label_placer(which returns vector2i) and passing the checkedResult array, 
-		#the index we want to be placed, and the label's current x position, which should never change 
-		label_placer_again(checkedResult,n,day_of_week_label[n])
-		#shows the label 
-		day_of_week_label[n].show()
+		get_node(path).append_text("[center]%s[/center]" % labelText)
+		#sets the position of the label on the screen by calling label_placer and passing the checkedResult array, 
+		#the index we want to be placed, and the current day of week label we want to fill with data
+		label_placer(checkedResult,n,day_of_week_group[day][n])
 		
 		n+=1
 		
-func label_placer_again(array,array_index,current_label:RichTextLabel):
+func label_placer(array,array_index,current_label:RichTextLabel):
 	var class_start_time = int(array[array_index].CLASSSTARTTIME)
 	var class_end_time = int(array[array_index].CLASSENDTIME)
 	var label_x_coordinate = current_label.global_position.x
 	
 	var start_label = which_starting_label(class_start_time)
-	var end_label = which_ending_label(class_end_time)
-	
-	var padding_amount = abs(start_label.global_position.y - end_label.global_position.y)
-	
+
 	current_label.set_position(Vector2i(label_x_coordinate,start_label.global_position.y))
 	
 	if(array[array_index].CLASSDURATION == 60 || array[array_index].CLASSDURATION == 45):
@@ -231,6 +222,8 @@ func label_placer_again(array,array_index,current_label:RichTextLabel):
 	elif array[array_index].CLASSDURATION == 120:
 		current_label.get_theme_stylebox("normal").border_width_bottom = 30
 		current_label.get_theme_stylebox("normal").border_width_top = 30
+		
+	current_label.show()
 		
 
 #determines where on the schedue grid the current class should start
@@ -263,39 +256,6 @@ func which_starting_label(start_time:int):
 	
 	#print(starting_label)
 	return starting_label
-	
-#determines where on the schedue grid the current class should end
-func which_ending_label(end_time:int):
-	var last_two_digits
-	var label:String
-	var path
-	if(end_time < 1000):
-		last_two_digits = str(end_time).substr(1,3)
-		label = str(end_time).substr(0,1) + last_two_digits +"Line"
-	else:
-		last_two_digits = str(end_time).substr(2,4)
-		label = str(end_time).substr(0,2) + last_two_digits +"Line"
-		
-	match last_two_digits:
-		"00":
-			if end_time == 800:
-				path = "/root/Main/MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/800Line"
-			else:
-				path = "/root/Main/MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/HourLineContainer/"+label
-		"15":
-			path = "/root/Main/MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/FifteenMinContainer/"+label
-		"30":
-			path = "/root/Main/MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/HalfHourLineContainer/"+label
-		"45":
-			path = "/root/Main/MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/FortyFiveMinContainer/"+label
-		_:
-			path = "/root/Main/MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/800Line"
-	
-	var ending_label = get_node(path)
-	
-	
-	#print(starting_label)
-	return ending_label
 	
 #function solely dedicated to increasing the student index var,
 #because I know without it i will lose track of this variable

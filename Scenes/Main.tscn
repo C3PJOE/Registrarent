@@ -708,7 +708,6 @@ text = "[center]FRIDAY[/center]"
 fit_content = true
 
 [node name="MLabel1" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" groups=["MondayLabels"]]
-visible = false
 custom_minimum_size = Vector2(174, 0)
 offset_left = 379.0
 offset_top = 354.0
@@ -800,7 +799,6 @@ LH12
 fit_content = true
 
 [node name="TLabel1" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" groups=["TuesdayLabels"]]
-visible = false
 custom_minimum_size = Vector2(174, 0)
 offset_left = 562.0
 offset_top = 177.0
@@ -816,7 +814,6 @@ ABAH 300
 fit_content = true
 
 [node name="TLabel2" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" groups=["TuesdayLabels"]]
-visible = false
 custom_minimum_size = Vector2(174, 0)
 offset_left = 1124.0
 offset_top = 440.0
@@ -892,7 +889,6 @@ LH12
 fit_content = true
 
 [node name="WLabel1" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" groups=["WednesdayLabels"]]
-visible = false
 custom_minimum_size = Vector2(171, 0)
 offset_left = 744.0
 offset_top = 177.0
@@ -987,7 +983,6 @@ LH12
 fit_content = true
 
 [node name="ThLabel1" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" groups=["ThursdayLabels"]]
-visible = false
 custom_minimum_size = Vector2(178, 0)
 offset_left = 923.0
 offset_top = 177.0
@@ -1082,7 +1077,6 @@ LH12
 fit_content = true
 
 [node name="FLabel1" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" groups=["FridayLabels"]]
-visible = false
 custom_minimum_size = Vector2(163, 0)
 offset_left = 1109.0
 offset_top = 177.0
