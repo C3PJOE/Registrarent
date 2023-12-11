@@ -21,16 +21,29 @@ signal esc_pressed
 @onready var _3pm = $"ClassTimeContainer/3PM"
 @onready var _4pm = $"ClassTimeContainer/4PM"
 @onready var _5pm = $"ClassTimeContainer/5PM"
-#reference_rects
+#reference_rects representing the beginning of the hour for classes on the schedule
+@onready var hour_line_container = $HourLineContainer
 @onready var _800_line = $"800Line"
-@onready var _900_line = $"900Line"
-@onready var _1000_line = $"1000Line"
-@onready var _1100_line = $"1100Line"
-@onready var _1200_line = $"1200Line"
-@onready var _1300_line = $"1300Line"
-@onready var _1400_line = $"1400Line"
-@onready var _1500_line = $"1500Line"
-@onready var _1600_line = $"1600Line"
+@onready var _900_line = $"HourLineContainer/900Line"
+@onready var _1000_line = $"HourLineContainer/1000Line"
+@onready var _1100_line = $"HourLineContainer/1100Line"
+@onready var _1200_line = $"HourLineContainer/1200Line"
+@onready var _1300_line = $"HourLineContainer/1300Line"
+@onready var _1400_line = $"HourLineContainer/1400Line"
+@onready var _1500_line = $"HourLineContainer/1500Line"
+@onready var _1600_line = $"HourLineContainer/1600Line"
+@onready var _1700_line = $"HourLineContainer/1700Line"
+#reference rects representing the half hour mark for classes on the schedule
+@onready var _830_line = $"HalfHourLineContainer/830Line"
+@onready var _930_line = $"HalfHourLineContainer/930Line"
+@onready var _1030_line = $"HalfHourLineContainer/1030Line"
+@onready var _1130_line = $"HalfHourLineContainer/1130Line"
+@onready var _1230_line = $"HalfHourLineContainer/1230Line"
+@onready var _1330_line = $"HalfHourLineContainer/1330Line"
+@onready var _1430_line = $"HalfHourLineContainer/1430Line"
+@onready var _1530_line = $"HalfHourLineContainer/1530Line"
+@onready var _1630_line = $"HalfHourLineContainer/1630Line"
+
 #monday labels
 @onready var m_label_1 = $MLabel1
 @onready var m_label_2 = $MLabel2
@@ -96,14 +109,14 @@ func start(student:int):
 #sets the position of all of the time labels in the browser screen so that they can be properly referenced later
 func _set_time_labels_positions():
 	_8am.set_position(Vector2i(0,0))
-	_9am.set_position(Vector2i(0,64))
-	_10am.set_position(Vector2i(0,128))
-	_11am.set_position(Vector2i(0,192))
-	_12pm.set_position(Vector2i(0,256))
-	_1pm.set_position(Vector2i(0,320))
-	_2pm.set_position(Vector2i(0,384))
-	_3pm.set_position(Vector2i(0,448))
-	_4pm.set_position(Vector2i(0,512))
+	_9am.set_position(Vector2i(0,60))
+	_10am.set_position(Vector2i(0,120))
+	_11am.set_position(Vector2i(0,180))
+	_12pm.set_position(Vector2i(0,240))
+	_1pm.set_position(Vector2i(0,300))
+	_2pm.set_position(Vector2i(0,360))
+	_3pm.set_position(Vector2i(0,420))
+	_4pm.set_position(Vector2i(0,480))
 
 #sets the x position of the labels, with the x position lining up with the appropriate day column
 #The x position of a label will never change again after this
@@ -156,9 +169,6 @@ func _set_Current_Schedule(student: int):
 		#calls label_assigner for each day of the week, with 0 being monday and 4 being tuesday
 		label_assigner(day_of_week,parent_class_array)
 	
-	#return classData.keys()
-	#return studentData.keys()
-	
 #func that takes the day, number of labels, and the parent array from set_current_schedule
 #and assigns the contents of the parent array to labels using match statements 
 func label_assigner(day:int, parent_array:Array):
@@ -175,185 +185,118 @@ func label_assigner(day:int, parent_array:Array):
 			day_of_week_label = thursday_label.duplicate()
 		4:
 			day_of_week_label = friday_label.duplicate()
-	
 	var n = 0
 	for label in parent_array[day]:
 		#calls check_for_class func and stores the results in an array
 		checkedResult = check_for_class(parent_array[day],classData)
+		#converts the 24 hr start and end times to 12 hr for placement on the text label 
+		var _12_hr_start_time = _24_to_12_hr_time(int(checkedResult[n].CLASSSTARTTIME)) 
+		var _12_hr_end_time = _24_to_12_hr_time(int(checkedResult[n].CLASSENDTIME))
 		#calls sort_by_time, which sorts the classes in checkedResult by their start time
 		_sort_by_time(checkedResult)
 		#setting the text that will be assigned to the label by calling 
-		var labelText:String = checkedResult[n].CLASSNAME + "\n" + checkedResult[n].CLASSLOCATION + "\n" + checkedResult[n].CLASSSTARTTIME + "-" + checkedResult[n].CLASSENDTIME
-		#calling duration_padding function and storing return value in var to use in adjusting border width
-		#var padding_amount:int = duration_padding(checkedResult,n)
+		var labelText:String = checkedResult[n].CLASSNAME + "\n" + checkedResult[n].CLASSLOCATION + "\n" + _12_hr_start_time + "-" + _12_hr_end_time
 		
 		day_of_week_label[n].add_theme_font_override("normal_font",load("res://Assets/Fonts/times.ttf"))
 		day_of_week_label[n].add_theme_font_size_override("normal_font_size",18)
 		
-		#sets the border width on the top and bottom of the label's stylebox,
-		# allowing it to more closely line up with the
-		#day_of_week_label[n].get_theme_stylebox("normal").border_width_top = padding_amount
-		#day_of_week_label[n].get_theme_stylebox("normal").border_width_bottom = padding_amount
-		#shows the label 
-		day_of_week_label[n].show()
 		#adds the text to the label, using bbcode tags to center it 
 		day_of_week_label[n].append_text("[center]%s[/center]" % labelText)
 		#sets the position of the label on the screen by calling label_placer(which returns vector2i) and passing the checkedResult array, 
 		#the index we want to be placed, and the label's current x position, which should never change 
-		day_of_week_label[n].label_placer(checkedResult,n,day_of_week_label[n])
+		label_placer_again(checkedResult,n,day_of_week_label[n])
+		#shows the label 
+		day_of_week_label[n].show()
 		
 		n+=1
 		
-#returns an integer(number of pixels to pad the label) based on how long the class is
-func duration_padding(array:Array,array_index:int,starting_time_label,current_label:RichTextLabel)-> int:
-	var duration:int = array[array_index].CLASSDURATION
-	var end_time = array[array_index].CLASSENDTIME
-	var padding_amount
-	match duration:
-		90:
-			return 90
-		120:
-			return 120
-		60:
-			return 60
-		45:
-			return 45
-		_:
-			return 0
-
 func label_placer_again(array,array_index,current_label:RichTextLabel):
-	var class_start_time = array[array_index].CLASSSTARTIME
-	var class_end_time = array[array_index].CLASSENDTIME
-	var starting_label = which_starting_label(class_start_time)
+	var class_start_time = int(array[array_index].CLASSSTARTTIME)
+	var class_end_time = int(array[array_index].CLASSENDTIME)
+	var label_x_coordinate = current_label.global_position.x
+	
+	var start_label = which_starting_label(class_start_time)
+	var end_label = which_ending_label(class_end_time)
+	
+	var padding_amount = abs(start_label.global_position.y - end_label.global_position.y)
+	
+	current_label.set_position(Vector2i(label_x_coordinate,start_label.global_position.y))
+	
+	if(array[array_index].CLASSDURATION == 60 || array[array_index].CLASSDURATION == 45):
+		current_label.get_theme_stylebox("normal").border_width_bottom = 0
+		current_label.get_theme_stylebox("normal").border_width_top = 0
+	elif array[array_index].CLASSDURATION == 90:
+		current_label.get_theme_stylebox("normal").border_width_bottom = 14
+		current_label.get_theme_stylebox("normal").border_width_top = 14
+	elif array[array_index].CLASSDURATION == 120:
+		current_label.get_theme_stylebox("normal").border_width_bottom = 30
+		current_label.get_theme_stylebox("normal").border_width_top = 30
+		
 
-#concats the starting 
+#determines where on the schedue grid the current class should start
 func which_starting_label(start_time:int):
-	var last_two_digits = str(start_time).substr(2,3).to_int()
+	var last_two_digits
 	var label:String
-	match last_two_digits:
-		00:
-			pass
-		15:
-			pass
-		30:
-			pass
-		45:
-			pass
-		
-		
+	var path
 	if(start_time < 1000):
-		label = "_" + str(start_time).substr(0,0) +"00_line"
+		last_two_digits = str(start_time).substr(1,3)
+		label = str(start_time).substr(0,1) + last_two_digits + "Line"
 	else:
-		label = "_" + str(start_time).substr(0,1) +"00_line"
+		last_two_digits = str(start_time).substr(2,4)
+		label = str(start_time).substr(0,2) + last_two_digits + "Line"
 		
-	var starting_label:RichTextLabel = get_node(label)
+	match last_two_digits:
+		"00":
+			if start_time == 800:
+				path = "/root/Main/MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/800Line"
+			else:
+				path = "/root/Main/MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/HourLineContainer/"+label
+		"15":
+			path = "/root/Main/MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/FifteenMinContainer/"+label
+		"30":
+			path = "/root/Main/MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/HalfHourLineContainer/"+label
+		"45":
+			path = "/root/Main/MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/FortyFiveMinContainer/"+label
+		
+
+	var starting_label = get_node(path)
+	
+	#print(starting_label)
 	return starting_label
 	
-#function that matches the class start times of the passed array & returns the correct starting time's y position,
-#so that class can be properly aligned on the screen 
-func label_placer(array:Array,array_index:int,current_label:RichTextLabel)->void:
-	var duration = array[array_index].DURATION
-	var label_x_coordinate = current_label.position.x
-	var label_y_coordinate = current_label.position.y
-	var padding_amount:int
-	match array[array_index].CLASSSTARTTIME:
-		"8:00 AM":
-			current_label.set_position(Vector2i(label_x_coordinate,_800_line.position.y))
-			duration_padding(array,array_index,_800_line,current_label)
-			padding_amount =abs(_800_line.position.y - label_y_coordinate)
-			
-			current_label.get_theme_stylebox("normal").border_width_bottom = padding_amount/2
-			current_label.get_theme_stylebox("normal").border_width_top = padding_amount/2
-		"8:15 AM":
-			#offsets the y coordinate by +10 px of the _8am label y position so that it more closely aligns with 8:15
-			current_label.set_position(Vector2i(label_x_coordinate,_800_line.position.y+10))
-			
-			padding_amount =abs((_800_line.position.y+10) - label_y_coordinate)
-			
-			current_label.get_theme_stylebox("normal").border_width_bottom = padding_amount/2
-			current_label.get_theme_stylebox("normal").border_width_top = padding_amount/2
-		"8:30 AM":
-			current_label.set_position(Vector2i(label_x_coordinate,_8am.global_position.y+10))
-			
-			padding_amount =abs((_8am.global_position.y+10) - label_y_coordinate)
-			
-			current_label.get_theme_stylebox("normal").border_width_bottom = padding_amount/2
-			current_label.get_theme_stylebox("normal").border_width_top = padding_amount/2
-		"8:45 AM":
-			#offsets the y coordinate by +30 px of the _8am label y position so that it more closely aligns with 8:45
-			current_label.set_position(Vector2i(label_x_coordinate,_8am.global_position.y+30))
-			
-			padding_amount =abs((_8am.global_position.y+30) - label_y_coordinate)
-			current_label.get_theme_stylebox("normal").border_width_bottom = padding_amount/2
-			current_label.get_theme_stylebox("normal").border_width_top = padding_amount/2
-		"9:00 AM":
-			current_label.set_position(Vector2i(label_x_coordinate,_900_line.position.y))
+#determines where on the schedue grid the current class should end
+func which_ending_label(end_time:int):
+	var last_two_digits
+	var label:String
+	var path
+	if(end_time < 1000):
+		last_two_digits = str(end_time).substr(1,3)
+		label = str(end_time).substr(0,1) + last_two_digits +"Line"
+	else:
+		last_two_digits = str(end_time).substr(2,4)
+		label = str(end_time).substr(0,2) + last_two_digits +"Line"
 		
-			padding_amount =abs(_900_line.position.y - label_y_coordinate)
-			
-			current_label.get_theme_stylebox("normal").border_width_bottom = padding_amount/2
-			current_label.get_theme_stylebox("normal").border_width_top = padding_amount/2
-		"9:15 AM":
-			current_label.set_position(Vector2i(label_x_coordinate,_900_line.position.y+10))
-			
-			padding_amount =abs((_900_line.position.y+10) - label_y_coordinate)
-			
-			current_label.get_theme_stylebox("normal").border_width_bottom = padding_amount/2
-			current_label.get_theme_stylebox("normal").border_width_top = padding_amount/2
-		"9:30 AM":
-			current_label.set_position(Vector2i(label_x_coordinate,_9am.global_position.y+10))
-		"9:45 AM":
-			return Vector2i(label_x_coordinate,_9am.global_position.y+30)
-		"10:00 AM":
-			return Vector2i(label_x_coordinate,_1000_line.position.y-2)
-		"10:30 AM":
-			return Vector2i(label_x_coordinate,_10am.global_position.y+10)
-		"10:45 AM":
-			return Vector2i(label_x_coordinate,_10am.global_position.y+30)
-		"11:00 AM":
-			return Vector2i(label_x_coordinate,_1100_line.position.y)
-		"11:15 AM":
-			return Vector2i(label_x_coordinate,_1100_line.position.y+10)
-		"11:30 AM":
-			return Vector2i(label_x_coordinate,_11am.global_position.y+10)
-		"11:45 AM":
-			return Vector2i(label_x_coordinate,_11am.global_position.y+30)
-		"12:00 PM":
-			return Vector2i(label_x_coordinate,_1200_line.position.y)
-		"12:15 PM":
-			return Vector2i(label_x_coordinate,_1200_line.position.y+10)
-		"12:30 PM":
-			return Vector2i(label_x_coordinate,_12pm.global_position.y+10)
-		"12:45 PM":
-			return Vector2i(label_x_coordinate,_12pm.global_position.y+30)
-		"1:00 PM":
-			return Vector2i(label_x_coordinate,_1300_line.position.y)
-		"1:15 PM":
-			return Vector2i(label_x_coordinate,_1300_line.position.y+10)
-		"1:30 PM":
-			return Vector2i(label_x_coordinate,_1pm.global_position.y+10)
-		"1:45 PM":
-			return Vector2i(label_x_coordinate,_1pm.global_position.y+20)
-		"2:00 PM":
-			return Vector2i(label_x_coordinate,_1400_line.position.y)
-		"2:15 PM":
-			return Vector2i(label_x_coordinate,_1400_line.position.y+10)
-		"2:30 PM":
-			return Vector2i(label_x_coordinate,_2pm.global_position.y+10)
-		"2:45 PM":
-			return Vector2i(label_x_coordinate,_2pm.global_position.y+20)
-		"3:00 PM":
-			return Vector2i(label_x_coordinate,_1500_line.position.y)
-		"3:15 PM":
-			return Vector2i(label_x_coordinate,_1500_line.position.y+10)
-		"3:30 PM":
-			return Vector2i(label_x_coordinate,_3pm.global_position.y+10)
-		"3:45 PM":
-			return Vector2i(label_x_coordinate,_3pm.global_position.y+20)
-		"4:00 PM":
-			return Vector2i(label_x_coordinate,_1600_line.position.y)
+	match last_two_digits:
+		"00":
+			if end_time == 800:
+				path = "/root/Main/MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/800Line"
+			else:
+				path = "/root/Main/MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/HourLineContainer/"+label
+		"15":
+			path = "/root/Main/MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/FifteenMinContainer/"+label
+		"30":
+			path = "/root/Main/MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/HalfHourLineContainer/"+label
+		"45":
+			path = "/root/Main/MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/FortyFiveMinContainer/"+label
 		_:
-			return Vector2i(0,0)
+			path = "/root/Main/MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/800Line"
+	
+	var ending_label = get_node(path)
+	
+	
+	#print(starting_label)
+	return ending_label
+	
 #function solely dedicated to increasing the student index var,
 #because I know without it i will lose track of this variable
 func increment_student_index():
@@ -447,7 +390,25 @@ func check_for_class(sData:Array, cData:Array):
 	#gets rid of any null elements in the new array
 	_trim(matching_Data)
 	return matching_Data
+#function that converts the 24 hr time passed into 12 hr time and returns it
+func _24_to_12_hr_time(class_time)-> String:
+	var _12_hr_time:String
+	var _last_two_digits
+	if 	class_time < 1000:
+		_last_two_digits = str(class_time).substr(1,3)
+		_12_hr_time = str(class_time).substr(0,1) + ":" + _last_two_digits + " AM"
+	elif class_time >= 1000 and class_time <1200:
+		_last_two_digits = str(class_time).substr(2,4)
+		_12_hr_time = str(class_time).substr(0,2) + ":" + _last_two_digits + " AM"
+	elif class_time >= 1200 and class_time <1300:
+		_last_two_digits = str(class_time).substr(2,4)
+		_12_hr_time = str(class_time).substr(0,2) + ":" + _last_two_digits + " PM"
+	elif class_time>=1300:
+		_last_two_digits = str(class_time).substr(2,4)
+		class_time = class_time-1200
+		_12_hr_time = str(class_time).substr(0,1) + ":" + _last_two_digits + " PM"
 	
+	return _12_hr_time
 #function to sort the array of classes in order of which is earliest to which is latest
 func _sort_by_time(result_array:Array):
 	for n in range(0,result_array.size()):
@@ -456,12 +417,18 @@ func _sort_by_time(result_array:Array):
 		#out of bounds check
 		if(n+1 == result_array.size()):
 			break
+			
+		var _24_hr_time_current = result_array[n].CLASSSTARTTIME
+		var _24_hr_time_next = result_array[n+1].CLASSSTARTTIME
+		var _12_hr_current_start = _24_to_12_hr_time(int(_24_hr_time_current))
+		var _12_hr_next_start = _24_to_12_hr_time(int(_24_hr_time_next))
+		
 		#if the first class' time has AM in it and the second class' time has PM, nothing needs to be done
-		if("AM" in result_array[n].CLASSSTARTTIME and "PM" in result_array[n+1].CLASSSTARTTIME):
+		if("AM" in _12_hr_current_start and "PM" in _12_hr_next_start):
 			pass
 		#if the first class' time has PM in it and the second class' time has AM, obviously the second class
 		#needs to be swapped with the first
-		elif("PM" in result_array[n].CLASSSTARTTIME and "AM" in result_array[n+1].CLASSSTARTTIME):
+		elif("PM" in _12_hr_current_start and "AM" in _12_hr_next_start):
 			#saves the classes at n and n+1 into temp variables, which will be used to swap their positions below
 			var temp = result_array[n+1]
 			var temp2 = result_array[n]
@@ -474,7 +441,7 @@ func _sort_by_time(result_array:Array):
 			#replaces it with the stored temp variable,completing the swap
 			result_array.insert(n,temp)
 		#if both classes are in the afternoon, we'll have to put actual effort in to determine what to do
-		elif("PM" in result_array[n].CLASSSTARTTIME and "PM" in result_array[n+1].CLASSSTARTTIME):
+		elif("PM" in _12_hr_current_start and "PM" in _12_hr_next_start):
 			#stores the class times into integers for comparison
 			parsed_string1 = int(result_array[n].CLASSSTARTTIME)
 			parsed_string2 = int(result_array[n+1].CLASSSTARTTIME)
@@ -487,7 +454,7 @@ func _sort_by_time(result_array:Array):
 				result_array.remove_at(n)
 				result_array.insert(n,temp)
 		#if both classes are in the morning, we'll have to put actual effort in to determine what to do
-		elif("AM" in result_array[n].CLASSSTARTTIME and "AM" in result_array[n+1].CLASSSTARTTIME):
+		elif("AM" in _12_hr_current_start and "AM" in _12_hr_next_start):
 			#stores the class times into integers for comparison
 			parsed_string1 = int(result_array[n].CLASSSTARTTIME)
 			parsed_string2 = int(result_array[n+1].CLASSSTARTTIME)

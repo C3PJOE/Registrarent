@@ -291,88 +291,13 @@ unresizable = true
 theme_override_styles/embedded_border = SubResource("StyleBoxTexture_f7xbp")
 script = ExtResource("7_f7lbd")
 
-[node name="BoxContainer" type="BoxContainer" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
-clip_contents = true
-custom_minimum_size = Vector2(1000, 800)
-offset_left = 277.0
-offset_top = 116.0
-offset_right = 1277.0
-offset_bottom = 916.0
-size_flags_horizontal = 3
-theme_override_constants/separation = 60
-vertical = true
-
-[node name="800Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/BoxContainer"]
-layout_mode = 2
-border_color = Color(0.462745, 0.258824, 0.541176, 1)
-editor_only = false
-
-[node name="900Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/BoxContainer"]
-layout_mode = 2
-border_color = Color(0.462745, 0.258824, 0.541176, 1)
-editor_only = false
-
-[node name="1000Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/BoxContainer"]
-layout_mode = 2
-border_color = Color(0.462745, 0.258824, 0.541176, 1)
-editor_only = false
-
-[node name="1100Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/BoxContainer"]
-layout_mode = 2
-border_color = Color(0.462745, 0.258824, 0.541176, 1)
-editor_only = false
-
-[node name="1200Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/BoxContainer"]
-layout_mode = 2
-border_color = Color(0.462745, 0.258824, 0.541176, 1)
-editor_only = false
-
-[node name="1300Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/BoxContainer"]
-layout_mode = 2
-border_color = Color(0.462745, 0.258824, 0.541176, 1)
-editor_only = false
-
-[node name="1400Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/BoxContainer"]
-layout_mode = 2
-border_color = Color(0.462745, 0.258824, 0.541176, 1)
-editor_only = false
-
-[node name="1500Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/BoxContainer"]
-layout_mode = 2
-border_color = Color(0.462745, 0.258824, 0.541176, 1)
-editor_only = false
-
-[node name="1600Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/BoxContainer"]
-layout_mode = 2
-border_color = Color(0.462745, 0.258824, 0.541176, 1)
-editor_only = false
-
-[node name="930Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
-visible = false
-offset_left = 377.0
-offset_top = 258.0
-offset_right = 1377.0
-offset_bottom = 258.0
-border_color = Color(0.462745, 0.258824, 0.541176, 1)
-editor_only = false
-
-[node name="1030Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
-visible = false
-offset_left = 377.0
-offset_top = 322.0
-offset_right = 1377.0
-offset_bottom = 322.0
-border_color = Color(0.462745, 0.258824, 0.541176, 1)
-editor_only = false
-
 [node name="ClassTimeContainer" type="BoxContainer" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
-visible = false
 custom_minimum_size = Vector2(80, 0)
-offset_left = 281.0
-offset_top = 183.0
-offset_right = 366.0
-offset_bottom = 710.0
-theme_override_constants/separation = 40
+offset_left = 279.0
+offset_top = 193.0
+offset_right = 364.0
+offset_bottom = 1870.0
+theme_override_constants/separation = 37
 vertical = true
 
 [node name="8AM" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/ClassTimeContainer"]
@@ -381,7 +306,8 @@ theme_override_colors/default_color = Color(0.85098, 0.811765, 0.0352941, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("18_cy781")
 theme_override_font_sizes/normal_font_size = 20
-text = "8:00 AM"
+bbcode_enabled = true
+text = "[center]8:00 AM[/center]"
 fit_content = true
 
 [node name="9AM" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/ClassTimeContainer"]
@@ -390,7 +316,8 @@ theme_override_colors/default_color = Color(0.85098, 0.811765, 0.0352941, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("18_cy781")
 theme_override_font_sizes/normal_font_size = 20
-text = "9:00 AM"
+bbcode_enabled = true
+text = "[center]9:00 AM[/center]"
 fit_content = true
 
 [node name="10AM" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/ClassTimeContainer"]
@@ -400,7 +327,8 @@ theme_override_colors/default_color = Color(0.85098, 0.811765, 0.0352941, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("18_cy781")
 theme_override_font_sizes/normal_font_size = 20
-text = "10:00 AM"
+bbcode_enabled = true
+text = "[center]10:00 AM[/center]"
 fit_content = true
 
 [node name="11AM" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/ClassTimeContainer"]
@@ -409,7 +337,8 @@ theme_override_colors/default_color = Color(0.85098, 0.811765, 0.0352941, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("18_cy781")
 theme_override_font_sizes/normal_font_size = 20
-text = "11:00 AM"
+bbcode_enabled = true
+text = "[center]11:00 AM[/center]"
 fit_content = true
 
 [node name="12PM" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/ClassTimeContainer"]
@@ -418,7 +347,8 @@ theme_override_colors/default_color = Color(0.85098, 0.811765, 0.0352941, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("18_cy781")
 theme_override_font_sizes/normal_font_size = 20
-text = "12:00 PM"
+bbcode_enabled = true
+text = "[center]12:00 PM[/center]"
 fit_content = true
 
 [node name="1PM" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/ClassTimeContainer"]
@@ -427,7 +357,8 @@ theme_override_colors/default_color = Color(0.85098, 0.811765, 0.0352941, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("18_cy781")
 theme_override_font_sizes/normal_font_size = 20
-text = "1:00 PM"
+bbcode_enabled = true
+text = "[center]1:00 PM[/center]"
 fit_content = true
 
 [node name="2PM" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/ClassTimeContainer"]
@@ -436,7 +367,8 @@ theme_override_colors/default_color = Color(0.85098, 0.811765, 0.0352941, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("18_cy781")
 theme_override_font_sizes/normal_font_size = 20
-text = "2:00 PM"
+bbcode_enabled = true
+text = "[center]2:00 PM[/center]"
 fit_content = true
 
 [node name="3PM" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/ClassTimeContainer"]
@@ -445,7 +377,8 @@ theme_override_colors/default_color = Color(0.85098, 0.811765, 0.0352941, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("18_cy781")
 theme_override_font_sizes/normal_font_size = 20
-text = "3:00 PM"
+bbcode_enabled = true
+text = "[center]3:00 PM[/center]"
 fit_content = true
 
 [node name="4PM" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/ClassTimeContainer"]
@@ -454,7 +387,8 @@ theme_override_colors/default_color = Color(0.85098, 0.811765, 0.0352941, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("18_cy781")
 theme_override_font_sizes/normal_font_size = 20
-text = "4:00 PM"
+bbcode_enabled = true
+text = "[center]4:00 PM[/center]"
 fit_content = true
 
 [node name="5PM" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/ClassTimeContainer"]
@@ -465,8 +399,241 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("18_cy781")
 theme_override_font_sizes/normal_font_size = 20
 theme_override_styles/normal = SubResource("StyleBoxFlat_grp6r")
-text = "5:00 PM"
+bbcode_enabled = true
+text = "[center]5:00 PM[/center]"
 fit_content = true
+
+[node name="800Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
+offset_left = 377.0
+offset_top = 177.0
+offset_right = 1377.0
+offset_bottom = 177.0
+border_color = Color(0.462745, 0.258824, 0.541176, 1)
+editor_only = false
+
+[node name="HourLineContainer" type="BoxContainer" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
+clip_contents = true
+custom_minimum_size = Vector2(1000, 540)
+offset_left = 277.0
+offset_top = 235.0
+offset_right = 1277.0
+offset_bottom = 775.0
+size_flags_horizontal = 3
+theme_override_constants/separation = 60
+vertical = true
+
+[node name="900Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/HourLineContainer"]
+layout_mode = 2
+border_color = Color(0.462745, 0.258824, 0.541176, 1)
+border_width = 10.0
+editor_only = false
+
+[node name="1000Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/HourLineContainer"]
+layout_mode = 2
+border_color = Color(0.462745, 0.258824, 0.541176, 1)
+border_width = 5.0
+editor_only = false
+
+[node name="1100Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/HourLineContainer"]
+layout_mode = 2
+border_color = Color(0.462745, 0.258824, 0.541176, 1)
+border_width = 5.0
+editor_only = false
+
+[node name="1200Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/HourLineContainer"]
+layout_mode = 2
+border_color = Color(0.462745, 0.258824, 0.541176, 1)
+border_width = 5.0
+editor_only = false
+
+[node name="1300Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/HourLineContainer"]
+layout_mode = 2
+border_color = Color(0.462745, 0.258824, 0.541176, 1)
+border_width = 5.0
+editor_only = false
+
+[node name="1400Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/HourLineContainer"]
+layout_mode = 2
+border_color = Color(0.462745, 0.258824, 0.541176, 1)
+border_width = 5.0
+editor_only = false
+
+[node name="1500Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/HourLineContainer"]
+layout_mode = 2
+border_color = Color(0.462745, 0.258824, 0.541176, 1)
+border_width = 5.0
+editor_only = false
+
+[node name="1600Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/HourLineContainer"]
+layout_mode = 2
+border_color = Color(0.462745, 0.258824, 0.541176, 1)
+border_width = 5.0
+editor_only = false
+
+[node name="1700Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/HourLineContainer"]
+layout_mode = 2
+border_color = Color(0.462745, 0.258824, 0.541176, 1)
+border_width = 5.0
+editor_only = false
+
+[node name="FifteenMinContainer" type="BoxContainer" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
+offset_left = 377.0
+offset_top = 191.0
+offset_right = 1277.0
+offset_bottom = 231.0
+theme_override_constants/separation = 60
+vertical = true
+
+[node name="815Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/FifteenMinContainer"]
+layout_mode = 2
+border_color = Color(0.462745, 0.258824, 0.541176, 1)
+editor_only = false
+
+[node name="915Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/FifteenMinContainer"]
+layout_mode = 2
+border_color = Color(0.462745, 0.258824, 0.541176, 1)
+editor_only = false
+
+[node name="1015Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/FifteenMinContainer"]
+layout_mode = 2
+border_color = Color(0.462745, 0.258824, 0.541176, 1)
+editor_only = false
+
+[node name="1115Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/FifteenMinContainer"]
+layout_mode = 2
+border_color = Color(0.462745, 0.258824, 0.541176, 1)
+editor_only = false
+
+[node name="1215Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/FifteenMinContainer"]
+layout_mode = 2
+border_color = Color(0.462745, 0.258824, 0.541176, 1)
+editor_only = false
+
+[node name="1315Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/FifteenMinContainer"]
+layout_mode = 2
+border_color = Color(0.462745, 0.258824, 0.541176, 1)
+editor_only = false
+
+[node name="1415Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/FifteenMinContainer"]
+layout_mode = 2
+border_color = Color(0.462745, 0.258824, 0.541176, 1)
+editor_only = false
+
+[node name="1515Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/FifteenMinContainer"]
+layout_mode = 2
+border_color = Color(0.462745, 0.258824, 0.541176, 1)
+editor_only = false
+
+[node name="1615Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/FifteenMinContainer"]
+layout_mode = 2
+border_color = Color(0.462745, 0.258824, 0.541176, 1)
+editor_only = false
+
+[node name="HalfHourLineContainer" type="BoxContainer" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
+offset_left = 377.0
+offset_top = 205.0
+offset_right = 1277.0
+offset_bottom = 685.0
+theme_override_constants/separation = 60
+vertical = true
+
+[node name="830Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/HalfHourLineContainer"]
+layout_mode = 2
+border_color = Color(0.462745, 0.258824, 0.541176, 1)
+editor_only = false
+
+[node name="930Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/HalfHourLineContainer"]
+layout_mode = 2
+border_color = Color(0.462745, 0.258824, 0.541176, 1)
+editor_only = false
+
+[node name="1030Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/HalfHourLineContainer"]
+layout_mode = 2
+border_color = Color(0.462745, 0.258824, 0.541176, 1)
+editor_only = false
+
+[node name="1130Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/HalfHourLineContainer"]
+layout_mode = 2
+border_color = Color(0.462745, 0.258824, 0.541176, 1)
+editor_only = false
+
+[node name="1230Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/HalfHourLineContainer"]
+layout_mode = 2
+border_color = Color(0.462745, 0.258824, 0.541176, 1)
+editor_only = false
+
+[node name="1330Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/HalfHourLineContainer"]
+layout_mode = 2
+border_color = Color(0.462745, 0.258824, 0.541176, 1)
+editor_only = false
+
+[node name="1430Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/HalfHourLineContainer"]
+layout_mode = 2
+border_color = Color(0.462745, 0.258824, 0.541176, 1)
+editor_only = false
+
+[node name="1530Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/HalfHourLineContainer"]
+layout_mode = 2
+border_color = Color(0.462745, 0.258824, 0.541176, 1)
+editor_only = false
+
+[node name="1630Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/HalfHourLineContainer"]
+layout_mode = 2
+border_color = Color(0.462745, 0.258824, 0.541176, 1)
+editor_only = false
+
+[node name="FortyFiveMinContainer" type="BoxContainer" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
+offset_left = 377.0
+offset_top = 220.0
+offset_right = 1277.0
+offset_bottom = 260.0
+theme_override_constants/separation = 60
+vertical = true
+
+[node name="845Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/FortyFiveMinContainer"]
+layout_mode = 2
+border_color = Color(0.462745, 0.258824, 0.541176, 1)
+editor_only = false
+
+[node name="945Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/FortyFiveMinContainer"]
+layout_mode = 2
+border_color = Color(0.462745, 0.258824, 0.541176, 1)
+editor_only = false
+
+[node name="1045Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/FortyFiveMinContainer"]
+layout_mode = 2
+border_color = Color(0.462745, 0.258824, 0.541176, 1)
+editor_only = false
+
+[node name="1145Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/FortyFiveMinContainer"]
+layout_mode = 2
+border_color = Color(0.462745, 0.258824, 0.541176, 1)
+editor_only = false
+
+[node name="1245Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/FortyFiveMinContainer"]
+layout_mode = 2
+border_color = Color(0.462745, 0.258824, 0.541176, 1)
+editor_only = false
+
+[node name="1345Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/FortyFiveMinContainer"]
+layout_mode = 2
+border_color = Color(0.462745, 0.258824, 0.541176, 1)
+editor_only = false
+
+[node name="1445Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/FortyFiveMinContainer"]
+layout_mode = 2
+border_color = Color(0.462745, 0.258824, 0.541176, 1)
+editor_only = false
+
+[node name="1545Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/FortyFiveMinContainer"]
+layout_mode = 2
+border_color = Color(0.462745, 0.258824, 0.541176, 1)
+editor_only = false
+
+[node name="1645Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/FortyFiveMinContainer"]
+layout_mode = 2
+border_color = Color(0.462745, 0.258824, 0.541176, 1)
+editor_only = false
 
 [node name="WeekContainer" type="BoxContainer" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
 offset_left = 393.0
