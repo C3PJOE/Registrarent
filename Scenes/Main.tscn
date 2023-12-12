@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://dgv0xsiratr8g"]
+[gd_scene load_steps=58 format=3 uid="uid://dgv0xsiratr8g"]
 
 [ext_resource type="Script" path="res://Scenes/Main.gd" id="1_5ghd7"]
 [ext_resource type="Script" path="res://Scenes/MainContainer.gd" id="1_pf4tp"]
@@ -13,9 +13,14 @@
 [ext_resource type="Texture2D" uid="uid://bxy54uli5frc4" path="res://Assets/ClassDictionary.png" id="7_u6a4s"]
 [ext_resource type="Texture2D" uid="uid://ox4mo215sg5h" path="res://Assets/TaskbarCatalogueIconHovered.png" id="8_gu2u2"]
 [ext_resource type="Texture2D" uid="uid://ps7fk0jmud10" path="res://Assets/Browser.png" id="9_tg8ot"]
+[ext_resource type="BitMap" uid="uid://b4iij4p71paa8" path="res://Assets/TaskbarBrowserIcon.bmp" id="9_us4hl"]
+[ext_resource type="BitMap" uid="uid://dhib12cepcy04" path="res://Assets/RegistrarHandbookIcon.bmp" id="10_c5tvr"]
 [ext_resource type="Texture2D" uid="uid://co4613mo6e30x" path="res://Assets/ClassDictionaryContent.png" id="10_oyudo"]
 [ext_resource type="Script" path="res://Scenes/CourseCatalogueParentWindow.gd" id="11_4a26h"]
+[ext_resource type="Texture2D" uid="uid://b3a1rabx3ct82" path="res://Assets/RegistrarHandbookIcon.png" id="11_avk41"]
+[ext_resource type="BitMap" uid="uid://bj6di5q0mpxae" path="res://Assets/ClassDictionaryBM.bmp" id="12_1vt4j"]
 [ext_resource type="Script" path="res://Scenes/CourseCatalogueWindow.gd" id="13_088j3"]
+[ext_resource type="BitMap" uid="uid://ctrs5sfrtinnx" path="res://Assets/Dogicon.bmp" id="13_rliaq"]
 [ext_resource type="Texture2D" uid="uid://dluu0txmecmn2" path="res://Assets/RegistrarHandbookt.png" id="15_ra8rp"]
 [ext_resource type="Script" path="res://Scenes/RegistarManualParentWindow.gd" id="17_205en"]
 [ext_resource type="FontFile" uid="uid://djjxk0k3ue38k" path="res://Assets/Fonts/times.ttf" id="18_cy781"]
@@ -206,11 +211,13 @@ texture = ExtResource("3_rey5t")
 layout_mode = 0
 offset_left = 97.0
 offset_top = 2.0
-offset_right = 151.0
+offset_right = 144.0
 offset_bottom = 49.0
 action_mode = 0
 texture_normal = ExtResource("6_1h1ua")
+texture_pressed = ExtResource("6_1h1ua")
 texture_hover = ExtResource("6_4o3tk")
+texture_click_mask = ExtResource("9_us4hl")
 ignore_texture_size = true
 stretch_mode = 4
 
@@ -218,73 +225,77 @@ stretch_mode = 4
 layout_mode = 0
 offset_left = 153.0
 offset_top = 2.0
-offset_right = 207.0
+offset_right = 200.0
 offset_bottom = 49.0
 action_mode = 0
 keep_pressed_outside = true
 texture_normal = ExtResource("7_53cl5")
 texture_pressed = ExtResource("7_53cl5")
 texture_hover = ExtResource("8_gu2u2")
+texture_click_mask = ExtResource("9_us4hl")
 ignore_texture_size = true
 stretch_mode = 4
 
-[node name="BrowserDesktopShortcut" type="TextureButton" parent="MainContainer/Desktop"]
+[node name="DesktopShortcutContainer" type="BoxContainer" parent="MainContainer/Desktop"]
 layout_mode = 0
-offset_left = 3.0
-offset_top = 3.0
-offset_right = 119.0
-offset_bottom = 127.0
-texture_normal = ExtResource("5_de07d")
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 140.0
+offset_bottom = 504.0
+theme_override_constants/separation = 50
+vertical = true
+
+[node name="RegistrarManualDesktopShortcut" type="TextureButton" parent="MainContainer/Desktop/DesktopShortcutContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("11_avk41")
+texture_click_mask = ExtResource("10_c5tvr")
 ignore_texture_size = true
 stretch_mode = 4
 
-[node name="ScheduleSnooperLabel" type="RichTextLabel" parent="MainContainer/Desktop/BrowserDesktopShortcut"]
+[node name="RegistrarManual" type="RichTextLabel" parent="MainContainer/Desktop/DesktopShortcutContainer/RegistrarManualDesktopShortcut"]
 layout_mode = 0
-offset_left = 21.0
-offset_top = 100.0
-offset_right = 99.0
-offset_bottom = 157.0
-bbcode_enabled = true
-text = "[center]Schedule Snooper[center]"
-
-[node name="CatalogueDesktopShortcut" type="TextureButton" parent="MainContainer/Desktop"]
-layout_mode = 0
-offset_left = 4.0
-offset_top = 161.0
-offset_right = 120.0
-offset_bottom = 285.0
-texture_normal = ExtResource("7_u6a4s")
-ignore_texture_size = true
-stretch_mode = 4
-
-[node name="CourseCatalogLabel" type="RichTextLabel" parent="MainContainer/Desktop/CatalogueDesktopShortcut"]
-layout_mode = 0
-offset_left = 5.0
-offset_top = 98.0
-offset_right = 109.0
-offset_bottom = 147.0
-bbcode_enabled = true
-text = "[center]Course Catalogue[center]"
-
-[node name="RegistrarManualDesktopShortcut" type="TextureButton" parent="MainContainer/Desktop"]
-layout_mode = 0
-offset_left = 3.0
-offset_top = 321.0
-offset_right = 119.0
-offset_bottom = 445.0
-texture_normal = ExtResource("7_u6a4s")
-ignore_texture_size = true
-stretch_mode = 4
-
-[node name="RegistrarManual" type="RichTextLabel" parent="MainContainer/Desktop/RegistrarManualDesktopShortcut"]
-layout_mode = 0
-offset_left = 5.0
-offset_top = 98.0
-offset_right = 109.0
-offset_bottom = 150.0
+offset_left = 14.0
+offset_top = 118.0
+offset_right = 110.0
+offset_bottom = 170.0
 bbcode_enabled = true
 text = "[center]Registrar[/center]
 [center]e-Handbook[center]"
+
+[node name="CatalogueDesktopShortcut" type="TextureButton" parent="MainContainer/Desktop/DesktopShortcutContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("7_u6a4s")
+texture_click_mask = ExtResource("12_1vt4j")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="CourseCatalogLabel" type="RichTextLabel" parent="MainContainer/Desktop/DesktopShortcutContainer/CatalogueDesktopShortcut"]
+layout_mode = 0
+offset_left = -2.0
+offset_top = 103.0
+offset_right = 127.0
+offset_bottom = 152.0
+bbcode_enabled = true
+text = "[center]Course Catalogue[center]"
+
+[node name="BrowserDesktopShortcut" type="TextureButton" parent="MainContainer/Desktop/DesktopShortcutContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("5_de07d")
+texture_click_mask = ExtResource("13_rliaq")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="ScheduleSnooperLabel" type="RichTextLabel" parent="MainContainer/Desktop/DesktopShortcutContainer/BrowserDesktopShortcut"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 118.0
+offset_right = 100.0
+offset_bottom = 175.0
+bbcode_enabled = true
+text = "[center]Schedule Snooper[center]"
 
 [node name="ScheduleBrowserParentWindow" type="Window" parent="MainContainer"]
 process_mode = 3
@@ -293,6 +304,7 @@ transparent_bg = true
 gui_embed_subwindows = true
 initial_position = 2
 size = Vector2i(1280, 720)
+visible = false
 unresizable = true
 transparent = true
 mouse_passthrough = true
@@ -304,6 +316,7 @@ transparent_bg = true
 handle_input_locally = false
 initial_position = 1
 size = Vector2i(1280, 720)
+visible = false
 transient = true
 unresizable = true
 theme_override_styles/embedded_border = SubResource("StyleBoxTexture_f7xbp")
@@ -1580,9 +1593,9 @@ fit_content = true
 [connection signal="esc_pressed" from="MainContainer" to="MainContainer" method="_on_esc_pressed"]
 [connection signal="pressed" from="MainContainer/Desktop/Taskbar/BrowserTaskbarButton" to="MainContainer" method="_on_browser_taskbar_button_pressed"]
 [connection signal="pressed" from="MainContainer/Desktop/Taskbar/CatalogueTaskbarButton" to="MainContainer" method="_on_catalogue_taskbar_button_pressed"]
-[connection signal="pressed" from="MainContainer/Desktop/BrowserDesktopShortcut" to="MainContainer" method="_on_browser_desktop_shortcut_pressed"]
-[connection signal="pressed" from="MainContainer/Desktop/CatalogueDesktopShortcut" to="MainContainer" method="_on_catalogue_desktop_shortcut_pressed"]
-[connection signal="pressed" from="MainContainer/Desktop/RegistrarManualDesktopShortcut" to="MainContainer" method="_on_registrar_manual_desktop_shortcut_pressed"]
+[connection signal="pressed" from="MainContainer/Desktop/DesktopShortcutContainer/RegistrarManualDesktopShortcut" to="MainContainer" method="_on_registrar_manual_desktop_shortcut_pressed"]
+[connection signal="pressed" from="MainContainer/Desktop/DesktopShortcutContainer/CatalogueDesktopShortcut" to="MainContainer" method="_on_catalogue_desktop_shortcut_pressed"]
+[connection signal="pressed" from="MainContainer/Desktop/DesktopShortcutContainer/BrowserDesktopShortcut" to="MainContainer" method="_on_browser_desktop_shortcut_pressed"]
 [connection signal="close_requested" from="MainContainer/ScheduleBrowserParentWindow" to="MainContainer/ScheduleBrowserParentWindow" method="_on_close_requested"]
 [connection signal="esc_pressed" from="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" to="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" method="_on_esc_pressed"]
 [connection signal="pressed" from="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/YesButton" to="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" method="_on_yes_button_pressed"]
