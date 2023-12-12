@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://dgv0xsiratr8g"]
+[gd_scene load_steps=53 format=3 uid="uid://dgv0xsiratr8g"]
 
 [ext_resource type="Script" path="res://Scenes/Main.gd" id="1_5ghd7"]
 [ext_resource type="Script" path="res://Scenes/MainContainer.gd" id="1_pf4tp"]
@@ -7,12 +7,18 @@
 [ext_resource type="Script" path="res://Scenes/ScheduleBrowserParentWindow.gd" id="4_5g6ji"]
 [ext_resource type="Texture2D" uid="uid://dklab118e8sf7" path="res://Assets/sprite1.png" id="5_de07d"]
 [ext_resource type="Texture2D" uid="uid://cvu0vx1x3x1rp" path="res://Assets/TaskbarBrowserIcon.png" id="6_1h1ua"]
+[ext_resource type="Texture2D" uid="uid://cq401s5168vo3" path="res://Assets/TaskbarBrowserIconHovered.png" id="6_4o3tk"]
+[ext_resource type="Texture2D" uid="uid://ltkgnnip50v0" path="res://Assets/TaskbarCatalogueIcon.png" id="7_53cl5"]
 [ext_resource type="Script" path="res://Scenes/ScheduleBrowserWindow.gd" id="7_f7lbd"]
 [ext_resource type="Texture2D" uid="uid://bxy54uli5frc4" path="res://Assets/ClassDictionary.png" id="7_u6a4s"]
+[ext_resource type="Texture2D" uid="uid://ox4mo215sg5h" path="res://Assets/TaskbarCatalogueIconHovered.png" id="8_gu2u2"]
 [ext_resource type="Texture2D" uid="uid://ps7fk0jmud10" path="res://Assets/Browser.png" id="9_tg8ot"]
 [ext_resource type="Texture2D" uid="uid://co4613mo6e30x" path="res://Assets/ClassDictionaryContent.png" id="10_oyudo"]
 [ext_resource type="Script" path="res://Scenes/CourseCatalogueParentWindow.gd" id="11_4a26h"]
 [ext_resource type="Script" path="res://Scenes/CourseCatalogueWindow.gd" id="13_088j3"]
+[ext_resource type="Texture2D" uid="uid://dluu0txmecmn2" path="res://Assets/RegistrarHandbookt.png" id="15_ra8rp"]
+[ext_resource type="Script" path="res://Scenes/RegistarManualParentWindow.gd" id="17_205en"]
+[ext_resource type="FontFile" uid="uid://djjxk0k3ue38k" path="res://Assets/Fonts/times.ttf" id="18_cy781"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f7xbp"]
 texture = ExtResource("9_tg8ot")
@@ -21,31 +27,18 @@ texture = ExtResource("9_tg8ot")
 resource_local_to_scene = true
 bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ox75y"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xl3x4"]
 bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
 border_color = Color(0.85098, 0.811765, 0.0352941, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 1
+shadow_color = Color(0, 0, 0, 1)
+shadow_size = 20
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tr0cx"]
-bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
-border_color = Color(0.85098, 0.811765, 0.0352941, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oxoc7"]
-bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
-border_color = Color(0.85098, 0.811765, 0.0352941, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1emwc"]
-bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
-border_color = Color(0.85098, 0.811765, 0.0352941, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_emt8v"]
-bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
-border_color = Color(0.85098, 0.811765, 0.0352941, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lxvvd"]
-bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
-border_color = Color(0.85098, 0.811765, 0.0352941, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xc78t"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5nbii"]
 resource_local_to_scene = true
 bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
 border_color = Color(0.85098, 0.811765, 0.0352941, 1)
@@ -61,6 +54,15 @@ bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
 border_color = Color(0.85098, 0.811765, 0.0352941, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_myks0"]
+resource_local_to_scene = true
+bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
+border_color = Color(0.85098, 0.811765, 0.0352941, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w6ytl"]
+bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
+border_color = Color(0.85098, 0.811765, 0.0352941, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xc78t"]
 resource_local_to_scene = true
 bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
 border_color = Color(0.85098, 0.811765, 0.0352941, 1)
@@ -151,11 +153,27 @@ bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
 resource_local_to_scene = true
 bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_35n86"]
+bg_color = Color(0.607843, 0.678431, 0.717647, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.85098, 0.811765, 0.0352941, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dt75n"]
+bg_color = Color(0.462745, 0.258824, 0.541176, 1)
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kut88"]
 texture = ExtResource("10_oyudo")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vc7gw"]
 bg_color = Color(0.607843, 0.678431, 0.717647, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_07bmg"]
+texture = ExtResource("15_ra8rp")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tblil"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_5ghd7")
@@ -192,6 +210,21 @@ offset_right = 151.0
 offset_bottom = 49.0
 action_mode = 0
 texture_normal = ExtResource("6_1h1ua")
+texture_hover = ExtResource("6_4o3tk")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="CatalogueTaskbarButton" type="TextureButton" parent="MainContainer/Desktop/Taskbar"]
+layout_mode = 0
+offset_left = 153.0
+offset_top = 2.0
+offset_right = 207.0
+offset_bottom = 49.0
+action_mode = 0
+keep_pressed_outside = true
+texture_normal = ExtResource("7_53cl5")
+texture_pressed = ExtResource("7_53cl5")
+texture_hover = ExtResource("8_gu2u2")
 ignore_texture_size = true
 stretch_mode = 4
 
@@ -233,6 +266,26 @@ offset_bottom = 147.0
 bbcode_enabled = true
 text = "[center]Course Catalogue[center]"
 
+[node name="RegistrarManualDesktopShortcut" type="TextureButton" parent="MainContainer/Desktop"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 321.0
+offset_right = 119.0
+offset_bottom = 445.0
+texture_normal = ExtResource("7_u6a4s")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="RegistrarManual" type="RichTextLabel" parent="MainContainer/Desktop/RegistrarManualDesktopShortcut"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 98.0
+offset_right = 109.0
+offset_bottom = 150.0
+bbcode_enabled = true
+text = "[center]Registrar[/center]
+[center]e-Handbook[center]"
+
 [node name="ScheduleBrowserParentWindow" type="Window" parent="MainContainer"]
 process_mode = 3
 disable_3d = true
@@ -240,7 +293,6 @@ transparent_bg = true
 gui_embed_subwindows = true
 initial_position = 2
 size = Vector2i(1280, 720)
-visible = false
 unresizable = true
 transparent = true
 mouse_passthrough = true
@@ -252,163 +304,109 @@ transparent_bg = true
 handle_input_locally = false
 initial_position = 1
 size = Vector2i(1280, 720)
-visible = false
 transient = true
 unresizable = true
 theme_override_styles/embedded_border = SubResource("StyleBoxTexture_f7xbp")
 script = ExtResource("7_f7lbd")
 
-[node name="800Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
-offset_left = 280.0
-offset_top = 177.0
-offset_right = 1280.0
-offset_bottom = 177.0
-border_color = Color(0.462745, 0.258824, 0.541176, 1)
-editor_only = false
-
-[node name="830Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
-offset_left = 280.0
-offset_top = 225.0
-offset_right = 1280.0
-offset_bottom = 225.0
-border_color = Color(0.462745, 0.258824, 0.541176, 1)
-editor_only = false
-
-[node name="930Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
-offset_left = 280.0
-offset_top = 288.0
-offset_right = 1280.0
-offset_bottom = 288.0
-border_color = Color(0.462745, 0.258824, 0.541176, 1)
-editor_only = false
-
-[node name="1030Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
-offset_left = 280.0
-offset_top = 355.0
-offset_right = 1280.0
-offset_bottom = 355.0
-border_color = Color(0.462745, 0.258824, 0.541176, 1)
-editor_only = false
-
-[node name="1130Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
-offset_left = 280.0
-offset_top = 420.0
-offset_right = 1280.0
-offset_bottom = 420.0
-border_color = Color(0.462745, 0.258824, 0.541176, 1)
-editor_only = false
-
-[node name="1230Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
-offset_left = 280.0
-offset_top = 485.0
-offset_right = 1280.0
-offset_bottom = 485.0
-border_color = Color(0.462745, 0.258824, 0.541176, 1)
-editor_only = false
-
-[node name="130Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
-offset_left = 280.0
-offset_top = 545.0
-offset_right = 1280.0
-offset_bottom = 545.0
-border_color = Color(0.462745, 0.258824, 0.541176, 1)
-editor_only = false
-
-[node name="230Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
-offset_left = 280.0
-offset_top = 612.0
-offset_right = 1280.0
-offset_bottom = 612.0
-border_color = Color(0.462745, 0.258824, 0.541176, 1)
-editor_only = false
-
-[node name="330Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
-offset_left = 280.0
-offset_top = 675.0
-offset_right = 1280.0
-offset_bottom = 675.0
-border_color = Color(0.462745, 0.258824, 0.541176, 1)
-editor_only = false
-
 [node name="ClassTimeContainer" type="BoxContainer" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
 custom_minimum_size = Vector2(80, 0)
-offset_left = 281.0
-offset_top = 180.0
-offset_right = 361.0
-offset_bottom = 666.0
-theme_override_constants/separation = 40
+offset_left = 279.0
+offset_top = 193.0
+offset_right = 364.0
+offset_bottom = 1870.0
+theme_override_constants/separation = 37
 vertical = true
 
 [node name="8AM" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/ClassTimeContainer"]
 layout_mode = 2
 theme_override_colors/default_color = Color(0.85098, 0.811765, 0.0352941, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 17
-text = "8:00 AM"
+theme_override_fonts/normal_font = ExtResource("18_cy781")
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[center]8:00 AM[/center]"
 fit_content = true
 
 [node name="9AM" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/ClassTimeContainer"]
 layout_mode = 2
 theme_override_colors/default_color = Color(0.85098, 0.811765, 0.0352941, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 17
-text = "9:00 AM"
+theme_override_fonts/normal_font = ExtResource("18_cy781")
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[center]9:00 AM[/center]"
 fit_content = true
 
 [node name="10AM" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/ClassTimeContainer"]
+custom_minimum_size = Vector2(85, 0)
 layout_mode = 2
 theme_override_colors/default_color = Color(0.85098, 0.811765, 0.0352941, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 17
-text = "10:00 AM"
+theme_override_fonts/normal_font = ExtResource("18_cy781")
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[center]10:00 AM[/center]"
 fit_content = true
 
 [node name="11AM" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/ClassTimeContainer"]
 layout_mode = 2
 theme_override_colors/default_color = Color(0.85098, 0.811765, 0.0352941, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 17
-text = "11:00 AM"
+theme_override_fonts/normal_font = ExtResource("18_cy781")
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[center]11:00 AM[/center]"
 fit_content = true
 
 [node name="12PM" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/ClassTimeContainer"]
 layout_mode = 2
 theme_override_colors/default_color = Color(0.85098, 0.811765, 0.0352941, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 17
-text = "12:00 PM"
+theme_override_fonts/normal_font = ExtResource("18_cy781")
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[center]12:00 PM[/center]"
 fit_content = true
 
 [node name="1PM" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/ClassTimeContainer"]
 layout_mode = 2
 theme_override_colors/default_color = Color(0.85098, 0.811765, 0.0352941, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 17
-text = "1:00 PM"
+theme_override_fonts/normal_font = ExtResource("18_cy781")
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[center]1:00 PM[/center]"
 fit_content = true
 
 [node name="2PM" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/ClassTimeContainer"]
 layout_mode = 2
 theme_override_colors/default_color = Color(0.85098, 0.811765, 0.0352941, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 17
-text = "2:00 PM"
+theme_override_fonts/normal_font = ExtResource("18_cy781")
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[center]2:00 PM[/center]"
 fit_content = true
 
 [node name="3PM" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/ClassTimeContainer"]
 layout_mode = 2
 theme_override_colors/default_color = Color(0.85098, 0.811765, 0.0352941, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 17
-text = "3:00 PM"
+theme_override_fonts/normal_font = ExtResource("18_cy781")
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[center]3:00 PM[/center]"
 fit_content = true
 
 [node name="4PM" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/ClassTimeContainer"]
 layout_mode = 2
 theme_override_colors/default_color = Color(0.85098, 0.811765, 0.0352941, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 17
-text = "4:00 PM"
+theme_override_fonts/normal_font = ExtResource("18_cy781")
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[center]4:00 PM[/center]"
 fit_content = true
 
 [node name="5PM" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/ClassTimeContainer"]
@@ -416,150 +414,413 @@ visible = false
 layout_mode = 2
 theme_override_colors/default_color = Color(0.85098, 0.811765, 0.0352941, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 17
+theme_override_fonts/normal_font = ExtResource("18_cy781")
+theme_override_font_sizes/normal_font_size = 20
 theme_override_styles/normal = SubResource("StyleBoxFlat_grp6r")
-text = "5:00 PM"
+bbcode_enabled = true
+text = "[center]5:00 PM[/center]"
 fit_content = true
 
+[node name="800Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
+offset_left = 377.0
+offset_top = 177.0
+offset_right = 1377.0
+offset_bottom = 177.0
+border_color = Color(0.462745, 0.258824, 0.541176, 1)
+editor_only = false
+
+[node name="HourLineContainer" type="BoxContainer" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
+clip_contents = true
+custom_minimum_size = Vector2(1000, 540)
+offset_left = 277.0
+offset_top = 235.0
+offset_right = 1277.0
+offset_bottom = 775.0
+size_flags_horizontal = 3
+theme_override_constants/separation = 60
+vertical = true
+
+[node name="900Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/HourLineContainer"]
+layout_mode = 2
+border_color = Color(0.462745, 0.258824, 0.541176, 1)
+border_width = 10.0
+editor_only = false
+
+[node name="1000Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/HourLineContainer"]
+layout_mode = 2
+border_color = Color(0.462745, 0.258824, 0.541176, 1)
+border_width = 5.0
+editor_only = false
+
+[node name="1100Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/HourLineContainer"]
+layout_mode = 2
+border_color = Color(0.462745, 0.258824, 0.541176, 1)
+border_width = 5.0
+editor_only = false
+
+[node name="1200Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/HourLineContainer"]
+layout_mode = 2
+border_color = Color(0.462745, 0.258824, 0.541176, 1)
+border_width = 5.0
+editor_only = false
+
+[node name="1300Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/HourLineContainer"]
+layout_mode = 2
+border_color = Color(0.462745, 0.258824, 0.541176, 1)
+border_width = 5.0
+editor_only = false
+
+[node name="1400Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/HourLineContainer"]
+layout_mode = 2
+border_color = Color(0.462745, 0.258824, 0.541176, 1)
+border_width = 5.0
+editor_only = false
+
+[node name="1500Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/HourLineContainer"]
+layout_mode = 2
+border_color = Color(0.462745, 0.258824, 0.541176, 1)
+border_width = 5.0
+editor_only = false
+
+[node name="1600Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/HourLineContainer"]
+layout_mode = 2
+border_color = Color(0.462745, 0.258824, 0.541176, 1)
+border_width = 5.0
+editor_only = false
+
+[node name="1700Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/HourLineContainer"]
+layout_mode = 2
+border_color = Color(0.462745, 0.258824, 0.541176, 1)
+border_width = 5.0
+editor_only = false
+
+[node name="FifteenMinContainer" type="BoxContainer" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
+offset_left = 377.0
+offset_top = 191.0
+offset_right = 1277.0
+offset_bottom = 231.0
+theme_override_constants/separation = 60
+vertical = true
+
+[node name="815Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/FifteenMinContainer"]
+layout_mode = 2
+border_color = Color(0.462745, 0.258824, 0.541176, 1)
+editor_only = false
+
+[node name="915Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/FifteenMinContainer"]
+layout_mode = 2
+border_color = Color(0.462745, 0.258824, 0.541176, 1)
+editor_only = false
+
+[node name="1015Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/FifteenMinContainer"]
+layout_mode = 2
+border_color = Color(0.462745, 0.258824, 0.541176, 1)
+editor_only = false
+
+[node name="1115Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/FifteenMinContainer"]
+layout_mode = 2
+border_color = Color(0.462745, 0.258824, 0.541176, 1)
+editor_only = false
+
+[node name="1215Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/FifteenMinContainer"]
+layout_mode = 2
+border_color = Color(0.462745, 0.258824, 0.541176, 1)
+editor_only = false
+
+[node name="1315Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/FifteenMinContainer"]
+layout_mode = 2
+border_color = Color(0.462745, 0.258824, 0.541176, 1)
+editor_only = false
+
+[node name="1415Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/FifteenMinContainer"]
+layout_mode = 2
+border_color = Color(0.462745, 0.258824, 0.541176, 1)
+editor_only = false
+
+[node name="1515Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/FifteenMinContainer"]
+layout_mode = 2
+border_color = Color(0.462745, 0.258824, 0.541176, 1)
+editor_only = false
+
+[node name="1615Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/FifteenMinContainer"]
+layout_mode = 2
+border_color = Color(0.462745, 0.258824, 0.541176, 1)
+editor_only = false
+
+[node name="HalfHourLineContainer" type="BoxContainer" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
+offset_left = 377.0
+offset_top = 205.0
+offset_right = 1277.0
+offset_bottom = 685.0
+theme_override_constants/separation = 60
+vertical = true
+
+[node name="830Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/HalfHourLineContainer"]
+layout_mode = 2
+border_color = Color(0.462745, 0.258824, 0.541176, 1)
+border_width = 2.0
+editor_only = false
+
+[node name="930Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/HalfHourLineContainer"]
+layout_mode = 2
+border_color = Color(0.462745, 0.258824, 0.541176, 1)
+border_width = 2.0
+editor_only = false
+
+[node name="1030Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/HalfHourLineContainer"]
+layout_mode = 2
+border_color = Color(0.462745, 0.258824, 0.541176, 1)
+border_width = 2.0
+editor_only = false
+
+[node name="1130Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/HalfHourLineContainer"]
+layout_mode = 2
+border_color = Color(0.462745, 0.258824, 0.541176, 1)
+border_width = 2.0
+editor_only = false
+
+[node name="1230Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/HalfHourLineContainer"]
+layout_mode = 2
+border_color = Color(0.462745, 0.258824, 0.541176, 1)
+border_width = 2.0
+editor_only = false
+
+[node name="1330Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/HalfHourLineContainer"]
+layout_mode = 2
+border_color = Color(0.462745, 0.258824, 0.541176, 1)
+border_width = 2.0
+editor_only = false
+
+[node name="1430Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/HalfHourLineContainer"]
+layout_mode = 2
+border_color = Color(0.462745, 0.258824, 0.541176, 1)
+border_width = 2.0
+editor_only = false
+
+[node name="1530Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/HalfHourLineContainer"]
+layout_mode = 2
+border_color = Color(0.462745, 0.258824, 0.541176, 1)
+border_width = 2.0
+editor_only = false
+
+[node name="1630Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/HalfHourLineContainer"]
+layout_mode = 2
+border_color = Color(0.462745, 0.258824, 0.541176, 1)
+border_width = 2.0
+editor_only = false
+
+[node name="FortyFiveMinContainer" type="BoxContainer" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
+offset_left = 377.0
+offset_top = 220.0
+offset_right = 1277.0
+offset_bottom = 260.0
+theme_override_constants/separation = 60
+vertical = true
+
+[node name="845Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/FortyFiveMinContainer"]
+layout_mode = 2
+border_color = Color(0.462745, 0.258824, 0.541176, 1)
+editor_only = false
+
+[node name="945Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/FortyFiveMinContainer"]
+layout_mode = 2
+border_color = Color(0.462745, 0.258824, 0.541176, 1)
+editor_only = false
+
+[node name="1045Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/FortyFiveMinContainer"]
+layout_mode = 2
+border_color = Color(0.462745, 0.258824, 0.541176, 1)
+editor_only = false
+
+[node name="1145Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/FortyFiveMinContainer"]
+layout_mode = 2
+border_color = Color(0.462745, 0.258824, 0.541176, 1)
+editor_only = false
+
+[node name="1245Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/FortyFiveMinContainer"]
+layout_mode = 2
+border_color = Color(0.462745, 0.258824, 0.541176, 1)
+editor_only = false
+
+[node name="1345Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/FortyFiveMinContainer"]
+layout_mode = 2
+border_color = Color(0.462745, 0.258824, 0.541176, 1)
+editor_only = false
+
+[node name="1445Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/FortyFiveMinContainer"]
+layout_mode = 2
+border_color = Color(0.462745, 0.258824, 0.541176, 1)
+editor_only = false
+
+[node name="1545Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/FortyFiveMinContainer"]
+layout_mode = 2
+border_color = Color(0.462745, 0.258824, 0.541176, 1)
+editor_only = false
+
+[node name="1645Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/FortyFiveMinContainer"]
+layout_mode = 2
+border_color = Color(0.462745, 0.258824, 0.541176, 1)
+editor_only = false
+
 [node name="WeekContainer" type="BoxContainer" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
-offset_left = 420.0
+offset_left = 393.0
 offset_top = 140.0
-offset_right = 1420.0
+offset_right = 1393.0
 offset_bottom = 188.0
-theme_override_constants/separation = 87
+theme_override_constants/separation = 42
 
 [node name="MondayColumn" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/WeekContainer"]
-custom_minimum_size = Vector2(85, 0)
+custom_minimum_size = Vector2(140, 0)
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_colors/default_color = Color(0.85098, 0.811765, 0.0352941, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 2
+theme_override_fonts/normal_font = ExtResource("18_cy781")
 theme_override_font_sizes/normal_font_size = 21
-text = "Monday"
+bbcode_enabled = true
+text = "[center]MONDAY[/center]"
 fit_content = true
 
 [node name="TuesdayColumn" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/WeekContainer"]
-custom_minimum_size = Vector2(85, 0)
+custom_minimum_size = Vector2(140, 0)
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_colors/default_color = Color(0.85098, 0.811765, 0.0352941, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 2
+theme_override_fonts/normal_font = ExtResource("18_cy781")
 theme_override_font_sizes/normal_font_size = 21
-text = "Tuesday"
+bbcode_enabled = true
+text = "[center]TUESDAY[/center]"
 fit_content = true
 
 [node name="WednesdayColumn" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/WeekContainer"]
-custom_minimum_size = Vector2(120, 0)
+custom_minimum_size = Vector2(140, 0)
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_colors/default_color = Color(0.85098, 0.811765, 0.0352941, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 2
+theme_override_fonts/normal_font = ExtResource("18_cy781")
 theme_override_font_sizes/normal_font_size = 21
-text = "Wednesday"
+bbcode_enabled = true
+text = "[center]WEDNESDAY[/center]"
 fit_content = true
 
 [node name="ThursdayColumn" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/WeekContainer"]
-custom_minimum_size = Vector2(95, 0)
+custom_minimum_size = Vector2(140, 0)
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_colors/default_color = Color(0.85098, 0.811765, 0.0352941, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 2
+theme_override_fonts/normal_font = ExtResource("18_cy781")
 theme_override_font_sizes/normal_font_size = 21
-text = "Thursday"
+bbcode_enabled = true
+text = "[center]THURSDAY[/center]"
 fit_content = true
 
 [node name="FridayColumn" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/WeekContainer"]
-custom_minimum_size = Vector2(65, 0)
+custom_minimum_size = Vector2(140, 0)
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_colors/default_color = Color(0.85098, 0.811765, 0.0352941, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 2
+theme_override_fonts/normal_font = ExtResource("18_cy781")
 theme_override_font_sizes/normal_font_size = 21
-text = "Friday"
+bbcode_enabled = true
+text = "[center]FRIDAY[/center]"
 fit_content = true
 
 [node name="MLabel1" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" groups=["MondayLabels"]]
-custom_minimum_size = Vector2(175, 0)
-offset_left = 378.0
-offset_top = 177.0
+custom_minimum_size = Vector2(174, 0)
+offset_left = 379.0
+offset_top = 354.0
 offset_right = 553.0
-offset_bottom = 223.0
+offset_bottom = 423.0
 size_flags_horizontal = 3
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_styles/normal = SubResource("StyleBoxFlat_ox75y")
+theme_override_styles/normal = SubResource("StyleBoxFlat_xl3x4")
 bbcode_enabled = true
-text = "MUS 200
-ABB 211
-
-"
+text = "BIO 444
+ABAH 300
+10:00 AM - 12:00 PM"
 fit_content = true
 
 [node name="MLabel2" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" groups=["MondayLabels"]]
 visible = false
-custom_minimum_size = Vector2(175, 0)
-offset_left = 756.0
-offset_top = 354.0
-offset_right = 931.0
-offset_bottom = 400.0
+custom_minimum_size = Vector2(174, 0)
+offset_left = 379.0
+offset_top = 400.0
+offset_right = 553.0
+offset_bottom = 472.0
 size_flags_horizontal = 3
-size_flags_vertical = 8
+size_flags_vertical = 0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_styles/normal = SubResource("StyleBoxFlat_tr0cx")
+theme_override_font_sizes/normal_font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_5nbii")
 bbcode_enabled = true
-text = "
+text = "POLS 201
+LH12
 
 "
 fit_content = true
 
 [node name="MLabel3" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" groups=["MondayLabels"]]
 visible = false
-custom_minimum_size = Vector2(175, 0)
-offset_left = 1134.0
-offset_top = 531.0
-offset_right = 1309.0
-offset_bottom = 577.0
+custom_minimum_size = Vector2(174, 0)
+offset_left = 379.0
+offset_top = 500.0
+offset_right = 553.0
+offset_bottom = 572.0
 size_flags_horizontal = 3
+size_flags_vertical = 0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_styles/normal = SubResource("StyleBoxFlat_oxoc7")
+theme_override_font_sizes/normal_font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_uxo6o")
 bbcode_enabled = true
-text = "
+text = "POLS 201
+LH12
 
 "
 fit_content = true
 
 [node name="MLabel4" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" groups=["MondayLabels"]]
 visible = false
-custom_minimum_size = Vector2(175, 0)
-offset_left = 1512.0
-offset_top = 708.0
-offset_right = 1687.0
-offset_bottom = 754.0
+custom_minimum_size = Vector2(174, 0)
+offset_left = 379.0
+offset_top = 1057.0
+offset_right = 553.0
+offset_bottom = 1129.0
 size_flags_horizontal = 3
+size_flags_vertical = 0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_styles/normal = SubResource("StyleBoxFlat_1emwc")
+theme_override_font_sizes/normal_font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_egce3")
 bbcode_enabled = true
-text = "
+text = "POLS 201
+LH12
 
 "
 fit_content = true
 
 [node name="MLabel5" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" groups=["MondayLabels"]]
 visible = false
-custom_minimum_size = Vector2(175, 0)
-offset_left = 1890.0
-offset_top = 885.0
-offset_right = 2065.0
-offset_bottom = 931.0
+custom_minimum_size = Vector2(174, 0)
+offset_left = 379.0
+offset_top = 1937.0
+offset_right = 553.0
+offset_bottom = 2009.0
 size_flags_horizontal = 3
+size_flags_vertical = 0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_styles/normal = SubResource("StyleBoxFlat_emt8v")
+theme_override_font_sizes/normal_font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_myks0")
 bbcode_enabled = true
-text = "
+text = "POLS 201
+LH12
 
 "
 fit_content = true
@@ -572,7 +833,7 @@ offset_right = 736.0
 offset_bottom = 246.0
 size_flags_horizontal = 3
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_styles/normal = SubResource("StyleBoxFlat_lxvvd")
+theme_override_styles/normal = SubResource("StyleBoxFlat_w6ytl")
 bbcode_enabled = true
 text = "BIO 444
 ABAH 300
@@ -580,7 +841,6 @@ ABAH 300
 fit_content = true
 
 [node name="TLabel2" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" groups=["TuesdayLabels"]]
-visible = false
 custom_minimum_size = Vector2(174, 0)
 offset_left = 1124.0
 offset_top = 440.0
@@ -1015,6 +1275,25 @@ offset_right = 239.0
 offset_bottom = 716.0
 text = "Reject Schedule"
 
+[node name="ProgressBar" type="ProgressBar" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
+offset_left = 20.0
+offset_top = 620.0
+offset_right = 239.0
+offset_bottom = 647.0
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.85098, 0.811765, 0.0352941, 1)
+theme_override_colors/font_shadow_color = Color(0.462745, 0.258824, 0.541176, 1)
+theme_override_styles/background = SubResource("StyleBoxFlat_35n86")
+theme_override_styles/fill = SubResource("StyleBoxFlat_dt75n")
+show_percentage = false
+
+[node name="ProgressLabel" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/ProgressBar"]
+custom_minimum_size = Vector2(219, 0)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+bbcode_enabled = true
+
 [node name="CourseCatalogueParentWindow" type="Window" parent="MainContainer"]
 process_mode = 3
 disable_3d = true
@@ -1049,29 +1328,32 @@ offset_bottom = 135.0
 theme_override_constants/separation = -14
 
 [node name="DepartmentLabel" type="RichTextLabel" parent="MainContainer/CourseCatalogueParentWindow/CourseCatalogueWindow/Dropdown1"]
-custom_minimum_size = Vector2(125, 0)
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 theme_override_colors/default_color = Color(0.984314, 0.94902, 0.211765, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_y = 2
 theme_override_constants/shadow_outline_size = 1
+theme_override_fonts/normal_font = ExtResource("18_cy781")
+theme_override_font_sizes/normal_font_size = 20
 bbcode_enabled = true
 text = "DEPARTMENT"
 
 [node name="DepartmentDropdown" type="OptionButton" parent="MainContainer/CourseCatalogueParentWindow/CourseCatalogueWindow/Dropdown1"]
 layout_mode = 2
 item_count = 6
-popup/item_0/text = "ART"
-popup/item_0/id = 3
-popup/item_1/text = "ENGLISH"
-popup/item_1/id = 0
-popup/item_2/text = "HISTORY"
+selected = 0
+popup/item_0/text = "ALL"
+popup/item_0/id = 0
+popup/item_1/text = "ART"
+popup/item_1/id = 1
+popup/item_2/text = "ENGLISH"
 popup/item_2/id = 2
-popup/item_3/text = "HUMANITIES"
-popup/item_3/id = 4
-popup/item_4/text = "MATH"
-popup/item_4/id = 1
-popup/item_5/text = "ALL"
+popup/item_3/text = "HISTORY"
+popup/item_3/id = 3
+popup/item_4/text = "HUMANITIES"
+popup/item_4/id = 4
+popup/item_5/text = "MATH"
 popup/item_5/id = 5
 
 [node name="Dropdown2" type="BoxContainer" parent="MainContainer/CourseCatalogueParentWindow/CourseCatalogueWindow"]
@@ -1082,85 +1364,89 @@ offset_bottom = 135.0
 theme_override_constants/separation = -6
 
 [node name="TimeLabel" type="RichTextLabel" parent="MainContainer/CourseCatalogueParentWindow/CourseCatalogueWindow/Dropdown2"]
-custom_minimum_size = Vector2(50, 0)
+custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
 theme_override_colors/default_color = Color(0.984314, 0.94902, 0.211765, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_y = 2
 theme_override_constants/shadow_outline_size = 1
+theme_override_fonts/normal_font = ExtResource("18_cy781")
+theme_override_font_sizes/normal_font_size = 20
 bbcode_enabled = true
 text = "TIME"
 
 [node name="TimeDropdown" type="OptionButton" parent="MainContainer/CourseCatalogueParentWindow/CourseCatalogueWindow/Dropdown2"]
 layout_mode = 2
 item_count = 34
-popup/item_0/text = "8:00 AM"
+selected = 0
+allow_reselect = true
+popup/item_0/text = "ALL"
 popup/item_0/id = 0
-popup/item_1/text = "8:15 AM"
+popup/item_1/text = "8:00 AM"
 popup/item_1/id = 1
-popup/item_2/text = "8:30 AM"
+popup/item_2/text = "8:15 AM"
 popup/item_2/id = 2
-popup/item_3/text = "8:45 AM"
+popup/item_3/text = "8:30 AM"
 popup/item_3/id = 3
-popup/item_4/text = "9:00 AM"
+popup/item_4/text = "8:45 AM"
 popup/item_4/id = 4
-popup/item_5/text = "9:15 AM"
+popup/item_5/text = "9:00 AM"
 popup/item_5/id = 5
-popup/item_6/text = "9:30 AM"
+popup/item_6/text = "9:15 AM"
 popup/item_6/id = 6
-popup/item_7/text = "9:45 AM"
+popup/item_7/text = "9:30 AM"
 popup/item_7/id = 7
-popup/item_8/text = "10:00 AM"
+popup/item_8/text = "9:45 AM"
 popup/item_8/id = 8
-popup/item_9/text = "10:15 AM"
+popup/item_9/text = "10:00 AM"
 popup/item_9/id = 9
-popup/item_10/text = "10:30 AM"
+popup/item_10/text = "10:15 AM"
 popup/item_10/id = 10
-popup/item_11/text = "10:45 AM"
+popup/item_11/text = "10:30 AM"
 popup/item_11/id = 11
-popup/item_12/text = "11:00 AM"
+popup/item_12/text = "10:45 AM"
 popup/item_12/id = 12
-popup/item_13/text = "11:15 AM"
+popup/item_13/text = "11:00 AM"
 popup/item_13/id = 13
-popup/item_14/text = "11:30 AM"
+popup/item_14/text = "11:15 AM"
 popup/item_14/id = 14
-popup/item_15/text = "11:45 AM"
+popup/item_15/text = "11:30 AM"
 popup/item_15/id = 15
-popup/item_16/text = "12:00 PM"
+popup/item_16/text = "11:45 AM"
 popup/item_16/id = 16
-popup/item_17/text = "12:15 PM"
+popup/item_17/text = "12:00 PM"
 popup/item_17/id = 17
-popup/item_18/text = "12:30 PM"
+popup/item_18/text = "12:15 PM"
 popup/item_18/id = 18
-popup/item_19/text = "12:45 PM"
+popup/item_19/text = "12:30 PM"
 popup/item_19/id = 19
-popup/item_20/text = "1:00 PM"
+popup/item_20/text = "12:45 PM"
 popup/item_20/id = 20
-popup/item_21/text = "1:15 PM"
+popup/item_21/text = "1:00 PM"
 popup/item_21/id = 21
-popup/item_22/text = "1:30 PM"
+popup/item_22/text = "1:15 PM"
 popup/item_22/id = 22
-popup/item_23/text = "1:45 PM"
+popup/item_23/text = "1:30 PM"
 popup/item_23/id = 23
-popup/item_24/text = "2:00 PM"
+popup/item_24/text = "1:45 PM"
 popup/item_24/id = 24
-popup/item_25/text = "2:15 PM"
+popup/item_25/text = "2:00 PM"
 popup/item_25/id = 25
-popup/item_26/text = "2:30 PM"
+popup/item_26/text = "2:15 PM"
 popup/item_26/id = 26
-popup/item_27/text = "2:45 PM"
+popup/item_27/text = "2:30 PM"
 popup/item_27/id = 27
-popup/item_28/text = "3:00 PM"
+popup/item_28/text = "2:45 PM"
 popup/item_28/id = 28
-popup/item_29/text = "3:15 PM"
+popup/item_29/text = "3:00 PM"
 popup/item_29/id = 29
-popup/item_30/text = "3:30 PM"
+popup/item_30/text = "3:15 PM"
 popup/item_30/id = 30
-popup/item_31/text = "3:45 PM"
+popup/item_31/text = "3:30 PM"
 popup/item_31/id = 31
-popup/item_32/text = "4:00 PM"
+popup/item_32/text = "3:45 PM"
 popup/item_32/id = 32
-popup/item_33/text = "ALL"
+popup/item_33/text = "4:00 PM"
 popup/item_33/id = 33
 
 [node name="ClassCatalogueScrollContainer" type="ScrollContainer" parent="MainContainer/CourseCatalogueParentWindow/CourseCatalogueWindow"]
@@ -1176,10 +1462,127 @@ vertical_scroll_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 
+[node name="RegistarManualParentWindow" type="Window" parent="MainContainer"]
+process_mode = 3
+disable_3d = true
+transparent_bg = true
+gui_embed_subwindows = true
+initial_position = 1
+size = Vector2i(640, 800)
+visible = false
+unresizable = true
+transparent = true
+mouse_passthrough = true
+min_size = Vector2i(640, 800)
+script = ExtResource("17_205en")
+
+[node name="RegistrarManualWindow" type="Window" parent="MainContainer/RegistarManualParentWindow"]
+disable_3d = true
+transparent_bg = true
+handle_input_locally = false
+initial_position = 1
+size = Vector2i(640, 800)
+visible = false
+transient = true
+unresizable = true
+theme_override_styles/embedded_border = SubResource("StyleBoxTexture_07bmg")
+
+[node name="ClassCatalogueScrollContainer" type="ScrollContainer" parent="MainContainer/RegistarManualParentWindow/RegistrarManualWindow"]
+custom_minimum_size = Vector2(615, 591)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -307.5
+offset_top = -200.0
+offset_right = 307.5
+offset_bottom = 391.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ClassCatalogueContainer" type="VBoxContainer" parent="MainContainer/RegistarManualParentWindow/RegistrarManualWindow/ClassCatalogueScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 26
+
+[node name="Rule1" type="RichTextLabel" parent="MainContainer/RegistarManualParentWindow/RegistrarManualWindow/ClassCatalogueScrollContainer/ClassCatalogueContainer"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 0
+theme_override_fonts/normal_font = ExtResource("18_cy781")
+theme_override_font_sizes/normal_font_size = 21
+bbcode_enabled = true
+text = "[ul]Have at least 2 classes belonging to the student's major area of study[/ul]"
+fit_content = true
+
+[node name="Rule2" type="RichTextLabel" parent="MainContainer/RegistarManualParentWindow/RegistrarManualWindow/ClassCatalogueScrollContainer/ClassCatalogueContainer"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 1
+theme_override_fonts/normal_font = ExtResource("18_cy781")
+theme_override_font_sizes/normal_font_size = 21
+theme_override_styles/normal = SubResource("StyleBoxEmpty_tblil")
+bbcode_enabled = true
+text = "[ul]Have at least 1 class belonging to the student's minor area of study, if  they have chosen one[/ul]"
+fit_content = true
+
+[node name="Rule3" type="RichTextLabel" parent="MainContainer/RegistarManualParentWindow/RegistrarManualWindow/ClassCatalogueScrollContainer/ClassCatalogueContainer"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 1
+theme_override_fonts/normal_font = ExtResource("18_cy781")
+theme_override_font_sizes/normal_font_size = 21
+bbcode_enabled = true
+text = "[ul]Have a number of classes whose combined credit total is at least 12(15 if the student receives financial aid)[/ul]"
+fit_content = true
+
+[node name="Rule4" type="RichTextLabel" parent="MainContainer/RegistarManualParentWindow/RegistrarManualWindow/ClassCatalogueScrollContainer/ClassCatalogueContainer"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 1
+theme_override_fonts/normal_font = ExtResource("18_cy781")
+theme_override_font_sizes/normal_font_size = 21
+bbcode_enabled = true
+text = "[ul]Have a number of classes whose combined credit total is at most 18, unless the student has submitted a Credit Capacity Exemption(CCE) form[/ul]"
+fit_content = true
+
+[node name="Rule5" type="RichTextLabel" parent="MainContainer/RegistarManualParentWindow/RegistrarManualWindow/ClassCatalogueScrollContainer/ClassCatalogueContainer"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.133333, 0.14902, 0.160784, 1)
+theme_override_fonts/normal_font = ExtResource("18_cy781")
+theme_override_font_sizes/normal_font_size = 21
+bbcode_enabled = true
+text = "[ul]NOT have delinquent status on their account[/ul]"
+fit_content = true
+
+[node name="Header" type="RichTextLabel" parent="MainContainer/RegistarManualParentWindow/RegistrarManualWindow"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -300.0
+offset_right = 300.0
+offset_bottom = -116.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0.984314, 0.94902, 0.211765, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/normal_font = ExtResource("18_cy781")
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "[center]WHEN SUBMITTING SCHEDULES, STUDENTS MUST:[center]"
+fit_content = true
+
 [connection signal="esc_pressed" from="MainContainer" to="MainContainer" method="_on_esc_pressed"]
 [connection signal="pressed" from="MainContainer/Desktop/Taskbar/BrowserTaskbarButton" to="MainContainer" method="_on_browser_taskbar_button_pressed"]
+[connection signal="pressed" from="MainContainer/Desktop/Taskbar/CatalogueTaskbarButton" to="MainContainer" method="_on_catalogue_taskbar_button_pressed"]
 [connection signal="pressed" from="MainContainer/Desktop/BrowserDesktopShortcut" to="MainContainer" method="_on_browser_desktop_shortcut_pressed"]
 [connection signal="pressed" from="MainContainer/Desktop/CatalogueDesktopShortcut" to="MainContainer" method="_on_catalogue_desktop_shortcut_pressed"]
+[connection signal="pressed" from="MainContainer/Desktop/RegistrarManualDesktopShortcut" to="MainContainer" method="_on_registrar_manual_desktop_shortcut_pressed"]
 [connection signal="close_requested" from="MainContainer/ScheduleBrowserParentWindow" to="MainContainer/ScheduleBrowserParentWindow" method="_on_close_requested"]
 [connection signal="esc_pressed" from="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" to="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" method="_on_esc_pressed"]
 [connection signal="pressed" from="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/YesButton" to="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" method="_on_yes_button_pressed"]
@@ -1187,3 +1590,4 @@ size_flags_horizontal = 3
 [connection signal="close_requested" from="MainContainer/CourseCatalogueParentWindow" to="MainContainer/CourseCatalogueParentWindow" method="_on_close_requested"]
 [connection signal="item_selected" from="MainContainer/CourseCatalogueParentWindow/CourseCatalogueWindow/Dropdown1/DepartmentDropdown" to="MainContainer/CourseCatalogueParentWindow/CourseCatalogueWindow" method="_on_department_dropdown_item_selected"]
 [connection signal="item_selected" from="MainContainer/CourseCatalogueParentWindow/CourseCatalogueWindow/Dropdown2/TimeDropdown" to="MainContainer/CourseCatalogueParentWindow/CourseCatalogueWindow" method="_on_time_dropdown_item_selected"]
+[connection signal="close_requested" from="MainContainer/RegistarManualParentWindow" to="MainContainer/RegistarManualParentWindow" method="_on_close_requested"]
