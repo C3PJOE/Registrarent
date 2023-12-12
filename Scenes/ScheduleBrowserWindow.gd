@@ -82,18 +82,28 @@ func _ready():
 	#index variable we will pass to set current schedule to tell it which 
 	#student needs to have their schedule set
 	studentIndex = 0
-	
-	start(studentIndex)
+	start()
 
 #calls the set current schedule function 
-func start(student:int):
+func start():
 	_set_time_labels_positions()
 	_set_week_label_x_positions()
 	studentData= read_json_file(file1)
 	progress_bar_update()
 	classData = read_json_file(file2)
-	_set_Current_Schedule(student)
-
+	initial_schedule_setup()
+	
+#function that briefly shows the schedule browser so that the first schedule's labels get placed correctly, 
+#fixing an issue where the first schedule's contents would be in the wrong positions 
+#if the schedule browser window was hidden on game start
+#probably a better way to fix this but it works
+func initial_schedule_setup():
+	$"..".show()
+	show()
+	_set_Current_Schedule(studentIndex)
+	await get_tree().create_timer(.01).timeout
+	$"..".hide()
+	hide()
 #function to initialize progress bar UI elements
 func progress_bar_update():
 	progress_label.clear()
@@ -103,6 +113,7 @@ func progress_bar_update():
 	var total_students = str(progress_bar.max_value)
 	var label_text = "Reviewed " + current_student + "/" + total_students + " schedules"
 	progress_label.append_text("[center]%s[/center]" % label_text)
+	
 func schedule_totaler():
 	var schedule_count = 0
 	for n in studentData:
