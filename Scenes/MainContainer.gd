@@ -5,6 +5,10 @@ signal esc_pressed
 @onready var schedule_browser_window = $ScheduleBrowserParentWindow/ScheduleBrowserWindow
 @onready var course_catalogue_parent_window = $CourseCatalogueParentWindow
 @onready var course_catalogue_window = $CourseCatalogueParentWindow/CourseCatalogueWindow
+@onready var browser_taskbar_button = $Desktop/Taskbar/BrowserTaskbarButton
+@onready var catalogue_taskbar_button = $Desktop/Taskbar/CatalogueTaskbarButton
+@onready var registar_manual_parent_window = $RegistarManualParentWindow
+@onready var registrar_manual_window = $RegistarManualParentWindow/RegistrarManualWindow
 
 
 # Called when the node enters the scene tree for the first time.
@@ -16,7 +20,6 @@ func _process(delta):
 	
 func _input(event):
 	if  Input.is_key_pressed(KEY_ESCAPE):
-		print("flarpwindow")
 		emit_signal("esc_pressed")
 		
 func _on_esc_pressed():
@@ -24,7 +27,6 @@ func _on_esc_pressed():
 		pause_menu.hide()
 	else:
 		pause_menu.show()
-
 
 func _on_browser_taskbar_button_pressed():
 	if schedule_browser_parent_window.visible == true: 
@@ -47,3 +49,19 @@ func _on_catalogue_desktop_shortcut_pressed():
 	else:
 		course_catalogue_parent_window.show()
 		course_catalogue_window.show()
+
+func _on_catalogue_taskbar_button_pressed():
+	if course_catalogue_parent_window.visible == true: 
+		course_catalogue_parent_window.hide()
+		course_catalogue_window.hide()
+	else:
+		course_catalogue_parent_window.show()
+		course_catalogue_window.show()
+
+
+func _on_registrar_manual_desktop_shortcut_pressed():
+	if registar_manual_parent_window.visible == true:
+		pass
+	else:
+		registar_manual_parent_window.show()
+		registrar_manual_window.show()

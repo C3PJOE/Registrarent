@@ -25,6 +25,8 @@ func read_json_file(parameter: String):
 
 #function to generate new labels
 func _label_maker(label_name:String,label_content:Dictionary)->RichTextLabel:
+	var font = FontFile
+	font = load("res://Assets/Fonts/times.ttf")
 	#label text var will hold the contents of the label(i.e, the passed class information);will be appended to the label later
 	var label_text = "CLASS NAME: " + label_content.CLASSNAME + "\nCREDITS: " + str(label_content.CREDITS) + "\nLOCATION: " + label_content.CLASSLOCATION + "\nDEPARTMENT: " + label_content.CLASSDEPARTMENT + "\nSTART TIME: " + label_content.CLASSSTARTTIME + "\nEND TIME: " + label_content.CLASSENDTIME 
 	#creates a new rich text label
@@ -36,13 +38,16 @@ func _label_maker(label_name:String,label_content:Dictionary)->RichTextLabel:
 	new_label.fit_content = true
 	#sets the label's minimum size
 	new_label.custom_minimum_size = Vector2(200,200)
-	#overrides some default colors/constants to match desired aesthetic "theme_override_colors/default_color"
+	#overrides some default fonts/colors/constants to match desired aesthetic 
 	new_label.add_theme_color_override("default_color",Color(0.984, 0.949, 0.212))
-	new_label.add_theme_color_override("font_shadow_color",Color(0, 0, 0))
+	new_label.add_theme_color_override("font_shadow_color",Color(0, 0, 0)) 
 	new_label.add_theme_constant_override("shadow_offset_y",1)
 	new_label.add_theme_constant_override("shadow_outline_size",2)
+	new_label.add_theme_font_override("normal_font",font)
+	new_label.add_theme_font_size_override("normal_font_size",20)
 	#adds the previously initialized label text var to the label 
 	new_label.append_text("[center]%s[/center]"%label_text)
+	
 	return new_label
 #function to add the labels from label_maker to the catalogue container
 func _add_label_to_catalogue(label:RichTextLabel):
