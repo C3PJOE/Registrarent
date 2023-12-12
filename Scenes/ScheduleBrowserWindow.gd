@@ -174,7 +174,12 @@ func _set_Current_Schedule(student: int):
 #func that takes the day, number of labels, and the parent array from set_current_schedule
 #and assigns the contents of the parent array to labels using match statements 
 func label_assigner(day:int, parent_array:Array,day_of_week_group:Array):
+	
+	var labelText:String = ""
 	var checkedResult:Array
+	var path:NodePath
+	var _12_hr_start_time
+	var _12_hr_end_time
 	#match statement that checks what day of the week it is, so we can set the correct label(monday == 0, friday == 4)
 
 	var n = 0
@@ -182,16 +187,20 @@ func label_assigner(day:int, parent_array:Array,day_of_week_group:Array):
 		#waits a fraction of a second because I was having issues with the first schedule not placing correctly and 
 		#this seems to fix it 
 		await get_tree().create_timer(.01).timeout
+		
 		#calls check_for_class func and stores the results in an array
 		checkedResult = check_for_class(parent_array[day],classData)
-		#converts the 24 hr start and end times to 12 hr for placement on the text label 
-		var _12_hr_start_time = _24_to_12_hr_time(int(checkedResult[n].CLASSSTARTTIME)) 
-		var _12_hr_end_time = _24_to_12_hr_time(int(checkedResult[n].CLASSENDTIME))
+		
 		#calls sort_by_time, which sorts the classes in checkedResult by their start time
 		_sort_by_time(checkedResult)
+		#converts the 24 hr start and end times to 12 hr for placement on the text label 
+		_12_hr_start_time = _24_to_12_hr_time(int(checkedResult[n].CLASSSTARTTIME)) 
+		_12_hr_end_time = _24_to_12_hr_time(int(checkedResult[n].CLASSENDTIME))
+		
 		#setting the text that will be assigned to the label by calling 
-		var labelText:String = checkedResult[n].CLASSNAME + "\n" + checkedResult[n].CLASSLOCATION + "\n" + _12_hr_start_time + "-" + _12_hr_end_time
-		var path = get_path_to(day_of_week_group[day][n])
+		labelText = checkedResult[n].CLASSNAME + " \n " + checkedResult[n].CLASSLOCATION + " \n " + _12_hr_start_time + "-" + _12_hr_end_time
+		path = get_path_to(day_of_week_group[day][n])
+
 		#sets default font and font size
 		get_node(path).add_theme_font_override("normal_font",load("res://Assets/Fonts/times.ttf"))
 		get_node(path).add_theme_font_size_override("normal_font_size",18)
@@ -203,7 +212,7 @@ func label_assigner(day:int, parent_array:Array,day_of_week_group:Array):
 		label_placer(checkedResult,n,day_of_week_group[day][n])
 		
 		n+=1
-		
+
 func label_placer(array,array_index,current_label:RichTextLabel):
 	var class_start_time = int(array[array_index].CLASSSTARTTIME)
 	var class_end_time = int(array[array_index].CLASSENDTIME)
