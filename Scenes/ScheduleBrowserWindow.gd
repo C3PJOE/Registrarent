@@ -93,6 +93,7 @@ func start(student:int):
 	progress_bar_update()
 	classData = read_json_file(file2)
 	_set_Current_Schedule(student)
+
 #function to initialize progress bar UI elements
 func progress_bar_update():
 	progress_label.clear()
@@ -140,7 +141,7 @@ func _set_week_label_x_positions():
 func _set_Current_Schedule(student: int):
 	clearLabels()
 	#fills label with correct student info 
-	student_name.add_text("FULL NAME: " + studentData[student].NAME)
+	student_name.add_text("NAME: " + studentData[student].NAME)
 	year.add_text("YEAR: " + studentData[student].YEAR)
 	major.add_text("MAJOR: "+ studentData[student].MAJOR)
 	minor.add_text("MINOR: "+ studentData[student].MINOR)
