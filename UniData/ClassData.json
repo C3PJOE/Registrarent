@@ -6,8 +6,8 @@
 	"Section": "A",
 	"ClassLocation": "LH 06",
 	"ClassDuration": 90,
-	"ClassStartTime": "9:00 AM",
-	"ClassEndTime": "10:30 AM"
+	"ClassStartTime": "900",
+	"ClassEndTime": "1030"
   },
   {
 	"ClassName": "AHIS 110B",
@@ -16,8 +16,8 @@
 	"Section": "A",
 	"ClassLocation": "LH 19",
 	"ClassDuration": 90,
-	"ClassStartTime": "10:45 AM",
-	"ClassEndTime": "12:15 PM"
+	"ClassStartTime": "1045",
+	"ClassEndTime": "1215"
   },
   {
 	"ClassName": "AHIS 203",
@@ -26,8 +26,8 @@
 	"Section": "A",
 	"ClassLocation": "LH 02",
 	"ClassDuration": 90,
-	"ClassStartTime": "1:00 PM",
-	"ClassEndTime": "2:30 PM"
+	"ClassStartTime": "1300",
+	"ClassEndTime": "1430"
   },
   {
 	"ClassName": "AHIS 214",
@@ -36,8 +36,8 @@
 	"Section": "A",
 	"ClassLocation": "LH 02",
 	"ClassDuration": 90,
-	"ClassStartTime": "9:00 AM",
-	"ClassEndTime": "10:30 AM"
+	"ClassStartTime": "900",
+	"ClassEndTime": "1030"
   },
   {
 	"ClassName": "AHIS 255",
@@ -46,8 +46,8 @@
 	"Section": "A",
 	"ClassLocation": "HUM 114",
 	"ClassDuration": 90,
-	"ClassStartTime": "12:00 PM",
-	"ClassEndTime": "1:30 PM"
+	"ClassStartTime": "1200",
+	"ClassEndTime": "1330"
   },
   {
 	"ClassName": "AHIS 319",
@@ -56,8 +56,8 @@
 	"Section": "A",
 	"ClassLocation": "HUM 320",
 	"ClassDuration": 90,
-	"ClassStartTime": "2:30 PM",
-	"ClassEndTime": "4:00 PM"
+	"ClassStartTime": "1430",
+	"ClassEndTime": "1600"
   },
   {
 	"ClassName": "AHIS 333",
@@ -66,8 +66,8 @@
 	"Section": "A",
 	"ClassLocation": "HUM 213",
 	"ClassDuration": 90,
-	"ClassStartTime": "11:00 AM",
-	"ClassEndTime": "12:30 PM"
+	"ClassStartTime": "1100",
+	"ClassEndTime": "1230"
   },
   {
 	"ClassName": "ART 101",
@@ -76,8 +76,8 @@
 	"Section": "A",
 	"ClassLocation": "LH 21",
 	"ClassDuration": 120,
-	"ClassStartTime": "10:00 AM",
-	"ClassEndTime": "12:00 PM"
+	"ClassStartTime": "1000",
+	"ClassEndTime": "1200"
   },
   {
 	"ClassName": "ART 115",
@@ -86,8 +86,8 @@
 	"Section": "A",
 	"ClassLocation": "ARB 313",
 	"ClassDuration": 90,
-	"ClassStartTime": "12:45 PM",
-	"ClassEndTime": "2:15 PM"
+	"ClassStartTime": "1245",
+	"ClassEndTime": "1415"
   },
   {
 	"ClassName": "ART 177",
@@ -96,8 +96,8 @@
 	"Section": "A",
 	"ClassLocation": "ARB 201",
 	"ClassDuration": 90,
-	"ClassStartTime": "12:00 PM",
-	"ClassEndTime": "1:30 PM"
+	"ClassStartTime": "1200",
+	"ClassEndTime": "1330"
   },
   {
 	"ClassName": "ART 201",
@@ -106,8 +106,8 @@
 	"Section": "A",
 	"ClassLocation": "ARB 311",
 	"ClassDuration": 120,
-	"ClassStartTime": "1:00 PM",
-	"ClassEndTime": "3:00 PM"
+	"ClassStartTime": "1300",
+	"ClassEndTime": "1500"
   },
   {
 	"ClassName": "ART 222",
@@ -116,8 +116,8 @@
 	"Section": "A",
 	"ClassLocation": "ARB 313",
 	"ClassDuration": 120,
-	"ClassStartTime": "10:30 AM",
-	"ClassEndTime": "12:30 PM"
+	"ClassStartTime": "1030",
+	"ClassEndTime": "1230"
   },
   {
 	"ClassName": "ART 320",
@@ -126,8 +126,8 @@
 	"Section": "A",
 	"ClassLocation": "ARB B01",
 	"ClassDuration": 120,
-	"ClassStartTime": "9:00 AM",
-	"ClassEndTime": "11:00 AM"
+	"ClassStartTime": "900",
+	"ClassEndTime": "1100"
   },
   {
 	"ClassName": "ART 441",
@@ -136,8 +136,8 @@
 	"Section": "A",
 	"ClassLocation": "ARB 130",
 	"ClassDuration": 120,
-	"ClassStartTime": "12:30 PM",
-	"ClassEndTime": "2:30 PM"
+	"ClassStartTime": "1230",
+	"ClassEndTime": "1430"
   },
   {
 	"ClassName": "CS 101",
@@ -146,8 +146,8 @@
 	"Section": "A",
 	"ClassLocation": "LH 02",
 	"ClassDuration": 90,
-	"ClassStartTime": "8:00 AM",
-	"ClassEndTime": "9:30 AM"
+	"ClassStartTime": "800",
+	"ClassEndTime": "930"
   },
   {
 	"ClassName": "CS 112",
@@ -156,8 +156,8 @@
 	"Section": "A",
 	"ClassLocation": "ARB B02",
 	"ClassDuration": 90,
-	"ClassStartTime": "10:45 AM",
-	"ClassEndTime": "12:15 PM"
+	"ClassStartTime": "1045",
+	"ClassEndTime": "1215"
   },
   {
 	"ClassName": "CS 112D",
@@ -166,8 +166,8 @@
 	"Section": "A",
 	"ClassLocation": "ESB B11",
 	"ClassDuration": 45,
-	"ClassStartTime": "1:00 PM",
-	"ClassEndTime": "1:45 PM"
+	"ClassStartTime": "1300",
+	"ClassEndTime": "1445"
   },
   {
 	"ClassName": "CS 202",
@@ -176,8 +176,8 @@
 	"Section": "A",
 	"ClassLocation": "ENB B19",
 	"ClassDuration": 90,
-	"ClassStartTime": "9:00 AM",
-	"ClassEndTime": "10:30 AM"
+	"ClassStartTime": "900",
+	"ClassEndTime": "1030"
   },
   {
 	"ClassName": "CS 213",
@@ -186,8 +186,8 @@
 	"Section": "A",
 	"ClassLocation": "HUM B04",
 	"ClassDuration": 90,
-	"ClassStartTime": "11:00 AM",
-	"ClassEndTime": "12:30 PM"
+	"ClassStartTime": "1100",
+	"ClassEndTime": "1230"
   },
   {
 	"ClassName": "CS 213D",
@@ -196,8 +196,8 @@
 	"Section": "A",
 	"ClassLocation": "ARB B07",
 	"ClassDuration": 45,
-	"ClassStartTime": "2:15 PM",
-	"ClassEndTime": "3:00 PM"
+	"ClassStartTime": "1400",
+	"ClassEndTime": "1500"
   },
   {
 	"ClassName": "CS 304",
@@ -206,8 +206,8 @@
 	"Section": "A",
 	"ClassLocation": "ESB 101",
 	"ClassDuration": 90,
-	"ClassStartTime": "12:45 PM",
-	"ClassEndTime": "2:15 PM"
+	"ClassStartTime": "1245",
+	"ClassEndTime": "1415"
   },
   {
 	"ClassName": "CS 312",
@@ -216,8 +216,8 @@
 	"Section": "A",
 	"ClassLocation": "ENB 202",
 	"ClassDuration": 90,
-	"ClassStartTime": "11:00 AM",
-	"ClassEndTime": "12:30 PM"
+	"ClassStartTime": "1100",
+	"ClassEndTime": "1230"
   },
   {
 	"ClassName": "CS 318",
@@ -226,8 +226,8 @@
 	"Section": "A",
 	"ClassLocation": "HUM 122",
 	"ClassDuration": 90,
-	"ClassStartTime": "9:00 AM",
-	"ClassEndTime": "10:30 AM"
+	"ClassStartTime": "900",
+	"ClassEndTime": "1030"
   },
   {
 	"ClassName": "CS 405",
@@ -236,8 +236,8 @@
 	"Section": "A",
 	"ClassLocation": "HUM B02",
 	"ClassDuration": 90,
-	"ClassStartTime": "1:00 PM",
-	"ClassEndTime": "2:30 PM"
+	"ClassStartTime": "1300",
+	"ClassEndTime": "1430"
   },
   {
 	"ClassName": "EN 133",
@@ -246,8 +246,8 @@
 	"Section": "A",
 	"ClassLocation": "ENB 301",
 	"ClassDuration": 60,
-	"ClassStartTime": "9:15 AM",
-	"ClassEndTime": "10:15 AM"
+	"ClassStartTime": "915",
+	"ClassEndTime": "1015"
   },
   {
 	"ClassName": "EN 168",
@@ -256,8 +256,8 @@
 	"Section": "A",
 	"ClassLocation": "ENB 101",
 	"ClassDuration": 60,
-	"ClassStartTime": "10:00 AM",
-	"ClassEndTime": "11:00 AM"
+	"ClassStartTime": "1000",
+	"ClassEndTime": "1100"
   },
   {
 	"ClassName": "EN 204",
@@ -266,8 +266,8 @@
 	"Section": "A",
 	"ClassLocation": "ENB 109",
 	"ClassDuration": 60,
-	"ClassStartTime": "11:30 AM",
-	"ClassEndTime": "12:30 PM"
+	"ClassStartTime": "1130",
+	"ClassEndTime": "1230"
   },
   {
 	"ClassName": "EN 211",
@@ -276,8 +276,8 @@
 	"Section": "A",
 	"ClassLocation": "ENB 128",
 	"ClassDuration": 60,
-	"ClassStartTime": "1:00 PM",
-	"ClassEndTime": "2:00 PM"
+	"ClassStartTime": "1300",
+	"ClassEndTime": "1400"
   },
   {
 	"ClassName": "EN 218",
@@ -286,8 +286,8 @@
 	"Section": "A",
 	"ClassLocation": "LH 08",
 	"ClassDuration": 60,
-	"ClassStartTime": "8:15 AM",
-	"ClassEndTime": "9:15 AM"
+	"ClassStartTime": "815",
+	"ClassEndTime": "915"
   },
   {
 	"ClassName": "MAT 206",
@@ -296,8 +296,8 @@
 	"Section": "A",
 	"ClassLocation": "LH 06",
 	"ClassDuration": 90,
-	"ClassStartTime": "8:00 AM",
-	"ClassEndTime": "9:30 AM"
+	"ClassStartTime": "800",
+	"ClassEndTime": "930"
   },
   {
 	"ClassName": "MAT 218",
@@ -306,8 +306,8 @@
 	"Section": "A",
 	"ClassLocation": "MAB 117",
 	"ClassDuration": 90,
-	"ClassStartTime": "11:15 AM",
-	"ClassEndTime": "12:45 PM"
+	"ClassStartTime": "1115",
+	"ClassEndTime": "1245"
   },
   {
 	"ClassName": "MAT 220",
@@ -316,8 +316,8 @@
 	"Section": "A",
 	"ClassLocation": "MAB 119",
 	"ClassDuration": 90,
-	"ClassStartTime": "1:00 PM",
-	"ClassEndTime": "2:30 PM"
+	"ClassStartTime": "1300",
+	"ClassEndTime": "1430"
   },
   {
 	"ClassName": "MAT 236",
@@ -326,8 +326,8 @@
 	"Section": "A",
 	"ClassLocation": "MAB 114",
 	"ClassDuration": 90,
-	"ClassStartTime": "11:15 AM",
-	"ClassEndTime": "12:45 PM"
+	"ClassStartTime": "1115",
+	"ClassEndTime": "1245"
   },
   {
 	"ClassName": "MAT 337",
@@ -336,8 +336,8 @@
 	"Section": "A",
 	"ClassLocation": "MAB 214",
 	"ClassDuration": 90,
-	"ClassStartTime": "10:45 AM",
-	"ClassEndTime": "12:15 PM"
+	"ClassStartTime": "1045",
+	"ClassEndTime": "1215"
   },
   {
 	"ClassName": "MAT 359",
@@ -346,8 +346,8 @@
 	"Section": "A",
 	"ClassLocation": "MAB 215",
 	"ClassDuration": 90,
-	"ClassStartTime": "12:30 PM",
-	"ClassEndTime": "2:00 PM"
+	"ClassStartTime": "1230",
+	"ClassEndTime": "1400"
   },
   {
 	"ClassName": "MAT 400",
@@ -356,8 +356,8 @@
 	"Section": "A",
 	"ClassLocation": "MAB 201",
 	"ClassDuration": 120,
-	"ClassStartTime": "12:00 PM",
-	"ClassEndTime": "2:00 PM"
+	"ClassStartTime": "1200",
+	"ClassEndTime": "1400"
   },
   {
 	"ClassName": "POLS 111",
@@ -366,8 +366,8 @@
 	"Section": "A",
 	"ClassLocation": "HUM 123",
 	"ClassDuration": 90,
-	"ClassStartTime": "12:30 PM",
-	"ClassEndTime": "2:00 PM"
+	"ClassStartTime": "1230",
+	"ClassEndTime": "1400"
   },
   {
 	"ClassName": "POLS 201",
@@ -376,8 +376,8 @@
 	"Section": "A",
 	"ClassLocation": "LH 12",
 	"ClassDuration": 90,
-	"ClassStartTime": "9:00 AM",
-	"ClassEndTime": "10:30 AM"
+	"ClassStartTime": "900",
+	"ClassEndTime": "1000"
   },
   {
 	"ClassName": "POLS 225",
@@ -386,8 +386,8 @@
 	"Section": "A",
 	"ClassLocation": "HUM 201",
 	"ClassDuration": 90,
-	"ClassStartTime": "8:45 AM",
-	"ClassEndTime": "10:15 AM"
+	"ClassStartTime": "845",
+	"ClassEndTime": "1015"
   },
   {
 	"ClassName": "POLS 308",
@@ -396,8 +396,8 @@
 	"Section": "A",
 	"ClassLocation": "HUM 322",
 	"ClassDuration": 90,
-	"ClassStartTime": "10:45 AM",
-	"ClassEndTime": "12:15 PM"
+	"ClassStartTime": "1045",
+	"ClassEndTime": "1215"
   },
   {
 	"ClassName": "POLS 416",
@@ -406,7 +406,7 @@
 	"Section": "A",
 	"ClassLocation": "HUM B19",
 	"ClassDuration": 90,
-	"ClassStartTime": "1:00 PM",
-	"ClassEndTime": "2:30 PM"
+	"ClassStartTime": "1300",
+	"ClassEndTime": "1430"
   }
 ]
