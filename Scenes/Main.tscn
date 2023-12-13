@@ -1,8 +1,9 @@
-[gd_scene load_steps=59 format=3 uid="uid://dgv0xsiratr8g"]
+[gd_scene load_steps=60 format=3 uid="uid://dgv0xsiratr8g"]
 
 [ext_resource type="Script" path="res://Scenes/Main.gd" id="1_5ghd7"]
 [ext_resource type="Script" path="res://Scenes/MainContainer.gd" id="1_pf4tp"]
 [ext_resource type="Texture2D" uid="uid://q4we5ku5gdx2" path="res://Assets/SpriteBG.png" id="2_isq8e"]
+[ext_resource type="Script" path="res://Scenes/PauseMenu.gd" id="3_ua871"]
 [ext_resource type="Script" path="res://Scenes/ScheduleBrowserParentWindow.gd" id="4_5g6ji"]
 [ext_resource type="Texture2D" uid="uid://dklab118e8sf7" path="res://Assets/sprite1.png" id="5_de07d"]
 [ext_resource type="Texture2D" uid="uid://cvu0vx1x3x1rp" path="res://Assets/TaskbarBrowserIcon.png" id="6_1h1ua"]
@@ -191,15 +192,32 @@ script = ExtResource("1_5ghd7")
 mouse_default_cursor_shape = 2
 script = ExtResource("1_pf4tp")
 
-[node name="PauseMenu" type="PopupMenu" parent="MainContainer"]
-disable_3d = true
-transparent_bg = true
-handle_input_locally = false
-title = "Bing Bong"
+[node name="PauseMenu" type="Window" parent="MainContainer"]
+title = "MENU"
 initial_position = 2
-size = Vector2i(800, 640)
-borderless = false
+size = Vector2i(200, 300)
+visible = false
+transient = true
+exclusive = true
+unresizable = true
 always_on_top = true
+script = ExtResource("3_ua871")
+
+[node name="BoxContainer" type="BoxContainer" parent="MainContainer/PauseMenu"]
+offset_left = 65.0
+offset_top = 30.0
+offset_right = 135.0
+offset_bottom = 142.0
+theme_override_constants/separation = 50
+vertical = true
+
+[node name="Resume" type="Button" parent="MainContainer/PauseMenu/BoxContainer"]
+layout_mode = 2
+text = "Resume"
+
+[node name="Quit" type="Button" parent="MainContainer/PauseMenu/BoxContainer"]
+layout_mode = 2
+text = "Quit"
 
 [node name="Desktop" type="TextureRect" parent="MainContainer"]
 layout_mode = 2
@@ -1790,6 +1808,10 @@ layout_mode = 2
 text = "Quit"
 
 [connection signal="esc_pressed" from="MainContainer" to="MainContainer" method="_on_esc_pressed"]
+[connection signal="close_requested" from="MainContainer/PauseMenu" to="MainContainer/PauseMenu" method="_on_close_requested"]
+[connection signal="window_input" from="MainContainer/PauseMenu" to="MainContainer/PauseMenu" method="_on_window_input"]
+[connection signal="pressed" from="MainContainer/PauseMenu/BoxContainer/Resume" to="MainContainer/PauseMenu" method="_on_resume_pressed"]
+[connection signal="pressed" from="MainContainer/PauseMenu/BoxContainer/Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="MainContainer/Desktop/Taskbar/TaskbarShortcutContainer/BrowserTaskbarButton" to="MainContainer" method="_on_browser_taskbar_button_pressed"]
 [connection signal="pressed" from="MainContainer/Desktop/Taskbar/TaskbarShortcutContainer/CatalogueTaskbarButton" to="MainContainer" method="_on_catalogue_taskbar_button_pressed"]
 [connection signal="pressed" from="MainContainer/Desktop/DesktopShortcutContainer/RegistrarManualDesktopShortcut" to="MainContainer" method="_on_registrar_manual_desktop_shortcut_pressed"]
