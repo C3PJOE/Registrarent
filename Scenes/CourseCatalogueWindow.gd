@@ -12,8 +12,20 @@ var class_data
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	class_data = read_json_file(file)
+	_convert_the_times()
 	_catalogue_filler(class_data)
-	
+
+#function to convert the times in class data to 12 hr format
+func _convert_the_times():
+	var start_time:int 
+	var end_time:int
+	#this loop converts the start times in the dictionaries to 12 hr time, so the 
+	#contents of the catalogue show 12 hr time when displayed, not 24 hr time
+	for lesson in class_data: 
+		start_time = lesson.CLASSSTARTTIME.to_int()
+		end_time = lesson.CLASSENDTIME.to_int()
+		lesson["CLASSSTARTTIME"] = _24_to_12_hr_time(start_time)
+		lesson["CLASSENDTIME"] = _24_to_12_hr_time(end_time)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
@@ -53,6 +65,24 @@ func _label_maker(label_name:String,label_content:Dictionary)->RichTextLabel:
 func _add_label_to_catalogue(label:RichTextLabel):
 	class_catalogue_container.add_child(label)
 	
+func _24_to_12_hr_time(class_time)-> String:
+	var _12_hr_time:String
+	var _last_two_digits
+	if 	class_time < 1000:
+		_last_two_digits = str(class_time).substr(1,3)
+		_12_hr_time = str(class_time).substr(0,1) + ":" + _last_two_digits + " AM"
+	elif class_time >= 1000 and class_time <1200:
+		_last_two_digits = str(class_time).substr(2,4)
+		_12_hr_time = str(class_time).substr(0,2) + ":" + _last_two_digits + " AM"
+	elif class_time >= 1200 and class_time <1300:
+		_last_two_digits = str(class_time).substr(2,4)
+		_12_hr_time = str(class_time).substr(0,2) + ":" + _last_two_digits + " PM"
+	elif class_time>=1300:
+		_last_two_digits = str(class_time).substr(2,4)
+		class_time = class_time-1200
+		_12_hr_time = str(class_time).substr(0,1) + ":" + _last_two_digits + " PM"
+	
+	return _12_hr_time
 #function to iterate through the catalogue and give each class a label
 func _catalogue_filler(catalogue:Array,optional_filter_type:String = "NO FILTER",optional_specific_filter:String =""):
 	match optional_filter_type:
