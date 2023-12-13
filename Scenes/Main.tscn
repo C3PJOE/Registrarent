@@ -1,4 +1,6 @@
+
 [gd_scene load_steps=59 format=3 uid="uid://dgv0xsiratr8g"]
+
 
 [ext_resource type="Script" path="res://Scenes/Main.gd" id="1_5ghd7"]
 [ext_resource type="Script" path="res://Scenes/MainContainer.gd" id="1_pf4tp"]
@@ -18,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://b3a1rabx3ct82" path="res://Assets/RegistrarHandbookIcon.png" id="11_avk41"]
 [ext_resource type="BitMap" uid="uid://bj6di5q0mpxae" path="res://Assets/ClassDictionaryBM.bmp" id="12_1vt4j"]
 [ext_resource type="Script" path="res://Scenes/CourseCatalogueWindow.gd" id="13_088j3"]
+
 [ext_resource type="BitMap" uid="uid://ctrs5sfrtinnx" path="res://Assets/Dogicon.bmp" id="13_rliaq"]
 [ext_resource type="Texture2D" uid="uid://dluu0txmecmn2" path="res://Assets/RegistrarHandbookt.png" id="15_ra8rp"]
 [ext_resource type="Script" path="res://Scenes/RegistarManualParentWindow.gd" id="17_205en"]
@@ -27,6 +30,7 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2p2va"]
 bg_color = Color(0.607843, 0.678431, 0.717647, 1)
+
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f7xbp"]
 texture = ExtResource("9_tg8ot")
@@ -38,6 +42,7 @@ bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xl3x4"]
 bg_color = Color(0.85098, 0.811765, 0.0352941, 1)
 border_color = Color(0.85098, 0.811765, 0.0352941, 1)
+
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
@@ -45,6 +50,7 @@ corner_radius_bottom_left = 10
 corner_detail = 1
 shadow_color = Color(0, 0, 0, 1)
 shadow_size = 20
+
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5nbii"]
 resource_local_to_scene = true
@@ -228,9 +234,11 @@ focus_mode = 0
 mouse_filter = 1
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("6_1h1ua")
+
 texture_pressed = ExtResource("6_1h1ua")
 texture_hover = ExtResource("6_4o3tk")
 texture_click_mask = ExtResource("9_us4hl")
+
 ignore_texture_size = true
 stretch_mode = 4
 
@@ -319,6 +327,7 @@ mouse_default_cursor_shape = 2
 bbcode_enabled = true
 text = "[center]Schedule Snooper[center]"
 
+
 [node name="ScheduleBrowserParentWindow" type="Window" parent="MainContainer"]
 process_mode = 3
 disable_3d = true
@@ -326,7 +335,6 @@ transparent_bg = true
 gui_embed_subwindows = true
 initial_position = 2
 size = Vector2i(1280, 720)
-visible = false
 unresizable = true
 transparent = true
 mouse_passthrough = true
@@ -338,7 +346,6 @@ transparent_bg = true
 handle_input_locally = false
 initial_position = 1
 size = Vector2i(1280, 720)
-visible = false
 transient = true
 unresizable = true
 theme_override_styles/embedded_border = SubResource("StyleBoxTexture_f7xbp")
@@ -600,6 +607,7 @@ editor_only = false
 layout_mode = 2
 border_color = Color(0.462745, 0.258824, 0.541176, 1)
 border_width = 2.0
+
 editor_only = false
 
 [node name="1030Line" type="ReferenceRect" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/HalfHourLineContainer"]
@@ -1797,6 +1805,7 @@ text = "Quit"
 [connection signal="pressed" from="MainContainer/Desktop/DesktopShortcutContainer/RegistrarManualDesktopShortcut" to="MainContainer" method="_on_registrar_manual_desktop_shortcut_pressed"]
 [connection signal="pressed" from="MainContainer/Desktop/DesktopShortcutContainer/CatalogueDesktopShortcut" to="MainContainer" method="_on_catalogue_desktop_shortcut_pressed"]
 [connection signal="pressed" from="MainContainer/Desktop/DesktopShortcutContainer/BrowserDesktopShortcut" to="MainContainer" method="_on_browser_desktop_shortcut_pressed"]
+
 [connection signal="close_requested" from="MainContainer/ScheduleBrowserParentWindow" to="MainContainer/ScheduleBrowserParentWindow" method="_on_close_requested"]
 [connection signal="esc_pressed" from="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" to="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" method="_on_esc_pressed"]
 [connection signal="pressed" from="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/YesButton" to="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" method="_on_yes_button_pressed"]
@@ -1805,5 +1814,7 @@ text = "Quit"
 [connection signal="item_selected" from="MainContainer/CourseCatalogueParentWindow/CourseCatalogueWindow/Dropdown1/DepartmentDropdown" to="MainContainer/CourseCatalogueParentWindow/CourseCatalogueWindow" method="_on_department_dropdown_item_selected"]
 [connection signal="item_selected" from="MainContainer/CourseCatalogueParentWindow/CourseCatalogueWindow/Dropdown2/TimeDropdown" to="MainContainer/CourseCatalogueParentWindow/CourseCatalogueWindow" method="_on_time_dropdown_item_selected"]
 [connection signal="close_requested" from="MainContainer/RegistarManualParentWindow" to="MainContainer/RegistarManualParentWindow" method="_on_close_requested"]
+
 [connection signal="pressed" from="EndGameParentWindow/EndGameWindow/Button Container/Play Again" to="." method="_on_play_again_pressed"]
 [connection signal="pressed" from="EndGameParentWindow/EndGameWindow/Button Container/Quit" to="." method="_on_quit_pressed"]
+

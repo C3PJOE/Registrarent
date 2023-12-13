@@ -28,8 +28,10 @@ signal esc_pressed
 @onready var _3pm = $"ClassTimeContainer/3PM"
 @onready var _4pm = $"ClassTimeContainer/4PM"
 @onready var _5pm = $"ClassTimeContainer/5PM"
+
 #container holding the hour reference rects 
 @onready var hour_line_container = $HourLineContainer
+
 #monday labels
 @onready var m_label_1 = $MLabel1
 @onready var m_label_2 = $MLabel2
@@ -89,10 +91,12 @@ func _ready():
 	#index variable we will pass to set current schedule to tell it which 
 	#student needs to have their schedule set
 	studentIndex = 0
+  
 	start()
 
 #calls the set current schedule function 
 func start():
+
 	_set_time_labels_positions()
 	_set_week_label_x_positions()
 	studentData= read_json_file(file1)
@@ -196,6 +200,7 @@ func _set_Current_Schedule(student: int):
 	else:
 		valid_schedules+=1
 func score_checker():
+
 	valid_schedules_number.clear()
 	approved_schedules_number.clear()
 	invalid_schedules_number.clear()
@@ -207,6 +212,7 @@ func score_checker():
 	invalid_schedules_number.append_text("[right]%s[/right]" %invalid_schedules)
 	rejected_schedules_number.append_text("[right][b]%s"% player_denials)
 	var total_scheds = valid_schedules+invalid_schedules
+
 #func that takes the day, the array of labels, and the parent array from set_current_schedule
 #and assigns the contents of the parent array to labels 
 func label_assigner(day:int, parent_array:Array,day_of_week_group:Array):
@@ -383,6 +389,7 @@ func which_starting_label(start_time:int):
 		"45":
 			path = "/root/Main/MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/FortyFiveMinContainer/"+label
 		
+
 
 	var starting_label = get_node(path)
 	

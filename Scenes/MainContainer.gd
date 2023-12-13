@@ -5,6 +5,7 @@ signal esc_pressed
 @onready var schedule_browser_window = $ScheduleBrowserParentWindow/ScheduleBrowserWindow
 @onready var course_catalogue_parent_window = $CourseCatalogueParentWindow
 @onready var course_catalogue_window = $CourseCatalogueParentWindow/CourseCatalogueWindow
+
 @onready var browser_taskbar_button = $Desktop/Taskbar/TaskbarShortcutContainer/BrowserTaskbarButton
 @onready var catalogue_taskbar_button = $Desktop/Taskbar/TaskbarShortcutContainer/CatalogueTaskbarButton
 @onready var registar_manual_parent_window = $RegistarManualParentWindow
@@ -61,7 +62,6 @@ func _on_catalogue_taskbar_button_pressed():
 	else:
 		course_catalogue_parent_window.show()
 		course_catalogue_window.show()
-	
 
 
 func _on_registrar_manual_desktop_shortcut_pressed():
