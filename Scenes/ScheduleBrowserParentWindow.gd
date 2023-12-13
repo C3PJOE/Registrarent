@@ -12,3 +12,4 @@ func _on_close_requested():
 	hide()
 	schedule_browser_window.hide()
 
+

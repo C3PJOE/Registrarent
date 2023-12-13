@@ -1,6 +1,13 @@
 extends Window
 signal esc_pressed 
 @onready var pause_menu = $"../../PauseMenu"
+
+@onready var end_game_parent_window = $"../../../EndGameParentWindow"
+@onready var end_game_window = $"../../../EndGameParentWindow/EndGameWindow"
+@onready var valid_schedules_number = $"../../../EndGameParentWindow/EndGameWindow/NumberContainer/ValidSchedulesNumber"
+@onready var approved_schedules_number = $"../../../EndGameParentWindow/EndGameWindow/NumberContainer/ApprovedSchedulesNumber"
+@onready var invalid_schedules_number = $"../../../EndGameParentWindow/EndGameWindow/NumberContainer/InvalidSchedules Number"
+@onready var rejected_schedules_number = $"../../../EndGameParentWindow/EndGameWindow/NumberContainer/RejectedSchedulesNumber"
 #student info container and labels
 @onready var student_info_container = $StudentInfoContainer
 @onready var student_name = $StudentInfoContainer/Name
@@ -189,10 +196,17 @@ func _set_Current_Schedule(student: int):
 	else:
 		valid_schedules+=1
 func score_checker():
+	valid_schedules_number.clear()
+	approved_schedules_number.clear()
+	invalid_schedules_number.clear()
+	rejected_schedules_number.clear()
+	end_game_parent_window.show()
+	end_game_window.show()
+	valid_schedules_number.append_text("[right]%s[/right]" % valid_schedules)
+	approved_schedules_number.append_text("[right][b]%s" % player_approvals)
+	invalid_schedules_number.append_text("[right]%s[/right]" %invalid_schedules)
+	rejected_schedules_number.append_text("[right][b]%s"% player_denials)
 	var total_scheds = valid_schedules+invalid_schedules
-	print("There were ",total_scheds," schedules to review\n")
-	print("There were ",valid_schedules," valid schedules, and you approved ",player_approvals, "\n")
-	print("There were ",invalid_schedules," invalid schedules, and you rejected ",player_denials," \n")
 #func that takes the day, the array of labels, and the parent array from set_current_schedule
 #and assigns the contents of the parent array to labels 
 func label_assigner(day:int, parent_array:Array,day_of_week_group:Array):
