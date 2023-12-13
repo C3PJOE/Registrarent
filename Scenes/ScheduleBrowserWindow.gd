@@ -70,7 +70,9 @@ signal esc_pressed
 
 var file1 ="res://UniData/StudentData.json"
 var file2 = "res://UniData/ClassData.json"
+var student_names_file = "res://UniData/StudentNames.json"
 #vars to hold the data from the class and student json files
+var student_names
 var studentData
 var classData 
 #global var for 
@@ -86,7 +88,7 @@ var player_denials:int = 0
 @onready var wednesday_label = get_tree().get_nodes_in_group("WednesdayLabels")
 @onready var thursday_label = get_tree().get_nodes_in_group("ThursdayLabels")
 @onready var friday_label = get_tree().get_nodes_in_group("FridayLabels")
-
+var rng = RandomNumberGenerator.new()
 func _ready():
 	#index variable we will pass to set current schedule to tell it which 
 	#student needs to have their schedule set
@@ -99,11 +101,96 @@ func start():
 
 	_set_time_labels_positions()
 	_set_week_label_x_positions()
+	student_names = read_json_file(student_names_file)
 	studentData= read_json_file(file1)
 	progress_bar_update()
 	classData = read_json_file(file2)
+	proc_gen()
 	initial_schedule_setup()
 	
+	
+func proc_gen():
+	profile_maker()
+#helper function for proc_gen that picks a random name from the list of student names,
+#as well as generates a random profile for the student (year,account status, financial aid status,major,minor)
+func profile_maker():
+	var random_name_index 
+	var random_major
+	var random_minor
+	var random_year
+	var random_FA
+	var random_AS
+	for student in studentData:
+		random_major = rng.randi_range(0,5)
+		random_minor = rng.randi_range(0,5)
+		random_year = rng.randi_range(0,3)
+		random_FA = rng.randi_range(0,100)
+		random_AS = rng.randi_range(0,100)
+		random_name_index = rng.randi_range(0,student_names.size()-1)
+		student["NAME"] = student_names[random_name_index].NAME
+		interpret_random(student,random_major,random_minor,random_year,random_FA,random_AS)
+#helper for profile_maker that matches random numbers generated to relevant student data,
+#then fills it into student data
+func interpret_random(student,major,minor,year,fin_aid,acc_stat):
+	var parsed_major:String
+	var parsed_minor:String
+	var parsed_year:String
+	var parsed_fin_aid:String
+	var parsed_acc_stat:String
+	match major:
+		0:
+			parsed_major = "ART"
+		1:
+			parsed_major = "COMPUTER SCIENCE"
+		2:
+			parsed_major = "ENGLISH"
+		3:
+			parsed_major = "HISTORY"
+		4:
+			parsed_major = "HUMANITIES"
+		5:
+			parsed_major = "MATH"
+	#prevents major from being the same as minor
+	while major == minor:
+		minor = rng.randi_range(0,5)
+	match minor:
+		0:
+			parsed_minor = "ART"
+		1:
+			parsed_minor = "COMPUTER SCIENCE"
+		2:
+			parsed_minor = "ENGLISH"
+		3:
+			parsed_minor = "HISTORY"
+		4:
+			parsed_minor = "HUMANITIES"
+		5:
+			parsed_minor = "MATH"
+	match year:
+		0:
+			parsed_year = "FRESHMAN"
+		1:
+			parsed_year = "SOPHOMORE"
+		2:
+			parsed_year = "JUNIOR"
+		3:
+			parsed_year = "SENIOR"
+			
+	if fin_aid <=50:
+		parsed_fin_aid = "YES"
+	else:
+		parsed_fin_aid = "NO"
+		
+	if acc_stat <=85:
+		parsed_acc_stat = "GOOD"
+	else:
+		parsed_acc_stat = "DELINQUENT"
+		
+	student["MAJOR"] = parsed_major
+	student["MINOR"] = parsed_minor
+	student["YEAR"] = parsed_year
+	student["FINANCIAL AID"] = parsed_fin_aid
+	student["ACCOUNT STATUS"] = parsed_acc_stat
 #function that briefly shows the schedule browser so that the first schedule's labels get placed correctly, 
 #fixing an issue where the first schedule's contents would be in the wrong positions 
 #if the schedule browser window was hidden on game start
