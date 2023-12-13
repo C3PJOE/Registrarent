@@ -21,28 +21,9 @@ signal esc_pressed
 @onready var _3pm = $"ClassTimeContainer/3PM"
 @onready var _4pm = $"ClassTimeContainer/4PM"
 @onready var _5pm = $"ClassTimeContainer/5PM"
-#reference_rects representing the beginning of the hour for classes on the schedule
+
+#container holding the hour reference rects 
 @onready var hour_line_container = $HourLineContainer
-@onready var _800_line = $"800Line"
-@onready var _900_line = $"HourLineContainer/900Line"
-@onready var _1000_line = $"HourLineContainer/1000Line"
-@onready var _1100_line = $"HourLineContainer/1100Line"
-@onready var _1200_line = $"HourLineContainer/1200Line"
-@onready var _1300_line = $"HourLineContainer/1300Line"
-@onready var _1400_line = $"HourLineContainer/1400Line"
-@onready var _1500_line = $"HourLineContainer/1500Line"
-@onready var _1600_line = $"HourLineContainer/1600Line"
-@onready var _1700_line = $"HourLineContainer/1700Line"
-#reference rects representing the half hour mark for classes on the schedule
-@onready var _830_line = $"HalfHourLineContainer/830Line"
-@onready var _930_line = $"HalfHourLineContainer/930Line"
-@onready var _1030_line = $"HalfHourLineContainer/1030Line"
-@onready var _1130_line = $"HalfHourLineContainer/1130Line"
-@onready var _1230_line = $"HalfHourLineContainer/1230Line"
-@onready var _1330_line = $"HalfHourLineContainer/1330Line"
-@onready var _1430_line = $"HalfHourLineContainer/1430Line"
-@onready var _1530_line = $"HalfHourLineContainer/1530Line"
-@onready var _1630_line = $"HalfHourLineContainer/1630Line"
 
 #monday labels
 @onready var m_label_1 = $MLabel1
@@ -83,6 +64,11 @@ var studentData
 var classData 
 #global var for 
 var studentIndex
+#values that will be used for scorekeeping
+var valid_schedules:int = 0
+var invalid_schedules:int = 0
+var player_approvals:int = 0
+var player_denials:int = 0
 #creates arrays to hold the content of each group of labels 
 @onready var monday_label = get_tree().get_nodes_in_group("MondayLabels")
 @onready var tuesday_label = get_tree().get_nodes_in_group("TuesdayLabels")
@@ -91,8 +77,6 @@ var studentIndex
 @onready var friday_label = get_tree().get_nodes_in_group("FridayLabels")
 
 func _ready():
-	_set_time_labels_positions()
-	
 	#index variable we will pass to set current schedule to tell it which 
 	#student needs to have their schedule set
 	studentIndex = 0
@@ -101,6 +85,8 @@ func _ready():
 
 #calls the set current schedule function 
 func start(student:int):
+
+	_set_time_labels_positions()
 	_set_week_label_x_positions()
 	studentData= read_json_file(file1)
 	classData = read_json_file(file2)
@@ -136,7 +122,6 @@ func _set_week_label_x_positions():
 	for label in friday_label:
 		label.set_position(Vector2i(1109,0))
 	
-	
 func _set_Current_Schedule(student: int):
 	clearLabels()
 	#fills label with correct student info 
@@ -170,27 +155,39 @@ func _set_Current_Schedule(student: int):
 	for day_of_week in range(0,5):
 		#calls label_assigner for each day of the week, with 0 being monday and 4 being tuesday
 		label_assigner(day_of_week,parent_class_array,day_of_week_label_array)
-	
-#func that takes the day, number of labels, and the parent array from set_current_schedule
-#and assigns the contents of the parent array to labels using match statements 
+    
+
+	print(check_for_errors(parent_class_array))
+	if check_for_errors(parent_class_array) != 0:
+		invalid_schedules+=1
+	else:
+		valid_schedules+=1
+func score_checker():
+	var total_scheds = valid_schedules+invalid_schedules
+	print("There were ",total_scheds," schedules to review\n")
+	print("There were ",valid_schedules," valid schedules, and you approved ",player_approvals, "\n")
+	print("There were ",invalid_schedules," invalid schedules, and you rejected ",player_denials," \n")
+#func that takes the day, the array of labels, and the parent array from set_current_schedule
+#and assigns the contents of the parent array to labels 
 func label_assigner(day:int, parent_array:Array,day_of_week_group:Array):
-	
+	#var that will hold the text to be appended in the label
 	var labelText:String = ""
+	#var that will hold the classes whose data needs to fill out the labels
 	var checkedResult:Array
+	#var that will hold the path to a label 
 	var path:NodePath
+	#vars that will hold the 12 hr start and end time of classes
 	var _12_hr_start_time
 	var _12_hr_end_time
-	#match statement that checks what day of the week it is, so we can set the correct label(monday == 0, friday == 4)
-
+	
 	var n = 0
 	for label in parent_array[day]:
 		#waits a fraction of a second because I was having issues with the first schedule not placing correctly and 
 		#this seems to fix it 
 		await get_tree().create_timer(.01).timeout
 		
-		#calls check_for_class func and stores the results in an array
+		#calls check_for_class func and stores the results in an array of dictionaries
 		checkedResult = check_for_class(parent_array[day],classData)
-		
 		#calls sort_by_time, which sorts the classes in checkedResult by their start time
 		_sort_by_time(checkedResult)
 		#converts the 24 hr start and end times to 12 hr for placement on the text label 
@@ -213,9 +210,88 @@ func label_assigner(day:int, parent_array:Array,day_of_week_group:Array):
 		
 		n+=1
 
+func check_for_errors(current_schedule_data:Array):
+	#return value of -1 indicates account delinquency 
+	var current_student_name = studentData[studentIndex].NAME
+	var current_student_major = studentData[studentIndex].MAJOR
+	var current_student_minor = studentData[studentIndex].MINOR
+	var current_student_year = studentData[studentIndex].YEAR
+	#current student financial aid status
+	var current_student_FAS = studentData[studentIndex]["FINANCIAL AID"]
+	#current student account status
+	var current_student_AS = studentData[studentIndex]["ACCOUNT STATUS"]
+	var result_array:Array =[]
+	var credit_total:int
+	var major_class_total:int
+	var minor_class_total:int
+
+	if current_student_AS == "DELINQUENT":
+		print("DELINQUENT ACCOUNT, REJECT")
+		return -1
+	else:
+		result_array.resize(current_schedule_data.size())
+		var trimmed_result_array:Array
+		#goes through the passed data and calls check_for_class, giving us an array of dictionary arrays, allowing us to utilize the keys for error checking
+		for n in range(0,current_schedule_data.size()):
+			result_array[n] =check_for_class(current_schedule_data[n],classData)
+		trimmed_result_array = remove_duplicates(result_array)
+	
+		credit_total = credit_count(trimmed_result_array)
+		if current_student_FAS == "NO" and credit_total in range(13,19):
+			print("FINANCIAL AID ",current_student_FAS," VALID CREDIT COUNT")
+		elif current_student_FAS == "YES" and credit_total in range(15,19):
+			print("FINANCIAL AID ",current_student_FAS," VALID CREDIT COUNT")
+		else:
+			print("FINANCIAL AID ",current_student_FAS," INVALID CREDIT COUNT: ",credit_total)
+			return 1 
+		
+		major_class_total = major_class_count(current_student_major,trimmed_result_array)
+		if major_class_total < 2:
+			print("INVALID NUMBER OF MAJOR CLASSES")
+			return 2
+		else:
+			print("VALID NUMBER OF MAJOR CLASSES")
+		
+		minor_class_total = minor_class_count(current_student_minor,trimmed_result_array)
+		if minor_class_total < 1:
+			print("INVALID NUMBER OF MINOR CLASSES")
+			return 3
+		else:
+			print("VALID NUMBER OF MINOR CLASSES")
+	print("ALL CRITERIA MET, APPROVE SCHEDULE")
+	return 0
+#helper function that checks the number of minor classes the student is enrolled in and returns the total
+func minor_class_count(minor,array:Array):
+	var minor_class_total = 0
+	for item in array:
+		if item.CLASSDEPARTMENT == minor:
+			minor_class_total+=1
+	return minor_class_total
+#helper function that checks the number of major classes the student is enrolled in and returns the total
+func major_class_count(major,array:Array):
+	var major_class_total = 0
+	for item in array:
+		if item.CLASSDEPARTMENT == major:
+			major_class_total+=1
+	return major_class_total
+#helper function that tallies and returns the total credits of the classes contained within the passed array 
+func credit_count(array:Array):
+	var credit_total = 0
+	for item in array:
+		credit_total+=item.CREDITS
+	return credit_total
+#function that goes through a passed array and each child array and eliminates duplicate items. This is mainly so we can add up credits without miscounting 
+func remove_duplicates(passed_array:Array):
+	var unique_array:Array = []
+	for array in passed_array:
+		for child in array:
+			#if the new array does not already have this child, append it to the new array
+			if not unique_array.has(child):
+				unique_array.append(child)
+	return unique_array
+#helper function that sets the position of the label and its padding, then shows it in the schedule browser
 func label_placer(array,array_index,current_label:RichTextLabel):
 	var class_start_time = int(array[array_index].CLASSSTARTTIME)
-	var class_end_time = int(array[array_index].CLASSENDTIME)
 	var label_x_coordinate = current_label.global_position.x
 	
 	var start_label = which_starting_label(class_start_time)
@@ -234,7 +310,6 @@ func label_placer(array,array_index,current_label:RichTextLabel):
 		
 	current_label.show()
 		
-
 #determines where on the schedue grid the current class should start
 func which_starting_label(start_time:int):
 	var last_two_digits
@@ -260,6 +335,7 @@ func which_starting_label(start_time:int):
 		"45":
 			path = "/root/Main/MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/FortyFiveMinContainer/"+label
 		
+
 
 	var starting_label = get_node(path)
 	
@@ -460,8 +536,12 @@ func _on_esc_pressed():
 func _on_yes_button_pressed():
 	#prevents button spam from crashing the game by constantly calling set_current_schedule
 	if studentIndex == studentData.size()-1:
-		pass
+		player_approvals+=1
+		score_checker()
+		get_node("..").queue_free()
+		queue_free()
 	else:
+		player_approvals+=1
 		increment_student_index()
 		_set_Current_Schedule(studentIndex)
 
@@ -469,7 +549,11 @@ func _on_yes_button_pressed():
 func _on_no_button_pressed():
 	#prevents button spam from crashing the game by constantly calling set_current_schedule
 	if studentIndex == studentData.size()-1:
-		pass
+		player_denials+=1
+		score_checker()
+		get_node("..").queue_free()
+		queue_free()
 	else:
+		player_denials+=1
 		increment_student_index()
 		_set_Current_Schedule(studentIndex)
