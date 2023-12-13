@@ -21,8 +21,10 @@ signal esc_pressed
 @onready var _3pm = $"ClassTimeContainer/3PM"
 @onready var _4pm = $"ClassTimeContainer/4PM"
 @onready var _5pm = $"ClassTimeContainer/5PM"
+
 #container holding the hour reference rects 
 @onready var hour_line_container = $HourLineContainer
+
 #monday labels
 @onready var m_label_1 = $MLabel1
 @onready var m_label_2 = $MLabel2
@@ -83,6 +85,7 @@ func _ready():
 
 #calls the set current schedule function 
 func start(student:int):
+
 	_set_time_labels_positions()
 	_set_week_label_x_positions()
 	studentData= read_json_file(file1)
@@ -152,6 +155,7 @@ func _set_Current_Schedule(student: int):
 	for day_of_week in range(0,5):
 		#calls label_assigner for each day of the week, with 0 being monday and 4 being tuesday
 		label_assigner(day_of_week,parent_class_array,day_of_week_label_array)
+    
 
 	print(check_for_errors(parent_class_array))
 	if check_for_errors(parent_class_array) != 0:
@@ -331,6 +335,7 @@ func which_starting_label(start_time:int):
 		"45":
 			path = "/root/Main/MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/FortyFiveMinContainer/"+label
 		
+
 
 	var starting_label = get_node(path)
 	
