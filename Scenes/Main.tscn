@@ -1618,7 +1618,7 @@ disable_3d = true
 transparent_bg = true
 gui_embed_subwindows = true
 initial_position = 1
-size = Vector2i(300, 300)
+size = Vector2i(300, 400)
 visible = false
 transient = true
 exclusive = true
@@ -1632,7 +1632,7 @@ disable_3d = true
 transparent_bg = true
 handle_input_locally = false
 initial_position = 1
-size = Vector2i(300, 300)
+size = Vector2i(300, 400)
 visible = false
 transient = true
 unresizable = true
@@ -1761,7 +1761,6 @@ border_width = 2.0
 editor_only = false
 
 [node name="ReferenceRect4" type="ReferenceRect" parent="EndGameParentWindow/EndGameWindow/RectContainer"]
-visible = false
 layout_mode = 2
 border_color = Color(0.984314, 0.94902, 0.211765, 1)
 border_width = 2.0
@@ -1770,12 +1769,27 @@ editor_only = false
 [node name="ReferenceRect" type="ReferenceRect" parent="EndGameParentWindow/EndGameWindow"]
 offset_left = 230.0
 offset_top = 22.0
-offset_right = 505.0
+offset_right = 519.0
 offset_bottom = 22.0
 rotation = 1.5708
 border_color = Color(0.984314, 0.94902, 0.211765, 1)
 border_width = 2.0
 editor_only = false
+
+[node name="Button Container" type="BoxContainer" parent="EndGameParentWindow/EndGameWindow"]
+offset_left = 70.0
+offset_top = 335.0
+offset_right = 223.0
+offset_bottom = 366.0
+theme_override_constants/separation = 23
+
+[node name="Play Again" type="Button" parent="EndGameParentWindow/EndGameWindow/Button Container"]
+layout_mode = 2
+text = "Play Again"
+
+[node name="Quit" type="Button" parent="EndGameParentWindow/EndGameWindow/Button Container"]
+layout_mode = 2
+text = "Quit"
 
 [connection signal="esc_pressed" from="MainContainer" to="MainContainer" method="_on_esc_pressed"]
 [connection signal="pressed" from="MainContainer/Desktop/Taskbar/TaskbarShortcutContainer/BrowserTaskbarButton" to="MainContainer" method="_on_browser_taskbar_button_pressed"]
@@ -1791,3 +1805,5 @@ editor_only = false
 [connection signal="item_selected" from="MainContainer/CourseCatalogueParentWindow/CourseCatalogueWindow/Dropdown1/DepartmentDropdown" to="MainContainer/CourseCatalogueParentWindow/CourseCatalogueWindow" method="_on_department_dropdown_item_selected"]
 [connection signal="item_selected" from="MainContainer/CourseCatalogueParentWindow/CourseCatalogueWindow/Dropdown2/TimeDropdown" to="MainContainer/CourseCatalogueParentWindow/CourseCatalogueWindow" method="_on_time_dropdown_item_selected"]
 [connection signal="close_requested" from="MainContainer/RegistarManualParentWindow" to="MainContainer/RegistarManualParentWindow" method="_on_close_requested"]
+[connection signal="pressed" from="EndGameParentWindow/EndGameWindow/Button Container/Play Again" to="." method="_on_play_again_pressed"]
+[connection signal="pressed" from="EndGameParentWindow/EndGameWindow/Button Container/Quit" to="." method="_on_quit_pressed"]
