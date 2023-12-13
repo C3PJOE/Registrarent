@@ -5,10 +5,15 @@ signal esc_pressed
 @onready var schedule_browser_window = $ScheduleBrowserParentWindow/ScheduleBrowserWindow
 @onready var course_catalogue_parent_window = $CourseCatalogueParentWindow
 @onready var course_catalogue_window = $CourseCatalogueParentWindow/CourseCatalogueWindow
-@onready var browser_taskbar_button = $Desktop/Taskbar/BrowserTaskbarButton
-@onready var catalogue_taskbar_button = $Desktop/Taskbar/CatalogueTaskbarButton
+
+@onready var browser_taskbar_button = $Desktop/Taskbar/TaskbarShortcutContainer/BrowserTaskbarButton
+@onready var catalogue_taskbar_button = $Desktop/Taskbar/TaskbarShortcutContainer/CatalogueTaskbarButton
 @onready var registar_manual_parent_window = $RegistarManualParentWindow
 @onready var registrar_manual_window = $RegistarManualParentWindow/RegistrarManualWindow
+@onready var desktop_shortcut_container = $Desktop/DesktopShortcutContainer
+@onready var registrar_manual_desktop_shortcut = $Desktop/DesktopShortcutContainer/RegistrarManualDesktopShortcut
+@onready var catalogue_desktop_shortcut = $Desktop/DesktopShortcutContainer/CatalogueDesktopShortcut
+@onready var browser_desktop_shortcut = $Desktop/DesktopShortcutContainer/BrowserDesktopShortcut
 
 
 # Called when the node enters the scene tree for the first time.
@@ -17,7 +22,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
-	
+		
 func _input(event):
 	if  Input.is_key_pressed(KEY_ESCAPE):
 		emit_signal("esc_pressed")
