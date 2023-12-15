@@ -129,6 +129,7 @@ func profile_maker():
 		random_name_index = rng.randi_range(0,student_names.size()-1)
 		student["NAME"] = student_names[random_name_index].NAME
 		interpret_random(student,random_major,random_minor,random_year,random_FA,random_AS)
+		schedule_maker(student)
 #helper for profile_maker that matches random numbers generated to relevant student data,
 #then fills it into student data
 func interpret_random(student,major,minor,year,fin_aid,acc_stat):
@@ -191,6 +192,96 @@ func interpret_random(student,major,minor,year,fin_aid,acc_stat):
 	student["YEAR"] = parsed_year
 	student["FINANCIAL AID"] = parsed_fin_aid
 	student["ACCOUNT STATUS"] = parsed_acc_stat
+
+func duplicate_finder(key:String,array:Array):
+	var key_array:Array 
+	var duplicate_array:Array 
+	#iterates through ever item in the array and appends the current value of the key we're looking for to an array
+	for item in array:
+		key_array.append(item[key])
+	#nested for loop that checks for duplicate values in the key_array, and appends the index of the dupe to an array
+	for i in range(0,key_array.size()):
+		for j in range(i+1,key_array.size()):
+			if key_array[j] == key_array[i]:
+				duplicate_array.append(i)
+			
+	#while the duplicate array is greater than size 0, we re-roll the duplicate indeces and call duplicate_finder again to ensure no dupes
+	while duplicate_array.size()>=1:
+		for index in duplicate_array:
+			array[index] = classData[rng.randi_range(0,classData.size()-1)]
+			
+		duplicate_array.clear()
+		duplicate_finder(key,array)
+	
+func start_end_conflict_finder(array:Array):
+	#array that will hold the start and end time of each class as pairs
+	var time_pair:Array
+	time_pair.resize(array.size())
+	#array to hold the indeces of time conflicts
+	var conflict_array:Array = []
+	var n = 0
+	#pairs the start and end times of each item in the passed array for easier comparison later
+	for item in array:
+		time_pair[n] = [int(item.CLASSSTARTTIME),int(item.CLASSENDTIME)]
+		n+=1
+	#nested for loop that checks for duplicate values in the conflict_array, and appends the index of the conflict to an array
+	for i in range(0,time_pair.size()):
+		for j in range(i+1,time_pair.size()):
+			#if the first class' start time < the next class' end time, but the next class' start time is less than the first class' end time, there's a problem
+			if time_pair[j][0] <= time_pair[i][1] and time_pair[i][0] <= time_pair[j][1] :
+				conflict_array.append(i)
+	#while the duplicate array is greater than size 0, we re-roll the duplicate indeces and call duplicate_finder again to ensure no dupes
+	while conflict_array.size()>=1:
+		for index in conflict_array:
+			array[index] = classData[rng.randi_range(0,classData.size()-1)]
+		conflict_array.clear()
+		start_end_conflict_finder(array)
+#function that makes and enters the schedule data into the dictionary for the student
+func schedule_maker(student):
+	var classes_added = 0
+	var seed_1:int
+	var seed_2:int
+	var seed_3:int
+	var seed_4:int
+	var seed_5:int
+	var class_1
+	var class_2
+	var class_3
+	var class_4
+	var class_5
+	var mon_wed_fri_classes:Array
+	var tu_thurs_classes:Array
+	seed_1 =rng.randi_range(0,classData.size()-1)
+	seed_2 =rng.randi_range(0,classData.size()-1)
+	seed_3 =rng.randi_range(0,classData.size()-1)
+	seed_4 =rng.randi_range(0,classData.size()-1)
+	seed_5 =rng.randi_range(0,classData.size()-1)
+	class_1 = classData[seed_1]
+	class_2 = classData[seed_2]
+	class_3 = classData[seed_3]
+	class_4 = classData[seed_4]
+	class_5 = classData[seed_5]
+	mon_wed_fri_classes = [class_1,class_2,class_3]
+	tu_thurs_classes = [class_4,class_5]
+	#generates new seeds until none of them are duplicates, this will ensure unique classes
+	while seed_1 == seed_2 || seed_1 == seed_3 || seed_2 == seed_3:
+		seed_1 =rng.randi_range(0,classData.size()-1)
+		seed_2 =rng.randi_range(0,classData.size()-1)
+		seed_3 =rng.randi_range(0,classData.size()-1)
+		seed_4 =rng.randi_range(0,classData.size()-1)
+		seed_5 =rng.randi_range(0,classData.size()-1)
+		class_1 = classData[seed_1]
+		class_2 = classData[seed_2]
+		class_3 = classData[seed_3]
+		class_4 = classData[seed_4]
+		class_5 = classData[seed_5]
+	#calls duplicate_finder to find and regenerate any classes who have duplicate start or end times
+	duplicate_finder("CLASSSTARTTIME",mon_wed_fri_classes)
+	duplicate_finder("CLASSENDTIME",mon_wed_fri_classes)
+	start_end_conflict_finder(mon_wed_fri_classes)
+	print("horseshoe")
+			
+	
 #function that briefly shows the schedule browser so that the first schedule's labels get placed correctly, 
 #fixing an issue where the first schedule's contents would be in the wrong positions 
 #if the schedule browser window was hidden on game start

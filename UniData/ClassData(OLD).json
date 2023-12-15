@@ -1,0 +1,412 @@
+[
+  {
+	"ClassName": "AHIS 110A",
+	"ClassDepartment": "History",
+	"Credits": 2,
+	"Section": "A",
+	"ClassLocation": "LH 06",
+	"ClassDuration": 90,
+	"ClassStartTime": "900",
+	"ClassEndTime": "1030"
+  },
+  {
+	"ClassName": "AHIS 110B",
+	"ClassDepartment": "History",
+	"Credits": 2,
+	"Section": "A",
+	"ClassLocation": "LH 19",
+	"ClassDuration": 90,
+	"ClassStartTime": "1045",
+	"ClassEndTime": "1215"
+  },
+  {
+	"ClassName": "AHIS 203",
+	"ClassDepartment": "History",
+	"Credits": 3,
+	"Section": "A",
+	"ClassLocation": "LH 02",
+	"ClassDuration": 90,
+	"ClassStartTime": "1300",
+	"ClassEndTime": "1430"
+  },
+  {
+	"ClassName": "AHIS 214",
+	"ClassDepartment": "History",
+	"Credits": 3,
+	"Section": "A",
+	"ClassLocation": "LH 02",
+	"ClassDuration": 90,
+	"ClassStartTime": "900",
+	"ClassEndTime": "1030"
+  },
+  {
+	"ClassName": "AHIS 255",
+	"ClassDepartment": "History",
+	"Credits": 3,
+	"Section": "A",
+	"ClassLocation": "HUM 114",
+	"ClassDuration": 90,
+	"ClassStartTime": "1200",
+	"ClassEndTime": "1330"
+  },
+  {
+	"ClassName": "AHIS 319",
+	"ClassDepartment": "History",
+	"Credits": 3,
+	"Section": "A",
+	"ClassLocation": "HUM 320",
+	"ClassDuration": 90,
+	"ClassStartTime": "1430",
+	"ClassEndTime": "1600"
+  },
+  {
+	"ClassName": "AHIS 333",
+	"ClassDepartment": "History",
+	"Credits": 3,
+	"Section": "A",
+	"ClassLocation": "HUM 213",
+	"ClassDuration": 90,
+	"ClassStartTime": "1100",
+	"ClassEndTime": "1230"
+  },
+  {
+	"ClassName": "ART 101",
+	"ClassDepartment": "Art",
+	"Credits": 3,
+	"Section": "A",
+	"ClassLocation": "LH 21",
+	"ClassDuration": 120,
+	"ClassStartTime": "1000",
+	"ClassEndTime": "1200"
+  },
+  {
+	"ClassName": "ART 115",
+	"ClassDepartment": "Art",
+	"Credits": 3,
+	"Section": "A",
+	"ClassLocation": "ARB 313",
+	"ClassDuration": 90,
+	"ClassStartTime": "1245",
+	"ClassEndTime": "1415"
+  },
+  {
+	"ClassName": "ART 177",
+	"ClassDepartment": "Art",
+	"Credits": 3,
+	"Section": "A",
+	"ClassLocation": "ARB 201",
+	"ClassDuration": 90,
+	"ClassStartTime": "1200",
+	"ClassEndTime": "1330"
+  },
+  {
+	"ClassName": "ART 201",
+	"ClassDepartment": "Art",
+	"Credits": 3,
+	"Section": "A",
+	"ClassLocation": "ARB 311",
+	"ClassDuration": 120,
+	"ClassStartTime": "1300",
+	"ClassEndTime": "1500"
+  },
+  {
+	"ClassName": "ART 222",
+	"ClassDepartment": "Art",
+	"Credits": 3,
+	"Section": "A",
+	"ClassLocation": "ARB 313",
+	"ClassDuration": 120,
+	"ClassStartTime": "1030",
+	"ClassEndTime": "1230"
+  },
+  {
+	"ClassName": "ART 320",
+	"ClassDepartment": "Art",
+	"Credits": 3,
+	"Section": "A",
+	"ClassLocation": "ARB B01",
+	"ClassDuration": 120,
+	"ClassStartTime": "900",
+	"ClassEndTime": "1100"
+  },
+  {
+	"ClassName": "ART 441",
+	"ClassDepartment": "Art",
+	"Credits": 3,
+	"Section": "A",
+	"ClassLocation": "ARB 130",
+	"ClassDuration": 120,
+	"ClassStartTime": "1230",
+	"ClassEndTime": "1430"
+  },
+  {
+	"ClassName": "CS 101",
+	"ClassDepartment": "Computer Science",
+	"Credits": 3,
+	"Section": "A",
+	"ClassLocation": "LH 02",
+	"ClassDuration": 90,
+	"ClassStartTime": "800",
+	"ClassEndTime": "930"
+  },
+  {
+	"ClassName": "CS 112",
+	"ClassDepartment": "Computer Science",
+	"Credits": 3,
+	"Section": "A",
+	"ClassLocation": "ARB B02",
+	"ClassDuration": 90,
+	"ClassStartTime": "1045",
+	"ClassEndTime": "1215"
+  },
+  {
+	"ClassName": "CS 112D",
+	"ClassDepartment": "Computer Science",
+	"Credits": 1,
+	"Section": "A",
+	"ClassLocation": "ESB B11",
+	"ClassDuration": 45,
+	"ClassStartTime": "1300",
+	"ClassEndTime": "1445"
+  },
+  {
+	"ClassName": "CS 202",
+	"ClassDepartment": "Computer Science",
+	"Credits": 3,
+	"Section": "A",
+	"ClassLocation": "ENB B19",
+	"ClassDuration": 90,
+	"ClassStartTime": "900",
+	"ClassEndTime": "1030"
+  },
+  {
+	"ClassName": "CS 213",
+	"ClassDepartment": "Computer Science",
+	"Credits": 3,
+	"Section": "A",
+	"ClassLocation": "HUM B04",
+	"ClassDuration": 90,
+	"ClassStartTime": "1100",
+	"ClassEndTime": "1230"
+  },
+  {
+	"ClassName": "CS 213D",
+	"ClassDepartment": "Computer Science",
+	"Credits": 1,
+	"Section": "A",
+	"ClassLocation": "ARB B07",
+	"ClassDuration": 45,
+	"ClassStartTime": "1400",
+	"ClassEndTime": "1500"
+  },
+  {
+	"ClassName": "CS 304",
+	"ClassDepartment": "Computer Science",
+	"Credits": 3,
+	"Section": "A",
+	"ClassLocation": "ESB 101",
+	"ClassDuration": 90,
+	"ClassStartTime": "1245",
+	"ClassEndTime": "1415"
+  },
+  {
+	"ClassName": "CS 312",
+	"ClassDepartment": "Computer Science",
+	"Credits": 3,
+	"Section": "A",
+	"ClassLocation": "ENB 202",
+	"ClassDuration": 90,
+	"ClassStartTime": "1100",
+	"ClassEndTime": "1230"
+  },
+  {
+	"ClassName": "CS 318",
+	"ClassDepartment": "Computer Science",
+	"Credits": 3,
+	"Section": "A",
+	"ClassLocation": "HUM 122",
+	"ClassDuration": 90,
+	"ClassStartTime": "900",
+	"ClassEndTime": "1030"
+  },
+  {
+	"ClassName": "CS 405",
+	"ClassDepartment": "Computer Science",
+	"Credits": 5,
+	"Section": "A",
+	"ClassLocation": "HUM B02",
+	"ClassDuration": 90,
+	"ClassStartTime": "1300",
+	"ClassEndTime": "1430"
+  },
+  {
+	"ClassName": "EN 133",
+	"ClassDepartment": "English",
+	"Credits": 3,
+	"Section": "A",
+	"ClassLocation": "ENB 301",
+	"ClassDuration": 60,
+	"ClassStartTime": "915",
+	"ClassEndTime": "1015"
+  },
+  {
+	"ClassName": "EN 168",
+	"ClassDepartment": "English",
+	"Credits": 3,
+	"Section": "A",
+	"ClassLocation": "ENB 101",
+	"ClassDuration": 60,
+	"ClassStartTime": "1000",
+	"ClassEndTime": "1100"
+  },
+  {
+	"ClassName": "EN 204",
+	"ClassDepartment": "English",
+	"Credits": 3,
+	"Section": "A",
+	"ClassLocation": "ENB 109",
+	"ClassDuration": 60,
+	"ClassStartTime": "1130",
+	"ClassEndTime": "1230"
+  },
+  {
+	"ClassName": "EN 211",
+	"ClassDepartment": "English",
+	"Credits": 3,
+	"Section": "A",
+	"ClassLocation": "ENB 128",
+	"ClassDuration": 60,
+	"ClassStartTime": "1300",
+	"ClassEndTime": "1400"
+  },
+  {
+	"ClassName": "EN 218",
+	"ClassDepartment": "English",
+	"Credits": 3,
+	"Section": "A",
+	"ClassLocation": "LH 08",
+	"ClassDuration": 60,
+	"ClassStartTime": "815",
+	"ClassEndTime": "915"
+  },
+  {
+	"ClassName": "MAT 206",
+	"ClassDepartment": "Math",
+	"Credits": 3,
+	"Section": "A",
+	"ClassLocation": "LH 06",
+	"ClassDuration": 90,
+	"ClassStartTime": "800",
+	"ClassEndTime": "930"
+  },
+  {
+	"ClassName": "MAT 218",
+	"ClassDepartment": "Math",
+	"Credits": 3,
+	"Section": "A",
+	"ClassLocation": "MAB 117",
+	"ClassDuration": 90,
+	"ClassStartTime": "1115",
+	"ClassEndTime": "1245"
+  },
+  {
+	"ClassName": "MAT 220",
+	"ClassDepartment": "Math",
+	"Credits": 3,
+	"Section": "A",
+	"ClassLocation": "MAB 119",
+	"ClassDuration": 90,
+	"ClassStartTime": "1300",
+	"ClassEndTime": "1430"
+  },
+  {
+	"ClassName": "MAT 236",
+	"ClassDepartment": "Math",
+	"Credits": 3,
+	"Section": "A",
+	"ClassLocation": "MAB 114",
+	"ClassDuration": 90,
+	"ClassStartTime": "1115",
+	"ClassEndTime": "1245"
+  },
+  {
+	"ClassName": "MAT 337",
+	"ClassDepartment": "Math",
+	"Credits": 3,
+	"Section": "A",
+	"ClassLocation": "MAB 214",
+	"ClassDuration": 90,
+	"ClassStartTime": "1045",
+	"ClassEndTime": "1215"
+  },
+  {
+	"ClassName": "MAT 359",
+	"ClassDepartment": "Math",
+	"Credits": 3,
+	"Section": "A",
+	"ClassLocation": "MAB 215",
+	"ClassDuration": 90,
+	"ClassStartTime": "1230",
+	"ClassEndTime": "1400"
+  },
+  {
+	"ClassName": "MAT 400",
+	"ClassDepartment": "Math",
+	"Credits": 3,
+	"Section": "A",
+	"ClassLocation": "MAB 201",
+	"ClassDuration": 120,
+	"ClassStartTime": "1200",
+	"ClassEndTime": "1400"
+  },
+  {
+	"ClassName": "POLS 111",
+	"ClassDepartment": "Humanities",
+	"Credits": 3,
+	"Section": "A",
+	"ClassLocation": "HUM 123",
+	"ClassDuration": 90,
+	"ClassStartTime": "1230",
+	"ClassEndTime": "1400"
+  },
+  {
+	"ClassName": "POLS 201",
+	"ClassDepartment": "Humanities",
+	"Credits": 3,
+	"Section": "A",
+	"ClassLocation": "LH 12",
+	"ClassDuration": 90,
+	"ClassStartTime": "900",
+	"ClassEndTime": "1000"
+  },
+  {
+	"ClassName": "POLS 225",
+	"ClassDepartment": "Humanities",
+	"Credits": 3,
+	"Section": "A",
+	"ClassLocation": "HUM 201",
+	"ClassDuration": 90,
+	"ClassStartTime": "845",
+	"ClassEndTime": "1015"
+  },
+  {
+	"ClassName": "POLS 308",
+	"ClassDepartment": "Humanities",
+	"Credits": 3,
+	"Section": "A",
+	"ClassLocation": "HUM 322",
+	"ClassDuration": 90,
+	"ClassStartTime": "1045",
+	"ClassEndTime": "1215"
+  },
+  {
+	"ClassName": "POLS 416",
+	"ClassDepartment": "Humanities",
+	"Credits": 3,
+	"Section": "A",
+	"ClassLocation": "HUM B19",
+	"ClassDuration": 90,
+	"ClassStartTime": "1300",
+	"ClassEndTime": "1430"
+  }
+]

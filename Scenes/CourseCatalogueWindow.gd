@@ -22,8 +22,8 @@ func _convert_the_times():
 	#this loop converts the start times in the dictionaries to 12 hr time, so the 
 	#contents of the catalogue show 12 hr time when displayed, not 24 hr time
 	for lesson in class_data: 
-		start_time = lesson.CLASSSTARTTIME.to_int()
-		end_time = lesson.CLASSENDTIME.to_int()
+		start_time = lesson.CLASSSTARTTIME
+		end_time = lesson.CLASSENDTIME
 		lesson["CLASSSTARTTIME"] = _24_to_12_hr_time(start_time)
 		lesson["CLASSENDTIME"] = _24_to_12_hr_time(end_time)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
