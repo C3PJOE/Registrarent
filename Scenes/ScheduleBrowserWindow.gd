@@ -192,7 +192,7 @@ func interpret_random(student,major,minor,year,fin_aid,acc_stat):
 	student["YEAR"] = parsed_year
 	student["FINANCIAL AID"] = parsed_fin_aid
 	student["ACCOUNT STATUS"] = parsed_acc_stat
-
+#function that finds and regenerates dictionary items (classes) with duplicate keys, usually start/end time
 func duplicate_finder(key:String,array:Array):
 	var key_array:Array 
 	var duplicate_array:Array 
@@ -264,7 +264,7 @@ func schedule_maker(student):
 	mon_wed_fri_classes = [class_1,class_2,class_3]
 	tu_thurs_classes = [class_4,class_5]
 	#generates new seeds until none of them are duplicates, this will ensure unique classes
-	while seed_1 == seed_2 || seed_1 == seed_3 || seed_2 == seed_3:
+	while seed_1 == seed_2 || seed_1 == seed_3 || seed_1 == seed_4 || seed_1 == seed_5 || seed_2 == seed_3 || seed_2 == seed_4 || seed_2 == seed_5|| seed_3 == seed_4 || seed_3 == seed_5 || seed_4 == seed_5:
 		seed_1 =rng.randi_range(0,classData.size()-1)
 		seed_2 =rng.randi_range(0,classData.size()-1)
 		seed_3 =rng.randi_range(0,classData.size()-1)
@@ -275,10 +275,21 @@ func schedule_maker(student):
 		class_3 = classData[seed_3]
 		class_4 = classData[seed_4]
 		class_5 = classData[seed_5]
-	#calls duplicate_finder to find and regenerate any classes who have duplicate start or end times
+	#calls duplicate_finder && start_end_conflict_finder on the mon/wed/fri classes to find and regenerate any classes who have duplicate/conflicting start or end times
 	duplicate_finder("CLASSSTARTTIME",mon_wed_fri_classes)
 	duplicate_finder("CLASSENDTIME",mon_wed_fri_classes)
 	start_end_conflict_finder(mon_wed_fri_classes)
+	#calls duplicate_finder && start_end_conflict_finder on the tues/thurs classes to find and regenerate any classes who have duplicate/conflicting start or end times
+	duplicate_finder("CLASSSTARTTIME",tu_thurs_classes)
+	duplicate_finder("CLASSENDTIME",tu_thurs_classes)
+	start_end_conflict_finder(tu_thurs_classes)
+	#sets the students classes to the end result of all of the above, with (hopefully) no conflicts
+	student["MONDAY"] = mon_wed_fri_classes[0].CLASSNAME + ","+ mon_wed_fri_classes[1].CLASSNAME + "," + mon_wed_fri_classes[2].CLASSNAME
+	student["WEDNESDAY"] = mon_wed_fri_classes[0].CLASSNAME + ","+ mon_wed_fri_classes[1].CLASSNAME + "," + mon_wed_fri_classes[2].CLASSNAME
+	student["FRIDAY"] = mon_wed_fri_classes[0].CLASSNAME + ","+ mon_wed_fri_classes[1].CLASSNAME + "," + mon_wed_fri_classes[2].CLASSNAME
+	
+	student["TUESDAY"] = tu_thurs_classes[0].CLASSNAME + ","+ tu_thurs_classes[1].CLASSNAME
+	student["THURSDAY"] = tu_thurs_classes[0].CLASSNAME + ","+ tu_thurs_classes[1].CLASSNAME
 	print("horseshoe")
 			
 	
