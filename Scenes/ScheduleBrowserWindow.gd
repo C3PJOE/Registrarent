@@ -236,8 +236,65 @@ func start_end_conflict_finder(array:Array):
 			array[index] = classData[rng.randi_range(0,classData.size()-1)]
 		conflict_array.clear()
 		start_end_conflict_finder(array)
+
+func start_end_conflict_finder_again(array:Array,major_array:Array,minor_array:Array,classes_to_exclude:Array):
+	var major = major_array[0].CLASSDEPARTMENT
+	var minor = minor_array[0].CLASSDEPARTMENT
+	var major_count = major_class_count(major,array)
+	var minor_count = minor_class_count(minor,array)
+	var time_pair:Array
+	time_pair.resize(array.size())
+	var conflict_array:Array =[]
+	var replacement_seed = 0
+	var n = 0
+	for item in array:
+		time_pair[n]=[int(item.CLASSSTARTTIME),int(item.CLASSENDTIME)]
+		n+=1
+		
+	for i in range(0,time_pair.size()):
+		for j in range(i+1,time_pair.size()):
+			if time_pair[j][0] <= time_pair[i][1] and time_pair[i][0] <= time_pair[j][1]:
+				conflict_array.append(i)
+				
+	while conflict_array.size()>=1:
+		for index in conflict_array:
+			#if a class in the student's major has a time conflict,we search 
+			#for another class in their minor to replace it with
+			if array[index].CLASSDEPARTMENT == major:
+				replacement_seed = rng.randi_range(0,major_array.size()-1)
+				while classes_to_exclude.has(major_array[replacement_seed].CLASSNAME):
+					replacement_seed = rng.randi_range(0,major_array.size()-1)
+				array[index] = major_array[replacement_seed]
+				classes_to_exclude.append(major_array[replacement_seed].CLASSNAME)
+			#if a class in the student's minor has a time conflict, we search 
+			#for another class in their minor to replace it with 
+			elif array[index].CLASSDEPARTMENT == minor:
+				replacement_seed = rng.randi_range(0,minor_array.size()-1)
+				while classes_to_exclude.has(major_array[replacement_seed].CLASSNAME):
+					replacement_seed = rng.randi_range(0,minor_array.size()-1)
+				array[index] = minor_array[replacement_seed]
+				classes_to_exclude.append(minor_array[replacement_seed].CLASSNAME)
+		conflict_array.clear()
+#iterates through the array of classes and appends a class to a new array if the class matches the student's major
+func make_major_array(student):
+	var major_array:Array = []
+	for lesson in classData:
+		if lesson.CLASSDEPARTMENT == student.MAJOR:
+			major_array.append(lesson)
+	
+	return major_array
+
+func make_minor_array(student):
+	var minor_array:Array = []
+	for lesson in classData:
+		if lesson.CLASSDEPARTMENT == student.MAJOR:
+			minor_array.append(lesson)
+	
+	return minor_array
 #function that makes and enters the schedule data into the dictionary for the student
 func schedule_maker(student):
+	var major_class_array = make_major_array(student)
+	var minor_class_array = make_minor_array(student)
 	var classes_added = 0
 	var seed_1:int
 	var seed_2:int
@@ -251,18 +308,16 @@ func schedule_maker(student):
 	var class_5
 	var mon_wed_fri_classes:Array
 	var tu_thurs_classes:Array
-	seed_1 =rng.randi_range(0,classData.size()-1)
-	seed_2 =rng.randi_range(0,classData.size()-1)
-	seed_3 =rng.randi_range(0,classData.size()-1)
-	seed_4 =rng.randi_range(0,classData.size()-1)
+	seed_1 =rng.randi_range(0,major_class_array.size()-1)
+	seed_2 =rng.randi_range(0,major_class_array.size()-1)
+	seed_3 =rng.randi_range(0,minor_class_array.size()-1)
+	seed_4 =rng.randi_range(0,major_class_array.size()-1)
 	seed_5 =rng.randi_range(0,classData.size()-1)
 	class_1 = classData[seed_1]
 	class_2 = classData[seed_2]
 	class_3 = classData[seed_3]
 	class_4 = classData[seed_4]
 	class_5 = classData[seed_5]
-	mon_wed_fri_classes = [class_1,class_2,class_3]
-	tu_thurs_classes = [class_4,class_5]
 	#generates new seeds until none of them are duplicates, this will ensure unique classes
 	while seed_1 == seed_2 || seed_1 == seed_3 || seed_1 == seed_4 || seed_1 == seed_5 || seed_2 == seed_3 || seed_2 == seed_4 || seed_2 == seed_5|| seed_3 == seed_4 || seed_3 == seed_5 || seed_4 == seed_5:
 		seed_1 =rng.randi_range(0,classData.size()-1)
@@ -275,6 +330,9 @@ func schedule_maker(student):
 		class_3 = classData[seed_3]
 		class_4 = classData[seed_4]
 		class_5 = classData[seed_5]
+		
+	mon_wed_fri_classes = [class_1,class_2,class_3]
+	tu_thurs_classes = [class_4,class_5]
 	#calls duplicate_finder && start_end_conflict_finder on the mon/wed/fri classes to find and regenerate any classes who have duplicate/conflicting start or end times
 	duplicate_finder("CLASSSTARTTIME",mon_wed_fri_classes)
 	duplicate_finder("CLASSENDTIME",mon_wed_fri_classes)
@@ -283,6 +341,51 @@ func schedule_maker(student):
 	duplicate_finder("CLASSSTARTTIME",tu_thurs_classes)
 	duplicate_finder("CLASSENDTIME",tu_thurs_classes)
 	start_end_conflict_finder(tu_thurs_classes)
+	
+	var all_classes:Array = mon_wed_fri_classes
+	all_classes.append_array(tu_thurs_classes)
+	var major_count = major_class_count(student.MAJOR,all_classes)
+	var minor_count = minor_class_count(student.MINOR,all_classes)
+	#list that stores all of the classes that have been previously placed into the schedule.This 
+	#will prevent the classes from being reused 
+	var used_classes_list = [class_1.CLASSNAME,class_2.CLASSNAME,class_3.CLASSNAME,class_4.CLASSNAME,class_5.CLASSNAME]
+	var replacement_seed = 0
+	while major_count != 3 || (minor_count <1 || minor_count >2):
+		for n in range(0,all_classes.size()):
+			if ((all_classes[n].CLASSDEPARTMENT == student.MAJOR) and (major_count > 3)):
+				replacement_seed = rng.randi_range(0,minor_class_array.size()-1)
+				while used_classes_list.has(minor_class_array[replacement_seed].CLASSNAME):
+					replacement_seed = rng.randi_range(0,minor_class_array.size()-1)
+					
+				all_classes[n] = minor_class_array[replacement_seed]
+				used_classes_list.append(all_classes[n].CLASSNAME)
+				minor_count+=1
+				major_count = major_count -1
+			elif((all_classes[n].CLASSDEPARTMENT == student.MINOR) and (minor_count >2)):
+				replacement_seed = rng.randi_range(0,major_class_array.size()-1)
+				while used_classes_list.has(major_class_array[replacement_seed].CLASSNAME):
+					replacement_seed = rng.randi_range(0,major_class_array.size()-1)
+				all_classes[n] = major_class_array[replacement_seed]
+				used_classes_list.append(all_classes[n].CLASSNAME)
+				major_count+=1
+				minor_count= minor_count -1
+			elif all_classes[n].CLASSDEPARTMENT != student.MAJOR and all_classes[n].CLASSDEPARTMENT != student.MINOR:
+				replacement_seed = rng.randi_range(0,major_class_array.size()-1)
+				while used_classes_list.has(major_class_array[replacement_seed].CLASSNAME):
+					replacement_seed = rng.randi_range(0,major_class_array.size()-1)
+				all_classes[n] = major_class_array[replacement_seed]
+				used_classes_list.append(all_classes[n].CLASSNAME)
+				major_count +=1
+	
+	mon_wed_fri_classes = []
+	tu_thurs_classes = []
+	mon_wed_fri_classes.append(all_classes[0])
+	mon_wed_fri_classes.append(all_classes[1])
+	mon_wed_fri_classes.append(all_classes[2])	
+	start_end_conflict_finder_again(mon_wed_fri_classes,major_class_array,minor_class_array,used_classes_list)
+	tu_thurs_classes.append(all_classes[3])
+	tu_thurs_classes.append(all_classes[4])
+	start_end_conflict_finder_again(tu_thurs_classes,major_class_array,minor_class_array,used_classes_list)
 	#sets the students classes to the end result of all of the above, with (hopefully) no conflicts
 	student["MONDAY"] = mon_wed_fri_classes[0].CLASSNAME + ","+ mon_wed_fri_classes[1].CLASSNAME + "," + mon_wed_fri_classes[2].CLASSNAME
 	student["WEDNESDAY"] = mon_wed_fri_classes[0].CLASSNAME + ","+ mon_wed_fri_classes[1].CLASSNAME + "," + mon_wed_fri_classes[2].CLASSNAME
@@ -290,7 +393,6 @@ func schedule_maker(student):
 	
 	student["TUESDAY"] = tu_thurs_classes[0].CLASSNAME + ","+ tu_thurs_classes[1].CLASSNAME
 	student["THURSDAY"] = tu_thurs_classes[0].CLASSNAME + ","+ tu_thurs_classes[1].CLASSNAME
-	print("horseshoe")
 			
 	
 #function that briefly shows the schedule browser so that the first schedule's labels get placed correctly, 
@@ -481,7 +583,7 @@ func check_for_errors(current_schedule_data:Array):
 			return 1 
 		
 		major_class_total = major_class_count(current_student_major,trimmed_result_array)
-		if major_class_total < 2:
+		if major_class_total < 3:
 			print("INVALID NUMBER OF MAJOR CLASSES")
 			return 2
 		else:
