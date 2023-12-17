@@ -240,8 +240,6 @@ func start_end_conflict_finder(array:Array):
 func start_end_conflict_finder_again(array:Array,major_array:Array,minor_array:Array,classes_to_exclude:Array):
 	var major = major_array[0].CLASSDEPARTMENT
 	var minor = minor_array[0].CLASSDEPARTMENT
-	var major_count = major_class_count(major,array)
-	var minor_count = minor_class_count(minor,array)
 	var time_pair:Array
 	time_pair.resize(array.size())
 	var conflict_array:Array =[]
@@ -270,11 +268,19 @@ func start_end_conflict_finder_again(array:Array,major_array:Array,minor_array:A
 			#for another class in their minor to replace it with 
 			elif array[index].CLASSDEPARTMENT == minor:
 				replacement_seed = rng.randi_range(0,minor_array.size()-1)
-				while classes_to_exclude.has(major_array[replacement_seed].CLASSNAME):
+				while classes_to_exclude.has(minor_array[replacement_seed].CLASSNAME):
 					replacement_seed = rng.randi_range(0,minor_array.size()-1)
 				array[index] = minor_array[replacement_seed]
 				classes_to_exclude.append(minor_array[replacement_seed].CLASSNAME)
+			else:
+				print(major,minor,array[index].CLASSNAME)
+				replacement_seed = rng.randi_range(0,classData.size()-1)
+				while(classes_to_exclude.has(classData[replacement_seed].CLASSNAME)):
+					replacement_seed = rng.randi_range(0,classData.size()-1)
+				array[index] = classData[replacement_seed]
+				classes_to_exclude.append(classData[replacement_seed].CLASSNAME)
 		conflict_array.clear()
+		start_end_conflict_finder_again(array,major_array,minor_array,classes_to_exclude)
 #iterates through the array of classes and appends a class to a new array if the class matches the student's major
 func make_major_array(student):
 	var major_array:Array = []
@@ -287,7 +293,7 @@ func make_major_array(student):
 func make_minor_array(student):
 	var minor_array:Array = []
 	for lesson in classData:
-		if lesson.CLASSDEPARTMENT == student.MAJOR:
+		if lesson.CLASSDEPARTMENT == student.MINOR:
 			minor_array.append(lesson)
 	
 	return minor_array
