@@ -105,7 +105,6 @@ func start():
 	progress_bar_update()
 	classData = read_json_file(file2)
 	proc_gen()
-	print("past proc gen")
 	initial_schedule_setup()
 
 func proc_gen():
@@ -524,7 +523,6 @@ func _set_Current_Schedule(student: int):
 		#calls label_assigner for each day of the week, with 0 being monday and 4 being tuesday
 		label_assigner(day_of_week,parent_class_array,day_of_week_label_array)
 
-	print(check_for_errors(parent_class_array))
 	if check_for_errors(parent_class_array) != 0:
 		invalid_schedules+=1
 	else:
@@ -587,7 +585,6 @@ func label_assigner(day:int, parent_array:Array,day_of_week_group:Array):
 		n+=1
 
 func check_for_errors(current_schedule_data:Array):
-	#return value of -1 indicates account delinquency 
 	var current_student_name = studentData[studentIndex].NAME
 	var current_student_major = studentData[studentIndex].MAJOR
 	var current_student_minor = studentData[studentIndex].MINOR
@@ -600,9 +597,8 @@ func check_for_errors(current_schedule_data:Array):
 	var credit_total:int
 	var major_class_total:int
 	var minor_class_total:int
-
+	#return value of -1 indicates account delinquency 
 	if current_student_AS == "DELINQUENT":
-		print("DELINQUENT ACCOUNT, REJECT")
 		return -1
 	else:
 		result_array.resize(current_schedule_data.size())
@@ -613,28 +609,27 @@ func check_for_errors(current_schedule_data:Array):
 		trimmed_result_array = remove_duplicates(result_array)
 	
 		credit_total = credit_count(trimmed_result_array)
+		#return value of 1 indicates invalid credit count
 		if current_student_FAS == "NO" and credit_total in range(13,19):
-			print("FINANCIAL AID ",current_student_FAS," VALID CREDIT COUNT")
+			pass
 		elif current_student_FAS == "YES" and credit_total in range(15,19):
-			print("FINANCIAL AID ",current_student_FAS," VALID CREDIT COUNT")
+			pass
 		else:
-			print("FINANCIAL AID ",current_student_FAS," INVALID CREDIT COUNT: ",credit_total)
 			return 1 
-		
+		#return value of 2 indicates invalid number of major classes
 		major_class_total = major_class_count(current_student_major,trimmed_result_array)
 		if major_class_total < 3:
-			print("INVALID NUMBER OF MAJOR CLASSES")
 			return 2
 		else:
-			print("VALID NUMBER OF MAJOR CLASSES")
+			pass
 		
 		minor_class_total = minor_class_count(current_student_minor,trimmed_result_array)
+		#return value of 3 indicates invalid number of minor classes
 		if minor_class_total < 1:
-			print("INVALID NUMBER OF MINOR CLASSES")
 			return 3
 		else:
-			print("VALID NUMBER OF MINOR CLASSES")
-	print("ALL CRITERIA MET, APPROVE SCHEDULE")
+			pass
+	#return value of 0 indicates all criteria met
 	return 0
 #helper function that checks the number of minor classes the student is enrolled in and returns the total
 func minor_class_count(s_minor,array:Array):
