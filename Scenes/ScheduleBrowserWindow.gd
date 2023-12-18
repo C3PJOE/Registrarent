@@ -76,24 +76,23 @@ var student_names
 var studentData
 var classData 
 #global var for 
-var studentIndex
+var studentIndex 
 #values that will be used for scorekeeping
 var valid_schedules:int = 0
 var invalid_schedules:int = 0
 var player_approvals:int = 0
 var player_denials:int = 0
+var rng = RandomNumberGenerator.new()
 #creates arrays to hold the content of each group of labels 
 @onready var monday_label = get_tree().get_nodes_in_group("MondayLabels")
 @onready var tuesday_label = get_tree().get_nodes_in_group("TuesdayLabels")
 @onready var wednesday_label = get_tree().get_nodes_in_group("WednesdayLabels")
 @onready var thursday_label = get_tree().get_nodes_in_group("ThursdayLabels")
 @onready var friday_label = get_tree().get_nodes_in_group("FridayLabels")
-var rng = RandomNumberGenerator.new()
 func _ready():
 	#index variable we will pass to set current schedule to tell it which 
 	#student needs to have their schedule set
 	studentIndex = 0
-  
 	start()
 
 #calls the set current schedule function 
@@ -106,9 +105,9 @@ func start():
 	progress_bar_update()
 	classData = read_json_file(file2)
 	proc_gen()
+	print("past proc gen")
 	initial_schedule_setup()
-	
-	
+
 func proc_gen():
 	profile_maker()
 #helper function for proc_gen that picks a random name from the list of student names,
@@ -132,13 +131,13 @@ func profile_maker():
 		schedule_maker(student)
 #helper for profile_maker that matches random numbers generated to relevant student data,
 #then fills it into student data
-func interpret_random(student,major,minor,year,fin_aid,acc_stat):
+func interpret_random(student,s_major,s_minor,s_year,s_fin_aid,s_acc_stat):
 	var parsed_major:String
 	var parsed_minor:String
 	var parsed_year:String
 	var parsed_fin_aid:String
 	var parsed_acc_stat:String
-	match major:
+	match s_major:
 		0:
 			parsed_major = "ART"
 		1:
@@ -152,9 +151,9 @@ func interpret_random(student,major,minor,year,fin_aid,acc_stat):
 		5:
 			parsed_major = "MATH"
 	#prevents major from being the same as minor
-	while major == minor:
-		minor = rng.randi_range(0,5)
-	match minor:
+	while s_major == s_minor:
+		s_minor = rng.randi_range(0,5)
+	match s_minor:
 		0:
 			parsed_minor = "ART"
 		1:
@@ -167,7 +166,7 @@ func interpret_random(student,major,minor,year,fin_aid,acc_stat):
 			parsed_minor = "HUMANITIES"
 		5:
 			parsed_minor = "MATH"
-	match year:
+	match s_year:
 		0:
 			parsed_year = "FRESHMAN"
 		1:
@@ -177,12 +176,12 @@ func interpret_random(student,major,minor,year,fin_aid,acc_stat):
 		3:
 			parsed_year = "SENIOR"
 			
-	if fin_aid <=50:
+	if s_fin_aid <=50:
 		parsed_fin_aid = "YES"
 	else:
 		parsed_fin_aid = "NO"
 		
-	if acc_stat <=85:
+	if s_acc_stat <=85:
 		parsed_acc_stat = "GOOD"
 	else:
 		parsed_acc_stat = "DELINQUENT"
@@ -192,95 +191,98 @@ func interpret_random(student,major,minor,year,fin_aid,acc_stat):
 	student["YEAR"] = parsed_year
 	student["FINANCIAL AID"] = parsed_fin_aid
 	student["ACCOUNT STATUS"] = parsed_acc_stat
-#function that finds and regenerates dictionary items (classes) with duplicate keys, usually start/end time
-func duplicate_finder(key:String,array:Array):
-	var key_array:Array 
-	var duplicate_array:Array 
-	#iterates through ever item in the array and appends the current value of the key we're looking for to an array
-	for item in array:
-		key_array.append(item[key])
-	#nested for loop that checks for duplicate values in the key_array, and appends the index of the dupe to an array
-	for i in range(0,key_array.size()):
-		for j in range(i+1,key_array.size()):
-			if key_array[j] == key_array[i]:
-				duplicate_array.append(i)
-			
-	#while the duplicate array is greater than size 0, we re-roll the duplicate indeces and call duplicate_finder again to ensure no dupes
-	while duplicate_array.size()>=1:
-		for index in duplicate_array:
-			array[index] = classData[rng.randi_range(0,classData.size()-1)]
-			
-		duplicate_array.clear()
-		duplicate_finder(key,array)
-	
-func start_end_conflict_finder(array:Array):
-	#array that will hold the start and end time of each class as pairs
-	var time_pair:Array
-	time_pair.resize(array.size())
-	#array to hold the indeces of time conflicts
-	var conflict_array:Array = []
-	var n = 0
-	#pairs the start and end times of each item in the passed array for easier comparison later
-	for item in array:
-		time_pair[n] = [int(item.CLASSSTARTTIME),int(item.CLASSENDTIME)]
-		n+=1
-	#nested for loop that checks for duplicate values in the conflict_array, and appends the index of the conflict to an array
-	for i in range(0,time_pair.size()):
-		for j in range(i+1,time_pair.size()):
-			#if the first class' start time < the next class' end time, but the next class' start time is less than the first class' end time, there's a problem
-			if time_pair[j][0] <= time_pair[i][1] and time_pair[i][0] <= time_pair[j][1] :
-				conflict_array.append(i)
-	#while the duplicate array is greater than size 0, we re-roll the duplicate indeces and call duplicate_finder again to ensure no dupes
-	while conflict_array.size()>=1:
-		for index in conflict_array:
-			array[index] = classData[rng.randi_range(0,classData.size()-1)]
-		conflict_array.clear()
-		start_end_conflict_finder(array)
 
-func start_end_conflict_finder_again(array:Array,major_array:Array,minor_array:Array,classes_to_exclude:Array):
-	var major = major_array[0].CLASSDEPARTMENT
-	var minor = minor_array[0].CLASSDEPARTMENT
-	var time_pair:Array
+func filter_out_study_areas(st_major,st_minor):
+	var filtered_array:Array = []
+	for lesson in classData:
+		if lesson.CLASSDEPARTMENT != st_major and lesson.CLASSDEPARTMENT != st_minor:
+			filtered_array.append(lesson)
+	return filtered_array
+#function to find and reesolve potential schedule time conflicts
+func start_end_conflict_finder(array:Array,major_array:Array,minor_array:Array,classes_to_exclude:Array):
+	var s_major = major_array[0].CLASSDEPARTMENT
+	var s_minor = minor_array[0].CLASSDEPARTMENT
+	var irrelevant_courses = filter_out_study_areas(s_major,s_minor)
+	var time_pair:Array = []
 	time_pair.resize(array.size())
-	var conflict_array:Array =[]
+	var conflict_array:Array = []
 	var replacement_seed = 0
 	var n = 0
+	#pairs the start and end times of each item in the passed array for easier comparison later(instead
+	#of having to reference .CLASSSTARTTIME and .CLASSENDTIME, we can access within a 2d array
 	for item in array:
 		time_pair[n]=[int(item.CLASSSTARTTIME),int(item.CLASSENDTIME)]
 		n+=1
-		
+	#iterates through the array of time pairs
 	for i in range(0,time_pair.size()):
 		for j in range(i+1,time_pair.size()):
+			#if the start time of the next class is <= the end time of the current class
+			#and the start time of the current class <= the end time of the next class,
+			#there's a conflict (time is still 24 hr based at this point, comparison is easier that way)
 			if time_pair[j][0] <= time_pair[i][1] and time_pair[i][0] <= time_pair[j][1]:
+				#we append the current index to the conflict array. Because time pair is the same size as the originally
+				#passed array, we can use these indeces later to directly access the problem children
 				conflict_array.append(i)
-				
+	#while there are still items causing time conflicts
 	while conflict_array.size()>=1:
+		#going through the indeces we stored in the conflcit array
 		for index in conflict_array:
 			#if a class in the student's major has a time conflict,we search 
-			#for another class in their minor to replace it with
-			if array[index].CLASSDEPARTMENT == major:
+			#for another class in their majr to replace it with
+			if array[index].CLASSDEPARTMENT == s_major:
 				replacement_seed = rng.randi_range(0,major_array.size()-1)
+				#var to track how many times generation of a new seed was attempted
+				var reroll_count = 0
+				#while the random seed produced a class that isn't valid
 				while classes_to_exclude.has(major_array[replacement_seed].CLASSNAME):
-					replacement_seed = rng.randi_range(0,major_array.size()-1)
+					#if a reroll is attempted 16 times or more(16 classes in each department at the moment,
+					#so if it gets to 16, there is no valid class to replace the conflicting one with)
+					if reroll_count >=16:
+						#we remove the conflciting class from the schedule entirely, 
+						#and break out of the while loop
+						array.remove_at(index)
+						break
+					#otherwise...
+					else:
+						replacement_seed = rng.randi_range(0,major_array.size()-1)
+					reroll_count+=1
+				#replaces the current array element with a new class that (hopefully) doesn't conflict
 				array[index] = major_array[replacement_seed]
+				#adds the newly appended class to teh exclusion list, so it can't be double added to the array
 				classes_to_exclude.append(major_array[replacement_seed].CLASSNAME)
 			#if a class in the student's minor has a time conflict, we search 
 			#for another class in their minor to replace it with 
-			elif array[index].CLASSDEPARTMENT == minor:
+			elif array[index].CLASSDEPARTMENT == s_minor:
 				replacement_seed = rng.randi_range(0,minor_array.size()-1)
+				var reroll_count = 0
 				while classes_to_exclude.has(minor_array[replacement_seed].CLASSNAME):
-					replacement_seed = rng.randi_range(0,minor_array.size()-1)
+					if reroll_count >=16:
+						array.remove_at(index)
+						break
+					else:
+						replacement_seed = rng.randi_range(0,minor_array.size()-1)
+					reroll_count+=1
 				array[index] = minor_array[replacement_seed]
 				classes_to_exclude.append(minor_array[replacement_seed].CLASSNAME)
+			#if the conflicting class is neither part of the studen'ts major or minor
+			#we do the same as above, except we pull from a pool of non major/minor classes
 			else:
-				print(major,minor,array[index].CLASSNAME)
-				replacement_seed = rng.randi_range(0,classData.size()-1)
-				while(classes_to_exclude.has(classData[replacement_seed].CLASSNAME)):
-					replacement_seed = rng.randi_range(0,classData.size()-1)
-				array[index] = classData[replacement_seed]
-				classes_to_exclude.append(classData[replacement_seed].CLASSNAME)
+				replacement_seed = rng.randi_range(0,irrelevant_courses.size()-1)
+				var reroll_count = 0
+				while(classes_to_exclude.has(irrelevant_courses[replacement_seed].CLASSNAME)):
+					if reroll_count >=16:
+						array.remove_at(index)
+						break
+					else:
+						replacement_seed = rng.randi_range(0,irrelevant_courses.size()-1)
+					reroll_count +=1
+				array[index] = irrelevant_courses[replacement_seed]
+				classes_to_exclude.append(irrelevant_courses[replacement_seed].CLASSNAME)
+		#clear the conflict array once the for loop terminates
 		conflict_array.clear()
-		start_end_conflict_finder_again(array,major_array,minor_array,classes_to_exclude)
+		#calls conflict finder again until the conflict array has no conflicts
+		start_end_conflict_finder(array,major_array,minor_array,classes_to_exclude)
+	
 #iterates through the array of classes and appends a class to a new array if the class matches the student's major
 func make_major_array(student):
 	var major_array:Array = []
@@ -312,8 +314,10 @@ func schedule_maker(student):
 	var class_3
 	var class_4
 	var class_5
-	var mon_wed_fri_classes:Array
-	var tu_thurs_classes:Array
+	var used_classes_list:Array = []
+	var all_classes = []
+	var mon_wed_fri_classes:Array = []
+	var tu_thurs_classes:Array = []
 	seed_1 =rng.randi_range(0,major_class_array.size()-1)
 	seed_2 =rng.randi_range(0,major_class_array.size()-1)
 	seed_3 =rng.randi_range(0,minor_class_array.size()-1)
@@ -336,25 +340,22 @@ func schedule_maker(student):
 		class_3 = classData[seed_3]
 		class_4 = classData[seed_4]
 		class_5 = classData[seed_5]
-		
+	
 	mon_wed_fri_classes = [class_1,class_2,class_3]
 	tu_thurs_classes = [class_4,class_5]
-	#calls duplicate_finder && start_end_conflict_finder on the mon/wed/fri classes to find and regenerate any classes who have duplicate/conflicting start or end times
-	duplicate_finder("CLASSSTARTTIME",mon_wed_fri_classes)
-	duplicate_finder("CLASSENDTIME",mon_wed_fri_classes)
-	start_end_conflict_finder(mon_wed_fri_classes)
-	#calls duplicate_finder && start_end_conflict_finder on the tues/thurs classes to find and regenerate any classes who have duplicate/conflicting start or end times
-	duplicate_finder("CLASSSTARTTIME",tu_thurs_classes)
-	duplicate_finder("CLASSENDTIME",tu_thurs_classes)
-	start_end_conflict_finder(tu_thurs_classes)
 	
-	var all_classes:Array = mon_wed_fri_classes
+	used_classes_list = [mon_wed_fri_classes[0].CLASSNAME,mon_wed_fri_classes[1].CLASSNAME,mon_wed_fri_classes[2].CLASSNAME,tu_thurs_classes[0].CLASSNAME,tu_thurs_classes[1].CLASSNAME]
+	used_classes_list.append(tu_thurs_classes[0].CLASSNAME)
+	used_classes_list.append(tu_thurs_classes[1].CLASSNAME)
+	
+	
+	all_classes.append_array(mon_wed_fri_classes)
 	all_classes.append_array(tu_thurs_classes)
 	var major_count = major_class_count(student.MAJOR,all_classes)
 	var minor_count = minor_class_count(student.MINOR,all_classes)
 	#list that stores all of the classes that have been previously placed into the schedule.This 
 	#will prevent the classes from being reused 
-	var used_classes_list = [class_1.CLASSNAME,class_2.CLASSNAME,class_3.CLASSNAME,class_4.CLASSNAME,class_5.CLASSNAME]
+	
 	var replacement_seed = 0
 	while major_count != 3 || (minor_count <1 || minor_count >2):
 		for n in range(0,all_classes.size()):
@@ -375,31 +376,63 @@ func schedule_maker(student):
 				used_classes_list.append(all_classes[n].CLASSNAME)
 				major_count+=1
 				minor_count= minor_count -1
-			elif all_classes[n].CLASSDEPARTMENT != student.MAJOR and all_classes[n].CLASSDEPARTMENT != student.MINOR:
+			elif(major_count < 3) and all_classes[n].CLASSDEPARTMENT != student.MAJOR and all_classes[n].CLASSDEPARTMENT != student.MINOR:
 				replacement_seed = rng.randi_range(0,major_class_array.size()-1)
 				while used_classes_list.has(major_class_array[replacement_seed].CLASSNAME):
 					replacement_seed = rng.randi_range(0,major_class_array.size()-1)
 				all_classes[n] = major_class_array[replacement_seed]
 				used_classes_list.append(all_classes[n].CLASSNAME)
 				major_count +=1
+			elif(minor_count < 1) and all_classes[n].CLASSDEPARTMENT != student.MAJOR and all_classes[n].CLASSDEPARTMENT != student.MINOR:
+				replacement_seed = rng.randi_range(0,minor_class_array.size()-1)
+				while used_classes_list.has(minor_class_array[replacement_seed].CLASSNAME):
+					replacement_seed = rng.randi_range(0,minor_class_array.size()-1)
+				all_classes[n] = minor_class_array[replacement_seed]
+				used_classes_list.append(all_classes[n].CLASSNAME)
+				minor_count +=1
 	
 	mon_wed_fri_classes = []
 	tu_thurs_classes = []
 	mon_wed_fri_classes.append(all_classes[0])
 	mon_wed_fri_classes.append(all_classes[1])
 	mon_wed_fri_classes.append(all_classes[2])	
-	start_end_conflict_finder_again(mon_wed_fri_classes,major_class_array,minor_class_array,used_classes_list)
 	tu_thurs_classes.append(all_classes[3])
 	tu_thurs_classes.append(all_classes[4])
-	start_end_conflict_finder_again(tu_thurs_classes,major_class_array,minor_class_array,used_classes_list)
-	#sets the students classes to the end result of all of the above, with (hopefully) no conflicts
-	student["MONDAY"] = mon_wed_fri_classes[0].CLASSNAME + ","+ mon_wed_fri_classes[1].CLASSNAME + "," + mon_wed_fri_classes[2].CLASSNAME
-	student["WEDNESDAY"] = mon_wed_fri_classes[0].CLASSNAME + ","+ mon_wed_fri_classes[1].CLASSNAME + "," + mon_wed_fri_classes[2].CLASSNAME
-	student["FRIDAY"] = mon_wed_fri_classes[0].CLASSNAME + ","+ mon_wed_fri_classes[1].CLASSNAME + "," + mon_wed_fri_classes[2].CLASSNAME
 	
-	student["TUESDAY"] = tu_thurs_classes[0].CLASSNAME + ","+ tu_thurs_classes[1].CLASSNAME
-	student["THURSDAY"] = tu_thurs_classes[0].CLASSNAME + ","+ tu_thurs_classes[1].CLASSNAME
-			
+	start_end_conflict_finder(mon_wed_fri_classes,major_class_array,minor_class_array,used_classes_list)
+
+	start_end_conflict_finder(tu_thurs_classes,major_class_array,minor_class_array,used_classes_list)
+	
+	#trims null elements that maye be present after start_end_conflict_finder calls
+	_trim(mon_wed_fri_classes)
+	_trim(tu_thurs_classes)
+	#strings to hold the classes that we are going to insert into the student's profile
+	var mon_wed_fri_string:String = ""
+	var tu_thur_string:String = ""
+	var index = 0
+	#iterates through the classes and appends them to a string
+	for lesson in mon_wed_fri_classes:
+		#prevents a comma from being added to the last element of the array(to prevent formatting explosion)
+		if index == mon_wed_fri_classes.size()-1:
+			mon_wed_fri_string += mon_wed_fri_classes[index].CLASSNAME 
+		else:
+			mon_wed_fri_string += mon_wed_fri_classes[index].CLASSNAME + ","
+		index+=1
+	index = 0
+	#does the same as above except for the tuesday/thursday classes
+	for lesson in tu_thurs_classes:
+		if index == tu_thurs_classes.size()-1:
+			tu_thur_string += tu_thurs_classes[index].CLASSNAME
+		else:
+			tu_thur_string += tu_thurs_classes[index].CLASSNAME + ","
+		index +=1
+	#assigns the resulting strings to the student's profile, setting their schedule of classes in the dictionary
+	student["MONDAY"] = mon_wed_fri_string
+	student["WEDNESDAY"] = mon_wed_fri_string
+	student["FRIDAY"] = mon_wed_fri_string
+	
+	student["TUESDAY"] = tu_thur_string
+	student["THURSDAY"] = tu_thur_string
 	
 #function that briefly shows the schedule browser so that the first schedule's labels get placed correctly, 
 #fixing an issue where the first schedule's contents would be in the wrong positions 
@@ -604,17 +637,17 @@ func check_for_errors(current_schedule_data:Array):
 	print("ALL CRITERIA MET, APPROVE SCHEDULE")
 	return 0
 #helper function that checks the number of minor classes the student is enrolled in and returns the total
-func minor_class_count(minor,array:Array):
+func minor_class_count(s_minor,array:Array):
 	var minor_class_total = 0
 	for item in array:
-		if item.CLASSDEPARTMENT == minor:
+		if item.CLASSDEPARTMENT == s_minor:
 			minor_class_total+=1
 	return minor_class_total
 #helper function that checks the number of major classes the student is enrolled in and returns the total
-func major_class_count(major,array:Array):
+func major_class_count(s_major,array:Array):
 	var major_class_total = 0
 	for item in array:
-		if item.CLASSDEPARTMENT == major:
+		if item.CLASSDEPARTMENT == s_major:
 			major_class_total+=1
 	return major_class_total
 #helper function that tallies and returns the total credits of the classes contained within the passed array 
