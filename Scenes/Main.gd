@@ -6,7 +6,6 @@ func _ready():
 func _process(delta):
 	pass
 
-
 func _on_quit_pressed():
 	get_tree().quit()
 
@@ -15,4 +14,7 @@ func _on_play_again_pressed():
 	$EndGameParentWindow.hide()
 	$EndGameParentWindow/EndGameWindow.hide()
 	get_tree().reload_current_scene()
+
+	
+
 	
