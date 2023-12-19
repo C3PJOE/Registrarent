@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://dgv0xsiratr8g"]
+[gd_scene load_steps=61 format=3 uid="uid://dgv0xsiratr8g"]
 
 [ext_resource type="Script" path="res://Scenes/Main.gd" id="1_5ghd7"]
 [ext_resource type="Script" path="res://Scenes/MainContainer.gd" id="1_pf4tp"]
@@ -7,11 +7,10 @@
 [ext_resource type="Script" path="res://Scenes/ScheduleBrowserParentWindow.gd" id="4_5g6ji"]
 [ext_resource type="Texture2D" uid="uid://dklab118e8sf7" path="res://Assets/sprite1.png" id="5_de07d"]
 [ext_resource type="Texture2D" uid="uid://cvu0vx1x3x1rp" path="res://Assets/TaskbarBrowserIcon.png" id="6_1h1ua"]
-[ext_resource type="Texture2D" uid="uid://cq401s5168vo3" path="res://Assets/TaskbarBrowserIconHovered.png" id="6_4o3tk"]
 [ext_resource type="Texture2D" uid="uid://ltkgnnip50v0" path="res://Assets/TaskbarCatalogueIcon.png" id="7_53cl5"]
 [ext_resource type="Script" path="res://Scenes/ScheduleBrowserWindow.gd" id="7_f7lbd"]
 [ext_resource type="Texture2D" uid="uid://bxy54uli5frc4" path="res://Assets/ClassDictionary.png" id="7_u6a4s"]
-[ext_resource type="Texture2D" uid="uid://ox4mo215sg5h" path="res://Assets/TaskbarCatalogueIconHovered.png" id="8_gu2u2"]
+[ext_resource type="Texture2D" uid="uid://bp5s1jhpkt4kk" path="res://Assets/RegManuaTaskbarIcon.png" id="8_kvmku"]
 [ext_resource type="Texture2D" uid="uid://ps7fk0jmud10" path="res://Assets/Browser.png" id="9_tg8ot"]
 [ext_resource type="BitMap" uid="uid://b4iij4p71paa8" path="res://Assets/TaskbarBrowserIcon.bmp" id="9_us4hl"]
 [ext_resource type="BitMap" uid="uid://dhib12cepcy04" path="res://Assets/RegistrarHandbookIcon.bmp" id="10_c5tvr"]
@@ -218,15 +217,16 @@ vertical = true
 
 [node name="Resume" type="Button" parent="MainContainer/PauseMenu/BoxContainer"]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 text = "Resume"
 
 [node name="Quit" type="Button" parent="MainContainer/PauseMenu/BoxContainer"]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 text = "Quit"
 
 [node name="Desktop" type="TextureRect" parent="MainContainer"]
 layout_mode = 2
-mouse_default_cursor_shape = 2
 texture = ExtResource("2_isq8e")
 
 [node name="Taskbar" type="Panel" parent="MainContainer/Desktop"]
@@ -239,12 +239,12 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_2p2va")
 [node name="TaskbarShortcutContainer" type="BoxContainer" parent="MainContainer/Desktop/Taskbar"]
 layout_mode = 1
 offset_left = 100.0
-offset_top = 0.5
-offset_right = 202.0
-offset_bottom = 48.5
-mouse_default_cursor_shape = 2
+offset_top = 1.0
+offset_right = 251.0
+offset_bottom = 49.0
 
 [node name="BrowserTaskbarButton" type="TextureButton" parent="MainContainer/Desktop/Taskbar/TaskbarShortcutContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 focus_mode = 0
@@ -252,12 +252,13 @@ mouse_filter = 1
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("6_1h1ua")
 texture_pressed = ExtResource("6_1h1ua")
-texture_hover = ExtResource("6_4o3tk")
+texture_hover = ExtResource("6_1h1ua")
 texture_click_mask = ExtResource("9_us4hl")
 ignore_texture_size = true
 stretch_mode = 4
 
 [node name="CatalogueTaskbarButton" type="TextureButton" parent="MainContainer/Desktop/Taskbar/TaskbarShortcutContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 focus_mode = 0
@@ -266,7 +267,22 @@ action_mode = 0
 keep_pressed_outside = true
 texture_normal = ExtResource("7_53cl5")
 texture_pressed = ExtResource("7_53cl5")
-texture_hover = ExtResource("8_gu2u2")
+texture_hover = ExtResource("7_53cl5")
+texture_click_mask = ExtResource("9_us4hl")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="RegistrarManualTaskbarButton" type="TextureButton" parent="MainContainer/Desktop/Taskbar/TaskbarShortcutContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+mouse_default_cursor_shape = 2
+action_mode = 0
+keep_pressed_outside = true
+texture_normal = ExtResource("8_kvmku")
+texture_pressed = ExtResource("8_kvmku")
+texture_hover = ExtResource("8_kvmku")
 texture_click_mask = ExtResource("9_us4hl")
 ignore_texture_size = true
 stretch_mode = 4
@@ -1383,11 +1399,13 @@ offset_left = 20.0
 offset_top = 100.0
 offset_right = 288.0
 offset_bottom = 135.0
+mouse_default_cursor_shape = 2
 theme_override_constants/separation = -14
 
 [node name="DepartmentLabel" type="RichTextLabel" parent="MainContainer/CourseCatalogueParentWindow/CourseCatalogueWindow/Dropdown1"]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme_override_colors/default_color = Color(0.984314, 0.94902, 0.211765, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_y = 2
@@ -1399,6 +1417,7 @@ text = "DEPARTMENT"
 
 [node name="DepartmentDropdown" type="OptionButton" parent="MainContainer/CourseCatalogueParentWindow/CourseCatalogueWindow/Dropdown1"]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 item_count = 7
 selected = 0
 popup/item_0/text = "ALL"
@@ -1421,11 +1440,13 @@ offset_left = 460.0
 offset_top = 100.0
 offset_right = 728.0
 offset_bottom = 135.0
+mouse_default_cursor_shape = 2
 theme_override_constants/separation = -6
 
 [node name="TimeLabel" type="RichTextLabel" parent="MainContainer/CourseCatalogueParentWindow/CourseCatalogueWindow/Dropdown2"]
 custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme_override_colors/default_color = Color(0.984314, 0.94902, 0.211765, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_y = 2
@@ -1437,6 +1458,7 @@ text = "TIME"
 
 [node name="TimeDropdown" type="OptionButton" parent="MainContainer/CourseCatalogueParentWindow/CourseCatalogueWindow/Dropdown2"]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 item_count = 34
 selected = 0
 allow_reselect = true
@@ -1604,10 +1626,28 @@ theme_override_constants/shadow_outline_size = 1
 theme_override_fonts/normal_font = ExtResource("18_cy781")
 theme_override_font_sizes/normal_font_size = 21
 bbcode_enabled = true
-text = "[ul]Have a number of classes whose combined credit total is at most 18, unless the student has submitted a Credit Capacity Exemption(CCE) form[/ul]"
+text = "[ul]Have a number of classes whose combined credit total is at most 18[/ul]"
 fit_content = true
 
 [node name="Rule5" type="RichTextLabel" parent="MainContainer/RegistarManualParentWindow/RegistrarManualWindow/ClassCatalogueScrollContainer/ClassCatalogueContainer"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.133333, 0.14902, 0.160784, 1)
+theme_override_fonts/normal_font = ExtResource("18_cy781")
+theme_override_font_sizes/normal_font_size = 21
+bbcode_enabled = true
+text = "[ul]NOT have 100-level classes if the student is a SENIOR[/ul]"
+fit_content = true
+
+[node name="Rule7" type="RichTextLabel" parent="MainContainer/RegistarManualParentWindow/RegistrarManualWindow/ClassCatalogueScrollContainer/ClassCatalogueContainer"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.133333, 0.14902, 0.160784, 1)
+theme_override_fonts/normal_font = ExtResource("18_cy781")
+theme_override_font_sizes/normal_font_size = 21
+bbcode_enabled = true
+text = "[ul]NOT have 400-level classes if the student is a FRESHMAN[/ul]"
+fit_content = true
+
+[node name="Rule6" type="RichTextLabel" parent="MainContainer/RegistarManualParentWindow/RegistrarManualWindow/ClassCatalogueScrollContainer/ClassCatalogueContainer"]
 layout_mode = 2
 theme_override_colors/default_color = Color(0.133333, 0.14902, 0.160784, 1)
 theme_override_fonts/normal_font = ExtResource("18_cy781")
@@ -1823,6 +1863,7 @@ text = "Quit"
 [connection signal="pressed" from="MainContainer/PauseMenu/BoxContainer/Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="MainContainer/Desktop/Taskbar/TaskbarShortcutContainer/BrowserTaskbarButton" to="MainContainer" method="_on_browser_taskbar_button_pressed"]
 [connection signal="pressed" from="MainContainer/Desktop/Taskbar/TaskbarShortcutContainer/CatalogueTaskbarButton" to="MainContainer" method="_on_catalogue_taskbar_button_pressed"]
+[connection signal="pressed" from="MainContainer/Desktop/Taskbar/TaskbarShortcutContainer/RegistrarManualTaskbarButton" to="MainContainer" method="_on_registrar_manual_taskbar_button_pressed"]
 [connection signal="pressed" from="MainContainer/Desktop/DesktopShortcutContainer/RegistrarManualDesktopShortcut" to="MainContainer" method="_on_registrar_manual_desktop_shortcut_pressed"]
 [connection signal="pressed" from="MainContainer/Desktop/DesktopShortcutContainer/CatalogueDesktopShortcut" to="MainContainer" method="_on_catalogue_desktop_shortcut_pressed"]
 [connection signal="pressed" from="MainContainer/Desktop/DesktopShortcutContainer/BrowserDesktopShortcut" to="MainContainer" method="_on_browser_desktop_shortcut_pressed"]

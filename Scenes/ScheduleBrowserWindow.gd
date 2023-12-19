@@ -89,6 +89,8 @@ var rng = RandomNumberGenerator.new()
 @onready var wednesday_label = get_tree().get_nodes_in_group("WednesdayLabels")
 @onready var thursday_label = get_tree().get_nodes_in_group("ThursdayLabels")
 @onready var friday_label = get_tree().get_nodes_in_group("FridayLabels")
+@onready var main_container = $"../.."
+
 func _ready():
 	#index variable we will pass to set current schedule to tell it which 
 	#student needs to have their schedule set
@@ -97,7 +99,6 @@ func _ready():
 
 #calls the set current schedule function 
 func start():
-
 	_set_time_labels_positions()
 	_set_week_label_x_positions()
 	student_names = read_json_file(student_names_file)
@@ -191,17 +192,42 @@ func interpret_random(student,s_major,s_minor,s_year,s_fin_aid,s_acc_stat):
 	student["FINANCIAL AID"] = parsed_fin_aid
 	student["ACCOUNT STATUS"] = parsed_acc_stat
 
-func filter_out_study_areas(st_major,st_minor):
+func filter_out_study_areas(st_major,st_minor,st_year):
 	var filtered_array:Array = []
-	for lesson in classData:
-		if lesson.CLASSDEPARTMENT != st_major and lesson.CLASSDEPARTMENT != st_minor:
-			filtered_array.append(lesson)
+	#creates a regex var that will be used for class number comparison later
+	var regex = RegEx.new()
+	#sets the pattern to match letters and whitespaces
+	regex.compile("^[A-Za-z]\\S+\\s+")
+	var lesson_name:String
+	var lesson_numbers_only
+	if st_year != "FRESHMAN" and st_year!= "SENIOR":
+		for lesson in classData:
+			if lesson.CLASSDEPARTMENT != st_major and lesson.CLASSDEPARTMENT != st_minor:
+				filtered_array.append(lesson)
+				
+	elif st_year == "FRESHMAN":
+		for lesson in classData:
+			lesson_name = lesson.CLASSNAME
+			#lesson_numbers var gets set to just the numbers of the lesson_name var, using regex to replace letters/spaces with nothing
+			lesson_numbers_only = regex.sub(lesson_name,"")  
+			if lesson.CLASSDEPARTMENT != st_major and lesson.CLASSDEPARTMENT != st_minor and (!(lesson_numbers_only.begins_with("4"))):
+				filtered_array.append(lesson)
+				
+	elif st_year == "SENIOR":
+		for lesson in classData:
+			lesson_name = lesson.CLASSNAME
+			#lesson_numbers var gets set to just the numbers of the lesson_name var, using regex to replace letters/spaces with nothing
+			lesson_numbers_only = regex.sub(lesson_name,"")  
+			if lesson.CLASSDEPARTMENT != st_major and lesson.CLASSDEPARTMENT != st_minor and (!(lesson_numbers_only.begins_with("1"))):
+				filtered_array.append(lesson)
+				
 	return filtered_array
 #function to find and reesolve potential schedule time conflicts
-func start_end_conflict_finder(array:Array,major_array:Array,minor_array:Array,classes_to_exclude:Array):
-	var s_major = major_array[0].CLASSDEPARTMENT
-	var s_minor = minor_array[0].CLASSDEPARTMENT
-	var irrelevant_courses = filter_out_study_areas(s_major,s_minor)
+func start_end_conflict_finder(array:Array,student,major_array:Array,minor_array:Array,classes_to_exclude:Array):
+	var s_major = student.MAJOR
+	var s_minor = student.MINOR
+	var s_year = student.YEAR
+	var irrelevant_courses = filter_out_study_areas(s_major,s_minor,s_year)
 	var time_pair:Array = []
 	time_pair.resize(array.size())
 	var conflict_array:Array = []
@@ -280,28 +306,106 @@ func start_end_conflict_finder(array:Array,major_array:Array,minor_array:Array,c
 		#clear the conflict array once the for loop terminates
 		conflict_array.clear()
 		#calls conflict finder again until the conflict array has no conflicts
-		start_end_conflict_finder(array,major_array,minor_array,classes_to_exclude)
+		start_end_conflict_finder(array,student,major_array,minor_array,classes_to_exclude)
 	
 #iterates through the array of classes and appends a class to a new array if the class matches the student's major
-func make_major_array(student):
+#takes an optional param that, if == 1, will allow every class in the studen'ts major into the array,
+#even if the class does not suit the student's grade level
+func make_major_array(student,allow_invalid_classes:int = 0):
 	var major_array:Array = []
-	for lesson in classData:
-		if lesson.CLASSDEPARTMENT == student.MAJOR:
-			major_array.append(lesson)
+	var regex = RegEx.new()
+	var lesson_name:String
+	var lesson_numbers_only
+	#sets the pattern to match letters and whitespaces
+	regex.compile("^[A-Za-z]\\S+\\s+")
 	
+	if (student.YEAR != "FRESHMAN" and student.YEAR != "SENIOR") || allow_invalid_classes == 1:
+		for lesson in classData:
+			if lesson.CLASSDEPARTMENT == student.MAJOR:
+				major_array.append(lesson)
+				
+	elif student.YEAR == "FRESHMAN":
+		for lesson in classData:
+			lesson_name = lesson.CLASSNAME
+			#lesson_numbers var gets set to just the numbers of the lesson_name var, using regex to replace letters/spaces with nothing
+			lesson_numbers_only = regex.sub(lesson_name,"")  
+			if lesson.CLASSDEPARTMENT == student.MAJOR and (!(lesson_numbers_only.begins_with("4"))):
+				major_array.append(lesson)
+	else:
+		for lesson in classData:
+			lesson_name = lesson.CLASSNAME
+			#lesson_numbers var gets set to just the numbers of the lesson_name var, using regex to replace letters/spaces with nothing
+			lesson_numbers_only = regex.sub(lesson_name,"")  
+			if lesson.CLASSDEPARTMENT == student.MAJOR and (!(lesson_numbers_only.begins_with("1"))):
+				major_array.append(lesson)
+				
 	return major_array
-
-func make_minor_array(student):
+	
+#iterates through the array of classes and appends a class to a new array if the class matches the student's major
+#takes an optional param that, if == 1, will allow every class in the studen'ts minor into the array,
+#even if the class does not suit the student's grade level
+func make_minor_array(student,allow_invalid_classes:int = 0):
 	var minor_array:Array = []
-	for lesson in classData:
-		if lesson.CLASSDEPARTMENT == student.MINOR:
-			minor_array.append(lesson)
+	#creates a regex var that will be used for class number comparison later
+	var regex = RegEx.new()
+	#sets the pattern to match letters and whitespaces
+	regex.compile("^[A-Za-z]\\S+\\s+")
+	var lesson_name:String
+	var lesson_numbers_only
+	if (student.YEAR != "FRESHMAN" and student.YEAR != "SENIOR") || allow_invalid_classes == 1:
+		for lesson in classData:
+			if lesson.CLASSDEPARTMENT == student.MINOR:
+				minor_array.append(lesson)
+	
+	elif student.YEAR == "FRESHMAN":
+		for lesson in classData:
+			lesson_name = lesson.CLASSNAME
+			#lesson_numbers var gets set to just the numbers of the lesson_name var, using regex to replace letters/spaces with nothing
+			lesson_numbers_only = regex.sub(lesson_name,"")  
+			if lesson.CLASSDEPARTMENT == student.MINOR and (!(lesson_numbers_only.begins_with("4"))):
+				minor_array.append(lesson)
+	else:
+		for lesson in classData:
+			lesson_name = lesson.CLASSNAME
+			#lesson_numbers var gets set to just the numbers of the lesson_name var, using regex to replace letters/spaces with nothing
+			lesson_numbers_only = regex.sub(lesson_name,"")  
+			if lesson.CLASSDEPARTMENT == student.MINOR and (!(lesson_numbers_only.begins_with("1"))):
+				minor_array.append(lesson)
 	
 	return minor_array
+#function that filters 100 level classes out of the senior class pool 
+#and 400 level classes out of the freshmen class pool
+func filter_out_class_level(student):
+	var filtered_array:Array = []
+	var regex = RegEx.new()
+	#sets the pattern to match letters and whitespaces
+	regex.compile("^[A-Za-z]\\S+\\s+")
+	var lesson_name:String
+	var lesson_numbers_only
+	if student.YEAR != "FRESHMAN" and student.YEAR != "SENIOR":
+		return classData
+	elif student.YEAR == "FRESHMAN":
+		for lesson in classData:
+			lesson_name = lesson.CLASSNAME
+			#lesson_numbers var gets set to just the numbers of the lesson_name var, using regex to replace letters/spaces with nothing
+			lesson_numbers_only = regex.sub(lesson_name,"")  
+			if (!(lesson_numbers_only.begins_with("4"))):
+				filtered_array.append(lesson)
+	else:
+		for lesson in classData:
+			lesson_name = lesson.CLASSNAME
+			#lesson_numbers var gets set to just the numbers of the lesson_name var, using regex to replace letters/spaces with nothing
+			lesson_numbers_only = regex.sub(lesson_name,"")  
+			if (!(lesson_numbers_only.begins_with("1"))):
+				filtered_array.append(lesson)
+				
+	return filtered_array
 #function that makes and enters the schedule data into the dictionary for the student
 func schedule_maker(student):
 	var major_class_array = make_major_array(student)
 	var minor_class_array = make_minor_array(student)
+	#var that will hold every class that the student is eligible for (i.e no 100 levels for seniors and no 400s for freshmen)
+	var every_valid_class_array:Array
 	var classes_added = 0
 	var seed_1:int
 	var seed_2:int
@@ -317,28 +421,29 @@ func schedule_maker(student):
 	var all_classes = []
 	var mon_wed_fri_classes:Array = []
 	var tu_thurs_classes:Array = []
-	seed_1 =rng.randi_range(0,major_class_array.size()-1)
-	seed_2 =rng.randi_range(0,major_class_array.size()-1)
-	seed_3 =rng.randi_range(0,minor_class_array.size()-1)
-	seed_4 =rng.randi_range(0,major_class_array.size()-1)
-	seed_5 =rng.randi_range(0,classData.size()-1)
-	class_1 = classData[seed_1]
-	class_2 = classData[seed_2]
-	class_3 = classData[seed_3]
-	class_4 = classData[seed_4]
-	class_5 = classData[seed_5]
+	every_valid_class_array = filter_out_class_level(student)
+	seed_1 =rng.randi_range(0,every_valid_class_array.size()-1)
+	seed_2 =rng.randi_range(0,every_valid_class_array.size()-1)
+	seed_3 =rng.randi_range(0,every_valid_class_array.size()-1)
+	seed_4 =rng.randi_range(0,every_valid_class_array.size()-1)
+	seed_5 =rng.randi_range(0,every_valid_class_array.size()-1)
+	class_1 = every_valid_class_array[seed_1]
+	class_2 = every_valid_class_array[seed_2]
+	class_3 = every_valid_class_array[seed_3]
+	class_4 = every_valid_class_array[seed_4]
+	class_5 = every_valid_class_array[seed_5]
 	#generates new seeds until none of them are duplicates, this will ensure unique classes
 	while seed_1 == seed_2 || seed_1 == seed_3 || seed_1 == seed_4 || seed_1 == seed_5 || seed_2 == seed_3 || seed_2 == seed_4 || seed_2 == seed_5|| seed_3 == seed_4 || seed_3 == seed_5 || seed_4 == seed_5:
-		seed_1 =rng.randi_range(0,classData.size()-1)
-		seed_2 =rng.randi_range(0,classData.size()-1)
-		seed_3 =rng.randi_range(0,classData.size()-1)
-		seed_4 =rng.randi_range(0,classData.size()-1)
-		seed_5 =rng.randi_range(0,classData.size()-1)
-		class_1 = classData[seed_1]
-		class_2 = classData[seed_2]
-		class_3 = classData[seed_3]
-		class_4 = classData[seed_4]
-		class_5 = classData[seed_5]
+		seed_1 =rng.randi_range(0,every_valid_class_array.size()-1)
+		seed_2 =rng.randi_range(0,every_valid_class_array.size()-1)
+		seed_3 =rng.randi_range(0,every_valid_class_array.size()-1)
+		seed_4 =rng.randi_range(0,every_valid_class_array.size()-1)
+		seed_5 =rng.randi_range(0,every_valid_class_array.size()-1)
+		class_1 = every_valid_class_array[seed_1]
+		class_2 = every_valid_class_array[seed_2]
+		class_3 = every_valid_class_array[seed_3]
+		class_4 = every_valid_class_array[seed_4]
+		class_5 = every_valid_class_array[seed_5]
 	
 	mon_wed_fri_classes = [class_1,class_2,class_3]
 	tu_thurs_classes = [class_4,class_5]
@@ -398,9 +503,9 @@ func schedule_maker(student):
 	tu_thurs_classes.append(all_classes[3])
 	tu_thurs_classes.append(all_classes[4])
 	
-	start_end_conflict_finder(mon_wed_fri_classes,major_class_array,minor_class_array,used_classes_list)
+	start_end_conflict_finder(mon_wed_fri_classes,student,major_class_array,minor_class_array,used_classes_list)
 
-	start_end_conflict_finder(tu_thurs_classes,major_class_array,minor_class_array,used_classes_list)
+	start_end_conflict_finder(tu_thurs_classes,student,major_class_array,minor_class_array,used_classes_list)
 	
 	#trims null elements that maye be present after start_end_conflict_finder calls
 	_trim(mon_wed_fri_classes)
@@ -553,7 +658,6 @@ func label_assigner(day:int, parent_array:Array,day_of_week_group:Array):
 	#vars that will hold the 12 hr start and end time of classes
 	var _12_hr_start_time
 	var _12_hr_end_time
-	
 	var n = 0
 	for label in parent_array[day]:
 		#waits a fraction of a second because I was having issues with the first schedule not placing correctly and 
@@ -597,6 +701,12 @@ func check_for_errors(current_schedule_data:Array):
 	var credit_total:int
 	var major_class_total:int
 	var minor_class_total:int
+	#creates a regex var that will be used for class number comparison later
+	var regex = RegEx.new()
+	#sets the pattern to match letters and whitespaces
+	regex.compile("^[A-Za-z]\\S+\\s+")
+	var lesson_name:String
+	var lesson_numbers_only
 	#return value of -1 indicates account delinquency 
 	if current_student_AS == "DELINQUENT":
 		return -1
@@ -629,6 +739,25 @@ func check_for_errors(current_schedule_data:Array):
 			return 3
 		else:
 			pass
+		if current_student_year == "FRESHMAN":
+			for item in result_array:
+				for lesson in item:
+					lesson_name = lesson.CLASSNAME
+					#lesson_numbers var gets set to just the numbers of the lesson_name var, using regex to replace letters/spaces with nothing
+					lesson_numbers_only = regex.sub(lesson_name,"")  
+					#return value of 4 indicates a freshman with a senior level class
+					if lesson_numbers_only.begins_with("4"):
+						return 4
+		elif current_student_year == "SENIOR":
+			for item in result_array:
+				for lesson in item:
+					lesson_name = lesson.CLASSNAME
+					#lesson_numbers var gets set to just the numbers of the lesson_name var, using regex to replace letters/spaces with nothing
+					lesson_numbers_only = regex.sub(lesson_name,"")  
+					#return value of 5 indicates a senior with a freshman level class
+					if lesson_numbers_only.begins_with("1"):
+						return 5
+			
 	#return value of 0 indicates all criteria met
 	return 0
 #helper function that checks the number of minor classes the student is enrolled in and returns the total
