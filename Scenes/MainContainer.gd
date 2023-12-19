@@ -5,10 +5,10 @@ signal esc_pressed
 @onready var schedule_browser_window = $ScheduleBrowserParentWindow/ScheduleBrowserWindow
 @onready var course_catalogue_parent_window = $CourseCatalogueParentWindow
 @onready var course_catalogue_window = $CourseCatalogueParentWindow/CourseCatalogueWindow
-
+@onready var registrar_manual_taskbar_button = $Desktop/Taskbar/TaskbarShortcutContainer/RegistrarManualTaskbarButton
 @onready var browser_taskbar_button = $Desktop/Taskbar/TaskbarShortcutContainer/BrowserTaskbarButton
 @onready var catalogue_taskbar_button = $Desktop/Taskbar/TaskbarShortcutContainer/CatalogueTaskbarButton
-@onready var registar_manual_parent_window = $RegistarManualParentWindow
+@onready var registrar_manual_parent_window = $RegistarManualParentWindow
 @onready var registrar_manual_window = $RegistarManualParentWindow/RegistrarManualWindow
 @onready var desktop_shortcut_container = $Desktop/DesktopShortcutContainer
 @onready var registrar_manual_desktop_shortcut = $Desktop/DesktopShortcutContainer/RegistrarManualDesktopShortcut
@@ -45,6 +45,7 @@ func _on_browser_desktop_shortcut_pressed():
 	if schedule_browser_parent_window.visible == true:
 		pass
 	else:
+		browser_taskbar_button.show()
 		schedule_browser_parent_window.show()
 		schedule_browser_window.show()
 
@@ -52,6 +53,7 @@ func _on_catalogue_desktop_shortcut_pressed():
 	if course_catalogue_parent_window.visible == true:
 		pass
 	else:
+		catalogue_taskbar_button.show()
 		course_catalogue_parent_window.show()
 		course_catalogue_window.show()
 
@@ -65,8 +67,19 @@ func _on_catalogue_taskbar_button_pressed():
 
 
 func _on_registrar_manual_desktop_shortcut_pressed():
-	if registar_manual_parent_window.visible == true:
+	if registrar_manual_parent_window.visible == true:
 		pass
 	else:
-		registar_manual_parent_window.show()
+		registrar_manual_taskbar_button.show()
+		registrar_manual_parent_window.show()
 		registrar_manual_window.show()
+
+
+func _on_registrar_manual_taskbar_button_pressed():
+	if registrar_manual_parent_window.visible == true:
+		registrar_manual_parent_window.hide()
+		registrar_manual_window.hide()
+	else:
+		registrar_manual_parent_window.show()
+		registrar_manual_window.show()
+		
