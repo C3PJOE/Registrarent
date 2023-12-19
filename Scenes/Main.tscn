@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://ltkgnnip50v0" path="res://Assets/TaskbarCatalogueIcon.png" id="7_53cl5"]
 [ext_resource type="Script" path="res://Scenes/ScheduleBrowserWindow.gd" id="7_f7lbd"]
 [ext_resource type="Texture2D" uid="uid://bxy54uli5frc4" path="res://Assets/ClassDictionary.png" id="7_u6a4s"]
-[ext_resource type="Texture2D" uid="uid://bp5s1jhpkt4kk" path="res://Assets/RegManuaTaskbarIcon.png" id="8_kvmku"]
+[ext_resource type="Texture2D" path="res://Assets/RegManuaTaskbarIcon.png" id="8_kvmku"]
 [ext_resource type="Texture2D" uid="uid://ps7fk0jmud10" path="res://Assets/Browser.png" id="9_tg8ot"]
 [ext_resource type="BitMap" uid="uid://b4iij4p71paa8" path="res://Assets/TaskbarBrowserIcon.bmp" id="9_us4hl"]
 [ext_resource type="BitMap" uid="uid://dhib12cepcy04" path="res://Assets/RegistrarHandbookIcon.bmp" id="10_c5tvr"]
