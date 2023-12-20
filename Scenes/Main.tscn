@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://dgv0xsiratr8g"]
+[gd_scene load_steps=73 format=3 uid="uid://dgv0xsiratr8g"]
 
 [ext_resource type="Script" path="res://Scenes/Main.gd" id="1_5ghd7"]
 [ext_resource type="Script" path="res://Scenes/MainContainer.gd" id="1_pf4tp"]
@@ -22,14 +22,16 @@
 [ext_resource type="Texture2D" uid="uid://drwjbxqumu07s" path="res://Assets/EmailIcon.png" id="15_iycnx"]
 [ext_resource type="Texture2D" uid="uid://dluu0txmecmn2" path="res://Assets/RegistrarHandbookt.png" id="15_ra8rp"]
 [ext_resource type="BitMap" uid="uid://b7dkbgvqnnxdu" path="res://Assets/EmailIconbmp.bmp" id="16_w4l7h"]
-[ext_resource type="Script" path="res://Scenes/RegistarManualParentWindow.gd" id="17_205en"]
 [ext_resource type="FontFile" uid="uid://djjxk0k3ue38k" path="res://Assets/Fonts/times.ttf" id="18_cy781"]
 [ext_resource type="Texture2D" uid="uid://37ho0qxbbbbd" path="res://Assets/PerformanceReview.png" id="20_sv7wn"]
 [ext_resource type="Texture2D" uid="uid://co4613mo6e30x" path="res://Assets/ClassDictionaryContent.png" id="21_yopm6"]
 [ext_resource type="FontFile" uid="uid://cruht220tsdjg" path="res://Assets/Fonts/timesbd.ttf" id="24_bbowr"]
+[ext_resource type="Script" path="res://Scenes/RegistrarManualParentWindow.gd" id="24_s08ad"]
 [ext_resource type="Texture2D" uid="uid://4ona6nps7bbg" path="res://Assets/Email.png" id="26_hm7jy"]
+[ext_resource type="Script" path="res://Scenes/EmailParentWindow.gd" id="26_sy20v"]
 [ext_resource type="Texture2D" uid="uid://dynxj06mpbsht" path="res://Assets/EmailNormal.png" id="27_whk2h"]
 [ext_resource type="Texture2D" uid="uid://dgk7k48cjxktm" path="res://Assets/EmailHoveredl.png" id="28_5dovw"]
+[ext_resource type="Script" path="res://Scenes/EmailWindow.gd" id="28_hx07f"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2p2va"]
 bg_color = Color(0.607843, 0.678431, 0.717647, 1)
@@ -274,6 +276,7 @@ offset_right = 298.0
 offset_bottom = 47.0
 
 [node name="BrowserTaskbarButton" type="TextureButton" parent="MainContainer/Desktop/Taskbar/TaskbarShortcutContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 focus_mode = 0
@@ -287,6 +290,7 @@ ignore_texture_size = true
 stretch_mode = 4
 
 [node name="CatalogueTaskbarButton" type="TextureButton" parent="MainContainer/Desktop/Taskbar/TaskbarShortcutContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 focus_mode = 0
@@ -301,6 +305,7 @@ ignore_texture_size = true
 stretch_mode = 4
 
 [node name="RegistrarManualTaskbarButton" type="TextureButton" parent="MainContainer/Desktop/Taskbar/TaskbarShortcutContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 focus_mode = 0
@@ -426,6 +431,7 @@ transparent_bg = true
 gui_embed_subwindows = true
 initial_position = 2
 size = Vector2i(1280, 720)
+visible = false
 unresizable = true
 transparent = true
 mouse_passthrough = true
@@ -437,6 +443,7 @@ transparent_bg = true
 handle_input_locally = false
 initial_position = 1
 size = Vector2i(1280, 720)
+visible = false
 transient = true
 unresizable = true
 theme_override_styles/embedded_border = SubResource("StyleBoxTexture_f7xbp")
@@ -1603,7 +1610,7 @@ vertical_scroll_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="RegistarManualParentWindow" type="Window" parent="MainContainer"]
+[node name="RegistrarManualParentWindow" type="Window" parent="MainContainer"]
 process_mode = 3
 disable_3d = true
 transparent_bg = true
@@ -1615,9 +1622,9 @@ unresizable = true
 transparent = true
 mouse_passthrough = true
 min_size = Vector2i(640, 800)
-script = ExtResource("17_205en")
+script = ExtResource("24_s08ad")
 
-[node name="RegistrarManualWindow" type="Window" parent="MainContainer/RegistarManualParentWindow"]
+[node name="RegistrarManualWindow" type="Window" parent="MainContainer/RegistrarManualParentWindow"]
 disable_3d = true
 transparent_bg = true
 handle_input_locally = false
@@ -1628,7 +1635,7 @@ transient = true
 unresizable = true
 theme_override_styles/embedded_border = SubResource("StyleBoxTexture_07bmg")
 
-[node name="ClassCatalogueScrollContainer" type="ScrollContainer" parent="MainContainer/RegistarManualParentWindow/RegistrarManualWindow"]
+[node name="ClassCatalogueScrollContainer" type="ScrollContainer" parent="MainContainer/RegistrarManualParentWindow/RegistrarManualWindow"]
 custom_minimum_size = Vector2(615, 591)
 anchors_preset = 8
 anchor_left = 0.5
@@ -1642,12 +1649,12 @@ offset_bottom = 391.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ClassCatalogueContainer" type="VBoxContainer" parent="MainContainer/RegistarManualParentWindow/RegistrarManualWindow/ClassCatalogueScrollContainer"]
+[node name="ClassCatalogueContainer" type="VBoxContainer" parent="MainContainer/RegistrarManualParentWindow/RegistrarManualWindow/ClassCatalogueScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 26
 
-[node name="Rule1" type="RichTextLabel" parent="MainContainer/RegistarManualParentWindow/RegistrarManualWindow/ClassCatalogueScrollContainer/ClassCatalogueContainer"]
+[node name="Rule1" type="RichTextLabel" parent="MainContainer/RegistrarManualParentWindow/RegistrarManualWindow/ClassCatalogueScrollContainer/ClassCatalogueContainer"]
 layout_mode = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_y = 0
@@ -1657,7 +1664,7 @@ bbcode_enabled = true
 text = "[ul]Have at least 3 classes belonging to the student's major area of study[/ul]"
 fit_content = true
 
-[node name="Rule2" type="RichTextLabel" parent="MainContainer/RegistarManualParentWindow/RegistrarManualWindow/ClassCatalogueScrollContainer/ClassCatalogueContainer"]
+[node name="Rule2" type="RichTextLabel" parent="MainContainer/RegistrarManualParentWindow/RegistrarManualWindow/ClassCatalogueScrollContainer/ClassCatalogueContainer"]
 layout_mode = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_outline_size = 1
@@ -1668,7 +1675,7 @@ bbcode_enabled = true
 text = "[ul]Have at least 1 class belonging to the student's minor area of study, if  they have chosen one[/ul]"
 fit_content = true
 
-[node name="Rule3" type="RichTextLabel" parent="MainContainer/RegistarManualParentWindow/RegistrarManualWindow/ClassCatalogueScrollContainer/ClassCatalogueContainer"]
+[node name="Rule3" type="RichTextLabel" parent="MainContainer/RegistrarManualParentWindow/RegistrarManualWindow/ClassCatalogueScrollContainer/ClassCatalogueContainer"]
 layout_mode = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_outline_size = 1
@@ -1678,7 +1685,7 @@ bbcode_enabled = true
 text = "[ul]Have a number of classes whose combined credit total is at least 12(15 if the student receives financial aid)[/ul]"
 fit_content = true
 
-[node name="Rule4" type="RichTextLabel" parent="MainContainer/RegistarManualParentWindow/RegistrarManualWindow/ClassCatalogueScrollContainer/ClassCatalogueContainer"]
+[node name="Rule4" type="RichTextLabel" parent="MainContainer/RegistrarManualParentWindow/RegistrarManualWindow/ClassCatalogueScrollContainer/ClassCatalogueContainer"]
 layout_mode = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_outline_size = 1
@@ -1688,7 +1695,7 @@ bbcode_enabled = true
 text = "[ul]Have a number of classes whose combined credit total is at most 18[/ul]"
 fit_content = true
 
-[node name="Rule5" type="RichTextLabel" parent="MainContainer/RegistarManualParentWindow/RegistrarManualWindow/ClassCatalogueScrollContainer/ClassCatalogueContainer"]
+[node name="Rule5" type="RichTextLabel" parent="MainContainer/RegistrarManualParentWindow/RegistrarManualWindow/ClassCatalogueScrollContainer/ClassCatalogueContainer"]
 layout_mode = 2
 theme_override_colors/default_color = Color(0.133333, 0.14902, 0.160784, 1)
 theme_override_fonts/normal_font = ExtResource("18_cy781")
@@ -1697,7 +1704,7 @@ bbcode_enabled = true
 text = "[ul]NOT have 100-level classes if the student is a SENIOR[/ul]"
 fit_content = true
 
-[node name="Rule7" type="RichTextLabel" parent="MainContainer/RegistarManualParentWindow/RegistrarManualWindow/ClassCatalogueScrollContainer/ClassCatalogueContainer"]
+[node name="Rule7" type="RichTextLabel" parent="MainContainer/RegistrarManualParentWindow/RegistrarManualWindow/ClassCatalogueScrollContainer/ClassCatalogueContainer"]
 layout_mode = 2
 theme_override_colors/default_color = Color(0.133333, 0.14902, 0.160784, 1)
 theme_override_fonts/normal_font = ExtResource("18_cy781")
@@ -1706,7 +1713,7 @@ bbcode_enabled = true
 text = "[ul]NOT have 400-level classes if the student is a FRESHMAN[/ul]"
 fit_content = true
 
-[node name="Rule6" type="RichTextLabel" parent="MainContainer/RegistarManualParentWindow/RegistrarManualWindow/ClassCatalogueScrollContainer/ClassCatalogueContainer"]
+[node name="Rule6" type="RichTextLabel" parent="MainContainer/RegistrarManualParentWindow/RegistrarManualWindow/ClassCatalogueScrollContainer/ClassCatalogueContainer"]
 layout_mode = 2
 theme_override_colors/default_color = Color(0.133333, 0.14902, 0.160784, 1)
 theme_override_fonts/normal_font = ExtResource("18_cy781")
@@ -1715,7 +1722,7 @@ bbcode_enabled = true
 text = "[ul]NOT have delinquent status on their account[/ul]"
 fit_content = true
 
-[node name="Header" type="RichTextLabel" parent="MainContainer/RegistarManualParentWindow/RegistrarManualWindow"]
+[node name="Header" type="RichTextLabel" parent="MainContainer/RegistrarManualParentWindow/RegistrarManualWindow"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -1747,6 +1754,7 @@ size = Vector2i(1000, 700)
 unresizable = true
 transparent = true
 mouse_passthrough = true
+script = ExtResource("26_sy20v")
 
 [node name="EmailWindow" type="Window" parent="MainContainer/EmailParentWindow"]
 disable_3d = true
@@ -1757,6 +1765,7 @@ size = Vector2i(1000, 700)
 transient = true
 unresizable = true
 theme_override_styles/embedded_border = SubResource("StyleBoxTexture_ghdl5")
+script = ExtResource("28_hx07f")
 
 [node name="EmailInbox" type="ScrollContainer" parent="MainContainer/EmailParentWindow/EmailWindow"]
 offset_left = 9.0
@@ -1767,13 +1776,13 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 vertical_scroll_mode = 2
 
-[node name="BoxContainer" type="BoxContainer" parent="MainContainer/EmailParentWindow/EmailWindow/EmailInbox"]
+[node name="InboxEmailsContainer" type="BoxContainer" parent="MainContainer/EmailParentWindow/EmailWindow/EmailInbox"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 1
 vertical = true
 
-[node name="Email1" type="RichTextLabel" parent="MainContainer/EmailParentWindow/EmailWindow/EmailInbox/BoxContainer"]
+[node name="Email1" type="RichTextLabel" parent="MainContainer/EmailParentWindow/EmailWindow/EmailInbox/InboxEmailsContainer"]
 clip_children = 2
 clip_contents = false
 custom_minimum_size = Vector2(0, 60)
@@ -1788,7 +1797,7 @@ As some of you may be aware,..."
 fit_content = true
 scroll_active = false
 
-[node name="TextureButton" type="TextureButton" parent="MainContainer/EmailParentWindow/EmailWindow/EmailInbox/BoxContainer/Email1"]
+[node name="Email1Button" type="TextureButton" parent="MainContainer/EmailParentWindow/EmailWindow/EmailInbox/InboxEmailsContainer/Email1"]
 self_modulate = Color(1, 1, 1, 0.109804)
 show_behind_parent = true
 clip_contents = true
@@ -1803,7 +1812,7 @@ texture_hover = ExtResource("28_5dovw")
 texture_focused = ExtResource("28_5dovw")
 ignore_texture_size = true
 
-[node name="Email2" type="RichTextLabel" parent="MainContainer/EmailParentWindow/EmailWindow/EmailInbox/BoxContainer"]
+[node name="Email2" type="RichTextLabel" parent="MainContainer/EmailParentWindow/EmailWindow/EmailInbox/InboxEmailsContainer"]
 clip_children = 2
 clip_contents = false
 custom_minimum_size = Vector2(0, 60)
@@ -1818,7 +1827,7 @@ CURDS, BLOCKS, WHEELS,..."
 fit_content = true
 scroll_active = false
 
-[node name="TextureButton" type="TextureButton" parent="MainContainer/EmailParentWindow/EmailWindow/EmailInbox/BoxContainer/Email2"]
+[node name="Email2Button" type="TextureButton" parent="MainContainer/EmailParentWindow/EmailWindow/EmailInbox/InboxEmailsContainer/Email2"]
 self_modulate = Color(1, 1, 1, 0.109804)
 show_behind_parent = true
 clip_contents = true
@@ -1834,7 +1843,7 @@ texture_focused = ExtResource("28_5dovw")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Email3" type="RichTextLabel" parent="MainContainer/EmailParentWindow/EmailWindow/EmailInbox/BoxContainer"]
+[node name="Email3" type="RichTextLabel" parent="MainContainer/EmailParentWindow/EmailWindow/EmailInbox/InboxEmailsContainer"]
 clip_children = 2
 clip_contents = false
 custom_minimum_size = Vector2(0, 60)
@@ -1848,7 +1857,7 @@ text = "Notice regarding misuse of University showers and bathro..."
 fit_content = true
 scroll_active = false
 
-[node name="TextureButton" type="TextureButton" parent="MainContainer/EmailParentWindow/EmailWindow/EmailInbox/BoxContainer/Email3"]
+[node name="Email3Button" type="TextureButton" parent="MainContainer/EmailParentWindow/EmailWindow/EmailInbox/InboxEmailsContainer/Email3"]
 self_modulate = Color(1, 1, 1, 0.109804)
 show_behind_parent = true
 clip_contents = true
@@ -1864,7 +1873,7 @@ texture_focused = ExtResource("28_5dovw")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Email4" type="RichTextLabel" parent="MainContainer/EmailParentWindow/EmailWindow/EmailInbox/BoxContainer"]
+[node name="Email4" type="RichTextLabel" parent="MainContainer/EmailParentWindow/EmailWindow/EmailInbox/InboxEmailsContainer"]
 clip_children = 2
 clip_contents = false
 custom_minimum_size = Vector2(0, 60)
@@ -1879,7 +1888,7 @@ We see that you're an alumnus..."
 fit_content = true
 scroll_active = false
 
-[node name="TextureButton" type="TextureButton" parent="MainContainer/EmailParentWindow/EmailWindow/EmailInbox/BoxContainer/Email4"]
+[node name="Email4Button" type="TextureButton" parent="MainContainer/EmailParentWindow/EmailWindow/EmailInbox/InboxEmailsContainer/Email4"]
 self_modulate = Color(1, 1, 1, 0.109804)
 show_behind_parent = true
 clip_contents = true
@@ -1895,7 +1904,7 @@ texture_focused = ExtResource("28_5dovw")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Email5" type="RichTextLabel" parent="MainContainer/EmailParentWindow/EmailWindow/EmailInbox/BoxContainer"]
+[node name="Email5" type="RichTextLabel" parent="MainContainer/EmailParentWindow/EmailWindow/EmailInbox/InboxEmailsContainer"]
 clip_children = 2
 clip_contents = false
 custom_minimum_size = Vector2(0, 60)
@@ -1910,7 +1919,7 @@ Hello students and faculty,..."
 fit_content = true
 scroll_active = false
 
-[node name="TextureButton" type="TextureButton" parent="MainContainer/EmailParentWindow/EmailWindow/EmailInbox/BoxContainer/Email5"]
+[node name="Email5Button" type="TextureButton" parent="MainContainer/EmailParentWindow/EmailWindow/EmailInbox/InboxEmailsContainer/Email5"]
 self_modulate = Color(1, 1, 1, 0.109804)
 show_behind_parent = true
 clip_contents = true
@@ -1926,7 +1935,7 @@ texture_focused = ExtResource("28_5dovw")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Email6" type="RichTextLabel" parent="MainContainer/EmailParentWindow/EmailWindow/EmailInbox/BoxContainer"]
+[node name="Email6" type="RichTextLabel" parent="MainContainer/EmailParentWindow/EmailWindow/EmailInbox/InboxEmailsContainer"]
 clip_children = 2
 clip_contents = false
 custom_minimum_size = Vector2(0, 60)
@@ -1940,7 +1949,7 @@ text = "Regarding the Computer Science Department and its acc..."
 fit_content = true
 scroll_active = false
 
-[node name="TextureButton" type="TextureButton" parent="MainContainer/EmailParentWindow/EmailWindow/EmailInbox/BoxContainer/Email6"]
+[node name="Email6Button" type="TextureButton" parent="MainContainer/EmailParentWindow/EmailWindow/EmailInbox/InboxEmailsContainer/Email6"]
 self_modulate = Color(1, 1, 1, 0.109804)
 show_behind_parent = true
 clip_contents = true
@@ -1956,7 +1965,7 @@ texture_focused = ExtResource("28_5dovw")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Email7" type="RichTextLabel" parent="MainContainer/EmailParentWindow/EmailWindow/EmailInbox/BoxContainer"]
+[node name="Email7" type="RichTextLabel" parent="MainContainer/EmailParentWindow/EmailWindow/EmailInbox/InboxEmailsContainer"]
 clip_children = 2
 clip_contents = false
 custom_minimum_size = Vector2(0, 60)
@@ -1971,7 +1980,7 @@ Hello staff, we've recently bee..."
 fit_content = true
 scroll_active = false
 
-[node name="TextureButton" type="TextureButton" parent="MainContainer/EmailParentWindow/EmailWindow/EmailInbox/BoxContainer/Email7"]
+[node name="Email7Button" type="TextureButton" parent="MainContainer/EmailParentWindow/EmailWindow/EmailInbox/InboxEmailsContainer/Email7"]
 self_modulate = Color(1, 1, 1, 0.109804)
 show_behind_parent = true
 clip_contents = true
@@ -1987,7 +1996,7 @@ texture_focused = ExtResource("28_5dovw")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Email8" type="RichTextLabel" parent="MainContainer/EmailParentWindow/EmailWindow/EmailInbox/BoxContainer"]
+[node name="Email8" type="RichTextLabel" parent="MainContainer/EmailParentWindow/EmailWindow/EmailInbox/InboxEmailsContainer"]
 clip_children = 2
 clip_contents = false
 custom_minimum_size = Vector2(0, 60)
@@ -2002,7 +2011,7 @@ Effective tomorrow, staff bath..."
 fit_content = true
 scroll_active = false
 
-[node name="TextureButton" type="TextureButton" parent="MainContainer/EmailParentWindow/EmailWindow/EmailInbox/BoxContainer/Email8"]
+[node name="Email8Button" type="TextureButton" parent="MainContainer/EmailParentWindow/EmailWindow/EmailInbox/InboxEmailsContainer/Email8"]
 self_modulate = Color(1, 1, 1, 0.109804)
 show_behind_parent = true
 clip_contents = true
@@ -2018,7 +2027,7 @@ texture_focused = ExtResource("28_5dovw")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Email9" type="RichTextLabel" parent="MainContainer/EmailParentWindow/EmailWindow/EmailInbox/BoxContainer"]
+[node name="Email9" type="RichTextLabel" parent="MainContainer/EmailParentWindow/EmailWindow/EmailInbox/InboxEmailsContainer"]
 clip_children = 2
 clip_contents = false
 custom_minimum_size = Vector2(0, 60)
@@ -2033,7 +2042,7 @@ Hello all, please disregard the..."
 fit_content = true
 scroll_active = false
 
-[node name="TextureButton" type="TextureButton" parent="MainContainer/EmailParentWindow/EmailWindow/EmailInbox/BoxContainer/Email9"]
+[node name="Email9Button" type="TextureButton" parent="MainContainer/EmailParentWindow/EmailWindow/EmailInbox/InboxEmailsContainer/Email9"]
 self_modulate = Color(1, 1, 1, 0.109804)
 show_behind_parent = true
 clip_contents = true
@@ -2049,7 +2058,7 @@ texture_focused = ExtResource("28_5dovw")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Email10" type="RichTextLabel" parent="MainContainer/EmailParentWindow/EmailWindow/EmailInbox/BoxContainer"]
+[node name="Email10" type="RichTextLabel" parent="MainContainer/EmailParentWindow/EmailWindow/EmailInbox/InboxEmailsContainer"]
 clip_children = 2
 clip_contents = false
 custom_minimum_size = Vector2(0, 60)
@@ -2064,7 +2073,7 @@ Hello Stella, I've reviewed the..."
 fit_content = true
 scroll_active = false
 
-[node name="TextureButton" type="TextureButton" parent="MainContainer/EmailParentWindow/EmailWindow/EmailInbox/BoxContainer/Email10"]
+[node name="Email10Button" type="TextureButton" parent="MainContainer/EmailParentWindow/EmailWindow/EmailInbox/InboxEmailsContainer/Email10"]
 self_modulate = Color(1, 1, 1, 0.109804)
 show_behind_parent = true
 clip_contents = true
@@ -2080,7 +2089,7 @@ texture_focused = ExtResource("28_5dovw")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Email11" type="RichTextLabel" parent="MainContainer/EmailParentWindow/EmailWindow/EmailInbox/BoxContainer"]
+[node name="Email11" type="RichTextLabel" parent="MainContainer/EmailParentWindow/EmailWindow/EmailInbox/InboxEmailsContainer"]
 clip_children = 2
 clip_contents = false
 custom_minimum_size = Vector2(0, 60)
@@ -2095,7 +2104,7 @@ Happy 200th birthday to the..."
 fit_content = true
 scroll_active = false
 
-[node name="TextureButton" type="TextureButton" parent="MainContainer/EmailParentWindow/EmailWindow/EmailInbox/BoxContainer/Email11"]
+[node name="Email11Button" type="TextureButton" parent="MainContainer/EmailParentWindow/EmailWindow/EmailInbox/InboxEmailsContainer/Email11"]
 self_modulate = Color(1, 1, 1, 0.109804)
 show_behind_parent = true
 clip_contents = true
@@ -2168,6 +2177,57 @@ If some of you are unfamiliar with the tools at your disposal, let me brief you.
 [ul]Registrar's E-Handbook: This application contains the guidelines proposed student schedules must follow in order to be approved. Any student whose schedule does not meet ALL criteria should be rejected.[/ul]
 [ul]Course Catalogue: This application is where information about every class offered by Accredited University is contained.[/ul]
 [ul]UMail: The University's email browser. You should be reading this on it.[/ul]
+
+One last thing: Thanks to the money saved by not hiring more Registrar staff, we're happy to inform you of the creation of our Registrar Auditing Team! These valued staff members will remotely monitor your performance, and once you complete your allottment of schedule reviews, a performance review will appear on your desktop! It's truly the best way to ensure the Registrar's Office maintains the high quality work we're used to! 
+
+Good luck and have a credible day! 
+
+Jeff Stick, Vice President of Faculty, Accredited University 
+[/left]"
+fit_content = true
+scroll_active = false
+
+[node name="Email2" type="BoxContainer" parent="MainContainer/EmailParentWindow/EmailWindow/EmailContent/EmailsContainer"]
+visible = false
+show_behind_parent = true
+clip_children = 2
+layout_mode = 2
+size_flags_horizontal = 3
+vertical = true
+
+[node name="EmailSubject2" type="RichTextLabel" parent="MainContainer/EmailParentWindow/EmailWindow/EmailContent/EmailsContainer/Email2"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("18_cy781")
+theme_override_font_sizes/normal_font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_uyfo3")
+bbcode_enabled = true
+text = "CHEESE SALE!
+
+From:CheeseEmperor@CheesePalace.com
+To: you"
+fit_content = true
+scroll_active = false
+
+[node name="EmailBody2" type="RichTextLabel" parent="MainContainer/EmailParentWindow/EmailWindow/EmailContent/EmailsContainer/Email2"]
+custom_minimum_size = Vector2(200, 500)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("18_cy781")
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[left]CURDS, BLOCKS, WHEELS, AND SO MUCH MORE!!!
+
+ATTENTION ALL BLOCKHEADS, THE CHEESE PALACE IS HAVING A SALE OF GARGANZOLAN PROPORTIONS!
+
+BY ROYAL DECREE, THE CHEESE EMPEROR BIDS ALL OF HIS ROYAL SUBJECTS TO JOURNEY TOWARDS THE CHEESE PALACE THIS WEEKEND! YOU'D BE A MUENSTER TO MISS IT!!!
+
+WE THANK YOU FOR YOUR CONTINUED PATRONAGE,
+
+
+
+THE ROYAL SCRIBE OF HIS HIGHNESS THE CHEESE EMPEROR
 [/left]"
 fit_content = true
 scroll_active = false
@@ -2363,7 +2423,7 @@ text = "Quit"
 [connection signal="pressed" from="MainContainer/Desktop/DesktopShortcutContainer/RegistrarManualDesktopShortcut" to="MainContainer" method="_on_registrar_manual_desktop_shortcut_pressed"]
 [connection signal="pressed" from="MainContainer/Desktop/DesktopShortcutContainer/CatalogueDesktopShortcut" to="MainContainer" method="_on_catalogue_desktop_shortcut_pressed"]
 [connection signal="pressed" from="MainContainer/Desktop/DesktopShortcutContainer/BrowserDesktopShortcut" to="MainContainer" method="_on_browser_desktop_shortcut_pressed"]
-[connection signal="pressed" from="MainContainer/Desktop/DesktopShortcutContainer/UMail" to="MainContainer" method="_on_browser_desktop_shortcut_pressed"]
+[connection signal="pressed" from="MainContainer/Desktop/DesktopShortcutContainer/UMail" to="MainContainer" method="_on_u_mail_pressed"]
 [connection signal="close_requested" from="MainContainer/ScheduleBrowserParentWindow" to="MainContainer/ScheduleBrowserParentWindow" method="_on_close_requested"]
 [connection signal="esc_pressed" from="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" to="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" method="_on_esc_pressed"]
 [connection signal="pressed" from="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/YesButton" to="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" method="_on_yes_button_pressed"]
@@ -2371,6 +2431,9 @@ text = "Quit"
 [connection signal="close_requested" from="MainContainer/CourseCatalogueParentWindow" to="MainContainer/CourseCatalogueParentWindow" method="_on_close_requested"]
 [connection signal="item_selected" from="MainContainer/CourseCatalogueParentWindow/CourseCatalogueWindow/Dropdown1/DepartmentDropdown" to="MainContainer/CourseCatalogueParentWindow/CourseCatalogueWindow" method="_on_department_dropdown_item_selected"]
 [connection signal="item_selected" from="MainContainer/CourseCatalogueParentWindow/CourseCatalogueWindow/Dropdown2/TimeDropdown" to="MainContainer/CourseCatalogueParentWindow/CourseCatalogueWindow" method="_on_time_dropdown_item_selected"]
-[connection signal="close_requested" from="MainContainer/RegistarManualParentWindow" to="MainContainer/RegistarManualParentWindow" method="_on_close_requested"]
+[connection signal="close_requested" from="MainContainer/RegistrarManualParentWindow" to="MainContainer/RegistrarManualParentWindow" method="_on_close_requested"]
+[connection signal="close_requested" from="MainContainer/EmailParentWindow" to="MainContainer/EmailParentWindow" method="_on_close_requested"]
+[connection signal="pressed" from="MainContainer/EmailParentWindow/EmailWindow/EmailInbox/InboxEmailsContainer/Email1/Email1Button" to="MainContainer/EmailParentWindow/EmailWindow" method="_on_email_1_button_pressed"]
+[connection signal="pressed" from="MainContainer/EmailParentWindow/EmailWindow/EmailInbox/InboxEmailsContainer/Email2/Email2Button" to="MainContainer/EmailParentWindow/EmailWindow" method="_on_email_2_button_pressed"]
 [connection signal="pressed" from="EndGameParentWindow/EndGameWindow/Button Container/Play Again" to="." method="_on_play_again_pressed"]
 [connection signal="pressed" from="EndGameParentWindow/EndGameWindow/Button Container/Quit" to="." method="_on_quit_pressed"]

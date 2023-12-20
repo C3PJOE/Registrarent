@@ -8,12 +8,15 @@ signal esc_pressed
 @onready var registrar_manual_taskbar_button = $Desktop/Taskbar/TaskbarShortcutContainer/RegistrarManualTaskbarButton
 @onready var browser_taskbar_button = $Desktop/Taskbar/TaskbarShortcutContainer/BrowserTaskbarButton
 @onready var catalogue_taskbar_button = $Desktop/Taskbar/TaskbarShortcutContainer/CatalogueTaskbarButton
-@onready var registrar_manual_parent_window = $RegistarManualParentWindow
-@onready var registrar_manual_window = $RegistarManualParentWindow/RegistrarManualWindow
+@onready var registrar_manual_parent_window = $RegistrarManualParentWindow
+@onready var registrar_manual_window = $RegistrarManualParentWindow/RegistrarManualWindow
 @onready var desktop_shortcut_container = $Desktop/DesktopShortcutContainer
 @onready var registrar_manual_desktop_shortcut = $Desktop/DesktopShortcutContainer/RegistrarManualDesktopShortcut
 @onready var catalogue_desktop_shortcut = $Desktop/DesktopShortcutContainer/CatalogueDesktopShortcut
 @onready var browser_desktop_shortcut = $Desktop/DesktopShortcutContainer/BrowserDesktopShortcut
+@onready var email_parent_window = $EmailParentWindow
+@onready var email_window = $EmailParentWindow/EmailWindow
+@onready var email_taskbar_button = $Desktop/Taskbar/TaskbarShortcutContainer/EmailTaskbarButton
 
 
 # Called when the node enters the scene tree for the first time.
@@ -83,7 +86,19 @@ func _on_registrar_manual_taskbar_button_pressed():
 		registrar_manual_parent_window.show()
 		registrar_manual_window.show()
 		
-
-
 func _on_email_taskbar_button_pressed():
-	pass # Replace with function body.
+	if email_parent_window.visible == true:
+		email_parent_window.hide()
+		email_window.hide()
+	else:
+		email_parent_window.show()
+		email_window.show()
+
+
+func _on_u_mail_pressed():
+	if registrar_manual_parent_window.visible == true:
+		pass
+	else:
+		email_taskbar_button.show()
+		email_parent_window.show()
+		email_window.show()
