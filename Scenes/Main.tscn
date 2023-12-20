@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://dgv0xsiratr8g"]
+[gd_scene load_steps=71 format=3 uid="uid://dgv0xsiratr8g"]
 
 [ext_resource type="Script" path="res://Scenes/Main.gd" id="1_5ghd7"]
 [ext_resource type="Script" path="res://Scenes/MainContainer.gd" id="1_pf4tp"]
@@ -10,8 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://ltkgnnip50v0" path="res://Assets/TaskbarCatalogueIcon.png" id="7_53cl5"]
 [ext_resource type="Script" path="res://Scenes/ScheduleBrowserWindow.gd" id="7_f7lbd"]
 [ext_resource type="Texture2D" uid="uid://bxy54uli5frc4" path="res://Assets/ClassDictionary.png" id="7_u6a4s"]
-[ext_resource type="Texture2D" path="res://Assets/RegManuaTaskbarIcon.png" id="8_kvmku"]
-[ext_resource type="Texture2D" uid="uid://ps7fk0jmud10" path="res://Assets/Browser.png" id="9_tg8ot"]
+[ext_resource type="Texture2D" uid="uid://bp5s1jhpkt4kk" path="res://Assets/RegManuaTaskbarIcon.png" id="8_kvmku"]
+[ext_resource type="Texture2D" uid="uid://n6suyk7ym6jh" path="res://Assets/TaskbarEmailIcon.png" id="9_lybao"]
 [ext_resource type="BitMap" uid="uid://b4iij4p71paa8" path="res://Assets/TaskbarBrowserIcon.bmp" id="9_us4hl"]
 [ext_resource type="BitMap" uid="uid://dhib12cepcy04" path="res://Assets/RegistrarHandbookIcon.bmp" id="10_c5tvr"]
 [ext_resource type="Script" path="res://Scenes/CourseCatalogueParentWindow.gd" id="11_4a26h"]
@@ -19,18 +19,26 @@
 [ext_resource type="BitMap" uid="uid://bj6di5q0mpxae" path="res://Assets/ClassDictionaryBM.bmp" id="12_1vt4j"]
 [ext_resource type="Script" path="res://Scenes/CourseCatalogueWindow.gd" id="13_088j3"]
 [ext_resource type="BitMap" uid="uid://ctrs5sfrtinnx" path="res://Assets/Dogicon.bmp" id="13_rliaq"]
+[ext_resource type="Texture2D" uid="uid://drwjbxqumu07s" path="res://Assets/EmailIcon.png" id="15_iycnx"]
 [ext_resource type="Texture2D" uid="uid://dluu0txmecmn2" path="res://Assets/RegistrarHandbookt.png" id="15_ra8rp"]
+[ext_resource type="BitMap" uid="uid://b7dkbgvqnnxdu" path="res://Assets/EmailIconbmp.bmp" id="16_w4l7h"]
 [ext_resource type="Script" path="res://Scenes/RegistarManualParentWindow.gd" id="17_205en"]
 [ext_resource type="FontFile" uid="uid://djjxk0k3ue38k" path="res://Assets/Fonts/times.ttf" id="18_cy781"]
 [ext_resource type="Texture2D" uid="uid://37ho0qxbbbbd" path="res://Assets/PerformanceReview.png" id="20_sv7wn"]
 [ext_resource type="Texture2D" uid="uid://co4613mo6e30x" path="res://Assets/ClassDictionaryContent.png" id="21_yopm6"]
 [ext_resource type="FontFile" uid="uid://cruht220tsdjg" path="res://Assets/Fonts/timesbd.ttf" id="24_bbowr"]
+[ext_resource type="Texture2D" uid="uid://4ona6nps7bbg" path="res://Assets/Email.png" id="26_hm7jy"]
+[ext_resource type="Texture2D" uid="uid://dynxj06mpbsht" path="res://Assets/EmailNormal.png" id="27_whk2h"]
+[ext_resource type="Texture2D" uid="uid://dgk7k48cjxktm" path="res://Assets/EmailHoveredl.png" id="28_5dovw"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2p2va"]
 bg_color = Color(0.607843, 0.678431, 0.717647, 1)
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_uiok5"]
+load_path = "res://.godot/imported/Browser.png-a2cb001519562074a311eeb7b2a16ff7.ctex"
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f7xbp"]
-texture = ExtResource("9_tg8ot")
+texture = SubResource("CompressedTexture2D_uiok5")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_grp6r"]
 resource_local_to_scene = true
@@ -185,6 +193,28 @@ texture = ExtResource("15_ra8rp")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tblil"]
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ghdl5"]
+texture = ExtResource("26_hm7jy")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1cow5"]
+bg_color = Color(0.607843, 0.678431, 0.717647, 1)
+border_width_bottom = 7
+border_color = Color(0.462745, 0.258824, 0.541176, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_78do6"]
+content_margin_left = 16.0
+bg_color = Color(0.501961, 0.501961, 0.501961, 0)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.462745, 0.258824, 0.541176, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uyfo3"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_bottom = 8
+border_color = Color(0.462745, 0.258824, 0.541176, 1)
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kut88"]
 texture = ExtResource("20_sv7wn")
 texture_margin_top = 40.0
@@ -240,11 +270,10 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_2p2va")
 layout_mode = 1
 offset_left = 100.0
 offset_top = 1.0
-offset_right = 251.0
-offset_bottom = 49.0
+offset_right = 298.0
+offset_bottom = 47.0
 
 [node name="BrowserTaskbarButton" type="TextureButton" parent="MainContainer/Desktop/Taskbar/TaskbarShortcutContainer"]
-visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 focus_mode = 0
@@ -258,7 +287,6 @@ ignore_texture_size = true
 stretch_mode = 4
 
 [node name="CatalogueTaskbarButton" type="TextureButton" parent="MainContainer/Desktop/Taskbar/TaskbarShortcutContainer"]
-visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 focus_mode = 0
@@ -273,7 +301,6 @@ ignore_texture_size = true
 stretch_mode = 4
 
 [node name="RegistrarManualTaskbarButton" type="TextureButton" parent="MainContainer/Desktop/Taskbar/TaskbarShortcutContainer"]
-visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 focus_mode = 0
@@ -287,13 +314,27 @@ texture_click_mask = ExtResource("9_us4hl")
 ignore_texture_size = true
 stretch_mode = 4
 
+[node name="EmailTaskbarButton" type="TextureButton" parent="MainContainer/Desktop/Taskbar/TaskbarShortcutContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+mouse_default_cursor_shape = 2
+action_mode = 0
+keep_pressed_outside = true
+texture_normal = ExtResource("9_lybao")
+texture_pressed = ExtResource("9_lybao")
+texture_hover = ExtResource("9_lybao")
+texture_click_mask = ExtResource("9_us4hl")
+ignore_texture_size = true
+stretch_mode = 4
+
 [node name="DesktopShortcutContainer" type="BoxContainer" parent="MainContainer/Desktop"]
 layout_mode = 0
 offset_left = 20.0
 offset_top = 20.0
 offset_right = 140.0
 offset_bottom = 504.0
-theme_override_constants/separation = 50
+theme_override_constants/separation = 34
 vertical = true
 
 [node name="RegistrarManualDesktopShortcut" type="TextureButton" parent="MainContainer/Desktop/DesktopShortcutContainer"]
@@ -307,10 +348,9 @@ stretch_mode = 4
 
 [node name="RegistrarManual" type="RichTextLabel" parent="MainContainer/Desktop/DesktopShortcutContainer/RegistrarManualDesktopShortcut"]
 layout_mode = 0
-offset_left = 14.0
-offset_top = 118.0
-offset_right = 110.0
-offset_bottom = 170.0
+offset_top = 86.0
+offset_right = 96.0
+offset_bottom = 138.0
 mouse_filter = 1
 bbcode_enabled = true
 text = "[center]Registrar[/center]
@@ -328,10 +368,10 @@ stretch_mode = 4
 
 [node name="CourseCatalogLabel" type="RichTextLabel" parent="MainContainer/Desktop/DesktopShortcutContainer/CatalogueDesktopShortcut"]
 layout_mode = 0
-offset_left = -2.0
-offset_top = 103.0
-offset_right = 127.0
-offset_bottom = 152.0
+offset_left = 5.0
+offset_top = 82.0
+offset_right = 87.0
+offset_bottom = 131.0
 mouse_filter = 1
 mouse_default_cursor_shape = 2
 bbcode_enabled = true
@@ -349,14 +389,35 @@ stretch_mode = 4
 
 [node name="ScheduleSnooperLabel" type="RichTextLabel" parent="MainContainer/Desktop/DesktopShortcutContainer/BrowserDesktopShortcut"]
 layout_mode = 0
-offset_left = 22.0
-offset_top = 118.0
-offset_right = 100.0
-offset_bottom = 175.0
+offset_left = 8.0
+offset_top = 88.0
+offset_right = 86.0
+offset_bottom = 136.0
 mouse_filter = 1
 mouse_default_cursor_shape = 2
 bbcode_enabled = true
 text = "[center]Schedule Snooper[center]"
+
+[node name="UMail" type="TextureButton" parent="MainContainer/Desktop/DesktopShortcutContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_force_pass_scroll_events = false
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("15_iycnx")
+texture_click_mask = ExtResource("16_w4l7h")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="UmailLabel" type="RichTextLabel" parent="MainContainer/Desktop/DesktopShortcutContainer/UMail"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 96.0
+offset_right = 86.0
+offset_bottom = 123.0
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+bbcode_enabled = true
+text = "[center]Umail[center]"
 
 [node name="ScheduleBrowserParentWindow" type="Window" parent="MainContainer"]
 process_mode = 3
@@ -365,7 +426,6 @@ transparent_bg = true
 gui_embed_subwindows = true
 initial_position = 2
 size = Vector2i(1280, 720)
-visible = false
 unresizable = true
 transparent = true
 mouse_passthrough = true
@@ -377,7 +437,6 @@ transparent_bg = true
 handle_input_locally = false
 initial_position = 1
 size = Vector2i(1280, 720)
-visible = false
 transient = true
 unresizable = true
 theme_override_styles/embedded_border = SubResource("StyleBoxTexture_f7xbp")
@@ -1677,6 +1736,442 @@ bbcode_enabled = true
 text = "[center]WHEN SUBMITTING SCHEDULES, STUDENTS MUST:[center]"
 fit_content = true
 
+[node name="EmailParentWindow" type="Window" parent="MainContainer"]
+process_mode = 3
+disable_3d = true
+transparent_bg = true
+gui_embed_subwindows = true
+title = "UMail - University Mail"
+initial_position = 2
+size = Vector2i(1000, 700)
+unresizable = true
+transparent = true
+mouse_passthrough = true
+
+[node name="EmailWindow" type="Window" parent="MainContainer/EmailParentWindow"]
+disable_3d = true
+transparent_bg = true
+handle_input_locally = false
+initial_position = 1
+size = Vector2i(1000, 700)
+transient = true
+unresizable = true
+theme_override_styles/embedded_border = SubResource("StyleBoxTexture_ghdl5")
+
+[node name="EmailInbox" type="ScrollContainer" parent="MainContainer/EmailParentWindow/EmailWindow"]
+offset_left = 9.0
+offset_top = 55.0
+offset_right = 270.0
+offset_bottom = 695.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+vertical_scroll_mode = 2
+
+[node name="BoxContainer" type="BoxContainer" parent="MainContainer/EmailParentWindow/EmailWindow/EmailInbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 1
+vertical = true
+
+[node name="Email1" type="RichTextLabel" parent="MainContainer/EmailParentWindow/EmailWindow/EmailInbox/BoxContainer"]
+clip_children = 2
+clip_contents = false
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("18_cy781")
+theme_override_font_sizes/normal_font_size = 19
+theme_override_styles/normal = SubResource("StyleBoxFlat_1cow5")
+bbcode_enabled = true
+text = "Notice to the Registrar's Office
+As some of you may be aware,..."
+fit_content = true
+scroll_active = false
+
+[node name="TextureButton" type="TextureButton" parent="MainContainer/EmailParentWindow/EmailWindow/EmailInbox/BoxContainer/Email1"]
+self_modulate = Color(1, 1, 1, 0.109804)
+show_behind_parent = true
+clip_contents = true
+custom_minimum_size = Vector2(253, 60)
+layout_mode = 1
+offset_right = 253.0
+offset_bottom = 60.0
+size_flags_vertical = 3
+texture_normal = ExtResource("27_whk2h")
+texture_pressed = ExtResource("28_5dovw")
+texture_hover = ExtResource("28_5dovw")
+texture_focused = ExtResource("28_5dovw")
+ignore_texture_size = true
+
+[node name="Email2" type="RichTextLabel" parent="MainContainer/EmailParentWindow/EmailWindow/EmailInbox/BoxContainer"]
+clip_children = 2
+clip_contents = false
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("18_cy781")
+theme_override_font_sizes/normal_font_size = 19
+theme_override_styles/normal = SubResource("StyleBoxFlat_1cow5")
+bbcode_enabled = true
+text = "CHEESE SALE! 
+CURDS, BLOCKS, WHEELS,..."
+fit_content = true
+scroll_active = false
+
+[node name="TextureButton" type="TextureButton" parent="MainContainer/EmailParentWindow/EmailWindow/EmailInbox/BoxContainer/Email2"]
+self_modulate = Color(1, 1, 1, 0.109804)
+show_behind_parent = true
+clip_contents = true
+custom_minimum_size = Vector2(253, 60)
+layout_mode = 1
+offset_right = 253.0
+offset_bottom = 60.0
+size_flags_vertical = 3
+texture_normal = ExtResource("27_whk2h")
+texture_pressed = ExtResource("28_5dovw")
+texture_hover = ExtResource("28_5dovw")
+texture_focused = ExtResource("28_5dovw")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Email3" type="RichTextLabel" parent="MainContainer/EmailParentWindow/EmailWindow/EmailInbox/BoxContainer"]
+clip_children = 2
+clip_contents = false
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("18_cy781")
+theme_override_font_sizes/normal_font_size = 19
+theme_override_styles/normal = SubResource("StyleBoxFlat_1cow5")
+bbcode_enabled = true
+text = "Notice regarding misuse of University showers and bathro..."
+fit_content = true
+scroll_active = false
+
+[node name="TextureButton" type="TextureButton" parent="MainContainer/EmailParentWindow/EmailWindow/EmailInbox/BoxContainer/Email3"]
+self_modulate = Color(1, 1, 1, 0.109804)
+show_behind_parent = true
+clip_contents = true
+custom_minimum_size = Vector2(253, 60)
+layout_mode = 1
+offset_right = 253.0
+offset_bottom = 60.0
+size_flags_vertical = 3
+texture_normal = ExtResource("27_whk2h")
+texture_pressed = ExtResource("28_5dovw")
+texture_hover = ExtResource("28_5dovw")
+texture_focused = ExtResource("28_5dovw")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Email4" type="RichTextLabel" parent="MainContainer/EmailParentWindow/EmailWindow/EmailInbox/BoxContainer"]
+clip_children = 2
+clip_contents = false
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("18_cy781")
+theme_override_font_sizes/normal_font_size = 19
+theme_override_styles/normal = SubResource("StyleBoxFlat_1cow5")
+bbcode_enabled = true
+text = "HEY ALUMNI!!!
+We see that you're an alumnus..."
+fit_content = true
+scroll_active = false
+
+[node name="TextureButton" type="TextureButton" parent="MainContainer/EmailParentWindow/EmailWindow/EmailInbox/BoxContainer/Email4"]
+self_modulate = Color(1, 1, 1, 0.109804)
+show_behind_parent = true
+clip_contents = true
+custom_minimum_size = Vector2(253, 60)
+layout_mode = 1
+offset_right = 253.0
+offset_bottom = 60.0
+size_flags_vertical = 3
+texture_normal = ExtResource("27_whk2h")
+texture_pressed = ExtResource("28_5dovw")
+texture_hover = ExtResource("28_5dovw")
+texture_focused = ExtResource("28_5dovw")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Email5" type="RichTextLabel" parent="MainContainer/EmailParentWindow/EmailWindow/EmailInbox/BoxContainer"]
+clip_children = 2
+clip_contents = false
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("18_cy781")
+theme_override_font_sizes/normal_font_size = 19
+theme_override_styles/normal = SubResource("StyleBoxFlat_1cow5")
+bbcode_enabled = true
+text = "Annual Campus Safety Report
+Hello students and faculty,..."
+fit_content = true
+scroll_active = false
+
+[node name="TextureButton" type="TextureButton" parent="MainContainer/EmailParentWindow/EmailWindow/EmailInbox/BoxContainer/Email5"]
+self_modulate = Color(1, 1, 1, 0.109804)
+show_behind_parent = true
+clip_contents = true
+custom_minimum_size = Vector2(253, 60)
+layout_mode = 1
+offset_right = 253.0
+offset_bottom = 60.0
+size_flags_vertical = 3
+texture_normal = ExtResource("27_whk2h")
+texture_pressed = ExtResource("28_5dovw")
+texture_hover = ExtResource("28_5dovw")
+texture_focused = ExtResource("28_5dovw")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Email6" type="RichTextLabel" parent="MainContainer/EmailParentWindow/EmailWindow/EmailInbox/BoxContainer"]
+clip_children = 2
+clip_contents = false
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("18_cy781")
+theme_override_font_sizes/normal_font_size = 19
+theme_override_styles/normal = SubResource("StyleBoxFlat_1cow5")
+bbcode_enabled = true
+text = "Regarding the Computer Science Department and its acc..."
+fit_content = true
+scroll_active = false
+
+[node name="TextureButton" type="TextureButton" parent="MainContainer/EmailParentWindow/EmailWindow/EmailInbox/BoxContainer/Email6"]
+self_modulate = Color(1, 1, 1, 0.109804)
+show_behind_parent = true
+clip_contents = true
+custom_minimum_size = Vector2(253, 60)
+layout_mode = 1
+offset_right = 253.0
+offset_bottom = 60.0
+size_flags_vertical = 3
+texture_normal = ExtResource("27_whk2h")
+texture_pressed = ExtResource("28_5dovw")
+texture_hover = ExtResource("28_5dovw")
+texture_focused = ExtResource("28_5dovw")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Email7" type="RichTextLabel" parent="MainContainer/EmailParentWindow/EmailWindow/EmailInbox/BoxContainer"]
+clip_children = 2
+clip_contents = false
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("18_cy781")
+theme_override_font_sizes/normal_font_size = 19
+theme_override_styles/normal = SubResource("StyleBoxFlat_1cow5")
+bbcode_enabled = true
+text = "Important University Memo 
+Hello staff, we've recently bee..."
+fit_content = true
+scroll_active = false
+
+[node name="TextureButton" type="TextureButton" parent="MainContainer/EmailParentWindow/EmailWindow/EmailInbox/BoxContainer/Email7"]
+self_modulate = Color(1, 1, 1, 0.109804)
+show_behind_parent = true
+clip_contents = true
+custom_minimum_size = Vector2(253, 60)
+layout_mode = 1
+offset_right = 253.0
+offset_bottom = 60.0
+size_flags_vertical = 3
+texture_normal = ExtResource("27_whk2h")
+texture_pressed = ExtResource("28_5dovw")
+texture_hover = ExtResource("28_5dovw")
+texture_focused = ExtResource("28_5dovw")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Email8" type="RichTextLabel" parent="MainContainer/EmailParentWindow/EmailWindow/EmailInbox/BoxContainer"]
+clip_children = 2
+clip_contents = false
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("18_cy781")
+theme_override_font_sizes/normal_font_size = 19
+theme_override_styles/normal = SubResource("StyleBoxFlat_1cow5")
+bbcode_enabled = true
+text = "New Staff Bathroom Tiers
+Effective tomorrow, staff bath..."
+fit_content = true
+scroll_active = false
+
+[node name="TextureButton" type="TextureButton" parent="MainContainer/EmailParentWindow/EmailWindow/EmailInbox/BoxContainer/Email8"]
+self_modulate = Color(1, 1, 1, 0.109804)
+show_behind_parent = true
+clip_contents = true
+custom_minimum_size = Vector2(253, 60)
+layout_mode = 1
+offset_right = 253.0
+offset_bottom = 60.0
+size_flags_vertical = 3
+texture_normal = ExtResource("27_whk2h")
+texture_pressed = ExtResource("28_5dovw")
+texture_hover = ExtResource("28_5dovw")
+texture_focused = ExtResource("28_5dovw")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Email9" type="RichTextLabel" parent="MainContainer/EmailParentWindow/EmailWindow/EmailInbox/BoxContainer"]
+clip_children = 2
+clip_contents = false
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("18_cy781")
+theme_override_font_sizes/normal_font_size = 19
+theme_override_styles/normal = SubResource("StyleBoxFlat_1cow5")
+bbcode_enabled = true
+text = "DISREGARD LAST EMAIL
+Hello all, please disregard the..."
+fit_content = true
+scroll_active = false
+
+[node name="TextureButton" type="TextureButton" parent="MainContainer/EmailParentWindow/EmailWindow/EmailInbox/BoxContainer/Email9"]
+self_modulate = Color(1, 1, 1, 0.109804)
+show_behind_parent = true
+clip_contents = true
+custom_minimum_size = Vector2(253, 60)
+layout_mode = 1
+offset_right = 253.0
+offset_bottom = 60.0
+size_flags_vertical = 3
+texture_normal = ExtResource("27_whk2h")
+texture_pressed = ExtResource("28_5dovw")
+texture_hover = ExtResource("28_5dovw")
+texture_focused = ExtResource("28_5dovw")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Email10" type="RichTextLabel" parent="MainContainer/EmailParentWindow/EmailWindow/EmailInbox/BoxContainer"]
+clip_children = 2
+clip_contents = false
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("18_cy781")
+theme_override_font_sizes/normal_font_size = 19
+theme_override_styles/normal = SubResource("StyleBoxFlat_1cow5")
+bbcode_enabled = true
+text = "Regarding beach house payment
+Hello Stella, I've reviewed the..."
+fit_content = true
+scroll_active = false
+
+[node name="TextureButton" type="TextureButton" parent="MainContainer/EmailParentWindow/EmailWindow/EmailInbox/BoxContainer/Email10"]
+self_modulate = Color(1, 1, 1, 0.109804)
+show_behind_parent = true
+clip_contents = true
+custom_minimum_size = Vector2(253, 60)
+layout_mode = 1
+offset_right = 253.0
+offset_bottom = 60.0
+size_flags_vertical = 3
+texture_normal = ExtResource("27_whk2h")
+texture_pressed = ExtResource("28_5dovw")
+texture_hover = ExtResource("28_5dovw")
+texture_focused = ExtResource("28_5dovw")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Email11" type="RichTextLabel" parent="MainContainer/EmailParentWindow/EmailWindow/EmailInbox/BoxContainer"]
+clip_children = 2
+clip_contents = false
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("18_cy781")
+theme_override_font_sizes/normal_font_size = 19
+theme_override_styles/normal = SubResource("StyleBoxFlat_1cow5")
+bbcode_enabled = true
+text = "It's Our Bicentennial!!
+Happy 200th birthday to the..."
+fit_content = true
+scroll_active = false
+
+[node name="TextureButton" type="TextureButton" parent="MainContainer/EmailParentWindow/EmailWindow/EmailInbox/BoxContainer/Email11"]
+self_modulate = Color(1, 1, 1, 0.109804)
+show_behind_parent = true
+clip_contents = true
+custom_minimum_size = Vector2(253, 60)
+layout_mode = 1
+offset_right = 253.0
+offset_bottom = 60.0
+size_flags_vertical = 3
+texture_normal = ExtResource("27_whk2h")
+texture_pressed = ExtResource("28_5dovw")
+texture_hover = ExtResource("28_5dovw")
+texture_focused = ExtResource("28_5dovw")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="EmailContent" type="ScrollContainer" parent="MainContainer/EmailParentWindow/EmailWindow"]
+offset_left = 325.0
+offset_top = 30.0
+offset_right = 949.0
+offset_bottom = 680.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_78do6")
+horizontal_scroll_mode = 0
+
+[node name="EmailsContainer" type="BoxContainer" parent="MainContainer/EmailParentWindow/EmailWindow/EmailContent"]
+show_behind_parent = true
+clip_children = 2
+layout_mode = 2
+size_flags_horizontal = 3
+vertical = true
+
+[node name="Email1" type="BoxContainer" parent="MainContainer/EmailParentWindow/EmailWindow/EmailContent/EmailsContainer"]
+show_behind_parent = true
+clip_children = 2
+layout_mode = 2
+size_flags_horizontal = 3
+vertical = true
+
+[node name="EmailSubject1" type="RichTextLabel" parent="MainContainer/EmailParentWindow/EmailWindow/EmailContent/EmailsContainer/Email1"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("18_cy781")
+theme_override_font_sizes/normal_font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_uyfo3")
+bbcode_enabled = true
+text = "Notice to the Registrar's Office
+
+From:Presidentsoffice@AU.com
+To: you,RegistrarsOffice@AU.com"
+fit_content = true
+scroll_active = false
+
+[node name="EmailBody1" type="RichTextLabel" parent="MainContainer/EmailParentWindow/EmailWindow/EmailContent/EmailsContainer/Email1"]
+custom_minimum_size = Vector2(200, 500)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("18_cy781")
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[left]Valued Members of the Registrar's Office,
+
+As some of you may be aware, recently our Automated Registrar Software suffered a catastrophic system failure. Despite the best efforts of our IT Department, we have been unable to restore the ARS before next semester's enrollment period opens to students. 
+
+Due to these unforseen complications, all Registrar's Office staff will be required to manually review and approve or deny the proposed schedule of every student. The administration has determined this is the only way to ensure the smooth continuation of university operations without unnecessary expenditure.
+
+Now, I'm sure many of you are thinking: \"Will we be onboarding more people to meet this unprecedented demand for manual schedule review\"? No. President Weyland and his administration have full confidence in the Registrar's Office, at its current size, to professionally, expeditiously, and accurately judge schedule proposals from all 20,000 members of Accredited University's student body.
+
+If some of you are unfamiliar with the tools at your disposal, let me brief you. On every desktop computer in the Registrar's Office, you will find 4 crucial applications: 
+[ul]Schedule Snooper: This is where students' proposed schedules will appear, and where you will approve or deny them.[/ul]
+[ul]Registrar's E-Handbook: This application contains the guidelines proposed student schedules must follow in order to be approved. Any student whose schedule does not meet ALL criteria should be rejected.[/ul]
+[ul]Course Catalogue: This application is where information about every class offered by Accredited University is contained.[/ul]
+[ul]UMail: The University's email browser. You should be reading this on it.[/ul]
+[/left]"
+fit_content = true
+scroll_active = false
+
 [node name="EndGameParentWindow" type="Window" parent="."]
 process_mode = 3
 disable_3d = true
@@ -1864,9 +2359,11 @@ text = "Quit"
 [connection signal="pressed" from="MainContainer/Desktop/Taskbar/TaskbarShortcutContainer/BrowserTaskbarButton" to="MainContainer" method="_on_browser_taskbar_button_pressed"]
 [connection signal="pressed" from="MainContainer/Desktop/Taskbar/TaskbarShortcutContainer/CatalogueTaskbarButton" to="MainContainer" method="_on_catalogue_taskbar_button_pressed"]
 [connection signal="pressed" from="MainContainer/Desktop/Taskbar/TaskbarShortcutContainer/RegistrarManualTaskbarButton" to="MainContainer" method="_on_registrar_manual_taskbar_button_pressed"]
+[connection signal="pressed" from="MainContainer/Desktop/Taskbar/TaskbarShortcutContainer/EmailTaskbarButton" to="MainContainer" method="_on_email_taskbar_button_pressed"]
 [connection signal="pressed" from="MainContainer/Desktop/DesktopShortcutContainer/RegistrarManualDesktopShortcut" to="MainContainer" method="_on_registrar_manual_desktop_shortcut_pressed"]
 [connection signal="pressed" from="MainContainer/Desktop/DesktopShortcutContainer/CatalogueDesktopShortcut" to="MainContainer" method="_on_catalogue_desktop_shortcut_pressed"]
 [connection signal="pressed" from="MainContainer/Desktop/DesktopShortcutContainer/BrowserDesktopShortcut" to="MainContainer" method="_on_browser_desktop_shortcut_pressed"]
+[connection signal="pressed" from="MainContainer/Desktop/DesktopShortcutContainer/UMail" to="MainContainer" method="_on_browser_desktop_shortcut_pressed"]
 [connection signal="close_requested" from="MainContainer/ScheduleBrowserParentWindow" to="MainContainer/ScheduleBrowserParentWindow" method="_on_close_requested"]
 [connection signal="esc_pressed" from="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" to="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" method="_on_esc_pressed"]
 [connection signal="pressed" from="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/YesButton" to="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" method="_on_yes_button_pressed"]

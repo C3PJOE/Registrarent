@@ -83,3 +83,7 @@ func _on_registrar_manual_taskbar_button_pressed():
 		registrar_manual_parent_window.show()
 		registrar_manual_window.show()
 		
+
+
+func _on_email_taskbar_button_pressed():
+	pass # Replace with function body.
