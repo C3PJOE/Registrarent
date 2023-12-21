@@ -1884,7 +1884,7 @@ theme_override_font_sizes/normal_font_size = 19
 theme_override_styles/normal = SubResource("StyleBoxFlat_1cow5")
 bbcode_enabled = true
 text = "HEY ALUMNI!!!
-We see that you're an alumnus..."
+Hello Alumnus, You're getting..."
 fit_content = true
 scroll_active = false
 
@@ -1915,7 +1915,7 @@ theme_override_font_sizes/normal_font_size = 19
 theme_override_styles/normal = SubResource("StyleBoxFlat_1cow5")
 bbcode_enabled = true
 text = "Annual Campus Safety Report
-Hello students and faculty,..."
+Hi everybody, it's that time of..."
 fit_content = true
 scroll_active = false
 
@@ -1945,7 +1945,7 @@ theme_override_fonts/normal_font = ExtResource("18_cy781")
 theme_override_font_sizes/normal_font_size = 19
 theme_override_styles/normal = SubResource("StyleBoxFlat_1cow5")
 bbcode_enabled = true
-text = "Regarding the Computer Science Department and its acc..."
+text = "Regarding the Computer Science Department's Acc..."
 fit_content = true
 scroll_active = false
 
@@ -1976,7 +1976,7 @@ theme_override_font_sizes/normal_font_size = 19
 theme_override_styles/normal = SubResource("StyleBoxFlat_1cow5")
 bbcode_enabled = true
 text = "Important University Memo 
-Hello staff, we've recently bee..."
+Accredited Academics, Today..."
 fit_content = true
 scroll_active = false
 
@@ -2006,8 +2006,9 @@ theme_override_fonts/normal_font = ExtResource("18_cy781")
 theme_override_font_sizes/normal_font_size = 19
 theme_override_styles/normal = SubResource("StyleBoxFlat_1cow5")
 bbcode_enabled = true
-text = "New Staff Bathroom Tiers
-Effective tomorrow, staff bath..."
+text = "Faculty/Staff Bathroom Policy
+To all faculty and staff, In an e...
+"
 fit_content = true
 scroll_active = false
 
@@ -2038,7 +2039,7 @@ theme_override_font_sizes/normal_font_size = 19
 theme_override_styles/normal = SubResource("StyleBoxFlat_1cow5")
 bbcode_enabled = true
 text = "DISREGARD LAST EMAIL
-Hello all, please disregard the..."
+Hello all, Please disregard the..."
 fit_content = true
 scroll_active = false
 
@@ -2068,7 +2069,7 @@ theme_override_fonts/normal_font = ExtResource("18_cy781")
 theme_override_font_sizes/normal_font_size = 19
 theme_override_styles/normal = SubResource("StyleBoxFlat_1cow5")
 bbcode_enabled = true
-text = "Regarding beach house payment
+text = "Regarding Stadium Plans
 Hello Stella, I've reviewed the..."
 fit_content = true
 scroll_active = false
@@ -2099,8 +2100,8 @@ theme_override_fonts/normal_font = ExtResource("18_cy781")
 theme_override_font_sizes/normal_font_size = 19
 theme_override_styles/normal = SubResource("StyleBoxFlat_1cow5")
 bbcode_enabled = true
-text = "It's Our Bicentennial!!
-Happy 200th birthday to the..."
+text = "It's Our Birthday!!
+Academics, Say Happy 195th..."
 fit_content = true
 scroll_active = false
 
@@ -2183,7 +2184,7 @@ One last thing: Thanks to the money saved by not hiring more Registrar staff, we
 
 Good luck and have a credible day! 
 
-Jeff Stick, Vice President of Faculty, Accredited University 
+Jeff Stick, Vice President of Faculty and Staff, Accredited University 
 [/left]"
 fit_content = true
 scroll_active = false
@@ -2248,15 +2249,14 @@ theme_override_fonts/normal_font = ExtResource("18_cy781")
 theme_override_font_sizes/normal_font_size = 20
 theme_override_styles/normal = SubResource("StyleBoxFlat_uyfo3")
 bbcode_enabled = true
-text = "CHEESE SALE!
+text = "Notice regarding misuse of University showers and bathrooms
 
-From:CheeseEmperor@CheesePalace.com
-To: you"
+From:Janet.M.studentaffairs@AU.com
+To:you,studentbody@AU.com,facultyandstaff@AU.com"
 fit_content = true
 scroll_active = false
 
 [node name="EmailBody3" type="RichTextLabel" parent="MainContainer/EmailParentWindow/EmailWindow/EmailContent/EmailsContainer/Email3"]
-visible = false
 custom_minimum_size = Vector2(200, 500)
 layout_mode = 2
 size_flags_vertical = 3
@@ -2264,17 +2264,381 @@ theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("18_cy781")
 theme_override_font_sizes/normal_font_size = 20
 bbcode_enabled = true
-text = "[left]CURDS, BLOCKS, WHEELS, AND SO MUCH MORE!!!
+text = "[left]Hello All, 
 
-ATTENTION ALL BLOCKHEADS, THE CHEESE PALACE IS HAVING A SALE OF GARGANZOLAN PROPORTIONS!
+I do not want to be writing this email right now, but unfortunately we've been noticing an issue across almost every dormitory on campus. The showers have become a home for an abhorrent and immature act and I am writing this message to implore and demand every student who has participated or plans to participate in it to STOP and think about the consequences of their actions. Let me be clear: DO NOT USE BATH BOMBS OR BUBBLE BATH IN THE SHOWERS! The plumbing in most dormitory buildings is nearing 100 years old, and cannot handle all of that soap. 
 
-BY ROYAL DECREE, THE CHEESE EMPEROR BIDS ALL OF HIS ROYAL SUBJECTS TO JOURNEY TOWARDS THE CHEESE PALACE THIS WEEKEND! YOU'D BE A MUENSTER TO MISS IT!!!
+Again, I'm disappointed that I even have to compose and send this email, but apparently common sense is no longer that common. I hope all the students reading this take my message to heart and do their part in keeping the bathroom facilities clean and operational. 
 
-WE THANK YOU FOR YOUR CONTINUED PATRONAGE,
+Stay Credible, 
+
+
+Janet Markakis, Head of Student Affairs, Accredited University 
+[/left]"
+fit_content = true
+scroll_active = false
+
+[node name="Email4" type="BoxContainer" parent="MainContainer/EmailParentWindow/EmailWindow/EmailContent/EmailsContainer"]
+visible = false
+show_behind_parent = true
+clip_children = 2
+layout_mode = 2
+size_flags_horizontal = 3
+vertical = true
+
+[node name="EmailSubject4" type="RichTextLabel" parent="MainContainer/EmailParentWindow/EmailWindow/EmailContent/EmailsContainer/Email4"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("18_cy781")
+theme_override_font_sizes/normal_font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_uyfo3")
+bbcode_enabled = true
+text = "HEY ALUMNI!!!
+
+From: AUAlumniAssociation@AU.com
+To:you"
+fit_content = true
+scroll_active = false
+
+[node name="EmailBody4" type="RichTextLabel" parent="MainContainer/EmailParentWindow/EmailWindow/EmailContent/EmailsContainer/Email4"]
+custom_minimum_size = Vector2(200, 500)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("18_cy781")
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[left]Hello Alumnus, 
+
+You're getting this message because our records indicate you are both an alumnus and a current or former staff member of Accredited University! We thank you for pursing a career in which you give back to your Alma Mater. But as we here at the AU Alumni Association like to say, \"You can always give more\"!
+
+It is in that spirit that we're writing you to ask for a donation to the Alumni Association. Your donation would be used to fund extracurricular activities, student engagement events on campus, and the free lunch program, which relies solely on donations ever since the administration needed to find some extra funding for the third expansion of the Business Building.
+
+Can we count on you? Email us with the subject DONATION with your name, number, and amount you'd like to donate in the body, and we'll reach out to confirm and get payment information within 14 days.
+
+Thanks for giving back, 
+
+Francis Chen
+Vice Chair of the Accredited University Alumni Association
+[/left]"
+fit_content = true
+scroll_active = false
+
+[node name="Email5" type="BoxContainer" parent="MainContainer/EmailParentWindow/EmailWindow/EmailContent/EmailsContainer"]
+visible = false
+show_behind_parent = true
+clip_children = 2
+layout_mode = 2
+size_flags_horizontal = 3
+vertical = true
+
+[node name="EmailSubject5" type="RichTextLabel" parent="MainContainer/EmailParentWindow/EmailWindow/EmailContent/EmailsContainer/Email5"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("18_cy781")
+theme_override_font_sizes/normal_font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_uyfo3")
+bbcode_enabled = true
+text = "Annual Campus Safety Report
+
+From: Steveblart.AUPD@AU.com
+To:you,studentbody@AU.com,facultyandstaff@AU.com"
+fit_content = true
+scroll_active = false
+
+[node name="EmailBody5" type="RichTextLabel" parent="MainContainer/EmailParentWindow/EmailWindow/EmailContent/EmailsContainer/Email5"]
+custom_minimum_size = Vector2(200, 500)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("18_cy781")
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[left]Hi everybody, 
+
+it's that time of year again. The annual cmapus safety report is available at www.aupoliceepartment.com and on the main university website under the campus news section. If you don't feel like reading the whole thing, don't worry; I'll be touching on some points from the report here. 
+
+First, I'd like to thank every member of the AUPD for showing up every day and making this campus a safe place to learn. I hope all of you will say thanks to the next AUPD officer you see! With that being said, let's get to the debriefing, as we say in the business (policing). 
+
+This time last year, we struggled with rampant drug use on campus, with an unprecedented 48% of students admitting anonymously that they use narcotics on a semi-regular basis. Resident Assistants, along with confidential student informants, reported a truly shocking 572 instances of suspected drug trafficking or distribution. On a campuis of 6,000 students, that truly is an alarming number, especially when you consider the reported number is amlost always lower than the actual number. This year, we've successfully addressed both of these issues. 
+
+First: the anonymous survey is now only being offered to incoming freshmen, reducing the total number of students who use drugs to 19%. 
+
+Second: After speaking with the president at the start of the year, I was able to convince him to revert Student Affairs' previous decision to ban student organizations, fraternities, and sororities from purchasing,renting, or otherwise operating properties off campus. As a result of the President's wise decision, we've seen drug trafficking and distributing incidences on campus drop from 572 to 109 this year. Let the city deal with them is what I say!
+
+Sent from my phone,
+
+Lieutenant Steve Blart, AUPD
+[/left]"
+fit_content = true
+scroll_active = false
+
+[node name="Email6" type="BoxContainer" parent="MainContainer/EmailParentWindow/EmailWindow/EmailContent/EmailsContainer"]
+visible = false
+show_behind_parent = true
+clip_children = 2
+layout_mode = 2
+size_flags_horizontal = 3
+vertical = true
+
+[node name="EmailSubject6" type="RichTextLabel" parent="MainContainer/EmailParentWindow/EmailWindow/EmailContent/EmailsContainer/Email6"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("18_cy781")
+theme_override_font_sizes/normal_font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_uyfo3")
+bbcode_enabled = true
+text = "Regarding the Computer Science Department's Accreditation
+
+From: PhilipSuchs@AU.com
+To:you,studentbody@AU.com,RegistrarsOffice@AU.com"
+fit_content = true
+scroll_active = false
+
+[node name="EmailBody6" type="RichTextLabel" parent="MainContainer/EmailParentWindow/EmailWindow/EmailContent/EmailsContainer/Email6"]
+custom_minimum_size = Vector2(200, 500)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("18_cy781")
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[left]Hello, 
+
+My name is Philip Suchs, I am the head of the Computer Science Department here at Accredited University. Today I am obligated to inform you that after a rigorous review lasting more than a year, the Department has failed to gain renewed accreditation from ABCSE. I will not delve into the whys or hows, for they are utterly irrelevant. I will briefly say that perhaps the quality of our courses would improve if they were taught in a dedicated computer science building, instead of  the dank, dark sub-basements of the other departmental buildings. But I digress.
+
+What is relevant is where we go from here. The University will continue offering all of our standard computer science classes and all members of the Registrar's Office should not treat these classes any differently. We will be submitting an appeal and a request for re-review in order to achieve a more favorable outcome.
+
+Good Day, 
+
+Philip Suchs, Head of Computer Science, Accredited University
+[/left]"
+fit_content = true
+scroll_active = false
+
+[node name="Email7" type="BoxContainer" parent="MainContainer/EmailParentWindow/EmailWindow/EmailContent/EmailsContainer"]
+visible = false
+show_behind_parent = true
+clip_children = 2
+layout_mode = 2
+size_flags_horizontal = 3
+vertical = true
+
+[node name="EmailSubject7" type="RichTextLabel" parent="MainContainer/EmailParentWindow/EmailWindow/EmailContent/EmailsContainer/Email7"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("18_cy781")
+theme_override_font_sizes/normal_font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_uyfo3")
+bbcode_enabled = true
+text = "Important University Memo
+
+From: PresidentPatrickWeyland@AU.com
+To:you,studentbody@AU.com,facultyandstaff@AU.com"
+fit_content = true
+scroll_active = false
+
+[node name="EmailBody7" type="RichTextLabel" parent="MainContainer/EmailParentWindow/EmailWindow/EmailContent/EmailsContainer/Email7"]
+custom_minimum_size = Vector2(200, 500)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("18_cy781")
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[left]Accredited Academics,
+
+Today I come to you with a very serious message: 
+
+TICKETS TO THE FOOTBALL GAME THIS SATURDAY AT 2:00 PM ARE FREE FOR STUDENTS AND 50% OFF FOR GENERAL ADMISSION! 
+
+Join me and my family in coming out to rally behind the Academics as they play against the Newburgh Nuggets, or as I like to call them, the Newburgh Nerds! I kid, I kid. It's sure to be a good time, so come on out and support the Purple and Gold! 
+
+Patrick Weyland
+21st President, Accredited University
 
 
 
-THE ROYAL SCRIBE OF HIS HIGHNESS THE CHEESE EMPEROR
+
+[/left]"
+fit_content = true
+scroll_active = false
+
+[node name="Email8" type="BoxContainer" parent="MainContainer/EmailParentWindow/EmailWindow/EmailContent/EmailsContainer"]
+visible = false
+show_behind_parent = true
+clip_children = 2
+layout_mode = 2
+size_flags_horizontal = 3
+vertical = true
+
+[node name="EmailSubject8" type="RichTextLabel" parent="MainContainer/EmailParentWindow/EmailWindow/EmailContent/EmailsContainer/Email8"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("18_cy781")
+theme_override_font_sizes/normal_font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_uyfo3")
+bbcode_enabled = true
+text = "Faculty/Staff Bathroom Policy
+
+From: Stellaexeccoordinator@AU.com
+To:you,facultyandstaff@AU.com"
+fit_content = true
+scroll_active = false
+
+[node name="EmailBody8" type="RichTextLabel" parent="MainContainer/EmailParentWindow/EmailWindow/EmailContent/EmailsContainer/Email8"]
+custom_minimum_size = Vector2(200, 500)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("18_cy781")
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[left]To all faculty and staff, 
+
+In an effort to reduce wasted time and unnecessary mingling amongst our valued faculty and staff, we are implementing new bathroom policies. Certain bathrooms will be off limits to staff, some will be off limits to faculty, and some will be off limits to everyone except for department chairs and executive officers. 
+
+Upon your arrival to work next week, you'll receive a colored sticker that you should promptly apply to your faculty/staff ID. All bathrooms will henceforth be marked with the appropriate color to indicate who may or may not use that bathroom. As always, faculty and staff are NOT permitted to use public restrooms designated for student use.
+
+Failure to comply, even in \"emergencies\", will result in disciplinary action. Should we notice a trend of inappropriate bathroom usage, we will direct AUPD officers to stand outside and check IDs to ensure everyone is using the correct bathroom.
+
+We thank you for your understanding, 
+
+Stella Partridge, Executive Coordinater, Accredited University
+
+
+
+
+[/left]"
+fit_content = true
+scroll_active = false
+
+[node name="Email9" type="BoxContainer" parent="MainContainer/EmailParentWindow/EmailWindow/EmailContent/EmailsContainer"]
+visible = false
+show_behind_parent = true
+clip_children = 2
+layout_mode = 2
+size_flags_horizontal = 3
+vertical = true
+
+[node name="EmailSubject9" type="RichTextLabel" parent="MainContainer/EmailParentWindow/EmailWindow/EmailContent/EmailsContainer/Email9"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("18_cy781")
+theme_override_font_sizes/normal_font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_uyfo3")
+bbcode_enabled = true
+text = "DISREGARD LAST EMAIL
+
+From: Presidentsoffice@AU.com
+To:you,facultyandstaff@AU.com"
+fit_content = true
+scroll_active = false
+
+[node name="EmailBody9" type="RichTextLabel" parent="MainContainer/EmailParentWindow/EmailWindow/EmailContent/EmailsContainer/Email9"]
+custom_minimum_size = Vector2(200, 500)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("18_cy781")
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[left]Hello all,
+
+Please disregard the last email from PresidentPatrickWeyland@AU.com. We've been made aware of a cyber criminal who has successfully breached the President's email account, and has apparently begun spreading fabricated messages to try and smirch the President's good name. 
+
+Stay safe, 
+
+Jeff Stick, Vice President of Faculty and Staff, Accredited University
+[/left]"
+fit_content = true
+scroll_active = false
+
+[node name="Email10" type="BoxContainer" parent="MainContainer/EmailParentWindow/EmailWindow/EmailContent/EmailsContainer"]
+visible = false
+show_behind_parent = true
+clip_children = 2
+layout_mode = 2
+size_flags_horizontal = 3
+vertical = true
+
+[node name="EmailSubject10" type="RichTextLabel" parent="MainContainer/EmailParentWindow/EmailWindow/EmailContent/EmailsContainer/Email10"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("18_cy781")
+theme_override_font_sizes/normal_font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_uyfo3")
+bbcode_enabled = true
+text = "Regarding Stadium Plans
+
+From: PresidentPatrickWeyland@AU.com
+To:you,Stellaexeccoordinator@AU.com,facultyandstaff@AU.com"
+fit_content = true
+scroll_active = false
+
+[node name="EmailBody10" type="RichTextLabel" parent="MainContainer/EmailParentWindow/EmailWindow/EmailContent/EmailsContainer/Email10"]
+custom_minimum_size = Vector2(200, 500)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("18_cy781")
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[left]Hello Stella,
+
+I've reviewed the proposed budget rework and I have to hand it to you Stella, you have brilliantly reallocated those funds! I mean, the free lunch program!? Genius! With the funds from that AND the \"Computer Science Building\" fund (ha ha, as if), we should be able to greenlight both the new stadium and the latest (fourth?) expansion of the Business Building! I swear, that building is gonna break a record for number of glass panes used on a single structure. 
+
+Oh, and before I forget, please put together an information packet for me on what the members of the board have been doing recently. I'm trying to get them to approve my raise next quarter and really need to schmooze them. 600 grand may as well be 400 grand in this economy, am I right? Ha ha, I kid. 
+
+Keep up the great work,
+
+Patrick Weyland
+21st President, Accredited University
+
+[/left]"
+fit_content = true
+scroll_active = false
+
+[node name="Email11" type="BoxContainer" parent="MainContainer/EmailParentWindow/EmailWindow/EmailContent/EmailsContainer"]
+visible = false
+show_behind_parent = true
+clip_children = 2
+layout_mode = 2
+size_flags_horizontal = 3
+vertical = true
+
+[node name="EmailSubject11" type="RichTextLabel" parent="MainContainer/EmailParentWindow/EmailWindow/EmailContent/EmailsContainer/Email11"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("18_cy781")
+theme_override_font_sizes/normal_font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_uyfo3")
+bbcode_enabled = true
+text = "It's Our Birthday!!
+
+From: PresidentPatrickWeyland@AU.com
+To:you,facultyandstaff@AU.com,studentbody@AU.com"
+fit_content = true
+scroll_active = false
+
+[node name="EmailBody11" type="RichTextLabel" parent="MainContainer/EmailParentWindow/EmailWindow/EmailContent/EmailsContainer/Email11"]
+custom_minimum_size = Vector2(200, 500)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("18_cy781")
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[left]Academics,
+
+Say Happy 195th to our beloved institution of higher learning! Today officially marks the 195th anniversary of Accredited University. On this day in 1829, Jim Hartford did the unthinkable: He invested loads of money into creating an elite educational institute, with the goal of providing a valuable and credible education to all. As such, AU managed to become one of the first universities in the country to be given accreditation!
+
+Coincidentally, Jim Hartford was also on the board of trustees at the very first Accrediting Commission in the United States, and although some cynics have cited this as a conflict of interest, I see at as a badge of honor. Who could hold one's university to a higher standard than onself? Jim Hartford, no doubt, upheld the ethics of his post at the Accrediting Commission and dutifully tested the courses at Accredited University, until he was sure it was just that: Accredited. 
+
+I hope this has inspired you to live well, study hard, and be good.
+
+Patrick Weyland
+21st President, Accredited University
 [/left]"
 fit_content = true
 scroll_active = false
@@ -2482,5 +2846,14 @@ text = "Quit"
 [connection signal="close_requested" from="MainContainer/EmailParentWindow" to="MainContainer/EmailParentWindow" method="_on_close_requested"]
 [connection signal="pressed" from="MainContainer/EmailParentWindow/EmailWindow/EmailInbox/InboxEmailsContainer/Email1/Email1Button" to="MainContainer/EmailParentWindow/EmailWindow" method="_on_email_1_button_pressed"]
 [connection signal="pressed" from="MainContainer/EmailParentWindow/EmailWindow/EmailInbox/InboxEmailsContainer/Email2/Email2Button" to="MainContainer/EmailParentWindow/EmailWindow" method="_on_email_2_button_pressed"]
+[connection signal="pressed" from="MainContainer/EmailParentWindow/EmailWindow/EmailInbox/InboxEmailsContainer/Email3/Email3Button" to="MainContainer/EmailParentWindow/EmailWindow" method="_on_email_3_button_pressed"]
+[connection signal="pressed" from="MainContainer/EmailParentWindow/EmailWindow/EmailInbox/InboxEmailsContainer/Email4/Email4Button" to="MainContainer/EmailParentWindow/EmailWindow" method="_on_email_4_button_pressed"]
+[connection signal="pressed" from="MainContainer/EmailParentWindow/EmailWindow/EmailInbox/InboxEmailsContainer/Email5/Email5Button" to="MainContainer/EmailParentWindow/EmailWindow" method="_on_email_5_button_pressed"]
+[connection signal="pressed" from="MainContainer/EmailParentWindow/EmailWindow/EmailInbox/InboxEmailsContainer/Email6/Email6Button" to="MainContainer/EmailParentWindow/EmailWindow" method="_on_email_6_button_pressed"]
+[connection signal="pressed" from="MainContainer/EmailParentWindow/EmailWindow/EmailInbox/InboxEmailsContainer/Email7/Email7Button" to="MainContainer/EmailParentWindow/EmailWindow" method="_on_email_7_button_pressed"]
+[connection signal="pressed" from="MainContainer/EmailParentWindow/EmailWindow/EmailInbox/InboxEmailsContainer/Email8/Email8Button" to="MainContainer/EmailParentWindow/EmailWindow" method="_on_email_8_button_pressed"]
+[connection signal="pressed" from="MainContainer/EmailParentWindow/EmailWindow/EmailInbox/InboxEmailsContainer/Email9/Email9Button" to="MainContainer/EmailParentWindow/EmailWindow" method="_on_email_9_button_pressed"]
+[connection signal="pressed" from="MainContainer/EmailParentWindow/EmailWindow/EmailInbox/InboxEmailsContainer/Email10/Email10Button" to="MainContainer/EmailParentWindow/EmailWindow" method="_on_email_10_button_pressed"]
+[connection signal="pressed" from="MainContainer/EmailParentWindow/EmailWindow/EmailInbox/InboxEmailsContainer/Email11/Email11Button" to="MainContainer/EmailParentWindow/EmailWindow" method="_on_email_11_button_pressed"]
 [connection signal="pressed" from="EndGameParentWindow/EndGameWindow/Button Container/Play Again" to="." method="_on_play_again_pressed"]
 [connection signal="pressed" from="EndGameParentWindow/EndGameWindow/Button Container/Quit" to="." method="_on_quit_pressed"]
