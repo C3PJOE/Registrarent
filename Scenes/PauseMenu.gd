@@ -18,3 +18,7 @@ func _on_close_requested():
 
 func _on_resume_pressed():
 	hide()
+
+
+func _on_focus_entered():
+	await get_tree().create_timer(.02).timeout

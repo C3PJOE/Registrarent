@@ -2824,6 +2824,7 @@ text = "Quit"
 
 [connection signal="esc_pressed" from="MainContainer" to="MainContainer" method="_on_esc_pressed"]
 [connection signal="close_requested" from="MainContainer/PauseMenu" to="MainContainer/PauseMenu" method="_on_close_requested"]
+[connection signal="focus_entered" from="MainContainer/PauseMenu" to="MainContainer/PauseMenu" method="_on_focus_entered"]
 [connection signal="window_input" from="MainContainer/PauseMenu" to="MainContainer/PauseMenu" method="_on_window_input"]
 [connection signal="pressed" from="MainContainer/PauseMenu/BoxContainer/Resume" to="MainContainer/PauseMenu" method="_on_resume_pressed"]
 [connection signal="pressed" from="MainContainer/PauseMenu/BoxContainer/Quit" to="." method="_on_quit_pressed"]
