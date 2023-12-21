@@ -2127,6 +2127,7 @@ offset_right = 949.0
 offset_bottom = 680.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_78do6")
 horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
 
 [node name="EmailsContainer" type="BoxContainer" parent="MainContainer/EmailParentWindow/EmailWindow/EmailContent"]
 show_behind_parent = true
@@ -2210,6 +2211,52 @@ fit_content = true
 scroll_active = false
 
 [node name="EmailBody2" type="RichTextLabel" parent="MainContainer/EmailParentWindow/EmailWindow/EmailContent/EmailsContainer/Email2"]
+custom_minimum_size = Vector2(200, 500)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("18_cy781")
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[left]CURDS, BLOCKS, WHEELS, AND SO MUCH MORE!!!
+
+ATTENTION ALL BLOCKHEADS, THE CHEESE PALACE IS HAVING A SALE OF GARGANZOLAN PROPORTIONS!
+
+BY ROYAL DECREE, THE CHEESE EMPEROR BIDS ALL OF HIS ROYAL SUBJECTS TO JOURNEY TOWARDS THE CHEESE PALACE THIS WEEKEND! YOU'D BE A MUENSTER TO MISS IT!!!
+
+WE THANK YOU FOR YOUR CONTINUED PATRONAGE,
+
+
+
+THE ROYAL SCRIBE OF HIS HIGHNESS THE CHEESE EMPEROR
+[/left]"
+fit_content = true
+scroll_active = false
+
+[node name="Email3" type="BoxContainer" parent="MainContainer/EmailParentWindow/EmailWindow/EmailContent/EmailsContainer"]
+visible = false
+show_behind_parent = true
+clip_children = 2
+layout_mode = 2
+size_flags_horizontal = 3
+vertical = true
+
+[node name="EmailSubject3" type="RichTextLabel" parent="MainContainer/EmailParentWindow/EmailWindow/EmailContent/EmailsContainer/Email3"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("18_cy781")
+theme_override_font_sizes/normal_font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_uyfo3")
+bbcode_enabled = true
+text = "CHEESE SALE!
+
+From:CheeseEmperor@CheesePalace.com
+To: you"
+fit_content = true
+scroll_active = false
+
+[node name="EmailBody3" type="RichTextLabel" parent="MainContainer/EmailParentWindow/EmailWindow/EmailContent/EmailsContainer/Email3"]
+visible = false
 custom_minimum_size = Vector2(200, 500)
 layout_mode = 2
 size_flags_vertical = 3

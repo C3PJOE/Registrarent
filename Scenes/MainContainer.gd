@@ -96,7 +96,7 @@ func _on_email_taskbar_button_pressed():
 
 
 func _on_u_mail_pressed():
-	if registrar_manual_parent_window.visible == true:
+	if email_parent_window.visible == true:
 		pass
 	else:
 		email_taskbar_button.show()
