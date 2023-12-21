@@ -507,7 +507,7 @@ func schedule_maker(student):
 
 	start_end_conflict_finder(tu_thurs_classes,student,major_class_array,minor_class_array,used_classes_list)
 	
-	#trims null elements that maye be present after start_end_conflict_finder calls
+	#trims null elements that may be present after start_end_conflict_finder calls
 	_trim(mon_wed_fri_classes)
 	_trim(tu_thurs_classes)
 	#strings to hold the classes that we are going to insert into the student's profile
