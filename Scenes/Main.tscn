@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=3 uid="uid://dgv0xsiratr8g"]
+[gd_scene load_steps=72 format=3 uid="uid://dgv0xsiratr8g"]
 
 [ext_resource type="Script" path="res://Scenes/Main.gd" id="1_5ghd7"]
 [ext_resource type="Script" path="res://Scenes/MainContainer.gd" id="1_pf4tp"]
@@ -14,19 +14,17 @@
 [ext_resource type="Texture2D" uid="uid://n6suyk7ym6jh" path="res://Assets/TaskbarEmailIcon.png" id="9_lybao"]
 [ext_resource type="BitMap" uid="uid://b4iij4p71paa8" path="res://Assets/TaskbarBrowserIcon.bmp" id="9_us4hl"]
 [ext_resource type="BitMap" uid="uid://dhib12cepcy04" path="res://Assets/RegistrarHandbookIcon.bmp" id="10_c5tvr"]
-[ext_resource type="Script" path="res://Scenes/CourseCatalogueParentWindow.gd" id="11_4a26h"]
 [ext_resource type="Texture2D" uid="uid://b3a1rabx3ct82" path="res://Assets/RegistrarHandbookIcon.png" id="11_avk41"]
 [ext_resource type="BitMap" uid="uid://bj6di5q0mpxae" path="res://Assets/ClassDictionaryBM.bmp" id="12_1vt4j"]
 [ext_resource type="Script" path="res://Scenes/CourseCatalogueWindow.gd" id="13_088j3"]
 [ext_resource type="BitMap" uid="uid://ctrs5sfrtinnx" path="res://Assets/Dogicon.bmp" id="13_rliaq"]
 [ext_resource type="Texture2D" uid="uid://drwjbxqumu07s" path="res://Assets/EmailIcon.png" id="15_iycnx"]
-[ext_resource type="Texture2D" uid="uid://dluu0txmecmn2" path="res://Assets/RegistrarHandbookt.png" id="15_ra8rp"]
 [ext_resource type="BitMap" uid="uid://b7dkbgvqnnxdu" path="res://Assets/EmailIconbmp.bmp" id="16_w4l7h"]
 [ext_resource type="FontFile" uid="uid://djjxk0k3ue38k" path="res://Assets/Fonts/times.ttf" id="18_cy781"]
 [ext_resource type="Texture2D" uid="uid://37ho0qxbbbbd" path="res://Assets/PerformanceReview.png" id="20_sv7wn"]
-[ext_resource type="Texture2D" uid="uid://co4613mo6e30x" path="res://Assets/ClassDictionaryContent.png" id="21_yopm6"]
+[ext_resource type="Theme" uid="uid://bnjy8g5uiorcj" path="res://Assets/WindowTheme.tres" id="21_2i633"]
+[ext_resource type="Script" path="res://Scenes/RegistrarManualWindow.gd" id="23_878ck"]
 [ext_resource type="FontFile" uid="uid://cruht220tsdjg" path="res://Assets/Fonts/timesbd.ttf" id="24_bbowr"]
-[ext_resource type="Script" path="res://Scenes/RegistrarManualParentWindow.gd" id="24_s08ad"]
 [ext_resource type="Texture2D" uid="uid://dynxj06mpbsht" path="res://Assets/EmailNormal.png" id="27_whk2h"]
 [ext_resource type="Texture2D" uid="uid://dgk7k48cjxktm" path="res://Assets/EmailHoveredl.png" id="28_5dovw"]
 [ext_resource type="Script" path="res://Scenes/EmailWindow.gd" id="28_hx07f"]
@@ -181,31 +179,38 @@ border_color = Color(0.85098, 0.811765, 0.0352941, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dt75n"]
 bg_color = Color(0.462745, 0.258824, 0.541176, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3k42q"]
-texture = ExtResource("21_yopm6")
-texture_margin_top = 40.0
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tce5t"]
+content_margin_top = 21.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_bottom = 12
+border_color = Color(0.984314, 0.94902, 0.211765, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_grsda"]
+bg_color = Color(0.462745, 0.258824, 0.541176, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ky3v5"]
+bg_color = Color(0.462745, 0.258824, 0.541176, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vc7gw"]
-bg_color = Color(0.607843, 0.678431, 0.717647, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_07bmg"]
-texture = ExtResource("15_ra8rp")
+bg_color = Color(0.607843, 0.678431, 0.717647, 0)
+border_width_top = 10
+border_color = Color(0.462745, 0.258824, 0.541176, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tblil"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tsn84"]
-bg_color = Color(0.607843, 0.678431, 0.717647, 1)
-border_width_left = 10
-border_width_top = 30
-border_width_right = 10
-border_width_bottom = 10
-border_color = Color(0.25098, 0.25098, 0.25098, 1)
-corner_radius_top_left = 2
-corner_radius_top_right = 2
-expand_margin_top = 30.0
-
-[sub_resource type="Theme" id="Theme_pa1qp"]
-Window/styles/embedded_border = SubResource("StyleBoxFlat_tsn84")
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gra68"]
+content_margin_top = 25.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_bottom = 12
+border_color = Color(0.984314, 0.94902, 0.211765, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_poofq"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -242,6 +247,8 @@ texture_margin_top = 40.0
 script = ExtResource("1_5ghd7")
 
 [node name="MainContainer" type="Container" parent="."]
+size_flags_horizontal = 3
+size_flags_vertical = 3
 mouse_default_cursor_shape = 2
 script = ExtResource("1_pf4tp")
 
@@ -1491,59 +1498,73 @@ offset_bottom = 44.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 bbcode_enabled = true
 
-[node name="CourseCatalogueParentWindow" type="Window" parent="MainContainer"]
-process_mode = 3
-disable_3d = true
-transparent_bg = true
-gui_embed_subwindows = true
-initial_position = 1
-size = Vector2i(640, 800)
-visible = false
-unresizable = true
-transparent = true
-mouse_passthrough = true
-content_scale_size = Vector2i(640, 800)
-content_scale_mode = 1
-content_scale_aspect = 1
-script = ExtResource("11_4a26h")
-
-[node name="CourseCatalogueWindow" type="Window" parent="MainContainer/CourseCatalogueParentWindow"]
+[node name="CourseCatalogueWindow" type="Window" parent="MainContainer"]
 disable_3d = true
 transparent_bg = true
 handle_input_locally = false
+title = "Course Catalogue"
 initial_position = 1
 size = Vector2i(640, 800)
 visible = false
-transient = true
 unresizable = true
-theme_override_styles/embedded_border = SubResource("StyleBoxTexture_3k42q")
+content_scale_size = Vector2i(640, 800)
+content_scale_mode = 1
+content_scale_aspect = 1
+theme = ExtResource("21_2i633")
+theme_override_colors/title_color = Color(0.984314, 0.94902, 0.211765, 1)
 script = ExtResource("13_088j3")
 
-[node name="Dropdown1" type="BoxContainer" parent="MainContainer/CourseCatalogueParentWindow/CourseCatalogueWindow"]
+[node name="CourseCatalogueHeader" type="RichTextLabel" parent="MainContainer/CourseCatalogueWindow"]
+custom_minimum_size = Vector2(500, 30)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -310.0
+offset_top = -10.0
+offset_right = 310.0
+offset_bottom = 70.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_colors/default_color = Color(0.984314, 0.94902, 0.211765, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_tce5t")
+bbcode_enabled = true
+text = "[center]COURSE CATALOGUE[/center]"
+
+[node name="Dropdown1" type="BoxContainer" parent="MainContainer/CourseCatalogueWindow"]
 texture_filter = 1
 offset_left = 20.0
 offset_top = 100.0
 offset_right = 288.0
 offset_bottom = 135.0
 mouse_default_cursor_shape = 2
-theme_override_constants/separation = -14
+theme_override_constants/separation = -1
 
-[node name="DepartmentLabel" type="RichTextLabel" parent="MainContainer/CourseCatalogueParentWindow/CourseCatalogueWindow/Dropdown1"]
+[node name="DepartmentLabel" type="RichTextLabel" parent="MainContainer/CourseCatalogueWindow/Dropdown1"]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 mouse_default_cursor_shape = 2
-theme_override_colors/default_color = Color(0.984314, 0.94902, 0.211765, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_y = 2
 theme_override_constants/shadow_outline_size = 1
-theme_override_fonts/normal_font = ExtResource("18_cy781")
-theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/normal_font_size = 22
 bbcode_enabled = true
 text = "DEPARTMENT"
+fit_content = true
 
-[node name="DepartmentDropdown" type="OptionButton" parent="MainContainer/CourseCatalogueParentWindow/CourseCatalogueWindow/Dropdown1"]
+[node name="DepartmentDropdown" type="OptionButton" parent="MainContainer/CourseCatalogueWindow/Dropdown1"]
 layout_mode = 2
 mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.984314, 0.94902, 0.211765, 1)
+theme_override_colors/font_pressed_color = Color(0.984314, 0.94902, 0.211765, 1)
+theme_override_colors/font_hover_color = Color(0.984314, 0.94902, 0.211765, 1)
+theme_override_colors/font_focus_color = Color(0.984314, 0.94902, 0.211765, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_grsda")
+theme_override_styles/hover = SubResource("StyleBoxFlat_grsda")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_grsda")
+alignment = 1
 item_count = 7
 selected = 0
 popup/item_0/text = "ALL"
@@ -1561,31 +1582,37 @@ popup/item_5/id = 4
 popup/item_6/text = "MATH"
 popup/item_6/id = 5
 
-[node name="Dropdown2" type="BoxContainer" parent="MainContainer/CourseCatalogueParentWindow/CourseCatalogueWindow"]
+[node name="Dropdown2" type="BoxContainer" parent="MainContainer/CourseCatalogueWindow"]
 texture_filter = 1
 offset_left = 460.0
 offset_top = 100.0
 offset_right = 728.0
 offset_bottom = 135.0
 mouse_default_cursor_shape = 2
-theme_override_constants/separation = -6
+theme_override_constants/separation = -1
 
-[node name="TimeLabel" type="RichTextLabel" parent="MainContainer/CourseCatalogueParentWindow/CourseCatalogueWindow/Dropdown2"]
+[node name="TimeLabel" type="RichTextLabel" parent="MainContainer/CourseCatalogueWindow/Dropdown2"]
 custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
 mouse_default_cursor_shape = 2
-theme_override_colors/default_color = Color(0.984314, 0.94902, 0.211765, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_y = 2
-theme_override_constants/shadow_outline_size = 1
+theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("18_cy781")
-theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/normal_font_size = 22
 bbcode_enabled = true
 text = "TIME"
+fit_content = true
 
-[node name="TimeDropdown" type="OptionButton" parent="MainContainer/CourseCatalogueParentWindow/CourseCatalogueWindow/Dropdown2"]
+[node name="TimeDropdown" type="OptionButton" parent="MainContainer/CourseCatalogueWindow/Dropdown2"]
 layout_mode = 2
 mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.984314, 0.94902, 0.211765, 1)
+theme_override_colors/font_pressed_color = Color(0.984314, 0.94902, 0.211765, 1)
+theme_override_colors/font_hover_color = Color(0.984314, 0.94902, 0.211765, 1)
+theme_override_colors/font_focus_color = Color(0.984314, 0.94902, 0.211765, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_ky3v5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ky3v5")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ky3v5")
+alignment = 1
 item_count = 34
 selected = 0
 allow_reselect = true
@@ -1658,48 +1685,36 @@ popup/item_32/id = 32
 popup/item_33/text = "4:00 PM"
 popup/item_33/id = 33
 
-[node name="ClassCatalogueScrollContainer" type="ScrollContainer" parent="MainContainer/CourseCatalogueParentWindow/CourseCatalogueWindow"]
+[node name="ClassCatalogueScrollContainer" type="ScrollContainer" parent="MainContainer/CourseCatalogueWindow"]
 texture_filter = 1
 custom_minimum_size = Vector2(615, 591)
-offset_left = 13.0
-offset_top = 200.0
-offset_right = 628.0
-offset_bottom = 791.0
+offset_left = 10.0
+offset_top = 140.0
+offset_right = 639.0
+offset_bottom = 790.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_vc7gw")
 vertical_scroll_mode = 2
 
-[node name="ClassCatalogueContainer" type="VBoxContainer" parent="MainContainer/CourseCatalogueParentWindow/CourseCatalogueWindow/ClassCatalogueScrollContainer"]
+[node name="ClassCatalogueContainer" type="VBoxContainer" parent="MainContainer/CourseCatalogueWindow/ClassCatalogueScrollContainer"]
+show_behind_parent = true
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="RegistrarManualParentWindow" type="Window" parent="MainContainer"]
-process_mode = 3
-disable_3d = true
-transparent_bg = true
-gui_embed_subwindows = true
-initial_position = 1
-size = Vector2i(640, 800)
-visible = false
-unresizable = true
-transparent = true
-mouse_passthrough = true
-content_scale_size = Vector2i(640, 800)
-content_scale_mode = 1
-content_scale_aspect = 1
-script = ExtResource("24_s08ad")
-
-[node name="RegistrarManualWindow" type="Window" parent="MainContainer/RegistrarManualParentWindow"]
+[node name="RegistrarManualWindow" type="Window" parent="MainContainer"]
 disable_3d = true
 transparent_bg = true
 handle_input_locally = false
+title = "Registrar's E-Handbook"
 initial_position = 1
 size = Vector2i(640, 800)
-visible = false
-transient = true
-unresizable = true
-theme_override_styles/embedded_border = SubResource("StyleBoxTexture_07bmg")
+content_scale_size = Vector2i(640, 800)
+content_scale_mode = 1
+content_scale_aspect = 1
+theme = ExtResource("21_2i633")
+theme_override_colors/title_color = Color(0.984314, 0.94902, 0.211765, 1)
+script = ExtResource("23_878ck")
 
-[node name="ClassCatalogueScrollContainer" type="ScrollContainer" parent="MainContainer/RegistrarManualParentWindow/RegistrarManualWindow"]
+[node name="ClassCatalogueScrollContainer" type="ScrollContainer" parent="MainContainer/RegistrarManualWindow"]
 texture_filter = 1
 custom_minimum_size = Vector2(615, 591)
 anchors_preset = 8
@@ -1714,12 +1729,12 @@ offset_bottom = 391.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ClassCatalogueContainer" type="VBoxContainer" parent="MainContainer/RegistrarManualParentWindow/RegistrarManualWindow/ClassCatalogueScrollContainer"]
+[node name="ClassCatalogueContainer" type="VBoxContainer" parent="MainContainer/RegistrarManualWindow/ClassCatalogueScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 26
 
-[node name="Rule1" type="RichTextLabel" parent="MainContainer/RegistrarManualParentWindow/RegistrarManualWindow/ClassCatalogueScrollContainer/ClassCatalogueContainer"]
+[node name="Rule1" type="RichTextLabel" parent="MainContainer/RegistrarManualWindow/ClassCatalogueScrollContainer/ClassCatalogueContainer"]
 layout_mode = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_y = 0
@@ -1729,7 +1744,7 @@ bbcode_enabled = true
 text = "[ul]Have at least 3 classes belonging to the student's major area of study[/ul]"
 fit_content = true
 
-[node name="Rule2" type="RichTextLabel" parent="MainContainer/RegistrarManualParentWindow/RegistrarManualWindow/ClassCatalogueScrollContainer/ClassCatalogueContainer"]
+[node name="Rule2" type="RichTextLabel" parent="MainContainer/RegistrarManualWindow/ClassCatalogueScrollContainer/ClassCatalogueContainer"]
 layout_mode = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_outline_size = 1
@@ -1740,7 +1755,7 @@ bbcode_enabled = true
 text = "[ul]Have at least 1 class belonging to the student's minor area of study, if  they have chosen one[/ul]"
 fit_content = true
 
-[node name="Rule3" type="RichTextLabel" parent="MainContainer/RegistrarManualParentWindow/RegistrarManualWindow/ClassCatalogueScrollContainer/ClassCatalogueContainer"]
+[node name="Rule3" type="RichTextLabel" parent="MainContainer/RegistrarManualWindow/ClassCatalogueScrollContainer/ClassCatalogueContainer"]
 layout_mode = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_outline_size = 1
@@ -1750,7 +1765,7 @@ bbcode_enabled = true
 text = "[ul]Have a number of classes whose combined credit total is at least 12(15 if the student receives financial aid)[/ul]"
 fit_content = true
 
-[node name="Rule4" type="RichTextLabel" parent="MainContainer/RegistrarManualParentWindow/RegistrarManualWindow/ClassCatalogueScrollContainer/ClassCatalogueContainer"]
+[node name="Rule4" type="RichTextLabel" parent="MainContainer/RegistrarManualWindow/ClassCatalogueScrollContainer/ClassCatalogueContainer"]
 layout_mode = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_outline_size = 1
@@ -1760,7 +1775,7 @@ bbcode_enabled = true
 text = "[ul]Have a number of classes whose combined credit total is at most 18[/ul]"
 fit_content = true
 
-[node name="Rule5" type="RichTextLabel" parent="MainContainer/RegistrarManualParentWindow/RegistrarManualWindow/ClassCatalogueScrollContainer/ClassCatalogueContainer"]
+[node name="Rule5" type="RichTextLabel" parent="MainContainer/RegistrarManualWindow/ClassCatalogueScrollContainer/ClassCatalogueContainer"]
 layout_mode = 2
 theme_override_colors/default_color = Color(0.133333, 0.14902, 0.160784, 1)
 theme_override_fonts/normal_font = ExtResource("18_cy781")
@@ -1769,7 +1784,7 @@ bbcode_enabled = true
 text = "[ul]NOT have 100-level classes if the student is a SENIOR[/ul]"
 fit_content = true
 
-[node name="Rule7" type="RichTextLabel" parent="MainContainer/RegistrarManualParentWindow/RegistrarManualWindow/ClassCatalogueScrollContainer/ClassCatalogueContainer"]
+[node name="Rule7" type="RichTextLabel" parent="MainContainer/RegistrarManualWindow/ClassCatalogueScrollContainer/ClassCatalogueContainer"]
 layout_mode = 2
 theme_override_colors/default_color = Color(0.133333, 0.14902, 0.160784, 1)
 theme_override_fonts/normal_font = ExtResource("18_cy781")
@@ -1778,7 +1793,7 @@ bbcode_enabled = true
 text = "[ul]NOT have 400-level classes if the student is a FRESHMAN[/ul]"
 fit_content = true
 
-[node name="Rule6" type="RichTextLabel" parent="MainContainer/RegistrarManualParentWindow/RegistrarManualWindow/ClassCatalogueScrollContainer/ClassCatalogueContainer"]
+[node name="Rule6" type="RichTextLabel" parent="MainContainer/RegistrarManualWindow/ClassCatalogueScrollContainer/ClassCatalogueContainer"]
 layout_mode = 2
 theme_override_colors/default_color = Color(0.133333, 0.14902, 0.160784, 1)
 theme_override_fonts/normal_font = ExtResource("18_cy781")
@@ -1787,7 +1802,19 @@ bbcode_enabled = true
 text = "[ul]NOT have delinquent status on their account[/ul]"
 fit_content = true
 
-[node name="Header" type="RichTextLabel" parent="MainContainer/RegistrarManualParentWindow/RegistrarManualWindow"]
+[node name="Header" type="RichTextLabel" parent="MainContainer/RegistrarManualWindow"]
+offset_left = 10.0
+offset_top = -10.0
+offset_right = 630.0
+offset_bottom = 70.0
+theme_override_colors/default_color = Color(0.984314, 0.94902, 0.211765, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 45
+theme_override_styles/normal = SubResource("StyleBoxFlat_gra68")
+bbcode_enabled = true
+text = "[center]REGISTRAR'S E-HANDBOOK[/center]"
+
+[node name="SubHeader" type="RichTextLabel" parent="MainContainer/RegistrarManualWindow"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -1815,12 +1842,13 @@ handle_input_locally = false
 title = "UMail"
 initial_position = 1
 size = Vector2i(960, 540)
+visible = false
 min_size = Vector2i(960, 540)
 max_size = Vector2i(1280, 720)
 content_scale_size = Vector2i(960, 540)
 content_scale_mode = 1
 content_scale_aspect = 1
-theme = SubResource("Theme_pa1qp")
+theme = ExtResource("21_2i633")
 theme_override_colors/title_color = Color(0.984314, 0.94902, 0.211765, 1)
 theme_override_constants/close_h_offset = 25
 script = ExtResource("28_hx07f")
@@ -1873,6 +1901,7 @@ self_modulate = Color(1, 1, 1, 0.109804)
 show_behind_parent = true
 clip_contents = true
 custom_minimum_size = Vector2(300, 60)
+layout_mode = 0
 offset_right = 253.0
 offset_bottom = 60.0
 size_flags_vertical = 3
@@ -2918,10 +2947,10 @@ text = "Quit"
 [connection signal="esc_pressed" from="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" to="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" method="_on_esc_pressed"]
 [connection signal="pressed" from="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/YesButton" to="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" method="_on_yes_button_pressed"]
 [connection signal="pressed" from="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/NoButton" to="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" method="_on_no_button_pressed"]
-[connection signal="close_requested" from="MainContainer/CourseCatalogueParentWindow" to="MainContainer/CourseCatalogueParentWindow" method="_on_close_requested"]
-[connection signal="item_selected" from="MainContainer/CourseCatalogueParentWindow/CourseCatalogueWindow/Dropdown1/DepartmentDropdown" to="MainContainer/CourseCatalogueParentWindow/CourseCatalogueWindow" method="_on_department_dropdown_item_selected"]
-[connection signal="item_selected" from="MainContainer/CourseCatalogueParentWindow/CourseCatalogueWindow/Dropdown2/TimeDropdown" to="MainContainer/CourseCatalogueParentWindow/CourseCatalogueWindow" method="_on_time_dropdown_item_selected"]
-[connection signal="close_requested" from="MainContainer/RegistrarManualParentWindow" to="MainContainer/RegistrarManualParentWindow" method="_on_close_requested"]
+[connection signal="close_requested" from="MainContainer/CourseCatalogueWindow" to="MainContainer/CourseCatalogueWindow" method="_on_close_requested"]
+[connection signal="item_selected" from="MainContainer/CourseCatalogueWindow/Dropdown1/DepartmentDropdown" to="MainContainer/CourseCatalogueWindow" method="_on_department_dropdown_item_selected"]
+[connection signal="item_selected" from="MainContainer/CourseCatalogueWindow/Dropdown2/TimeDropdown" to="MainContainer/CourseCatalogueWindow" method="_on_time_dropdown_item_selected"]
+[connection signal="close_requested" from="MainContainer/RegistrarManualWindow" to="MainContainer/RegistrarManualWindow" method="_on_close_requested"]
 [connection signal="close_requested" from="MainContainer/EmailWindow" to="MainContainer/EmailWindow" method="_on_close_requested"]
 [connection signal="pressed" from="MainContainer/EmailWindow/EmailInbox/InboxEmailsContainer/Email1/Email1Button" to="MainContainer/EmailWindow" method="_on_email_1_button_pressed"]
 [connection signal="pressed" from="MainContainer/EmailWindow/EmailInbox/InboxEmailsContainer/Email2/Email2Button" to="MainContainer/EmailWindow" method="_on_email_2_button_pressed"]

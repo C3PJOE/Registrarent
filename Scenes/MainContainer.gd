@@ -3,13 +3,11 @@ signal esc_pressed
 @onready var pause_menu = $PauseMenu
 @onready var schedule_browser_parent_window = $ScheduleBrowserParentWindow
 @onready var schedule_browser_window = $ScheduleBrowserParentWindow/ScheduleBrowserWindow
-@onready var course_catalogue_parent_window = $CourseCatalogueParentWindow
-@onready var course_catalogue_window = $CourseCatalogueParentWindow/CourseCatalogueWindow
+@onready var course_catalogue_window = $CourseCatalogueWindow
 @onready var registrar_manual_taskbar_button = $Desktop/Taskbar/TaskbarShortcutContainer/RegistrarManualTaskbarButton
 @onready var browser_taskbar_button = $Desktop/Taskbar/TaskbarShortcutContainer/BrowserTaskbarButton
 @onready var catalogue_taskbar_button = $Desktop/Taskbar/TaskbarShortcutContainer/CatalogueTaskbarButton
-@onready var registrar_manual_parent_window = $RegistrarManualParentWindow
-@onready var registrar_manual_window = $RegistrarManualParentWindow/RegistrarManualWindow
+@onready var registrar_manual_window = $RegistrarManualWindow
 @onready var desktop_shortcut_container = $Desktop/DesktopShortcutContainer
 @onready var registrar_manual_desktop_shortcut = $Desktop/DesktopShortcutContainer/RegistrarManualDesktopShortcut
 @onready var catalogue_desktop_shortcut = $Desktop/DesktopShortcutContainer/CatalogueDesktopShortcut
@@ -52,37 +50,31 @@ func _on_browser_desktop_shortcut_pressed():
 		schedule_browser_window.show()
 
 func _on_catalogue_desktop_shortcut_pressed():
-	if course_catalogue_parent_window.visible == true:
+	if course_catalogue_window.visible == true:
 		pass
 	else:
 		catalogue_taskbar_button.show()
-		course_catalogue_parent_window.show()
 		course_catalogue_window.show()
 
 func _on_catalogue_taskbar_button_pressed():
-	if course_catalogue_parent_window.visible == true: 
-		course_catalogue_parent_window.hide()
+	if course_catalogue_window.visible == true: 
 		course_catalogue_window.hide()
 	else:
-		course_catalogue_parent_window.show()
 		course_catalogue_window.show()
 
 
 func _on_registrar_manual_desktop_shortcut_pressed():
-	if registrar_manual_parent_window.visible == true:
+	if registrar_manual_window.visible == true:
 		pass
 	else:
 		registrar_manual_taskbar_button.show()
-		registrar_manual_parent_window.show()
 		registrar_manual_window.show()
 
 
 func _on_registrar_manual_taskbar_button_pressed():
-	if registrar_manual_parent_window.visible == true:
-		registrar_manual_parent_window.hide()
+	if registrar_manual_window.visible == true:
 		registrar_manual_window.hide()
 	else:
-		registrar_manual_parent_window.show()
 		registrar_manual_window.show()
 		
 func _on_email_taskbar_button_pressed():
@@ -103,8 +95,7 @@ func _on_u_mail_pressed():
 func _on_resize_button_pressed():
 	DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS,false)
 	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
-	DisplayServer.window_set_size(Vector2i(1140,640))
-	
+	DisplayServer.window_set_size(Vector2i(1280,720))
 	
 
 	
