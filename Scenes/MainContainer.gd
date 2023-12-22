@@ -14,8 +14,7 @@ signal esc_pressed
 @onready var registrar_manual_desktop_shortcut = $Desktop/DesktopShortcutContainer/RegistrarManualDesktopShortcut
 @onready var catalogue_desktop_shortcut = $Desktop/DesktopShortcutContainer/CatalogueDesktopShortcut
 @onready var browser_desktop_shortcut = $Desktop/DesktopShortcutContainer/BrowserDesktopShortcut
-@onready var email_parent_window = $EmailParentWindow
-@onready var email_window = $EmailParentWindow/EmailWindow
+@onready var email_window = $EmailWindow
 @onready var email_taskbar_button = $Desktop/Taskbar/TaskbarShortcutContainer/EmailTaskbarButton
 
 
@@ -87,18 +86,25 @@ func _on_registrar_manual_taskbar_button_pressed():
 		registrar_manual_window.show()
 		
 func _on_email_taskbar_button_pressed():
-	if email_parent_window.visible == true:
-		email_parent_window.hide()
+	if email_window.visible == true:
 		email_window.hide()
 	else:
-		email_parent_window.show()
 		email_window.show()
 
 
 func _on_u_mail_pressed():
-	if email_parent_window.visible == true:
+	if email_window.visible == true:
 		pass
 	else:
 		email_taskbar_button.show()
-		email_parent_window.show()
 		email_window.show()
+
+
+func _on_resize_button_pressed():
+	DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS,false)
+	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+	DisplayServer.window_set_size(Vector2i(1140,640))
+	
+	
+
+	

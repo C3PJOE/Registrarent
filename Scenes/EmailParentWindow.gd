@@ -14,8 +14,4 @@ func _process(delta):
 	pass
 
 
-func _on_close_requested():
-	#hides the window when the close button is hit 
-	hide()
-	email_window.hide()
-	email_taskbar_button.hide()
+
