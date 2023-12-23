@@ -1,4 +1,5 @@
 extends Window
+signal esc_pressed
 #containers 
 @onready var class_catalogue_scroll_container = $ClassCatalogueScrollContainer
 @onready var class_catalogue_container = $ClassCatalogueScrollContainer/ClassCatalogueContainer
@@ -6,16 +7,21 @@ extends Window
 @onready var department_dropdown = $Dropdown1/DepartmentDropdown
 @onready var time_dropdown = $Dropdown2/TimeDropdown
 @onready var catalogue_taskbar_button = $"../Desktop/Taskbar/TaskbarShortcutContainer/CatalogueTaskbarButton"
+@onready var pause_menu = $"../PauseMenu"
 
 var file = "res://UniData/ClassData.json"
 var class_data
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	set_process_input(true)
 	class_data = read_json_file(file)
 	_convert_the_times()
 	_catalogue_filler(class_data)
 
+func _input(event):
+	if  Input.is_key_pressed(KEY_ESCAPE):
+		emit_signal("esc_pressed")
 #function to convert the times in class data to 12 hr format
 func _convert_the_times():
 	var start_time:int 
@@ -27,9 +33,11 @@ func _convert_the_times():
 		end_time = lesson.CLASSENDTIME
 		lesson["CLASSSTARTTIME"] = _24_to_12_hr_time(start_time)
 		lesson["CLASSENDTIME"] = _24_to_12_hr_time(end_time)
+		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+	
 #function to read json files and returns them as a dictionary*(in this case, more like an array which contains dictionaries)
 func read_json_file(parameter: String):
 	var json_as_text = FileAccess.get_file_as_string(parameter)
@@ -160,3 +168,10 @@ func _on_close_requested():
 	#hides the window when the close button is hit 
 	hide()
 	catalogue_taskbar_button.hide()
+
+func _on_esc_pressed():
+	if pause_menu.visible == true:
+		pause_menu.hide()
+	else:
+		pause_menu.show()
+

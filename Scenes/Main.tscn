@@ -253,14 +253,17 @@ mouse_default_cursor_shape = 2
 script = ExtResource("1_pf4tp")
 
 [node name="PauseMenu" type="Window" parent="MainContainer"]
+gui_embed_subwindows = true
 title = "MENU"
 initial_position = 2
 size = Vector2i(200, 300)
 visible = false
-transient = true
 exclusive = true
 unresizable = true
 always_on_top = true
+content_scale_size = Vector2i(200, 300)
+content_scale_mode = 1
+content_scale_aspect = 1
 script = ExtResource("3_ua871")
 
 [node name="BoxContainer" type="BoxContainer" parent="MainContainer/PauseMenu"]
@@ -281,9 +284,65 @@ layout_mode = 2
 mouse_default_cursor_shape = 2
 text = "Quit"
 
-[node name="ResizeButton" type="Button" parent="MainContainer/PauseMenu/BoxContainer"]
+[node name="SettingsButton" type="Button" parent="MainContainer/PauseMenu/BoxContainer"]
 layout_mode = 2
-text = "1280"
+text = "Settings"
+
+[node name="SettingsMenu" type="Window" parent="MainContainer/PauseMenu"]
+disable_3d = true
+title = "Settings"
+initial_position = 2
+size = Vector2i(200, 300)
+visible = false
+transient = true
+borderless = true
+
+[node name="ResolutionDropdown" type="BoxContainer" parent="MainContainer/PauseMenu/SettingsMenu"]
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 240.0
+offset_bottom = 45.0
+
+[node name="ResolutionLabel" type="RichTextLabel" parent="MainContainer/PauseMenu/SettingsMenu/ResolutionDropdown"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+size_flags_vertical = 4
+text = "Resolution"
+fit_content = true
+
+[node name="OptionButton" type="OptionButton" parent="MainContainer/PauseMenu/SettingsMenu/ResolutionDropdown"]
+layout_mode = 2
+toggle_mode = false
+action_mode = 1
+item_count = 2
+selected = 0
+allow_reselect = true
+popup/item_0/text = "1920x1080"
+popup/item_0/id = 1
+popup/item_1/text = "1280x720"
+popup/item_1/id = 2
+
+[node name="FullscreenCheckbox" type="BoxContainer" parent="MainContainer/PauseMenu/SettingsMenu"]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 5.0
+offset_top = -75.0
+offset_right = 124.0
+offset_bottom = -35.0
+grow_vertical = 2
+theme_override_constants/separation = 2
+
+[node name="BorderlessLabel" type="RichTextLabel" parent="MainContainer/PauseMenu/SettingsMenu/FullscreenCheckbox"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+size_flags_vertical = 4
+text = "Borderless?"
+fit_content = true
+
+[node name="CheckBox" type="CheckBox" parent="MainContainer/PauseMenu/SettingsMenu/FullscreenCheckbox"]
+layout_mode = 2
+button_pressed = true
 
 [node name="Desktop" type="TextureRect" parent="MainContainer"]
 layout_mode = 2
@@ -1506,7 +1565,8 @@ title = "Course Catalogue"
 initial_position = 1
 size = Vector2i(640, 800)
 visible = false
-unresizable = true
+min_size = Vector2i(640, 800)
+max_size = Vector2i(640, 800)
 content_scale_size = Vector2i(640, 800)
 content_scale_mode = 1
 content_scale_aspect = 1
@@ -1515,6 +1575,7 @@ theme_override_colors/title_color = Color(0.984314, 0.94902, 0.211765, 1)
 script = ExtResource("13_088j3")
 
 [node name="CourseCatalogueHeader" type="RichTextLabel" parent="MainContainer/CourseCatalogueWindow"]
+clip_contents = false
 custom_minimum_size = Vector2(500, 30)
 anchors_preset = 5
 anchor_left = 0.5
@@ -1687,18 +1748,27 @@ popup/item_33/id = 33
 
 [node name="ClassCatalogueScrollContainer" type="ScrollContainer" parent="MainContainer/CourseCatalogueWindow"]
 texture_filter = 1
-custom_minimum_size = Vector2(615, 591)
-offset_left = 10.0
-offset_top = 140.0
-offset_right = 639.0
-offset_bottom = 790.0
+custom_minimum_size = Vector2(620, 620)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -310.0
+offset_top = -230.0
+offset_right = 310.0
+offset_bottom = 390.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_vc7gw")
-vertical_scroll_mode = 2
 
 [node name="ClassCatalogueContainer" type="VBoxContainer" parent="MainContainer/CourseCatalogueWindow/ClassCatalogueScrollContainer"]
 show_behind_parent = true
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 6
 
 [node name="RegistrarManualWindow" type="Window" parent="MainContainer"]
 disable_3d = true
@@ -1707,6 +1777,8 @@ handle_input_locally = false
 title = "Registrar's E-Handbook"
 initial_position = 1
 size = Vector2i(640, 800)
+min_size = Vector2i(500, 500)
+max_size = Vector2i(640, 800)
 content_scale_size = Vector2i(640, 800)
 content_scale_mode = 1
 content_scale_aspect = 1
@@ -1804,15 +1876,18 @@ fit_content = true
 
 [node name="Header" type="RichTextLabel" parent="MainContainer/RegistrarManualWindow"]
 offset_left = 10.0
-offset_top = -10.0
 offset_right = 630.0
-offset_bottom = 70.0
+offset_bottom = 88.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
 theme_override_colors/default_color = Color(0.984314, 0.94902, 0.211765, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 45
 theme_override_styles/normal = SubResource("StyleBoxFlat_gra68")
 bbcode_enabled = true
 text = "[center]REGISTRAR'S E-HANDBOOK[/center]"
+fit_content = true
 
 [node name="SubHeader" type="RichTextLabel" parent="MainContainer/RegistrarManualWindow"]
 anchors_preset = 8
@@ -2934,7 +3009,10 @@ text = "Quit"
 [connection signal="window_input" from="MainContainer/PauseMenu" to="MainContainer/PauseMenu" method="_on_window_input"]
 [connection signal="pressed" from="MainContainer/PauseMenu/BoxContainer/Resume" to="MainContainer/PauseMenu" method="_on_resume_pressed"]
 [connection signal="pressed" from="MainContainer/PauseMenu/BoxContainer/Quit" to="." method="_on_quit_pressed"]
-[connection signal="pressed" from="MainContainer/PauseMenu/BoxContainer/ResizeButton" to="MainContainer" method="_on_resize_button_pressed"]
+[connection signal="pressed" from="MainContainer/PauseMenu/BoxContainer/SettingsButton" to="MainContainer" method="_on_settings_button_pressed"]
+[connection signal="close_requested" from="MainContainer/PauseMenu/SettingsMenu" to="MainContainer" method="_on_settings_menu_close_requested"]
+[connection signal="item_selected" from="MainContainer/PauseMenu/SettingsMenu/ResolutionDropdown/OptionButton" to="MainContainer" method="_on_option_button_item_selected"]
+[connection signal="toggled" from="MainContainer/PauseMenu/SettingsMenu/FullscreenCheckbox/CheckBox" to="MainContainer" method="_on_check_box_toggled"]
 [connection signal="pressed" from="MainContainer/Desktop/Taskbar/TaskbarShortcutContainer/BrowserTaskbarButton" to="MainContainer" method="_on_browser_taskbar_button_pressed"]
 [connection signal="pressed" from="MainContainer/Desktop/Taskbar/TaskbarShortcutContainer/CatalogueTaskbarButton" to="MainContainer" method="_on_catalogue_taskbar_button_pressed"]
 [connection signal="pressed" from="MainContainer/Desktop/Taskbar/TaskbarShortcutContainer/RegistrarManualTaskbarButton" to="MainContainer" method="_on_registrar_manual_taskbar_button_pressed"]
@@ -2948,6 +3026,7 @@ text = "Quit"
 [connection signal="pressed" from="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/YesButton" to="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" method="_on_yes_button_pressed"]
 [connection signal="pressed" from="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/NoButton" to="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow" method="_on_no_button_pressed"]
 [connection signal="close_requested" from="MainContainer/CourseCatalogueWindow" to="MainContainer/CourseCatalogueWindow" method="_on_close_requested"]
+[connection signal="esc_pressed" from="MainContainer/CourseCatalogueWindow" to="MainContainer/CourseCatalogueWindow" method="_on_esc_pressed"]
 [connection signal="item_selected" from="MainContainer/CourseCatalogueWindow/Dropdown1/DepartmentDropdown" to="MainContainer/CourseCatalogueWindow" method="_on_department_dropdown_item_selected"]
 [connection signal="item_selected" from="MainContainer/CourseCatalogueWindow/Dropdown2/TimeDropdown" to="MainContainer/CourseCatalogueWindow" method="_on_time_dropdown_item_selected"]
 [connection signal="close_requested" from="MainContainer/RegistrarManualWindow" to="MainContainer/RegistrarManualWindow" method="_on_close_requested"]

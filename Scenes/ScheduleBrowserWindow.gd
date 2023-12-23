@@ -406,7 +406,6 @@ func schedule_maker(student):
 	var minor_class_array = make_minor_array(student)
 	#var that will hold every class that the student is eligible for (i.e no 100 levels for seniors and no 400s for freshmen)
 	var every_valid_class_array:Array
-	var classes_added = 0
 	var seed_1:int
 	var seed_2:int
 	var seed_3:int

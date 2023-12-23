@@ -14,6 +14,9 @@ signal esc_pressed
 @onready var browser_desktop_shortcut = $Desktop/DesktopShortcutContainer/BrowserDesktopShortcut
 @onready var email_window = $EmailWindow
 @onready var email_taskbar_button = $Desktop/Taskbar/TaskbarShortcutContainer/EmailTaskbarButton
+@onready var settings_menu = $PauseMenu/SettingsMenu
+@onready var option_button = $PauseMenu/SettingsMenu/ResolutionDropdown/OptionButton
+@onready var check_box = $PauseMenu/SettingsMenu/FullscreenCheckbox/CheckBox
 
 
 # Called when the node enters the scene tree for the first time.
@@ -91,11 +94,36 @@ func _on_u_mail_pressed():
 		email_taskbar_button.show()
 		email_window.show()
 
+func _on_settings_button_pressed():
+	settings_menu.show()
 
-func _on_resize_button_pressed():
-	DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS,false)
-	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
-	DisplayServer.window_set_size(Vector2i(1280,720))
-	
 
-	
+func _on_settings_menu_close_requested():
+	settings_menu.hide()
+	pause_menu.show()
+
+#controls changing the resolution of the game window based on the selected dropdown item
+func _on_option_button_item_selected(index):
+	var resolution = option_button.get_item_text(index)
+	match resolution:
+		"1920x1080":
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+			DisplayServer.window_set_size(Vector2i(1920,1080))
+			DisplayServer.window_set_position(Vector2i(0,0))
+		"1280x720":
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+			DisplayServer.window_set_size(Vector2i(1280,720))
+
+#controls changing whether or not the window is borderless based on if the checkbox is checked or not
+func _on_check_box_toggled(button_pressed):
+	var doink = DisplayServer.window_get_size()
+	if button_pressed == true:
+		DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS,true)
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+		DisplayServer.window_set_size(doink)
+		DisplayServer.window_set_position(Vector2i(0,0))
+	elif button_pressed == false:
+		DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS,false)
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+		DisplayServer.window_set_size(doink)
+		

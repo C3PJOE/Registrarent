@@ -1,4 +1,5 @@
 extends Window
+@onready var settings_menu = $SettingsMenu
 
 
 # Called when the node enters the scene tree for the first time.
@@ -10,15 +11,20 @@ func _process(delta):
 	
 func _on_window_input(event):
 	if  Input.is_key_pressed(KEY_ESCAPE):
-		hide()
-
+		if settings_menu.visible == true:
+			settings_menu.hide()
+		else:
+			hide()
 
 func _on_close_requested():
-	hide()
+	if settings_menu.visible == true:
+		settings_menu.hide()
+	else:
+		hide()
 
 func _on_resume_pressed():
 	hide()
 
 
 func _on_focus_entered():
-	await get_tree().create_timer(.02).timeout
+	await get_tree().create_timer(1).timeout
