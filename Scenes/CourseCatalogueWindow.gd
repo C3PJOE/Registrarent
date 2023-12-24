@@ -19,7 +19,7 @@ func _ready():
 	_convert_the_times()
 	_catalogue_filler(class_data)
 
-func _input(event):
+func _input(_event):
 	if  Input.is_key_pressed(KEY_ESCAPE):
 		emit_signal("esc_pressed")
 #function to convert the times in class data to 12 hr format
@@ -35,7 +35,7 @@ func _convert_the_times():
 		lesson["CLASSENDTIME"] = _24_to_12_hr_time(end_time)
 		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 	
 #function to read json files and returns them as a dictionary*(in this case, more like an array which contains dictionaries)
@@ -46,7 +46,6 @@ func read_json_file(parameter: String):
 
 #function to generate new labels
 func _label_maker(label_name:String,label_content:Dictionary)->RichTextLabel:
-	var font = FontFile
 	
 	#label text var will hold the contents of the label(i.e, the passed class information);will be appended to the label later
 	var label_text = "CLASS NAME: " + label_content.CLASSNAME + "\nCREDITS: " + str(label_content.CREDITS) + "\nLOCATION: " + label_content.CLASSLOCATION + "\nDEPARTMENT: " + label_content.CLASSDEPARTMENT + "\nSTART TIME: " + label_content.CLASSSTARTTIME + "\nEND TIME: " + label_content.CLASSENDTIME 

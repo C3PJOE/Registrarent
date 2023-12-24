@@ -9,7 +9,7 @@ func _ready():
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 	
 func _on_close_requested():
@@ -17,7 +17,7 @@ func _on_close_requested():
 	hide()
 	registrar_manual_taskbar_button.hide()
 	
-func _input(event):
+func _input(_event):
 	if  Input.is_key_pressed(KEY_ESCAPE):
 		emit_signal("esc_pressed")
 		

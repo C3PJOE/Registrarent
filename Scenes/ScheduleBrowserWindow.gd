@@ -27,7 +27,7 @@ signal esc_pressed
 @onready var _2pm = $"ClassTimeContainer/2PM"
 @onready var _3pm = $"ClassTimeContainer/3PM"
 @onready var _4pm = $"ClassTimeContainer/4PM"
-@onready var _5pm = $"ClassTimeContainer/5PM"
+#@onready var _5pm = $"ClassTimeContainer/5PM"
 
 #container holding the hour reference rects 
 @onready var hour_line_container = $HourLineContainer
@@ -643,7 +643,7 @@ func score_checker():
 	approved_schedules_number.append_text("[right][b]%s" % player_approvals)
 	invalid_schedules_number.append_text("[right]%s[/right]" %invalid_schedules)
 	rejected_schedules_number.append_text("[right][b]%s"% player_denials)
-	var total_scheds = valid_schedules+invalid_schedules
+	#var total_scheds = valid_schedules+invalid_schedules
 
 #func that takes the day, the array of labels, and the parent array from set_current_schedule
 #and assigns the contents of the parent array to labels 
@@ -688,7 +688,7 @@ func label_assigner(day:int, parent_array:Array,day_of_week_group:Array):
 		n+=1
 
 func check_for_errors(current_schedule_data:Array):
-	var current_student_name = studentData[studentIndex].NAME
+	#var current_student_name = studentData[studentIndex].NAME
 	var current_student_major = studentData[studentIndex].MAJOR
 	var current_student_minor = studentData[studentIndex].MINOR
 	var current_student_year = studentData[studentIndex].YEAR
@@ -1025,12 +1025,12 @@ func _trim(input_array:Array):
 	for n in range(input_array.size(),0,-1):
 		input_array.erase(null)
 			
-func _input(event):
+func _input(_event):
 	if  Input.is_key_pressed(KEY_ESCAPE):
 		emit_signal("esc_pressed")
 		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 
 func _on_esc_pressed():

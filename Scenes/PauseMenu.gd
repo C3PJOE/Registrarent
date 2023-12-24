@@ -6,10 +6,10 @@ extends Window
 func _ready():
 	pass # Replace with function body.
 	
-func _process(delta):
+func _process(_delta):
 	pass
 	
-func _on_window_input(event):
+func _on_window_input(_event):
 	if  Input.is_key_pressed(KEY_ESCAPE):
 		if settings_menu.visible == true:
 			settings_menu.hide()
