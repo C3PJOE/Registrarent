@@ -127,3 +127,10 @@ func _on_check_box_toggled(button_pressed):
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 		DisplayServer.window_set_size(doink)
 		
+
+
+func _on_porthole_pressed():
+	if pause_menu.visible == true:
+		pause_menu.hide()
+	else:
+		pause_menu.show()

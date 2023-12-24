@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=3 uid="uid://dgv0xsiratr8g"]
+[gd_scene load_steps=73 format=3 uid="uid://dgv0xsiratr8g"]
 
 [ext_resource type="Script" path="res://Scenes/Main.gd" id="1_5ghd7"]
 [ext_resource type="Script" path="res://Scenes/MainContainer.gd" id="1_pf4tp"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://Scenes/ScheduleBrowserParentWindow.gd" id="4_5g6ji"]
 [ext_resource type="Texture2D" uid="uid://dklab118e8sf7" path="res://Assets/sprite1.png" id="5_de07d"]
 [ext_resource type="Texture2D" uid="uid://cvu0vx1x3x1rp" path="res://Assets/TaskbarBrowserIcon.png" id="6_1h1ua"]
+[ext_resource type="Texture2D" uid="uid://cq2c6lt30kpnm" path="res://Assets/PortholeTaskbarIcon.png" id="6_ctgpk"]
 [ext_resource type="Texture2D" uid="uid://ltkgnnip50v0" path="res://Assets/TaskbarCatalogueIcon.png" id="7_53cl5"]
 [ext_resource type="Script" path="res://Scenes/ScheduleBrowserWindow.gd" id="7_f7lbd"]
 [ext_resource type="Texture2D" uid="uid://bxy54uli5frc4" path="res://Assets/ClassDictionary.png" id="7_u6a4s"]
@@ -253,17 +254,19 @@ mouse_default_cursor_shape = 2
 script = ExtResource("1_pf4tp")
 
 [node name="PauseMenu" type="Window" parent="MainContainer"]
+transparent_bg = true
 gui_embed_subwindows = true
-title = "MENU"
+title = "Menu"
 initial_position = 2
 size = Vector2i(200, 300)
-visible = false
 exclusive = true
 unresizable = true
 always_on_top = true
 content_scale_size = Vector2i(200, 300)
 content_scale_mode = 1
 content_scale_aspect = 1
+theme = ExtResource("21_2i633")
+theme_override_colors/title_color = Color(0.984314, 0.94902, 0.211765, 1)
 script = ExtResource("3_ua871")
 
 [node name="BoxContainer" type="BoxContainer" parent="MainContainer/PauseMenu"]
@@ -279,14 +282,14 @@ layout_mode = 2
 mouse_default_cursor_shape = 2
 text = "Resume"
 
+[node name="SettingsButton" type="Button" parent="MainContainer/PauseMenu/BoxContainer"]
+layout_mode = 2
+text = "Settings"
+
 [node name="Quit" type="Button" parent="MainContainer/PauseMenu/BoxContainer"]
 layout_mode = 2
 mouse_default_cursor_shape = 2
 text = "Quit"
-
-[node name="SettingsButton" type="Button" parent="MainContainer/PauseMenu/BoxContainer"]
-layout_mode = 2
-text = "Settings"
 
 [node name="SettingsMenu" type="Window" parent="MainContainer/PauseMenu"]
 disable_3d = true
@@ -354,6 +357,23 @@ offset_top = 1032.0
 offset_right = 1920.0
 offset_bottom = 1080.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_2p2va")
+
+[node name="Porthole" type="TextureButton" parent="MainContainer/Desktop/Taskbar"]
+custom_minimum_size = Vector2(46, 46)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.008
+anchor_right = 0.008
+anchor_bottom = 0.083
+offset_left = -0.360001
+offset_top = 1.0
+offset_right = 45.64
+offset_bottom = 43.016
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("6_ctgpk")
+texture_click_mask = ExtResource("9_us4hl")
+ignore_texture_size = true
+stretch_mode = 4
 
 [node name="TaskbarShortcutContainer" type="BoxContainer" parent="MainContainer/Desktop/Taskbar"]
 layout_mode = 1
@@ -1596,6 +1616,7 @@ handle_input_locally = false
 title = "Course Catalogue"
 initial_position = 1
 size = Vector2i(640, 800)
+visible = false
 min_size = Vector2i(640, 800)
 max_size = Vector2i(640, 800)
 content_scale_size = Vector2i(640, 800)
@@ -3040,11 +3061,12 @@ text = "Quit"
 [connection signal="focus_entered" from="MainContainer/PauseMenu" to="MainContainer/PauseMenu" method="_on_focus_entered"]
 [connection signal="window_input" from="MainContainer/PauseMenu" to="MainContainer/PauseMenu" method="_on_window_input"]
 [connection signal="pressed" from="MainContainer/PauseMenu/BoxContainer/Resume" to="MainContainer/PauseMenu" method="_on_resume_pressed"]
-[connection signal="pressed" from="MainContainer/PauseMenu/BoxContainer/Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="MainContainer/PauseMenu/BoxContainer/SettingsButton" to="MainContainer" method="_on_settings_button_pressed"]
+[connection signal="pressed" from="MainContainer/PauseMenu/BoxContainer/Quit" to="." method="_on_quit_pressed"]
 [connection signal="close_requested" from="MainContainer/PauseMenu/SettingsMenu" to="MainContainer" method="_on_settings_menu_close_requested"]
 [connection signal="item_selected" from="MainContainer/PauseMenu/SettingsMenu/ResolutionDropdown/OptionButton" to="MainContainer" method="_on_option_button_item_selected"]
 [connection signal="toggled" from="MainContainer/PauseMenu/SettingsMenu/FullscreenCheckbox/CheckBox" to="MainContainer" method="_on_check_box_toggled"]
+[connection signal="pressed" from="MainContainer/Desktop/Taskbar/Porthole" to="MainContainer" method="_on_porthole_pressed"]
 [connection signal="pressed" from="MainContainer/Desktop/Taskbar/TaskbarShortcutContainer/BrowserTaskbarButton" to="MainContainer" method="_on_browser_taskbar_button_pressed"]
 [connection signal="pressed" from="MainContainer/Desktop/Taskbar/TaskbarShortcutContainer/CatalogueTaskbarButton" to="MainContainer" method="_on_catalogue_taskbar_button_pressed"]
 [connection signal="pressed" from="MainContainer/Desktop/Taskbar/TaskbarShortcutContainer/RegistrarManualTaskbarButton" to="MainContainer" method="_on_registrar_manual_taskbar_button_pressed"]
