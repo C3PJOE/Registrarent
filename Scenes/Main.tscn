@@ -1776,10 +1776,10 @@ transparent_bg = true
 handle_input_locally = false
 title = "Registrar's E-Handbook"
 initial_position = 1
-size = Vector2i(640, 800)
-min_size = Vector2i(500, 500)
+size = Vector2i(640, 640)
+min_size = Vector2i(640, 640)
 max_size = Vector2i(640, 800)
-content_scale_size = Vector2i(640, 800)
+content_scale_size = Vector2i(640, 640)
 content_scale_mode = 1
 content_scale_aspect = 1
 theme = ExtResource("21_2i633")
@@ -1789,17 +1789,17 @@ script = ExtResource("23_878ck")
 [node name="ClassCatalogueScrollContainer" type="ScrollContainer" parent="MainContainer/RegistrarManualWindow"]
 texture_filter = 1
 custom_minimum_size = Vector2(615, 591)
-anchors_preset = 8
+anchors_preset = 7
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.5
+anchor_bottom = 1.0
 offset_left = -307.5
-offset_top = -200.0
+offset_top = -470.0
 offset_right = 307.5
-offset_bottom = 391.0
+offset_bottom = 121.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
 
 [node name="ClassCatalogueContainer" type="VBoxContainer" parent="MainContainer/RegistrarManualWindow/ClassCatalogueScrollContainer"]
 layout_mode = 2
@@ -1896,9 +1896,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -300.0
-offset_top = -300.0
+offset_top = -220.0
 offset_right = 300.0
-offset_bottom = -116.0
+offset_bottom = -36.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/default_color = Color(0.984314, 0.94902, 0.211765, 1)
@@ -3030,7 +3030,9 @@ text = "Quit"
 [connection signal="item_selected" from="MainContainer/CourseCatalogueWindow/Dropdown1/DepartmentDropdown" to="MainContainer/CourseCatalogueWindow" method="_on_department_dropdown_item_selected"]
 [connection signal="item_selected" from="MainContainer/CourseCatalogueWindow/Dropdown2/TimeDropdown" to="MainContainer/CourseCatalogueWindow" method="_on_time_dropdown_item_selected"]
 [connection signal="close_requested" from="MainContainer/RegistrarManualWindow" to="MainContainer/RegistrarManualWindow" method="_on_close_requested"]
+[connection signal="esc_pressed" from="MainContainer/RegistrarManualWindow" to="MainContainer/RegistrarManualWindow" method="_on_esc_pressed"]
 [connection signal="close_requested" from="MainContainer/EmailWindow" to="MainContainer/EmailWindow" method="_on_close_requested"]
+[connection signal="esc_pressed" from="MainContainer/EmailWindow" to="MainContainer/EmailWindow" method="_on_esc_pressed"]
 [connection signal="pressed" from="MainContainer/EmailWindow/EmailInbox/InboxEmailsContainer/Email1/Email1Button" to="MainContainer/EmailWindow" method="_on_email_1_button_pressed"]
 [connection signal="pressed" from="MainContainer/EmailWindow/EmailInbox/InboxEmailsContainer/Email2/Email2Button" to="MainContainer/EmailWindow" method="_on_email_2_button_pressed"]
 [connection signal="pressed" from="MainContainer/EmailWindow/EmailInbox/InboxEmailsContainer/Email3/Email3Button" to="MainContainer/EmailWindow" method="_on_email_3_button_pressed"]

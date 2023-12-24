@@ -1,4 +1,5 @@
 extends Window
+signal esc_pressed
 @onready var emails_container = $EmailContent/EmailsContainer
 @onready var email_1 = $EmailContent/EmailsContainer/Email1
 @onready var email_2 = $EmailContent/EmailsContainer/Email2
@@ -12,6 +13,7 @@ extends Window
 @onready var email_10 = $EmailContent/EmailsContainer/Email10
 @onready var email_11 = $EmailContent/EmailsContainer/Email11
 @onready var email_taskbar_button = $"../Desktop/Taskbar/TaskbarShortcutContainer/EmailTaskbarButton"
+@onready var pause_menu = $"../PauseMenu"
 
 var emails_container_children
 
@@ -124,3 +126,13 @@ func _on_close_requested():
 	#hides the window when the close button is hit 
 	hide()
 	email_taskbar_button.hide()
+	
+func _input(event):
+	if  Input.is_key_pressed(KEY_ESCAPE):
+		emit_signal("esc_pressed")
+
+func _on_esc_pressed():
+	if pause_menu.visible == true:
+		pause_menu.hide()
+	else:
+		pause_menu.show()
