@@ -518,7 +518,6 @@ transparent_bg = true
 gui_embed_subwindows = true
 initial_position = 2
 size = Vector2i(1280, 720)
-visible = false
 unresizable = true
 transparent = true
 mouse_passthrough = true
@@ -533,11 +532,41 @@ transparent_bg = true
 handle_input_locally = false
 initial_position = 1
 size = Vector2i(1280, 720)
-visible = false
 transient = true
 unresizable = true
 theme_override_styles/embedded_border = SubResource("StyleBoxTexture_f7xbp")
 script = ExtResource("7_f7lbd")
+
+[node name="HeaderContainer" type="BoxContainer" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -170.0
+offset_top = 7.0
+offset_right = 530.0
+offset_bottom = 181.0
+grow_horizontal = 2
+theme_override_constants/separation = -13
+alignment = 1
+vertical = true
+
+[node name="Header" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/HeaderContainer"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.85098, 0.811765, 0.0352941, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 60
+bbcode_enabled = true
+text = "[center]SCHEDULE SNOOPER[/center]"
+fit_content = true
+
+[node name="Subheader" type="RichTextLabel" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow/HeaderContainer"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.85098, 0.811765, 0.0352941, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+text = "[center]SPRING 2024[/center]"
+fit_content = true
 
 [node name="ClassTimeContainer" type="BoxContainer" parent="MainContainer/ScheduleBrowserParentWindow/ScheduleBrowserWindow"]
 texture_filter = 1
@@ -1777,6 +1806,7 @@ handle_input_locally = false
 title = "Registrar's E-Handbook"
 initial_position = 1
 size = Vector2i(640, 640)
+visible = false
 min_size = Vector2i(640, 640)
 max_size = Vector2i(640, 800)
 content_scale_size = Vector2i(640, 640)
