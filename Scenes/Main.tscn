@@ -259,6 +259,7 @@ gui_embed_subwindows = true
 title = "Menu"
 initial_position = 2
 size = Vector2i(200, 300)
+visible = false
 exclusive = true
 unresizable = true
 always_on_top = true
@@ -293,28 +294,34 @@ text = "Quit"
 
 [node name="SettingsMenu" type="Window" parent="MainContainer/PauseMenu"]
 disable_3d = true
+transparent_bg = true
 title = "Settings"
 initial_position = 2
 size = Vector2i(200, 300)
 visible = false
 transient = true
-borderless = true
+theme = ExtResource("21_2i633")
 
 [node name="ResolutionDropdown" type="BoxContainer" parent="MainContainer/PauseMenu/SettingsMenu"]
-offset_left = 5.0
+offset_left = 10.0
 offset_top = 5.0
-offset_right = 240.0
-offset_bottom = 45.0
+offset_right = 134.0
+offset_bottom = 59.0
+vertical = true
 
 [node name="ResolutionLabel" type="RichTextLabel" parent="MainContainer/PauseMenu/SettingsMenu/ResolutionDropdown"]
 custom_minimum_size = Vector2(70, 0)
 layout_mode = 2
 size_flags_vertical = 4
-text = "Resolution"
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 18
+bbcode_enabled = true
+text = "[left]Resolution:[/left]"
 fit_content = true
 
 [node name="OptionButton" type="OptionButton" parent="MainContainer/PauseMenu/SettingsMenu/ResolutionDropdown"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 18
 toggle_mode = false
 action_mode = 1
 item_count = 2
@@ -329,18 +336,22 @@ popup/item_1/id = 2
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 5.0
-offset_top = -75.0
-offset_right = 124.0
-offset_bottom = -35.0
+offset_left = 10.0
+offset_top = -76.0
+offset_right = 135.0
+offset_bottom = -34.0
 grow_vertical = 2
 theme_override_constants/separation = 2
 
 [node name="BorderlessLabel" type="RichTextLabel" parent="MainContainer/PauseMenu/SettingsMenu/FullscreenCheckbox"]
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 4
-text = "Borderless?"
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 18
+bbcode_enabled = true
+text = "[left]Borderless[/left]?"
 fit_content = true
 
 [node name="CheckBox" type="CheckBox" parent="MainContainer/PauseMenu/SettingsMenu/FullscreenCheckbox"]
