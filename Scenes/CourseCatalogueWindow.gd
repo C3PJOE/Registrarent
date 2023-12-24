@@ -122,43 +122,74 @@ func container_clearer():
 #function to filter the passed array using the specific filter as a key, returns the filtered array
 func _filter_by_department(catalogue:Array,specific_filter:String)->Array:
 	var filtered_catalogue:Array = []
-	#iterates through every class in the originally passed catalogue
-	for cl in catalogue:
-		#if the current class' department matches the specific filter 
-		if cl.CLASSDEPARTMENT == specific_filter:
-			#appens the class to the array of filtered classes
-			filtered_catalogue.append(cl)
-	
+	var time_dropdown_text = time_dropdown.get_item_text(time_dropdown.selected)
+	if time_dropdown_text == "ALL":
+		#iterates through every class in the originally passed catalogue
+		for cl in catalogue:
+			#if the current class' department matches the specific filter 
+			if cl.CLASSDEPARTMENT == specific_filter:
+				#appens the class to the array of filtered classes
+				filtered_catalogue.append(cl)
+	else:
+		#sets the filtered catalogue equal to the result of filter_by_time_and_department, which will return an array that's been filtered based on both keys
+		filtered_catalogue = _filter_by_time_and_department(catalogue,time_dropdown_text,specific_filter)
+		
 	return filtered_catalogue
 
 #function to filter the passed array using the specific filter as a key, returns the filtered array
 func _filter_by_time(catalogue:Array,specific_filter:String)->Array:
 	var filtered_catalogue:Array = []
-	#iterates through every class in the originally passed catalogue
+	var department_dropdown_text = department_dropdown.get_item_text(department_dropdown.selected)
+	#checks to see if there is a secondary filter that needs to be applied. "ALL" indicates there is not
+	if department_dropdown_text == "ALL":
+		#iterates through every class in the originally passed catalogue
+		for cl in catalogue:
+			#if the current class' department matches the specific filter 
+			if cl.CLASSSTARTTIME == specific_filter:
+				#appends the class to the array of filtered classes
+				filtered_catalogue.append(cl)
+	else:
+		#sets the filtered catalogue equal to the result of filter_by_time_and_department, which will return an array that's been filtered based on both keys
+		filtered_catalogue = _filter_by_time_and_department(catalogue,specific_filter,department_dropdown_text)
+		
+	return filtered_catalogue
+#function to filter the passed array using the 2 specific filters as keys, returns the filtered array
+func _filter_by_time_and_department(catalogue:Array,specific_filter_time:String,specific_filter_department:String):
+	var filtered_catalogue:Array = []
 	for cl in catalogue:
-		#if the current class' department matches the specific filter 
-		if cl.CLASSSTARTTIME == specific_filter:
-			#appens the class to the array of filtered classes
+		#if the current class matches both the passed time and department filter
+		if cl.CLASSSTARTTIME == specific_filter_time and cl.CLASSDEPARTMENT == specific_filter_department:
 			filtered_catalogue.append(cl)
 	
-	return filtered_catalogue
-					
+	return filtered_catalogue		
 func _on_department_dropdown_item_selected(index):
 	var filter_param = department_dropdown.get_item_text(index)
+	var time_filter_param = time_dropdown.get_item_text(time_dropdown.selected)
 	#if the selection is for all classes, we just call the default catalogue filler 
-	if filter_param == "ALL":
+	if filter_param == "ALL" and time_filter_param == "ALL":
 		container_clearer()
 		_catalogue_filler(class_data)
+	#if the selection is for all depts but the time dropdown doesn't have ALL selected, we call catalogue filler, passing time as the general
+	#filter type and time_filter_param as the specific filter
+	elif filter_param == "ALL":
+		container_clearer()
+		_catalogue_filler(class_data,"TIME",time_filter_param)
 	else:
 		#calls catalogue filler, passing department as the general filter type and filter_param as the specific department 
 		_catalogue_filler(class_data,"DEPARTMENT",filter_param)
 
 func _on_time_dropdown_item_selected(index):
 	var filter_param = time_dropdown.get_item_text(index)
-	#if the selection is for all times, we just call the default catalogue filler 
-	if filter_param == "ALL":
+	var department_filter_param = department_dropdown.get_item_text(department_dropdown.selected)
+	#if the selection is for all times and the dept dropdown has ALL selected, we just call the default catalogue filler 
+	if filter_param == "ALL" and department_filter_param == "ALL":
 		container_clearer()
 		_catalogue_filler(class_data)
+	#if the selection is for all times but the dept dropdown doesn't have ALL selected, we call catalogue filler, passing department as the general
+	#filter type and department_filter_param as the specific filter
+	elif filter_param == "ALL":
+		container_clearer()
+		_catalogue_filler(class_data,"DEPARTMENT",department_filter_param)
 	else:
 		#calls catalogue filler, passing time as the general filter type and filter_param as the specific department 
 		_catalogue_filler(class_data,"TIME",filter_param)

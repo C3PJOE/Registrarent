@@ -22,7 +22,7 @@
 [ext_resource type="BitMap" uid="uid://b7dkbgvqnnxdu" path="res://Assets/EmailIconbmp.bmp" id="16_w4l7h"]
 [ext_resource type="FontFile" uid="uid://djjxk0k3ue38k" path="res://Assets/Fonts/times.ttf" id="18_cy781"]
 [ext_resource type="Texture2D" uid="uid://37ho0qxbbbbd" path="res://Assets/PerformanceReview.png" id="20_sv7wn"]
-[ext_resource type="Theme" uid="uid://bnjy8g5uiorcj" path="res://Assets/WindowTheme.tres" id="21_2i633"]
+[ext_resource type="Theme" uid="uid://guwd85f5te3q" path="res://Assets/WindowTheme.tres" id="21_2i633"]
 [ext_resource type="Script" path="res://Scenes/RegistrarManualWindow.gd" id="23_878ck"]
 [ext_resource type="FontFile" uid="uid://cruht220tsdjg" path="res://Assets/Fonts/timesbd.ttf" id="24_bbowr"]
 [ext_resource type="Texture2D" uid="uid://dynxj06mpbsht" path="res://Assets/EmailNormal.png" id="27_whk2h"]
@@ -407,6 +407,7 @@ ignore_texture_size = true
 stretch_mode = 4
 
 [node name="EmailTaskbarButton" type="TextureButton" parent="MainContainer/Desktop/Taskbar/TaskbarShortcutContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 focus_mode = 0
@@ -1595,7 +1596,6 @@ handle_input_locally = false
 title = "Course Catalogue"
 initial_position = 1
 size = Vector2i(640, 800)
-visible = false
 min_size = Vector2i(640, 800)
 max_size = Vector2i(640, 800)
 content_scale_size = Vector2i(640, 800)
