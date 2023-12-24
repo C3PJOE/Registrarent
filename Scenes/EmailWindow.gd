@@ -1,4 +1,5 @@
 extends Window
+signal esc_pressed
 @onready var emails_container = $EmailContent/EmailsContainer
 @onready var email_1 = $EmailContent/EmailsContainer/Email1
 @onready var email_2 = $EmailContent/EmailsContainer/Email2
@@ -11,6 +12,8 @@ extends Window
 @onready var email_9 = $EmailContent/EmailsContainer/Email9
 @onready var email_10 = $EmailContent/EmailsContainer/Email10
 @onready var email_11 = $EmailContent/EmailsContainer/Email11
+@onready var email_taskbar_button = $"../Desktop/Taskbar/TaskbarShortcutContainer/EmailTaskbarButton"
+@onready var pause_menu = $"../PauseMenu"
 
 var emails_container_children
 
@@ -20,7 +23,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 
 
@@ -118,3 +121,18 @@ func _on_email_11_button_pressed():
 		for n in range(0,emails_container.get_child_count()):
 			emails_container.get_child(n).hide()
 		email_11.show()
+		
+func _on_close_requested():
+	#hides the window when the close button is hit 
+	hide()
+	email_taskbar_button.hide()
+	
+func _input(_event):
+	if  Input.is_key_pressed(KEY_ESCAPE):
+		emit_signal("esc_pressed")
+
+func _on_esc_pressed():
+	if pause_menu.visible == true:
+		pause_menu.hide()
+	else:
+		pause_menu.show()

@@ -1,20 +1,27 @@
 extends Window
+signal esc_pressed
 #containers 
 @onready var class_catalogue_scroll_container = $ClassCatalogueScrollContainer
 @onready var class_catalogue_container = $ClassCatalogueScrollContainer/ClassCatalogueContainer
 #labels for the dropdown menus
 @onready var department_dropdown = $Dropdown1/DepartmentDropdown
 @onready var time_dropdown = $Dropdown2/TimeDropdown
+@onready var catalogue_taskbar_button = $"../Desktop/Taskbar/TaskbarShortcutContainer/CatalogueTaskbarButton"
+@onready var pause_menu = $"../PauseMenu"
 
 var file = "res://UniData/ClassData.json"
 var class_data
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	set_process_input(true)
 	class_data = read_json_file(file)
 	_convert_the_times()
 	_catalogue_filler(class_data)
 
+func _input(_event):
+	if  Input.is_key_pressed(KEY_ESCAPE):
+		emit_signal("esc_pressed")
 #function to convert the times in class data to 12 hr format
 func _convert_the_times():
 	var start_time:int 
@@ -26,9 +33,11 @@ func _convert_the_times():
 		end_time = lesson.CLASSENDTIME
 		lesson["CLASSSTARTTIME"] = _24_to_12_hr_time(start_time)
 		lesson["CLASSENDTIME"] = _24_to_12_hr_time(end_time)
+		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
+	
 #function to read json files and returns them as a dictionary*(in this case, more like an array which contains dictionaries)
 func read_json_file(parameter: String):
 	var json_as_text = FileAccess.get_file_as_string(parameter)
@@ -37,8 +46,7 @@ func read_json_file(parameter: String):
 
 #function to generate new labels
 func _label_maker(label_name:String,label_content:Dictionary)->RichTextLabel:
-	var font = FontFile
-	font = load("res://Assets/Fonts/times.ttf")
+	
 	#label text var will hold the contents of the label(i.e, the passed class information);will be appended to the label later
 	var label_text = "CLASS NAME: " + label_content.CLASSNAME + "\nCREDITS: " + str(label_content.CREDITS) + "\nLOCATION: " + label_content.CLASSLOCATION + "\nDEPARTMENT: " + label_content.CLASSDEPARTMENT + "\nSTART TIME: " + label_content.CLASSSTARTTIME + "\nEND TIME: " + label_content.CLASSENDTIME 
 	#creates a new rich text label
@@ -51,11 +59,10 @@ func _label_maker(label_name:String,label_content:Dictionary)->RichTextLabel:
 	#sets the label's minimum size
 	new_label.custom_minimum_size = Vector2(200,200)
 	#overrides some default fonts/colors/constants to match desired aesthetic 
-	new_label.add_theme_color_override("default_color",Color(0.984, 0.949, 0.212))
-	new_label.add_theme_color_override("font_shadow_color",Color(0, 0, 0)) 
-	new_label.add_theme_constant_override("shadow_offset_y",1)
-	new_label.add_theme_constant_override("shadow_outline_size",2)
-	new_label.add_theme_font_override("normal_font",font)
+	new_label.add_theme_color_override("default_color",Color(0,0,0))#0.984, 0.949, 0.212
+	#new_label.add_theme_color_override("font_shadow_color",Color(0, 0, 0)) 
+	#new_label.add_theme_constant_override("shadow_offset_y",1)
+	#new_label.add_theme_constant_override("shadow_outline_size",4)
 	new_label.add_theme_font_size_override("normal_font_size",20)
 	#adds the previously initialized label text var to the label 
 	new_label.append_text("[center]%s[/center]"%label_text)
@@ -155,3 +162,15 @@ func _on_time_dropdown_item_selected(index):
 	else:
 		#calls catalogue filler, passing time as the general filter type and filter_param as the specific department 
 		_catalogue_filler(class_data,"TIME",filter_param)
+
+func _on_close_requested():
+	#hides the window when the close button is hit 
+	hide()
+	catalogue_taskbar_button.hide()
+
+func _on_esc_pressed():
+	if pause_menu.visible == true:
+		pause_menu.hide()
+	else:
+		pause_menu.show()
+

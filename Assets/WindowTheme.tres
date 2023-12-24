@@ -1,0 +1,15 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://bnjy8g5uiorcj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tsn84"]
+bg_color = Color(0.607843, 0.678431, 0.717647, 1)
+border_width_left = 10
+border_width_top = 30
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.25098, 0.25098, 0.25098, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+expand_margin_top = 30.0
+
+[resource]
+Window/styles/embedded_border = SubResource("StyleBoxFlat_tsn84")
